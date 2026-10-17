@@ -2,9 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { url } from '../../utils/paths';
 import manifest from '../../../public/books/publication-manifest.json';
-import articleRegistry from '../../../data/articles/article-registry.json';
 
-const articles = articleRegistry.articles;
 const publications = manifest.publications;
 
 const masterRefPubs = publications.filter(p => p.editionType === 'master_reference');
@@ -173,7 +171,7 @@ function formatBytes(bytes: number) {
             <div class="chapter-card">
               <div class="card-badge-row">
                 <span class="badge badge-emerald">{sample.subject}</span>
-                <span class="badge-sub">{sample.wordCount.toLocaleString()} Words</span>
+                <span class="badge-sub">{sample.wordCount.toLocaleString()} Words • {pdf ? pdf.pageCount + ' Pages' : ''}</span>
               </div>
               <h3 class="chapter-card-title">{sample.title}</h3>
               <p class="chapter-card-desc">

@@ -33,16 +33,16 @@ const concepts = conceptRegistry.concepts;
           </div>
 
           <h2 class="glossary-term">{cp.canonicalTerm}</h2>
-          <p class="glossary-def">{cp.shortDefinition}</p>
+          <p class="glossary-def">{cp.definitionPlainEnglish}</p>
 
           <div class="glossary-meta-row">
             <div class="meta-col">
-              <span class="label">Topical Category:</span>
-              <a href={url(`/categories/${cp.categoryId}`)} class="val-link">{cp.categoryId}</a>
+              <span class="label">Topical Domain:</span>
+              <a href={url(`/categories/${cp.domainId}`)} class="val-link">{cp.domainId}</a>
             </div>
             <div class="meta-col">
               <span class="label">Statutory Sources:</span>
-              <span class="val">{cp.sources.join(', ')}</span>
+              <span class="val">{((cp as any).sources || (cp as any).sourceIds || []).join(', ')}</span>
             </div>
             <div class="meta-col">
               <span class="label">Recognized Synonyms:</span>

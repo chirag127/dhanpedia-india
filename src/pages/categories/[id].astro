@@ -18,7 +18,7 @@ const { category } = Astro.props;
 const publishedArticles = articleRegistry.articles.filter(a => a.categoryId === category.id);
 
 // Filter canonical concepts matching this category
-const relatedConcepts = conceptRegistry.concepts.filter(c => c.categoryId === category.id);
+const relatedConcepts = conceptRegistry.concepts.filter(c => c.domainId === category.id);
 ---
 
 <BaseLayout
@@ -144,7 +144,7 @@ const relatedConcepts = conceptRegistry.concepts.filter(c => c.categoryId === ca
               {relatedConcepts.map(c => (
                 <li class="concept-widget-item">
                   <strong>{c.canonicalTerm}</strong>
-                  <p>{c.shortDefinition}</p>
+                  <p>{c.definitionPlainEnglish}</p>
                 </li>
               ))}
             </ul>

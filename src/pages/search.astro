@@ -26,9 +26,9 @@ const searchIndex = [
   ...conceptRegistry.concepts.map(cp => ({
     type: 'Concept',
     title: cp.canonicalTerm,
-    snippet: cp.shortDefinition,
+    snippet: cp.definitionPlainEnglish,
     url: url('/glossary'),
-    category: cp.categoryId,
+    category: cp.domainId,
     tags: cp.synonyms.join(', ')
   }))
 ];

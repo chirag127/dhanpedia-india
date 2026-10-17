@@ -15,7 +15,6 @@ const formulaData = JSON.parse(fs.readFileSync('data/calculators/formula-registr
 const learningPathData = JSON.parse(fs.readFileSync('data/publications/learning-paths.json', 'utf8'));
 const sourceData = JSON.parse(fs.readFileSync('data/sources/source-registry.json', 'utf8'));
 const claimData = JSON.parse(fs.readFileSync('data/claims/claim-registry.json', 'utf8'));
-const gapData = JSON.parse(fs.readFileSync('data/research/coverage-gaps.json', 'utf8'));
 
 // Flagship article
 const flagshipPath = 'src/content/articles/dicgc-deposit-insurance-architecture-limits-and-ownership-structures.md';
