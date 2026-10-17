@@ -1,66 +1,90 @@
-# Dhanpedia India — Research Methodology & Verification Protocol
+# Dhanpedia India — Research Methodology & Verification Protocol (Version 2.0.0)
 
-## 1. Editorial Integrity & Core Directive
+## 1. Editorial Integrity and Core Directive
 
-Dhanpedia India is built as an uncompromising, evidence-grounded financial encyclopedia for the Indian economic and regulatory landscape. Every factual statement, tax threshold, interest calculation, legal citation, and product mechanism must be traceable to primary, verifiable authority.
+Dhanpedia India is built as an uncompromising, evidence-grounded reference encyclopedia for the Indian financial system and wealth-building landscape. Every factual statement, statutory tax slab, interest compounding formula, legal citation, and market mechanism must be traceable to primary, verifiable authority.
 
-**Zero Tolerance for Fabrication**: Under no circumstances may an agent or contributor invent a financial statistic, cite an imaginary regulatory circular, fabricate a URL, or project speculative returns as established fact. Where empirical data or statutory clarity is lacking, it must be explicitly classified as a **Research Gap** or an **Open Regulatory Ambiguity**.
+**Absolute Prohibition on Fabrication**: Under no circumstances may an agent or contributor invent a financial statistic, cite an imaginary regulatory circular, fabricate a URL, project speculative returns as guaranteed, or misrepresent a marketing claim as a legal right. Where empirical data or statutory clarity is lacking, it must be explicitly recorded in `data/taxonomy/research-gaps.json` or `reports/research-backlog.md` with an assigned severity rating.
 
 ---
 
 ## 2. Source Hierarchy & Evidentiary Tiers
 
-All claims within Dhanpedia India are categorized and verified according to a strict three-tier hierarchy:
+All research claims within Dhanpedia India are categorized and verified according to a strict four-tier hierarchy:
 
-```
-+--------------------------------------------------------------------------+
-| TIER 1: PRIMARY STATUTORY & REGULATORY AUTHORITIES                       |
-| The Gazette of India, Acts of Parliament, RBI Master Directions/Circulars,|
-| SEBI Regulations & Circulars, CBDT Notifications & Income-tax Act 1961,   |
-| PFRDA Regulations, IRDAI Master Circulars, EPFO Notifications, DICGC.    |
-+--------------------------------------------------------------------------+
-                                    |
-                                    v
-+--------------------------------------------------------------------------+
-| TIER 2: STATUTORY GRIEVANCE PORTALS & OFFICIAL EXCHANGES                 |
-| RBI CMS / Integrated Ombudsman, SEBI SCORES 2.0 / SMART ODR,            |
-| National Stock Exchange (NSE), Bombay Stock Exchange (BSE),             |
-| Association of Mutual Funds in India (AMFI), NPCI Protocol Specs.        |
-+--------------------------------------------------------------------------+
-                                    |
-                                    v
-+--------------------------------------------------------------------------+
-| TIER 3: DISCOVERY & CONTEXTUAL SECONDARY SOURCES                         |
-| Financial news publications (Mint, Business Standard, Economic Times),   |
-| academic working papers (IIM/ISB/NIPFP), vetted research reports.         |
-| (Permitted strictly for initial hypothesis discovery; never cited as     |
-| sole statutory proof for legal, tax, or regulatory mechanics.)           |
-+--------------------------------------------------------------------------+
-```
+### Tier 1 — Primary Statutory, Regulatory, and Judicial Authorities
+- **Legislation & Official Acts**: The Gazette of India, India Code repository, consolidated Central Acts (Income-tax Act 1961, Companies Act 2013, Insurance Act 1938, DICGC Act 1961, SCRA 1956, BUDS Act 2019, PBPT Act 1988, FEMA 1999, Consumer Protection Act 2019).
+- **Statutory Regulators**: Reserve Bank of India (RBI) Master Directions and Circulars, Securities and Exchange Board of India (SEBI) Regulations and Board Orders, Central Board of Direct Taxes (CBDT) Notifications, Central Board of Indirect Taxes and Customs (CBIC) Circulars, Insurance Regulatory and Development Authority of India (IRDAI) Master Circulars, Pension Fund Regulatory and Development Authority (PFRDA) Guidelines, Insolvency and Bankruptcy Board of India (IBBI) Orders.
+- **Apex Judicial Precedents**: Supreme Court of India reported judgments, High Court landmark appellate rulings, Income Tax Appellate Tribunal (ITAT) Special Bench orders, National Consumer Disputes Redressal Commission (NCDRC) judgments.
+- **Official Portals & Statistical Bureaus**: Ministry of Statistics and Programme Implementation (MoSPI / NSO), Department of Economic Affairs, Ministry of Corporate Affairs (MCA21), Employees' Provident Fund Organisation (EPFO), India Post / National Savings Institute.
+
+### Tier 2 — Recognized Market Infrastructure & Institutional Bodies
+- **Market Infrastructure Institutions (MIIs)**: National Stock Exchange of India (NSE), Bombay Stock Exchange (BSE), Multi Commodity Exchange (MCX), National Securities Depository Limited (NSDL), Central Depository Services Limited (CDSL), Clearing Corporation of India Limited (CCIL).
+- **Industry & Institutional Associations**: Association of Mutual Funds in India (AMFI), Fixed Income Money Market and Derivatives Association (FIMMDA), Foreign Exchange Dealers' Association of India (FEDAI), Bureau of Indian Standards (BIS).
+- **Credit Information Companies**: TransUnion CIBIL, Experian, CRIF High Mark, Equifax (licensed under CICRA 2005).
+
+### Tier 3 — Reputable Professional Research & Specialized Financial Journalism
+- Established financial publications (Mint, Business Standard, The Hindu Business Line, Economic Times) and academic working papers (IIMs, ISB, NIPFP, Indira Gandhi Institute of Development Research).
+- *Strict evidentiary rule*: Secondary publications are utilized solely for initial lead discovery, historical context, and investigative synthesis; they must never be cited as the sole statutory authority for a legal, tax, or regulatory claim.
+
+### Tier 4 — Community Evidence & Ground-Level Forensic Intelligence
+- Investor forums, consumer complaint repositories, legal court dockets, and practitioner anecdotes.
+- *Strict evidentiary rule*: Anecdotal community reports are used exclusively to uncover real-world operational friction, hidden product charges, loan-app harassment, or emerging fraud typologies. They serve to generate research hypotheses, never as verified factual proof.
 
 ---
 
-## 3. Systematic Verification Protocol
+## 3. Real-World Shadow Economy & Forensic Finance Standards
 
-For every substantive article published:
-1. **Primary Citation Linkage**: The article must link directly to the statutory authority or circular in `data/sources/source-registry.json`.
-2. **Effective Date Tracking**: Regulatory provisions in India undergo continuous refinement (e.g., Union Budget Finance Acts, RBI bi-monthly Monetary Policy reviews). Each article must document its `effectiveDate` and `lastVerificationDate`.
-3. **Dual Tax Regime Segregation**: Every tax analysis must explicitly differentiate between the **Old Tax Regime** and the **New Concessional Tax Regime (Section 115BAC)**, specifying applicable financial year (e.g., FY 2024-25 / AY 2025-26) and Finance Act amendments.
-4. **Dispute & Escalation Verification**: Banking, brokerage, and insurance articles must provide verified statutory escalation paths (Tier 1: Internal Grievance Officer -> Tier 2: Principal Nodal Officer -> Tier 3: Statutory Ombudsman / SCORES / SMART ODR / Bima Bharosa).
+Personal finance in India does not operate in a theoretical vacuum. Millions of citizens encounter real-world informal mechanisms, black money pressures, and unregulated offerings. Dhanpedia India documents these realities with absolute forensic clarity, objective legal analysis, and zero moralizing:
+
+1. **Real Estate Cash Transactions ('On-Money')**:
+   - Must document the gap between circle rates (ready reckoner / guidance values) and actual prevailing market values.
+   - Must cite the explicit statutory limits under Section 269SS of the Income-tax Act (restricting cash advances/loans for immovable property to ₹20,000) and the mandatory hundred percent penalty on the recipient under Section 271D.
+   - Must cite Section 269ST (restricting general cash receipts from a person in a day or single transaction to ₹2,00,000) and the corresponding hundred percent penalty under Section 271DA.
+   - Must analyze Section 50C and Section 56(2)(x) safe-harbor tolerance bands (10%), detailing how discrepancies trigger double taxation on both seller and buyer.
+
+2. **Prohibition of Benami Transactions**:
+   - Must explain the legal definition of benami property under the Prohibition of Benami Property Transactions Act 1988 (as amended 2016).
+   - Must document the severe statutory consequences: absolute confiscation of the asset by the Central Government without compensation (Section 5) and rigorous imprisonment up to seven years plus a 25% fine on fair market value (Section 53).
+
+3. **Dabba Trading (Off-Exchange Bucketing)**:
+   - Must document how illegal dabba trading networks operate outside recognized stock exchanges.
+   - Must cite Sections 13 and 16 of the Securities Contracts (Regulation) Act 1956 and criminal sanctions under Section 23 (up to 10 years imprisonment and ₹25 Crore fine).
+   - Must highlight the complete lack of investor protection, clearing corporation guarantees, or statutory ombudsman recourse.
+
+4. **Forensic Enforcement Agencies**:
+   - Must accurately differentiate the investigative and attachment jurisdictions of the Directorate of Enforcement (ED under PMLA), Income Tax Investigation Wing (under Section 132/133A), Serious Fraud Investigation Office (SFIO under Companies Act), and Financial Intelligence Unit - India (FIU-IND under PMLA reporting rules).
 
 ---
 
-## 4. Handling Uncertainty & Regulatory Conflicts
+## 4. Audio-Native Prose Mandate
 
-When statutory language, regulatory circulars, and judicial precedents diverge:
-- **State the Ambiguity Explicitly**: Do not provide speculative conclusions as binding legal or tax advice.
-- **Document the Dissenting Interpretations**: Detail the conflicting viewpoints (e.g., assessing officer interpretations vs Income Tax Appellate Tribunal (ITAT) rulings).
-- **Log to Research Gaps**: Register an entry in `data/taxonomy/research-gaps.json` with a severity rating and active monitoring action plan.
+To ensure seamless text-to-speech audio rendering and audiobook publication:
+1. **Paragraph Format**: All substantive explanations must be structured in cohesive, flowing English paragraphs.
+2. **Formula Transcription**: Never leave isolated LaTeX equation blocks ($FV = PV(1+r)^n$) or ASCII formulas without full spoken English narration. For example: "The maturity value of a fixed deposit is calculated by taking the initial principal and multiplying it by the factor of one plus the quarterly interest rate raised to the power of four times the number of years."
+3. **Table Traps**: Complex multi-column visual tables must be accompanied by explanatory narrative prose so that listeners relying on audiobooks or screen readers comprehend every row and column relationship.
+4. **Substantive Depth**: Foundational treatises must exceed **10,000 words** of original, non-duplicative, technically rigorous prose.
 
 ---
 
-## 5. Continuous Audit & Maintenance Cycle
+## 5. Claim Classification and Verification Protocol
 
-- **Quarterly Source Audit**: Automated link and checksum validation across all registered source URLs.
-- **Budgetary Re-indexing**: Comprehensive audit following each annual Union Budget (Finance Bill presentation and Presidential assent) to identify affected tax thresholds, capital gains rates, and deduction ceilings.
-- **Monetary Policy Sync**: Bi-monthly verification of RBI Repo Rate, Standing Deposit Facility (SDF), Marginal Standing Facility (MSF), and small savings scheme interest rate announcements.
+Every factual claim in the knowledge architecture is categorized under one or more explicit classifications:
+- `current_fact`: Verified factual truth under current operational statutes and regulations.
+- `historical_fact`: Past historical event, superseded rule, or discontinued instrument.
+- `legal_rule`: Statutory mandate originating directly from an Act of Parliament or subordinate legislation.
+- `tax_rule`: Direct or indirect tax provision under the Income-tax Act, GST Acts, or annual Finance Acts.
+- `regulatory_requirement`: Binding directive or circular issued by a designated regulator (RBI, SEBI, IRDAI, PFRDA).
+- `empirical_finding`: Statistical result derived from historical market data or government survey prints.
+- `interpretation`: Legal or analytical construction of an ambiguous statutory text, citing relevant judicial precedents.
+- `estimate` or `forecast`: Clearly identified mathematical projection with documented input assumptions.
+- `unverified` or `disputed`: A claim subject to conflicting evidence or ongoing litigation; publication blocked or heavily caveated.
+
+---
+
+## 6. Time-Sensitive and Regulatory Update Protocols
+
+1. **Dual Tax Regime Segregation**: Every tax explanation must explicitly state the Financial Year (e.g., FY 2024-25) and Assessment Year (e.g., AY 2025-26), analyzing both the **Old Tax Regime** and the **New Concessional Tax Regime (Section 115BAC)** with current Finance Act amendments.
+2. **Effective Date Tracking**: Provisions must specify their statutory commencement date (e.g., Finance Act 2024 capital gains changes effective July 23, 2024).
+3. **Escalation Path Verification**: Banking, insurance, and securities guides must provide verified statutory escalation paths (Internal Grievance Officer -> Principal Nodal Officer -> Statutory Ombudsman / SCORES 2.0 / SMART ODR / Bima Bharosa).
+4. **Automated Validation**: All schemas, references, category IDs, source links, and substantive word counts are validated by automated integrity tests prior to commit and deployment.

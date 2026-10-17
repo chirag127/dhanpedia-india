@@ -1,534 +1,686 @@
 {
   "$schema": "./taxonomy.schema.json",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "lastUpdated": "2026-10-17",
-  "totalCategories": 22,
+  "totalCategories": 26,
   "categories": [
     {
       "id": "pf-foundations",
-      "canonicalName": "Personal-Finance Foundations",
+      "domainCode": "DOMAIN-A",
+      "canonicalName": "Personal Finance Foundations",
       "parentId": null,
       "shortDescription": "Core philosophies, compounding mathematics, net-worth tracking, budgeting architectures, and psychological money biases for Indian savers.",
-      "scope": "Time value of money, inflation dynamics (CPI vs lifestyle inflation in India), balance sheets, cashflow budgeting (envelope, 50/30/20 adapted to India), psychological biases.",
-      "exclusions": "Individual stock picking, technical tax computations, complex legal documentation.",
+      "scope": "Time value of money, inflation dynamics (CPI versus aspirational lifestyle inflation in Tier 1 and Tier 2 India), personal balance sheets, cashflow budgeting architectures, emergency liquidity reserves, and cognitive biases in financial decisions.",
+      "exclusions": "Individual stock selection, technical tax return preparation, corporate capital structures.",
       "coreQuestions": [
-        "What is the mathematical impact of inflation and real rate of return in India?",
-        "How should an Indian individual construct an accurate personal balance sheet and net-worth statement?",
-        "Which behavioral cognitive biases cause the highest financial attrition among Indian retail investors?"
+        "What is the mathematical impact of inflation and real rate of return in the Indian macroeconomic context?",
+        "How should an Indian individual construct an accurate personal balance sheet and net-worth statement across physical and liquid assets?",
+        "Which behavioral cognitive biases cause the highest financial attrition among Indian retail savers and investors?"
       ],
-      "relatedConcepts": ["time-value-of-money", "real-rate-of-return", "lifestyle-inflation", "mental-accounting"],
-      "relatedCategories": ["banking-payments", "emergency-protection", "income-career-capital"],
-      "regulatorsAndSources": ["SRC-RBI-MAIN"],
+      "relatedConcepts": ["time-value-of-money", "real-rate-of-return", "lifestyle-inflation", "mental-accounting", "emergency-fund-adequacy"],
+      "relatedCategories": ["banking-deposits", "insurance-risk-protection", "career-income-capital"],
+      "regulatorsAndSources": ["SRC-RBI-MAIN", "SRC-MOSPI-CPI"],
       "plannedArticles": [
         "time-value-of-money-and-real-returns-india",
         "personal-balance-sheet-and-cashflow-architecture",
         "inflation-mechanics-cpi-vs-aspirational-cost-of-living"
       ],
-      "researchGaps": ["Urban aspirational inflation rate data across Tier 1 Indian cities over 10-year periods."],
+      "researchGaps": ["Urban aspirational inflation rate data across Tier 1 Indian cities over 10-year empirical periods."],
       "timeSensitivity": "Low - fundamental principles are perennial.",
-      "validationStatus": "validated"
+      "validationStatus": "validated",
+      "aliases": ["personal-finance", "foundations", "money-basics"]
     },
     {
-      "id": "banking-payments",
-      "canonicalName": "Indian Banking and Payments",
+      "id": "banking-deposits",
+      "domainCode": "DOMAIN-B",
+      "canonicalName": "Banking and Deposit Products",
       "parentId": null,
-      "shortDescription": "Scheduled commercial banks, digital payment rails (UPI, IMPS, NEFT, RTGS), savings yield mechanics, and DICGC insurance protection.",
-      "scope": "Account types (Savings, Current, Salary, NRE/NRO), digital payment architectures, RBI regulations, NEFT/RTGS batching, UPI NPCI interchange and transaction limits, DICGC protection.",
-      "exclusions": "Commercial corporate lending syndicate agreements, non-Indian retail banking systems.",
+      "shortDescription": "Scheduled commercial banks, deposit insurance under DICGC, savings yields, fixed and recurring deposits, sweep accounts, and co-operative bank risk.",
+      "scope": "Scheduled commercial banks (public, private, foreign), small finance banks, payments banks, urban and rural co-operative banks, savings accounts, current accounts, fixed deposits, recurring deposits, sweep-in facilities, DICGC statutory deposit insurance coverage under DICGC Act 1961, Section 18A interim resolution payouts, daily-product savings interest calculations, TDS under Section 194A, and dormant account claims through RBI UDGAM.",
+      "exclusions": "Digital payment switch network protocols, equity investment in banking stocks, corporate syndicated loans.",
       "coreQuestions": [
         "How does DICGC deposit insurance work across different account ownership capacities within the same bank?",
-        "What are the precise structural and legal mechanics of UPI and NPCI settlement?",
-        "How do savings interest calculations work on a daily product basis under RBI directives?"
+        "How are savings bank daily-product interest rates calculated under RBI master directions?",
+        "What are the structural solvency risks of cooperative banks compared to scheduled commercial banks in India?"
       ],
-      "relatedConcepts": ["dicgc-deposit-insurance", "daily-product-interest", "upi-rail-settlement", "rbi-scheduled-bank"],
-      "relatedCategories": ["pf-foundations", "emergency-protection", "credit-cards-consumer-credit"],
-      "regulatorsAndSources": ["SRC-RBI-MAIN", "SRC-DICGC-MAIN", "SRC-RBI-CMS"],
+      "relatedConcepts": ["dicgc-deposit-insurance", "daily-product-interest", "rbi-scheduled-bank", "sweep-in-fixed-deposit", "tds-section-194a"],
+      "relatedCategories": ["pf-foundations", "payments-digital-infrastructure", "credit-borrowing", "consumer-protection-grievance"],
+      "regulatorsAndSources": ["SRC-RBI-MAIN", "SRC-DICGC-MAIN", "SRC-RBI-CMS", "SRC-ITD-PORTAL"],
       "plannedArticles": [
         "dicgc-deposit-insurance-architecture-limits-and-ownership-structures",
         "indian-retail-banking-mechanics-savings-interest-and-sweep-accounts",
-        "upi-and-digital-payments-infrastructure-security-limits"
+        "cooperative-banks-vs-scheduled-commercial-banks-safety-and-supervision"
       ],
       "researchGaps": ["Comparative sweep account interest taxation and auto-liquidation penalty policies across top 5 public and private sector banks."],
-      "timeSensitivity": "Medium - regulatory updates occur periodically via RBI notifications.",
-      "validationStatus": "validated"
+      "timeSensitivity": "Medium - regulatory updates occur periodically via RBI notifications and Master Directions.",
+      "validationStatus": "validated",
+      "aliases": ["banking-payments", "banking", "retail-banking", "fixed-deposits"]
     },
     {
-      "id": "credit-cards-consumer-credit",
-      "canonicalName": "Credit Cards and Consumer Credit",
+      "id": "payments-digital-infrastructure",
+      "domainCode": "DOMAIN-C",
+      "canonicalName": "Payments and Digital Financial Infrastructure",
       "parentId": null,
-      "shortDescription": "Credit bureau scoring (CIBIL, Experian, CRIF, Equifax), credit card billing cycles, APR dynamics, reward optimization, and unsecured personal loans.",
-      "scope": "CIBIL score factors (credit utilization ratio, repayment history, credit mix, hard inquiries), credit card statement cycles, grace periods, APR compound interest math, chargeback rights under RBI guidelines.",
-      "exclusions": "Corporate credit lines, sovereign loan guarantees.",
+      "shortDescription": "Unified Payments Interface (UPI), IMPS, NEFT, RTGS, RuPay, prepaid payment instruments, payment aggregators, and digital payment security.",
+      "scope": "NPCI retail payment systems, UPI 2.0 architecture, interchange frameworks, merchant discount rates (MDR), NEFT and RTGS 24x7 settlement cycles, NACH e-mandates, BBPS bill payment integration, FASTag toll networks, RBI payment aggregator (PA/PG) guidelines, chargebacks, and digital payment fraud prevention.",
+      "exclusions": "Cryptocurrency blockchains, core banking ledger software development.",
       "coreQuestions": [
-        "How is CIBIL score calculated and how does credit utilization impact it mathematically?",
-        "How do credit card APRs and interest finance charges accrue from the transaction date on unpaid balances?",
-        "What are cardholder rights under the RBI Master Direction on Credit Card and Debit Card Issuance?"
+        "What are the precise structural and legal clearing mechanics of UPI and NPCI settlements?",
+        "What are the statutory liability limits for consumers in unauthorized digital banking transactions under RBI circulars?",
+        "How do payment aggregator escrow accounts operate under RBI regulations to safeguard customer funds?"
       ],
-      "relatedConcepts": ["credit-utilization-ratio", "cibil-scoring-algorithm", "credit-card-billing-cycle", "apr-finance-charges"],
-      "relatedCategories": ["banking-payments", "fraud-investor-rights"],
-      "regulatorsAndSources": ["SRC-RBI-MAIN", "SRC-RBI-CMS"],
+      "relatedConcepts": ["upi-rail-settlement", "npci-clearing-house", "nach-e-mandate", "rbi-zero-liability-rule"],
+      "relatedCategories": ["banking-deposits", "fintech-automation", "financial-fraud-scams-shadow-economy"],
+      "regulatorsAndSources": ["SRC-RBI-MAIN", "SRC-NPCI-MAIN", "SRC-RBI-CMS"],
       "plannedArticles": [
-        "cibil-score-mechanics-optimization-and-dispute-resolution",
-        "credit-card-billing-cycles-grace-periods-and-apr-mathematics",
-        "consumer-loans-bnpl-and-fintech-credit-traps"
+        "upi-and-digital-payments-infrastructure-security-limits",
+        "payment-aggregators-escrow-mechanics-and-rbi-regulations",
+        "unauthorized-electronic-transactions-consumer-liability-and-redressal"
       ],
-      "researchGaps": ["Algorithmic weighting differences between TransUnion CIBIL score version 2.0 vs 3.0."],
-      "timeSensitivity": "Medium - credit card regulations and reward reward-point taxation policies update regularly.",
-      "validationStatus": "validated"
+      "researchGaps": ["Cross-border UPI settlement interchange economics and currency conversion markups."],
+      "timeSensitivity": "High - NPCI and RBI issue frequent circulars regarding interchange, limits, and authentication.",
+      "validationStatus": "validated",
+      "aliases": ["payments", "digital-payments", "upi-infrastructure"]
     },
     {
-      "id": "emergency-protection",
-      "canonicalName": "Emergency Funds and Financial Protection",
+      "id": "credit-borrowing",
+      "domainCode": "DOMAIN-D",
+      "canonicalName": "Credit and Borrowing",
       "parentId": null,
-      "shortDescription": "Systematic liquidity planning, emergency buffer sizing, risk tiering, and rapid capital access during job loss or medical crises.",
-      "scope": "Emergency fund sizing (3-12 months of non-discretionary expenses), liquidity tiering (cash, sweep FDs, arbitrage funds, liquid funds), operational accessibility.",
-      "exclusions": "Speculative hedging, options contracts.",
+      "shortDescription": "Credit bureau scoring, home loans, vehicle financing, personal loans, credit card billing cycles, digital lending guidelines, and debt traps.",
+      "scope": "Credit information companies (CIBIL, Experian, CRIF High Mark, Equifax), credit scoring algorithms, home loan interest types (MCLR, repo-linked external benchmark EBLR), Loan Against Property (LAP), gold loans, education loans, credit card billing cycles, APR compound mathematics, Digital Lending Guidelines (DLG) for loan service providers, and recovery agent codes.",
+      "exclusions": "Corporate commercial paper, syndicated project finance.",
       "coreQuestions": [
-        "How should an Indian household mathematically calculate its minimum non-discretionary monthly burn rate?",
-        "What is the optimal multi-tier asset allocation for an emergency corpus to balance instant liquidity with inflation protection?",
-        "Why are arbitrage funds tax-efficient vehicles for emergency cash in high income brackets?"
+        "How do repo-linked lending rates (EBLR) transmit monetary policy changes to Indian home loan borrowers?",
+        "What algorithms and weighting factors determine an individual CIBIL credit score?",
+        "What are the legal boundaries and borrower protections against predatory loan recovery practices under RBI guidelines?"
       ],
-      "relatedConcepts": ["burn-rate-runway", "multi-tier-liquidity", "sweep-fixed-deposits", "arbitrage-fund-liquidity"],
-      "relatedCategories": ["pf-foundations", "banking-payments", "insurance-risk-management"],
-      "regulatorsAndSources": ["SRC-RBI-MAIN", "SRC-SEBI-MAIN"],
+      "relatedConcepts": ["cibil-credit-score", "eblr-home-loan-transmission", "credit-utilization-ratio", "rbi-digital-lending-guidelines"],
+      "relatedCategories": ["banking-deposits", "real-estate-property-land", "consumer-protection-grievance"],
+      "regulatorsAndSources": ["SRC-RBI-MAIN", "SRC-CIC-CIBIL", "SRC-NHB-MAIN"],
       "plannedArticles": [
-        "emergency-fund-architecture-sizing-tiering-and-taxation",
-        "liquid-funds-vs-arbitrage-funds-vs-sweep-fixed-deposits"
+        "home-loan-architecture-eblr-vs-mclr-and-prepayment-mathematics",
+        "cibil-score-mechanics-credit-repair-and-bureau-dispute-resolution",
+        "credit-card-billing-cycles-apr-traps-and-revolving-debt-escape"
       ],
-      "researchGaps": ["Exit load and instant redemption cut-off times across top 10 liquid mutual fund schemes."],
-      "timeSensitivity": "Low - structural design remains consistent.",
-      "validationStatus": "validated"
+      "researchGaps": ["Algorithmic transparency in proprietary bureau scoring and credit mix weighting."],
+      "timeSensitivity": "Medium - repo rate shifts directly alter EBLR borrowing costs.",
+      "validationStatus": "validated",
+      "aliases": ["credit-cards-consumer-credit", "debt-loans-mortgages", "borrowing", "loans"]
     },
     {
-      "id": "income-career-capital",
-      "canonicalName": "Income, Salary, and Career Capital",
+      "id": "gov-small-savings",
+      "domainCode": "DOMAIN-E",
+      "canonicalName": "Indian Government Savings and Small-Savings Schemes",
       "parentId": null,
-      "shortDescription": "Cost to Company (CTC) restructuring, salary components (Basic, HRA, Special Allowance, PF), ESOP/RSU taxation, and career capital compounding.",
-      "scope": "Indian payroll structures, CTC vs in-hand net salary, tax implications of allowances, employee stock options (ESOPs, RSUs, ESPP) vesting and taxation.",
-      "exclusions": "General non-financial resume writing advice.",
+      "shortDescription": "Sovereign-backed small savings instruments, PPF, Sukanya Samriddhi Yojana, Senior Citizens Savings Scheme, NSC, KVP, and Post Office term deposits.",
+      "scope": "National Savings Institute schemes administered via Department of Posts and designated banks: Public Provident Fund (PPF), Sukanya Samriddhi Account (SSA), Senior Citizens Savings Scheme (SCSS), National Savings Certificate (NSC), Kisan Vikas Patra (KVP), Post Office Monthly Income Scheme (POMIS), Post Office Time Deposits (POTD), quarterly interest rate revision formulas linked to G-Sec yields, tax status (EEE vs EET vs ETE), deposit limits, and premature closure rules.",
+      "exclusions": "Commercial bank fixed deposits, private corporate deposits, mutual funds.",
       "coreQuestions": [
-        "How is CTC broken down into in-hand salary, employer contributions, and tax-deferred components?",
-        "What is the dual taxation event for US/Indian tech company RSUs and ESOPs (perquisite tax at vest + capital gains at sale)?",
-        "How can Indian professionals maximize career capital and asymmetric earning upside?"
+        "How is the Shyamala Gopinath Committee formula applied to calculate quarterly small savings interest rates from secondary G-Sec yields?",
+        "What are the statutory inheritance, nomination, and premature withdrawal provisions across PPF and Sukanya Samriddhi accounts?",
+        "How do sovereign small-savings instruments compare on an after-tax, risk-adjusted basis with corporate debt under the New Tax Regime?"
       ],
-      "relatedConcepts": ["ctc-breakdown", "esop-perquisite-tax", "rsu-vesting-taxation", "career-capital-compounding"],
-      "relatedCategories": ["taxes-compliance", "pf-foundations"],
-      "regulatorsAndSources": ["SRC-ITD-PORTAL", "SRC-EPFO-MAIN"],
+      "relatedConcepts": ["ppf-statutory-immunity", "eee-tax-status", "gopinath-formula-gsec-spread", "scss-guaranteed-quarterly-income"],
+      "relatedCategories": ["fixed-income-debt-markets", "retirement-pensions", "indian-taxation"],
+      "regulatorsAndSources": ["SRC-DEA-MOF", "SRC-DOP-MAIN", "SRC-RBI-MAIN"],
       "plannedArticles": [
-        "ctc-salary-breakdown-mechanics-tax-optimization",
-        "rsu-and-esop-taxation-for-indian-tech-professionals",
-        "consulting-and-freelance-income-section-44ada-presumptive-tax"
+        "public-provident-fund-architecture-statutory-immunity-and-compounding-rules",
+        "small-savings-schemes-quarterly-pricing-formula-and-sovereign-guarantees",
+        "senior-citizen-savings-scheme-vs-pomis-income-structuring"
       ],
-      "researchGaps": ["FEMA compliance and Form 67 foreign tax credit workflows for US RSU dividends."],
-      "timeSensitivity": "High - yearly Union Budget direct tax modifications affect salary deductions.",
-      "validationStatus": "validated"
+      "researchGaps": ["Historical tracking of government deviation from formula-based small savings rate cuts."],
+      "timeSensitivity": "High - interest rates revised or reaffirmed quarterly by Ministry of Finance.",
+      "validationStatus": "validated",
+      "aliases": ["gov-savings", "small-savings", "post-office-schemes", "ppf-ssa"]
     },
     {
-      "id": "taxes-compliance",
-      "canonicalName": "Indian Taxes and Financial Compliance",
+      "id": "mutual-funds-pooled",
+      "domainCode": "DOMAIN-F",
+      "canonicalName": "Mutual Funds and Pooled Investments",
       "parentId": null,
-      "shortDescription": "Direct taxation under Income-tax Act 1961, Old vs New Tax Regime (Section 115BAC), Capital Gains Tax (STCG/LTCG), and advance tax compliance.",
-      "scope": "Section 115BAC vs Old Regime, capital gains taxation (equity STCG 20%, LTCG 12.5%, debt at slab rates, gold/real estate rules), TDS/TCS, advance tax schedule, ITR forms.",
-      "exclusions": "Corporate cross-border transfer pricing disputes.",
+      "shortDescription": "SEBI-categorized open and closed-end schemes, active and passive funds, ETFs, expense ratio mechanics, tracking error, SIP/SWP, and taxation.",
+      "scope": "SEBI Categorization and Rationalization circulars (Equity, Debt, Hybrid, Solution-Oriented, Other Schemes), Index Funds, Exchange Traded Funds (ETFs), Fund of Funds (FoF), Total Expense Ratio (TER) caps and fungibility under SEBI regulations, direct versus regular plans, systematic transactions (SIP, STP, SWP), tracking error and tracking difference, portfolio overlap, and AMFI code of conduct.",
+      "exclusions": "Alternative Investment Funds (AIF Cat I/II/III), Portfolio Management Services (PMS), direct equity trading.",
       "coreQuestions": [
-        "How do Section 115BAC (New Tax Regime) tax slabs, rebates (87A), and standard deductions compare with the Old Regime mathematically?",
-        "What are the capital gains tax rules across equity, debt, gold, and real estate following Finance Act 2024 amendments?",
-        "What are the quarterly advance tax deadlines and Section 234A/B/C interest penalties?"
+        "How do SEBI scheme categorization rules constrain portfolio construction and mandate market-cap purity across equity mutual funds?",
+        "What are the mathematical compounding consequences of Total Expense Ratios (TER) across 20-year investment horizons in direct versus regular plans?",
+        "How do tracking error, tracking difference, and market maker liquidity impact real-world ETF returns on Indian exchanges?"
       ],
-      "relatedConcepts": ["section-115bac-new-regime", "capital-gains-finance-act-2024", "section-87a-rebate", "advance-tax-234abc"],
-      "relatedCategories": ["mutual-funds-etfs", "stocks-equity-research", "real-estate-property"],
-      "regulatorsAndSources": ["SRC-ITD-PORTAL"],
-      "plannedArticles": [
-        "indian-income-tax-slabs-old-vs-new-regime-decision-framework",
-        "capital-gains-tax-india-complete-guide-finance-act-2024",
-        "advance-tax-schedules-interest-penalties-section-234abc"
-      ],
-      "researchGaps": ["Court and tribunal interpretations on Section 87A rebate eligibility against Special Rate income (LTCG 112A / STCG 111A) under the New Regime."],
-      "timeSensitivity": "High - subject to annual Union Budgets and CBDT circulars.",
-      "validationStatus": "validated"
-    },
-    {
-      "id": "mutual-funds-etfs",
-      "canonicalName": "Mutual Funds and Exchange-Traded Funds",
-      "parentId": null,
-      "shortDescription": "SEBI scheme categorization, passive indexing vs active alpha, Total Expense Ratio (TER), direct vs regular plans, SIP/STP/SWP mathematics.",
-      "scope": "SEBI 2017 categorisation framework (Large, Mid, Small, Flexi-cap, Multi-cap, Hybrid, Debt), ETF creation units and liquidity/tracking error, direct plan compounding advantages, active fund persistence.",
-      "exclusions": "Unregulated chit funds, unlisted offshore unregistered pooled vehicles.",
-      "coreQuestions": [
-        "What is the mathematical compounding drag of Total Expense Ratio (TER) in Regular vs Direct Mutual Fund plans over 20+ years?",
-        "How do index funds and ETFs track indices, and what causes tracking error and market maker discount/premium in Indian ETFs?",
-        "What are the regulatory mandates governing SEBI fund categories and market capitalization definitions?"
-      ],
-      "relatedConcepts": ["total-expense-ratio-drag", "direct-vs-regular-mutual-funds", "tracking-error-etfs", "sebi-mf-categorization"],
-      "relatedCategories": ["taxes-compliance", "stocks-equity-research", "portfolio-construction"],
+      "relatedConcepts": ["total-expense-ratio-ter", "sebi-scheme-categorization", "tracking-error-difference", "xirr-vs-cagr"],
+      "relatedCategories": ["equity-markets-listed-securities", "fixed-income-debt-markets", "portfolio-management-quant", "indian-taxation"],
       "regulatorsAndSources": ["SRC-SEBI-MAIN", "SRC-AMFI-MAIN"],
       "plannedArticles": [
-        "sebi-mutual-fund-categorization-framework-explained",
-        "direct-vs-regular-mutual-funds-mathematical-drag-analysis",
-        "index-funds-and-etfs-in-india-tracking-error-and-liquidity",
-        "sip-swp-stp-mechanics-and-portfolio-rebalancing"
+        "mutual-fund-categorization-sebi-mandates-and-portfolio-constraints",
+        "direct-vs-regular-mutual-funds-long-term-wealth-erosion-mechanics",
+        "etf-vs-index-fund-liquidity-tracking-error-and-authorized-participants-india"
       ],
-      "researchGaps": ["Empirical tracking error comparison between Nifty 50 and Nifty Next 50 index funds across major Indian AMCs over 5-year rolling windows."],
-      "timeSensitivity": "Medium - SEBI circulars on expense ratios and categorization occur intermittently.",
-      "validationStatus": "validated"
+      "researchGaps": ["Secondary market ETF bid-ask spread expansion data during high-volatility Indian trading sessions."],
+      "timeSensitivity": "Medium - SEBI circulars periodically revise expense caps, valuation norms, and categorization.",
+      "validationStatus": "validated",
+      "aliases": ["mutual-funds", "etfs", "index-funds", "pooled-investments"]
     },
     {
-      "id": "stocks-equity-research",
-      "canonicalName": "Stocks, Equity Research, and Quantitative Investing",
+      "id": "equity-markets-listed-securities",
+      "domainCode": "DOMAIN-G",
+      "canonicalName": "Equity Markets and Listed Securities",
       "parentId": null,
-      "shortDescription": "Fundamental equity analysis, valuation metrics (P/E, P/B, EV/EBITDA, DCF), balance-sheet forensic accounting, and factor investing in India.",
-      "scope": "Company annual reports, auditor report analysis, working capital cycles, ROCE/ROE drivers, discounted cash flow modeling, factor indices (Momentum, Low Volatility, Quality, Value in Indian markets).",
-      "exclusions": "Intraday penny stock tips, unverified Telegram trading channels.",
+      "shortDescription": "Indian stock exchanges (NSE, BSE), market infrastructure, depositories (NSDL, CDSL), clearing corporations, IPOs, corporate actions, and governance.",
+      "scope": "National Stock Exchange (NSE), Bombay Stock Exchange (BSE), primary markets (IPOs, FPOs, Offer for Sale, Rights Issues), secondary markets, rolling settlement cycles (T+1, optional T+0), demat accounts, depository participants, clearing corporations (NCL, ICCL), securities lending and borrowing (SLB), corporate actions (splits, bonuses, buybacks, dividends), minority shareholder rights, and insider trading prohibitions (SEBI PIT Regulations).",
+      "exclusions": "Commodity futures, foreign unlisted equity, private equity syndicates.",
       "coreQuestions": [
-        "How do you perform a forensic analysis of an Indian corporate balance sheet using annual reports and notes to accounts?",
-        "How do factor-investing indices (Nifty 200 Momentum 30, Nifty 100 Low Volatility 30) perform across Indian market cycles?",
-        "What are the mechanics of corporate actions (dividends, bonus issues, stock splits, rights issues) in India?"
+        "How does the T+1 and T+0 settlement architecture operate between depositories, clearing corporations, and trading members?",
+        "What are the legal mechanics and capital allocation implications of share buybacks under the Companies Act 2013 and SEBI Buyback Regulations?",
+        "How do SEBI Prohibition of Insider Trading regulations define Unpublished Price Sensitive Information (UPSI) and structured digital databases?"
       ],
-      "relatedConcepts": ["roce-roe-decomposition", "forensic-accounting-india", "factor-investing-nifty", "corporate-action-mechanics"],
-      "relatedCategories": ["mutual-funds-etfs", "portfolio-construction", "taxes-compliance"],
-      "regulatorsAndSources": ["SRC-SEBI-MAIN"],
+      "relatedConcepts": ["demat-depository-architecture", "t-plus-one-settlement", "corporate-action-mechanics", "sebi-pit-upsi"],
+      "relatedCategories": ["mutual-funds-pooled", "derivatives-trading", "portfolio-management-quant", "indian-taxation"],
+      "regulatorsAndSources": ["SRC-SEBI-MAIN", "SRC-NSE-MAIN", "SRC-BSE-MAIN", "SRC-MCA-MAIN"],
       "plannedArticles": [
-        "how-to-read-an-indian-annual-report-and-notes-to-accounts",
-        "financial-ratio-analysis-roce-roe-working-capital",
-        "factor-investing-in-india-momentum-quality-low-volatility"
+        "indian-equity-market-plumbing-depositories-clearing-and-settlement",
+        "ipo-mechanics-anchor-book-asba-and-listing-day-pricing-efficiency",
+        "share-buybacks-vs-dividends-corporate-governance-and-taxation-post-budget-2024"
       ],
-      "researchGaps": ["Historical long-term factor premia persistence in Nifty 500 universe with turnover cost deductions."],
-      "timeSensitivity": "Medium - accounting standards (Ind AS) and regulatory listing requirements evolve.",
-      "validationStatus": "validated"
+      "researchGaps": ["High-frequency and algorithmic order-to-trade ratio impacts on retail price discovery in Indian mid-caps."],
+      "timeSensitivity": "Medium - regulatory updates via SEBI circulars and exchange notices occur regularly.",
+      "validationStatus": "validated",
+      "aliases": ["equity-investing-valuation", "equities", "stocks", "shares", "nse-bse"]
     },
     {
-      "id": "debt-fixed-income",
-      "canonicalName": "Debt Investments and Fixed Income",
+      "id": "fixed-income-debt-markets",
+      "domainCode": "DOMAIN-H",
+      "canonicalName": "Fixed Income, Debt Markets and Credit Analysis",
       "parentId": null,
-      "shortDescription": "Sovereign bonds, Treasury Bills, RBI Retail Direct, Corporate Bonds, Target Maturity Funds, and yield curve mathematics in India.",
-      "scope": "RBI Retail Direct platform, G-Secs, T-Bills, State Development Loans (SDLs), corporate credit ratings (AAA to D), modified duration, yield-to-maturity (YTM), interest-rate sensitivity.",
-      "exclusions": "Distressed sub-prime international junk bond restructuring.",
+      "shortDescription": "Government securities (G-Secs, T-Bills, SDLs), corporate bonds, NCDs, credit ratings, yield curves, duration, convexity, and debt fund taxation.",
+      "scope": "Sovereign debt (Treasury Bills, dated Government of India securities, State Development Loans), RBI Retail Direct platform, corporate debt (Non-Convertible Debentures, Commercial Paper, Certificates of Deposit, Tier-1 and Tier-2 bank bonds), credit rating agencies (CRISIL, ICRA, CARE, India Ratings), credit default risk, yield curve dynamics, Macaulay duration, modified duration, convexity, debt mutual fund indexation removal post-Finance Act 2023, and RFQ platforms.",
+      "exclusions": "Government small savings post office certificates, bank retail fixed deposits.",
       "coreQuestions": [
-        "How does the RBI Retail Direct platform work for individual retail investors acquiring G-Secs and T-Bills?",
-        "What is the mathematical relationship between modified duration, bond yield shifts, and mark-to-market bond prices?",
-        "How did the removal of indexation benefits in Finance Act 2023 alter debt mutual fund allocation strategy?"
+        "How does modified duration quantify interest rate sensitivity across shifting Indian sovereign yield curves?",
+        "What are the structural recovery and subordination risks of Additional Tier-1 (AT1) bonds as demonstrated in Indian bank insolvencies?",
+        "How does the RBI Retail Direct platform facilitate retail participation in primary and secondary sovereign auctions?"
       ],
-      "relatedConcepts": ["modified-duration-convexity", "rbi-retail-direct-gsec", "yield-to-maturity", "debt-fund-slab-taxation"],
-      "relatedCategories": ["banking-payments", "taxes-compliance", "portfolio-construction"],
-      "regulatorsAndSources": ["SRC-RBI-MAIN", "SRC-SEBI-MAIN"],
+      "relatedConcepts": ["macaulay-modified-duration", "g-sec-yield-curve", "credit-spread-widening", "at1-bond-subordination"],
+      "relatedCategories": ["gov-small-savings", "mutual-funds-pooled", "portfolio-management-quant", "indian-taxation"],
+      "regulatorsAndSources": ["SRC-RBI-MAIN", "SRC-SEBI-MAIN", "SRC-FIMMDA-MAIN", "SRC-CCIL-MAIN"],
       "plannedArticles": [
-        "rbi-retail-direct-complete-investor-guide-gsecs-tbills",
-        "bond-duration-yield-curve-and-interest-rate-risk-explained",
-        "corporate-bond-market-in-india-credit-ratings-and-default-risks"
+        "sovereign-debt-architecture-gsecs-tbills-and-rbi-retail-direct",
+        "duration-convexity-and-yield-curve-dynamics-in-indian-fixed-income",
+        "corporate-bonds-and-ncds-credit-ratings-default-risk-and-rfq-mechanics"
       ],
-      "researchGaps": ["Secondary market liquidity depth and bid-ask spreads on the RBI NDS-OM platform for retail participants."],
-      "timeSensitivity": "Medium - monetary policy rate changes and sovereign yield movements.",
-      "validationStatus": "validated"
+      "researchGaps": ["Secondary corporate bond liquidity on exchange RFQ platforms for retail-sized lots."],
+      "timeSensitivity": "High - yields shift daily based on RBI monetary policy, liquidity operations, and inflation data.",
+      "validationStatus": "validated",
+      "aliases": ["fixed-income", "bonds", "debt-markets", "g-secs", "ncd"]
     },
     {
-      "id": "gold-commodities",
-      "canonicalName": "Gold, Silver, and Commodities",
+      "id": "insurance-risk-protection",
+      "domainCode": "DOMAIN-I",
+      "canonicalName": "Insurance and Risk Protection",
       "parentId": null,
-      "shortDescription": "Sovereign Gold Bonds (SGBs), Gold ETFs, physical bullion, digital gold risks, taxation, and role of precious metals in Indian portfolios.",
-      "scope": "SGB secondary market mechanics, interest payouts, redemption tax exemptions under Section 47, Gold ETFs vs Gold Mutual Funds, physical gold making charges and purity (hallmarking), customs duty impact.",
-      "exclusions": "High-leverage intraday commodity futures trading.",
+      "shortDescription": "Pure term life insurance, health insurance, super top-ups, motor and liability policies, exclusions, waiting periods, and claim settlement jurisprudence.",
+      "scope": "Life insurance (pure risk term insurance, Married Women's Property Act endorsements under Section 6, Section 45 incontestability clause of Insurance Act 1938), general and health insurance (indemnity, room rent sub-limits, proportionate deduction, pre-existing disease waiting periods, moratorium period rules, super top-up deductibles, cashless claim authorization), motor third-party and own damage coverage, and IRDAI grievance redressal via Bima Bharosa and Insurance Ombudsman.",
+      "exclusions": "Investment analysis of ULIPs as pure wealth creators (analyzed primarily as high-cost bundled products), non-Indian insurance contracts.",
       "coreQuestions": [
-        "What are the precise tax advantages of Sovereign Gold Bonds held to redemption vs Gold ETFs vs physical gold?",
-        "What are the operational and counterparty risks of unregulated 'digital gold' platforms in India?",
-        "How does gold historically correlate with Indian equities, rupee depreciation, and inflation?"
+        "How does Section 45 of the Insurance Act 1938 legally restrict an insurer's ability to repudiate a life insurance claim after three years?",
+        "What are the mathematical mechanics and claim trap risks of proportionate deductions triggered by room rent sub-limits in health insurance?",
+        "How does a Married Women's Property (MWP) Act policy trust protect term insurance proceeds from creditors, court attachments, and tax claims?"
       ],
-      "relatedConcepts": ["sovereign-gold-bonds-sgb", "gold-etf-mechanics", "digital-gold-counterparty-risk", "gold-currency-hedge"],
-      "relatedCategories": ["taxes-compliance", "portfolio-construction"],
-      "regulatorsAndSources": ["SRC-RBI-MAIN", "SRC-SEBI-MAIN", "SRC-ITD-PORTAL"],
+      "relatedConcepts": ["section-45-incontestability", "mwp-act-policy-trust", "proportionate-deduction-room-rent", "super-top-up-deductible"],
+      "relatedCategories": ["pf-foundations", "retirement-pensions", "consumer-protection-grievance"],
+      "regulatorsAndSources": ["SRC-IRDAI-MAIN", "SRC-INS-OMBUDSMAN"],
       "plannedArticles": [
-        "sovereign-gold-bonds-sgb-complete-guide-secondary-market",
-        "gold-etfs-vs-physical-gold-vs-digital-gold-in-india",
-        "portfolio-hedging-role-of-gold-in-indian-wealth-accumulation"
+        "term-life-insurance-underwriting-section-45-and-mwp-act-structuring",
+        "health-insurance-architecture-room-rent-sublimits-restoration-and-super-topups",
+        "claim-repudiation-jurisprudence-and-insurance-ombudsman-escalation"
       ],
-      "researchGaps": ["Future issuance policy of SGB tranches following the customs duty reduction in Union Budget 2024."],
-      "timeSensitivity": "Medium - tax changes and government issuance policy shifts.",
-      "validationStatus": "validated"
+      "researchGaps": ["Comprehensive empirical analysis of cashless claim rejection rates across hospital networks."],
+      "timeSensitivity": "Medium - IRDAI master circulars periodically update waiting periods, coverage mandates, and claims procedures.",
+      "validationStatus": "validated",
+      "aliases": ["insurance", "term-insurance", "health-insurance", "risk-protection"]
     },
     {
-      "id": "real-estate-property",
-      "canonicalName": "Real Estate, Land, and Property Finance",
+      "id": "retirement-pensions",
+      "domainCode": "DOMAIN-J",
+      "canonicalName": "Retirement, Pensions and Social Protection",
       "parentId": null,
-      "shortDescription": "Physical residential/commercial property economics, home loan amortization, rental yields, RERA, REITs, and SM REITs in India.",
-      "scope": "Property buying costs (stamp duty, registration, GST), home loan interest calculations, Section 24b deductions, rental yield analysis (2-3% residential vs 7-9% commercial), SEBI REIT regulations, Small & Medium (SM) REITs.",
-      "exclusions": "Speculative agricultural land tenancy disputes in regional customary courts.",
+      "shortDescription": "Employees' Provident Fund (EPF), National Pension System (NPS), Atal Pension Yojana, superannuation, retirement corpus calculations, and annuities.",
+      "scope": "Statutory social security: Employees' Provident Fund (EPF, VPF, EPS-95 under EPFO), wage ceilings, Section 10(11)/10(12) interest taxation beyond ₹2.5 Lakh/₹5 Lakh annual contributions, National Pension System (NPS Tier I and Tier II under PFRDA), Pension Fund Managers (PFMs), asset allocation choices (Active versus Auto Choice), 60% tax-free lump sum withdrawal, 40% mandatory annuity purchase, annuity product types, Atal Pension Yojana (APY), and post-retirement withdrawal strategies (Safe Withdrawal Rates in India).",
+      "exclusions": "Foreign social security systems, corporate severance packages.",
       "coreQuestions": [
-        "How do residential rental yields compare with the true carrying costs (maintenance, property tax, interest, vacancy) in Indian metros?",
-        "What are Real Estate Investment Trusts (REITs) and SM REITs, and how are their distributions (dividend, interest, repayment of debt) taxed?",
-        "What protections does the Real Estate (Regulation and Development) Act (RERA) provide to homebuyers?"
+        "What are the mathematical consequences of the ₹2.5 Lakh annual PF contribution threshold under Section 10(11) and 10(12) of the Income-tax Act?",
+        "How do NPS equity and debt asset classes compare with active mutual funds over long accumulation horizons considering PFM management fees?",
+        "What is the sustainable safe withdrawal rate (SWR) for an Indian retiree facing domestic inflation, sequence of returns risk, and longevity risk?"
       ],
-      "relatedConcepts": ["home-loan-amortization", "rera-homebuyer-rights", "reit-distribution-taxation", "sm-reit-sebi-framework"],
-      "relatedCategories": ["debt-fixed-income", "taxes-compliance", "alternative-investments"],
-      "regulatorsAndSources": ["SRC-SEBI-MAIN", "SRC-ITD-PORTAL"],
+      "relatedConcepts": ["epf-interest-taxation-threshold", "nps-tier-one-architecture", "safe-withdrawal-rate-india", "annuity-taxation-eet"],
+      "relatedCategories": ["gov-small-savings", "insurance-risk-protection", "portfolio-management-quant", "indian-taxation"],
+      "regulatorsAndSources": ["SRC-EPFO-MAIN", "SRC-PFRDA-MAIN", "SRC-ITD-PORTAL"],
       "plannedArticles": [
-        "buying-vs-renting-in-india-mathematical-decision-framework",
-        "indian-reits-and-sm-reits-complete-investor-guide",
-        "home-loan-mathematics-prepayment-vs-sip-investing"
+        "national-pension-system-architecture-tier1-tier2-and-annuity-mechanics",
+        "epf-vpf-and-eps-statutory-framework-tax-thresholds-and-transfer-rules",
+        "retirement-corpus-sizing-and-safe-withdrawal-rates-in-the-indian-economy"
       ],
-      "researchGaps": ["Empirical tracking of SM REIT issuances under SEBI's newly codified regulatory framework."],
-      "timeSensitivity": "Medium - municipal circle rates, stamp duties, and SEBI REIT distribution taxation.",
-      "validationStatus": "validated"
+      "researchGaps": ["Empirical sequence-of-returns risk modelling using 40-year Indian equity and bond return distributions."],
+      "timeSensitivity": "Medium - EPFO declares annual interest rates; PFRDA updates scheme rules and annuity guidelines periodically.",
+      "validationStatus": "validated",
+      "aliases": ["gov-savings-pensions", "retirement", "pensions", "nps", "epf"]
+    },
+    {
+      "id": "indian-taxation",
+      "domainCode": "DOMAIN-K",
+      "canonicalName": "Indian Taxation",
+      "parentId": null,
+      "shortDescription": "Direct taxes under Income-tax Act 1961, Old vs New Regime (115BAC), capital gains (Finance Act 2024), advance tax, TDS/TCS, GST, and tax compliance.",
+      "scope": "Direct taxation: Income-tax Act 1961, Section 115BAC (New Tax Regime vs Old Tax Regime), salary income (standard deduction, HRA exemption under Section 10(13A)), capital gains restructuring under Finance (No. 2) Act 2024 (STCG 20%, LTCG 12.5%, Section 112A ₹1.25 Lakh exemption, removal of indexation), interest income taxation, dividend taxation under Section 56(2)(i), set-off and carry-forward of losses, Advance Tax schedules and interest under Sections 234A/234B/234C, TDS under Sections 194A/194C/194J/194IA, TCS on LRS under Section 206C(1G), and GST principles for freelancers and small businesses.",
+      "exclusions": "Customs tariff dispute litigation, cross-border corporate transfer pricing disputes.",
+      "coreQuestions": [
+        "What are the precise mathematical crossover points where the New Tax Regime (Section 115BAC) outperforms the Old Tax Regime for salaried professionals?",
+        "How did Finance (No. 2) Act 2024 alter the taxation of listed equities, unlisted securities, real estate, and debt mutual funds?",
+        "What are the legal compliance steps and documentation requirements to claim foreign tax credits under Section 90 and Form 67?"
+      ],
+      "relatedConcepts": ["section-115bac-new-regime", "capital-gains-tax-finance-act-2024", "advance-tax-interest-234b-234c", "tds-tcs-reconciliation-ais-26as"],
+      "relatedCategories": ["pf-foundations", "real-estate-property-land", "financial-fraud-scams-shadow-economy"],
+      "regulatorsAndSources": ["SRC-CBDT-MAIN", "SRC-ITD-PORTAL", "SRC-CBIC-MAIN"],
+      "plannedArticles": [
+        "new-vs-old-tax-regime-complete-mathematical-crossover-framework",
+        "capital-gains-taxation-architecture-post-finance-act-2024",
+        "advance-tax-tds-tcs-and-statutory-interest-mitigation-under-sections-234abc"
+      ],
+      "researchGaps": ["Judicial interpretations of Section 87A rebate eligibility on special-rate capital gains under Section 115BAC."],
+      "timeSensitivity": "High - revised annually via the Union Budget, Finance Act, and periodic CBDT circulars/notifications.",
+      "validationStatus": "validated",
+      "aliases": ["taxes-compliance", "taxation-direct-indirect", "taxes", "income-tax", "capital-gains"]
+    },
+    {
+      "id": "real-estate-property-land",
+      "domainCode": "DOMAIN-L",
+      "canonicalName": "Real Estate, Property and Land",
+      "parentId": null,
+      "shortDescription": "Residential and commercial real estate, RERA, title verification, land records, circle rates, REITs, SM REITs, stamp duty, and property taxation.",
+      "scope": "Real estate transactions in India: Title verification, 30-year search, encumbrance certificates (EC), Real Estate (Regulation and Development) Act 2016 (RERA), state RERA authorities, circle rates (guidance values / ready reckoner rates) versus market agreement values, stamp duty and registration fees, capital gains under Section 50C and Section 54/54EC/54F, rental yields, Section 24(b) home loan interest deduction, Section 80C principal deduction, Real Estate Investment Trusts (REITs), Small and Medium REITs (SM REITs under SEBI), fractional ownership, and joint development agreements (JDA).",
+      "exclusions": "Speculative architectural design, construction engineering methods.",
+      "coreQuestions": [
+        "How do Section 50C and Section 56(2)(x) of the Income-tax Act penalize property transactions executed below the state stamp duty guidance value?",
+        "What are the statutory legal due-diligence protocols required to establish marketable title for agricultural and non-agricultural land across Indian states?",
+        "How do SEBI-regulated public REITs and SM REITs compare to physical buy-to-let residential properties on net yield, liquidity, and taxation?"
+      ],
+      "relatedConcepts": ["section-50c-circle-rate-safe-harbor", "rera-promoter-escrow-mandate", "reit-distribution-structure", "title-due-diligence-encumbrance"],
+      "relatedCategories": ["credit-borrowing", "indian-taxation", "financial-fraud-scams-shadow-economy"],
+      "regulatorsAndSources": ["SRC-MOHUA-RERA", "SRC-SEBI-MAIN", "SRC-ITD-PORTAL", "SRC-REV-DEPT"],
+      "plannedArticles": [
+        "property-title-due-diligence-encumbrance-certificates-and-rera-protections",
+        "circle-rates-stamp-duty-and-taxation-under-section-50c-and-56-2-x",
+        "reits-and-sm-reits-in-india-structure-yields-taxation-and-liquidity"
+      ],
+      "researchGaps": ["State-by-state digitalization depth of historical land registry records (pre-2000)."],
+      "timeSensitivity": "Medium - state governments revise circle rates periodically; RERA and SEBI issue occasional regulatory updates.",
+      "validationStatus": "validated",
+      "aliases": ["real-estate-reits", "real-estate-property", "real-estate", "property", "reits"]
+    },
+    {
+      "id": "gold-silver-commodities",
+      "domainCode": "DOMAIN-M",
+      "canonicalName": "Gold, Silver and Commodities",
+      "parentId": null,
+      "shortDescription": "Physical bullion, hallmarking, Sovereign Gold Bonds (SGBs), Gold ETFs, Gold Mutual Funds, silver products, and commodity derivatives.",
+      "scope": "Precious metals and commodity investing: Bureau of Indian Standards (BIS) hallmarking (6-digit HUID), physical gold coins/bars, making charges and spread erosion, Sovereign Gold Bonds (SGB issue terms, 2.50% semi-annual interest, Section 47 capital gains exemption on maturity, secondary market trading on NSE/BSE), Gold ETFs, Gold FoFs, Silver ETFs, multi-asset allocation funds, Multi Commodity Exchange (MCX), commodity futures contracts, import duties, and capital gains taxation under Finance Act 2024.",
+      "exclusions": "Industrial mining operations, international physical bullion smuggling.",
+      "coreQuestions": [
+        "What are the legal, liquidity, and tax differences between Sovereign Gold Bonds, Gold ETFs, and physical BIS-hallmarked bullion in India?",
+        "How did the reduction of customs import duty in Budget 2024 impact domestic gold prices and the secondary market yield of Sovereign Gold Bonds?",
+        "How does the BIS 6-digit Hallmarking Unique Identification (HUID) protect consumers against purity adulteration in physical gold?"
+      ],
+      "relatedConcepts": ["sovereign-gold-bonds-sgb", "bis-huid-hallmarking", "gold-etf-creation-unit", "commodity-basis-risk"],
+      "relatedCategories": ["mutual-funds-pooled", "portfolio-management-quant", "indian-taxation"],
+      "regulatorsAndSources": ["SRC-RBI-MAIN", "SRC-BIS-MAIN", "SRC-SEBI-MAIN", "SRC-MCX-MAIN"],
+      "plannedArticles": [
+        "gold-investment-vehicles-sgb-etf-mutual-funds-vs-physical-bullion",
+        "sovereign-gold-bonds-secondary-market-trading-ytm-and-tax-exemption",
+        "bis-hallmarking-huid-and-physical-precious-metal-valuation-mechanics"
+      ],
+      "researchGaps": ["Future Ministry of Finance policy on new SGB tranche issuances post-Budget 2024 import duty rationalization."],
+      "timeSensitivity": "High - daily spot price fluctuations, exchange margin shifts, and sovereign issuance calendars.",
+      "validationStatus": "validated",
+      "aliases": ["commodities-gold-silver", "gold-commodities", "gold", "silver", "commodities", "sgb"]
     },
     {
       "id": "alternative-investments",
-      "canonicalName": "Alternative and Private Investments",
+      "domainCode": "DOMAIN-N",
+      "canonicalName": "Alternative and Non-Traditional Investments",
       "parentId": null,
-      "shortDescription": "Alternative Investment Funds (AIFs Category I, II, III), Portfolio Management Services (PMS), unlisted equities, and private credit in India.",
-      "scope": "SEBI AIF regulations (minimum ₹1 Crore commitment), PMS frameworks (minimum ₹50 Lakh commitment), unlisted pre-IPO shares, invoice discounting, P2P lending regulations under RBI.",
-      "exclusions": "Unregulated ponzi schemes, multi-level marketing pyramid structures.",
+      "shortDescription": "Alternative Investment Funds (AIF Cat I, II, III), private equity, venture capital, angel investing, unlisted shares, pre-IPO equity, and art/collectibles.",
+      "scope": "SEBI Alternative Investment Funds Regulations 2012: Category I AIFs (Venture Capital, Angel Funds, Social Impact), Category II AIFs (Private Equity, Private Debt, Real Estate Funds), Category III AIFs (Hedge Funds, Complex Trading Strategies), minimum ₹1 Crore investment threshold (₹25 Lakh for accredited investors/angel funds), unlisted shares and pre-IPO secondary markets, employee stock options (ESOPs) and Section 17(2) perquisite taxation, asset leasing, equipment financing, and art/collectibles.",
+      "exclusions": "Unregulated collective investment schemes, illegal multi-level marketing.",
       "coreQuestions": [
-        "What are the regulatory structures and taxation differences between Category I, II, and III AIFs in India?",
-        "How do Portfolio Management Services (PMS) operate, and do their historical net-of-fee returns justify active manager fees?",
-        "What are the illiquidity, transfer, and taxation risks of investing in Indian unlisted and pre-IPO shares?"
+        "What are the regulatory accreditation criteria, reporting mandates, and pass-through tax rules governing SEBI Category I, II, and III AIFs?",
+        "What are the liquidity, valuation, counterparty, and transfer restriction risks inherent in purchasing unlisted pre-IPO shares in India?",
+        "How are Employee Stock Option Plans (ESOPs) taxed at exercise (perquisite) versus sale (capital gains) under the Income-tax Act?"
       ],
-      "relatedConcepts": ["sebi-aif-categories", "pms-fee-structures", "unlisted-equity-valuation", "p2p-lending-rbi-rules"],
-      "relatedCategories": ["stocks-equity-research", "portfolio-construction", "taxes-compliance"],
-      "regulatorsAndSources": ["SRC-SEBI-MAIN", "SRC-RBI-MAIN"],
+      "relatedConcepts": ["sebi-aif-categorization", "accredited-investor-framework", "unlisted-share-valuation-rule-11ua", "esop-perquisite-tax-section-17"],
+      "relatedCategories": ["equity-markets-listed-securities", "p2p-lending-private-credit", "indian-taxation"],
+      "regulatorsAndSources": ["SRC-SEBI-MAIN", "SRC-ITD-PORTAL", "SRC-MCA-MAIN"],
       "plannedArticles": [
-        "portfolio-management-services-pms-vs-mutual-funds",
-        "alternative-investment-funds-aif-cat-1-2-3-explained",
-        "unlisted-equity-and-pre-ipo-investing-in-india-risks-tax"
+        "alternative-investment-funds-aif-cat1-cat2-cat3-architecture-and-taxation",
+        "unlisted-pre-ipo-shares-due-diligence-liquidity-and-fair-market-valuation",
+        "esop-structuring-vesting-schedules-perquisite-tax-and-liquidity-events"
       ],
-      "researchGaps": ["Consolidated post-tax performance attribution data of Indian PMS managers versus Nifty 500 benchmark."],
-      "timeSensitivity": "Medium - SEBI ongoing circulars on AIF borrowing and valuation norms.",
-      "validationStatus": "validated"
+      "researchGaps": ["Secondary market transaction volume transparency in Indian pre-IPO OTC platforms."],
+      "timeSensitivity": "Medium - SEBI circulars periodically update AIF valuation norms, PPM audit rules, and accredited investor limits.",
+      "validationStatus": "validated",
+      "aliases": ["p2p-alternative-investments", "alternative-investments-private-markets", "aif", "private-equity", "unlisted-shares"]
     },
     {
-      "id": "insurance-risk-management",
-      "canonicalName": "Insurance and Risk Management",
+      "id": "p2p-lending-private-credit",
+      "domainCode": "DOMAIN-O",
+      "canonicalName": "P2P Lending and Private Credit",
       "parentId": null,
-      "shortDescription": "Pure term life insurance, comprehensive health insurance, claim settlement ratios, policy exclusions, and rider evaluation in India.",
-      "scope": "Term insurance underwriting, human life value calculation, Section 45 Insurance Act (3-year non-contestability clause), health insurance (room rent caps, copay, waiting periods, restoration benefits), super top-up policies.",
-      "exclusions": "Mis-sold investment-cum-insurance products (traditional endowment policies, ULIPs) evaluated as wealth builders.",
+      "shortDescription": "Peer-to-peer lending platforms (NBFC-P2P), RBI regulatory caps, invoice discounting (TReDS), asset-backed private credit, and default risk modeling.",
+      "scope": "RBI Non-Banking Financial Company - Peer to Peer Lending Platform (Reserve Bank) Directions 2017 and August 2024 amendments: ₹50 Lakh aggregate lending cap across platforms, net worth certificates, ₹50,000 single-borrower cap, prohibition on credit guarantees, ban on assured returns and instant-liquidity sweep products, escrow account mechanics (lender and borrower escrows), Trade Receivables Discounting System (TReDS under RBI), invoice discounting platforms, expected credit loss (ECL), and default recovery reality.",
+      "exclusions": "Informal moneylending, Ponzi deposit schemes.",
       "coreQuestions": [
-        "How should an Indian breadwinner calculate true Human Life Value (HLV) for term insurance?",
-        "How does Section 45 of the Insurance Act 1938 protect policyholders after 3 years from policy inception?",
-        "What are the critical health insurance traps: room rent limits, copayment clauses, and disease-wise capping?"
+        "How did the RBI August 2024 Master Direction amendments dismantle instant-liquidity and assured-return models in Indian NBFC-P2P lending?",
+        "What are the mathematical differences between gross advertised platform yields and net realized returns after non-performing asset (NPA) write-offs and platform fees?",
+        "How does the TReDS institutional platform operate to finance MSME trade receivables backed by corporate buyers?"
       ],
-      "relatedConcepts": ["human-life-value-hlv", "section-45-insurance-act", "room-rent-capping", "super-top-up-health-policy"],
-      "relatedCategories": ["emergency-protection", "family-wealth-estate", "taxes-compliance"],
-      "regulatorsAndSources": ["SRC-IRDAI-MAIN"],
+      "relatedConcepts": ["nbfc-p2p-rbi-direction", "lender-borrower-escrow-structure", "expected-credit-loss-p2p", "treds-invoice-discounting"],
+      "relatedCategories": ["banking-deposits", "credit-borrowing", "alternative-investments", "financial-fraud-scams-shadow-economy"],
+      "regulatorsAndSources": ["SRC-RBI-MAIN", "SRC-RXIL-TREDS"],
       "plannedArticles": [
-        "pure-term-insurance-blueprint-for-indian-families",
-        "health-insurance-selection-guide-room-rent-copay-riders",
-        "why-endowment-policies-and-ulips-destroy-wealth"
+        "p2p-lending-in-india-rbi-regulations-2024-amendments-and-default-reality",
+        "invoice-discounting-and-treds-mechanics-counterparty-risk-and-returns",
+        "private-credit-portfolios-expected-loss-underwriting-and-cash-drag"
       ],
-      "researchGaps": ["Insurer-wise claim settlement processing time data and ombudsman rejection reversal percentages."],
-      "timeSensitivity": "Medium - IRDAI master circulars on cashless everywhere and master healthcare guidelines.",
-      "validationStatus": "validated"
+      "researchGaps": ["Verified platform-level historical default cohort data across retail P2P loan books in India."],
+      "timeSensitivity": "High - RBI has intensified supervisory scrutiny and tightened regulatory restrictions on P2P platforms.",
+      "validationStatus": "validated",
+      "aliases": ["p2p-lending", "private-credit", "invoice-discounting", "treds"]
     },
     {
-      "id": "retirement-fire",
-      "canonicalName": "Retirement and Financial Independence",
+      "id": "derivatives-trading",
+      "domainCode": "DOMAIN-P",
+      "canonicalName": "Derivatives, Leverage and Advanced Trading",
       "parentId": null,
-      "shortDescription": "National Pension System (NPS), EPF/PPF compounding, FIRE (Financial Independence Retire Early) metrics for India, and safe withdrawal rates.",
-      "scope": "NPS Tier 1 & 2 rules, asset allocation (Equity, Corporate Debt, G-Sec, Alt), annuity rules, EPF voluntary contributions (VPF), PPF 15-year rules, Safe Withdrawal Rate (SWR) in high-inflation emerging markets like India.",
-      "exclusions": "Non-Indian social security pensions.",
+      "shortDescription": "Exchange-traded futures and options (F&O), option Greeks, implied volatility, margin requirements, hedging strategies, and SEBI retail risk studies.",
+      "scope": "Exchange-traded derivatives on NSE and BSE: Index futures and options (NIFTY, BANKNIFTY), stock derivatives, option pricing models (Black-Scholes-Merton), option Greeks (Delta, Gamma, Theta, Vega, Rho), implied volatility (IV) and India VIX, margin frameworks (SPAN, Extreme Loss Margin, Peak Margin), SEBI retail F&O loss studies (93% retail traders experiencing net losses), weekly option expiry contract rationalization, hedging techniques, covered calls, protective puts, and Section 43(5) non-speculative business income classification.",
+      "exclusions": "Illegal dabba trading (bucket shops outside recognized exchanges), offshore binary options.",
       "coreQuestions": [
-        "What is the mathematical viability of a 3% vs 4% Safe Withdrawal Rate (SWR) in India considering historical inflation and sequence-of-returns risk?",
-        "How does the National Pension System (NPS) compare with mutual fund investing after factoring in the mandatory 40% annuity clause?",
-        "How do EPF, VPF, and PPF interact to create an EEE (Exempt-Exempt-Exempt) fixed-income backbone?"
+        "What are the mathematical mechanics of option Greeks in determining premium decay during high-volatility weekly expiry sessions?",
+        "Why do empirical SEBI research studies demonstrate that over 90 percent of individual retail active traders incur net trading losses in F&O?",
+        "How are derivatives transactions classified and taxed as business income under Section 43(5) of the Income-tax Act, including tax audit thresholds?"
       ],
-      "relatedConcepts": ["safe-withdrawal-rate-india", "nps-tier-1-mechanics", "sequence-of-returns-risk", "eee-tax-status"],
-      "relatedCategories": ["pf-foundations", "debt-fixed-income", "taxes-compliance"],
-      "regulatorsAndSources": ["SRC-PFRDA-MAIN", "SRC-EPFO-MAIN", "SRC-ITD-PORTAL"],
+      "relatedConcepts": ["option-greeks-theta-decay", "span-peak-margin-system", "sebi-fo-retail-loss-findings", "section-43-5-non-speculative-business"],
+      "relatedCategories": ["equity-markets-listed-securities", "portfolio-management-quant", "indian-taxation", "financial-fraud-scams-shadow-economy"],
+      "regulatorsAndSources": ["SRC-SEBI-MAIN", "SRC-NSE-MAIN", "SRC-ITD-PORTAL"],
       "plannedArticles": [
-        "fire-in-india-safe-withdrawal-rates-and-corpus-sizing",
-        "national-pension-system-nps-tier-1-and-2-complete-guide",
-        "epf-vpf-and-ppf-wealth-compounding-and-taxation-rules"
+        "index-and-stock-derivatives-plumbing-margin-frameworks-and-expiry-mechanics",
+        "option-pricing-greeks-and-volatility-surface-dynamics-in-indian-markets",
+        "sebi-derivatives-study-anatomy-of-retail-fo-losses-and-behavioral-traps"
       ],
-      "researchGaps": ["Empirical sequence-of-returns simulation data for Indian 40-year retirements starting at market peaks."],
-      "timeSensitivity": "Medium - PFRDA annuity liberalization and EPF rate declarations.",
-      "validationStatus": "validated"
+      "researchGaps": ["Impact of increased contract ticket sizes and weekly expiry restrictions introduced by SEBI on retail turnover."],
+      "timeSensitivity": "High - dynamic contract specifications, margin changes, and regulatory interventions by SEBI.",
+      "validationStatus": "validated",
+      "aliases": ["derivatives-fno-trading", "derivatives-leverage-trading", "fno", "derivatives", "options-trading", "futures"]
     },
     {
-      "id": "business-entrepreneurship",
-      "canonicalName": "Business Ownership and Entrepreneurship",
+      "id": "portfolio-management-quant",
+      "domainCode": "DOMAIN-Q",
+      "canonicalName": "Portfolio Management and Quantitative Finance",
       "parentId": null,
-      "shortDescription": "Incorporation structures (Sole Prop, LLP, Private Limited), founder equity vesting, boot-strapping vs venture funding, and Section 44AD/ADA.",
-      "scope": "Entity selection in India, GST registration thresholds, capital table structuring, reverse vesting, corporate compliance costs, founder salary vs dividend distribution tax.",
-      "exclusions": "General non-financial management coaching.",
+      "shortDescription": "Asset allocation, Modern Portfolio Theory, factor investing, Sharpe and Sortino ratios, Monte Carlo simulations, rebalancing, and risk metrics.",
+      "scope": "Quantitative portfolio construction: Strategic and tactical asset allocation, Modern Portfolio Theory (MPT), efficient frontier, Capital Asset Pricing Model (CAPM), factor investing (Value, Momentum, Quality, Low Volatility on NSE indices), risk-adjusted performance metrics (Sharpe ratio, Sortino ratio, Treynor ratio, Information ratio, Maximum Drawdown, Value at Risk / VaR, Expected Shortfall / CVaR), rebalancing bands and tax friction, and portfolio optimization techniques.",
+      "exclusions": "Subjective astrological stock forecasting, unverified trading signal black-boxes.",
       "coreQuestions": [
-        "When should an Indian professional switch from sole proprietorship/freelancing to an LLP or Private Limited company?",
-        "What are the structural mechanics of founder vesting, cliff periods, and ESOP pools in Indian startups?",
-        "How does presumptive taxation under Section 44ADA streamline compliance for Indian knowledge workers?"
+        "How does rebalancing frequency and tolerance-band sizing interact with capital gains tax friction in an Indian multi-asset portfolio?",
+        "What does long-term empirical factor performance on Indian broad indices (Nifty 50, Nifty 500) reveal about Value versus Momentum factor premiums?",
+        "How does Sortino ratio improve upon Sharpe ratio when assessing asymmetric downside risk in volatile emerging equity markets?"
       ],
-      "relatedConcepts": ["entity-selection-llp-vs-pvt-ltd", "founder-vesting-schedules", "section-44ada-presumptive", "dividend-distribution-tax"],
-      "relatedCategories": ["income-career-capital", "taxes-compliance"],
-      "regulatorsAndSources": ["SRC-ITD-PORTAL"],
+      "relatedConcepts": ["modern-portfolio-theory-efficient-frontier", "sharpe-sortino-ratio-mechanics", "factor-investing-premiums-india", "rebalancing-band-friction"],
+      "relatedCategories": ["mutual-funds-pooled", "equity-markets-listed-securities", "fixed-income-debt-markets"],
+      "regulatorsAndSources": ["SRC-SEBI-MAIN", "SRC-NSE-INDICES", "SRC-RBI-MAIN"],
       "plannedArticles": [
-        "sole-proprietorship-vs-llp-vs-pvt-ltd-for-indian-founders",
-        "section-44ada-presumptive-taxation-for-freelancers-and-consultants",
-        "cap-table-management-founder-vesting-and-esop-pools"
+        "strategic-asset-allocation-and-rebalancing-architecture-for-indian-investors",
+        "factor-investing-in-india-momentum-quality-value-and-low-volatility-evidence",
+        "risk-adjusted-performance-metrics-sharpe-sortino-var-and-drawdown-modeling"
       ],
-      "researchGaps": ["State-specific professional tax and shop and establishment registration variances across top Indian IT hubs."],
-      "timeSensitivity": "Medium - Ministry of Corporate Affairs (MCA) and direct tax revisions.",
-      "validationStatus": "validated"
+      "researchGaps": ["Empirical multi-decade covariance matrices between Indian residential real estate, physical gold, and listed equities."],
+      "timeSensitivity": "Low - mathematical and quantitative frameworks remain structurally robust over time.",
+      "validationStatus": "validated",
+      "aliases": ["portfolio-management-asset-allocation", "portfolio-management-quant-finance", "portfolio-management", "quant", "asset-allocation"]
     },
     {
-      "id": "portfolio-construction",
-      "canonicalName": "Advanced Portfolio Construction",
+      "id": "financial-fraud-scams-shadow-economy",
+      "domainCode": "DOMAIN-R",
+      "canonicalName": "Financial Fraud, Scams, Forensic Finance and Shadow Economy",
       "parentId": null,
-      "shortDescription": "Asset allocation frameworks, correlation matrices, modern portfolio theory, rebalancing triggers, and risk parity in Indian markets.",
-      "scope": "Strategic vs tactical asset allocation, equity-debt-gold rebalancing bands, glide paths, Sharpe/Sortino ratios, drawdown management, rupee-denominated multi-asset frameworks.",
-      "exclusions": "Pure black-box algorithmic high-frequency trading code.",
+      "shortDescription": "Ponzi schemes, unauthorized deposit taking (BUDS Act), predatory loan apps, forensic finance, black money in real estate, dabba trading, and benami assets.",
+      "scope": "Comprehensive forensic finance covering both illegal investor traps and the real-world shadow economy: Banning of Unregulated Deposit Schemes (BUDS) Act 2019, Ponzi and multi-level marketing (MLM) schemes (Prize Chits and Money Circulation Schemes Act 1978), fake trading apps and mule accounts, digital payment phishing, cybercrime reporting (1930 portal), unapproved loan apps, real estate black money generation (circle rate vs agreement value, 'on-money' cash components, Section 269SS/269ST cash limits and Section 271D/271DA 100% penalties), Prohibition of Benami Property Transactions Act 1988 (as amended 2016), illegal dabba trading (bucket shops outside recognized exchanges under Securities Contracts Regulation Act 1956), accommodation entries and penny stock long-term capital gains laundering (Section 68 unexplained cash credits), hawala channels, and enforcement powers of ED, Income Tax Investigation Wing, SFIO, and FIU-IND.",
+      "exclusions": "Operational manual for executing illegal tax evasion or unlawful money laundering (strictly analytical, legal, and educational forensic exposure).",
       "coreQuestions": [
-        "What is the mathematical impact of annual rebalancing vs threshold-based (5/25 rule) rebalancing on portfolio CAGR and drawdowns in India?",
-        "How do domestic equities, international equities, sovereign debt, and gold correlate during Indian market crashes?",
-        "How should an investor design a life-cycle glide path from age 25 to 65?"
+        "How do Sections 269SS and 269ST of the Income-tax Act penalize cash transactions exceeding statutory thresholds with 100 percent monetary penalties under Sections 271D and 271DA?",
+        "What are the operational mechanics, legal prohibitions, and investor risks of illegal dabba trading under the Securities Contracts (Regulation) Act 1956?",
+        "What constitutes a benami transaction under the Prohibition of Benami Property Transactions Act, and what are the statutory confiscation and criminal prosecution consequences?",
+        "How does the BUDS Act 2019 empower competent authorities to attach assets and protect depositors against unauthorized collective investment schemes?"
       ],
-      "relatedConcepts": ["asset-allocation-rebalancing", "correlation-matrix-indian-assets", "sortino-sharpe-ratio", "portfolio-glide-path"],
-      "relatedCategories": ["mutual-funds-etfs", "stocks-equity-research", "debt-fixed-income", "gold-commodities"],
-      "regulatorsAndSources": ["SRC-SEBI-MAIN"],
+      "relatedConcepts": ["buds-act-2019-framework", "section-269ss-269st-cash-penalties", "dabba-trading-scra-prohibition", "benami-property-confiscation-act", "section-68-accommodation-entries"],
+      "relatedCategories": ["banking-deposits", "real-estate-property-land", "consumer-protection-grievance", "indian-taxation"],
+      "regulatorsAndSources": ["SRC-MHA-CYBER", "SRC-SEBI-MAIN", "SRC-RBI-MAIN", "SRC-ED-GOV", "SRC-ITD-PORTAL", "SRC-FIU-IND"],
       "plannedArticles": [
-        "asset-allocation-frameworks-for-indian-investors",
-        "rebalancing-strategies-calendar-vs-threshold-band-methods",
-        "maximum-drawdown-recovery-time-and-downside-risk-metrics"
+        "black-money-in-indian-real-estate-circle-rates-cash-penalties-under-section-269ss-and-benami-laws",
+        "dabba-trading-bucket-shops-scra-prohibitions-and-shadow-market-risks",
+        "ponzi-schemes-buds-act-2019-and-unregulated-deposit-prosecution",
+        "digital-financial-fraud-mule-accounts-apk-loan-scams-and-cybercrime-redressal"
       ],
-      "researchGaps": ["Historical correlation matrix of Indian equity indices versus Nifty GS 10-year G-sec index over 25 years."],
-      "timeSensitivity": "Low - mathematical principles remain stable.",
-      "validationStatus": "validated"
+      "researchGaps": ["Empirical tracking of FIU-IND suspicious transaction reporting trends in real estate and digital assets."],
+      "timeSensitivity": "High - fraudulent typologies evolve constantly alongside regulatory enforcement circulars.",
+      "validationStatus": "validated",
+      "aliases": ["scams-fraud-forensic-finance", "fraud-investor-rights", "forensic-finance", "black-money", "fraud", "scams", "shadow-economy", "benami"]
     },
     {
-      "id": "international-investing",
-      "canonicalName": "International Finance and Cross-Border Investing",
+      "id": "entrepreneurship-business-finance",
+      "domainCode": "DOMAIN-S",
+      "canonicalName": "Entrepreneurship and Business Finance",
       "parentId": null,
-      "shortDescription": "RBI Liberalised Remittance Scheme (LRS), Tax Collected at Source (TCS), foreign equity taxation, Schedule FA reporting, and US estate tax.",
-      "scope": "RBI LRS $250,000 annual limit, TCS rates (20% on foreign remittances beyond ₹7 Lakh threshold), Schedule FA (Foreign Assets) mandatory reporting in ITR, US estate tax on US situs assets for non-resident aliens, international mutual funds/ETFs.",
-      "exclusions": "Illegal hawala networks and offshore secrecy jurisdictions.",
+      "shortDescription": "Entity structures (Pvt Ltd, LLP, OPC, Sole Prop), working capital management, cash conversion cycle, unit economics, MSME credit schemes, and fundraising.",
+      "scope": "Commercial business finance in India: Legal incorporation under Companies Act 2013 and LLP Act 2008 (Private Limited Company, Limited Liability Partnership, One Person Company, Sole Proprietorship), Ministry of Corporate Affairs (MCA21) compliance, working capital cycles (receivables, inventory, payables), cash conversion cycle, unit economics (CAC, LTV, gross margin, contribution margin), MSME Udyam registration, CGTMSE credit guarantee schemes, Mudra loans, venture fundraising (term sheets, dilution math, liquidation preferences), GST compliance, and corporate insolvency under Insolvency and Bankruptcy Code 2016 (IBC).",
+      "exclusions": "Generic motivational leadership advice, consumer marketing copywriting.",
       "coreQuestions": [
-        "What are the precise compliance steps for an Indian resident investing in US stocks under RBI LRS?",
-        "How does TCS on foreign outward remittances work, and how can it be adjusted against advance tax or refunded?",
-        "What are the severe penalties under the Black Money Act for omitting foreign shares (including company RSUs) from ITR Schedule FA?"
+        "What are the structural legal liability, corporate governance, and tax differences between an LLP and a Private Limited Company under Indian statutes?",
+        "How does the cash conversion cycle determine working capital financing requirements and liquidity distress for growing Indian enterprises?",
+        "How do liquidation preferences and participating versus non-participating preferred shares dilute founder equity during venture capital funding rounds?"
       ],
-      "relatedConcepts": ["liberalised-remittance-scheme-lrs", "tcs-foreign-remittances", "itr-schedule-fa-compliance", "us-estate-tax-situs"],
-      "relatedCategories": ["taxes-compliance", "stocks-equity-research", "fraud-investor-rights"],
-      "regulatorsAndSources": ["SRC-RBI-MAIN", "SRC-ITD-PORTAL"],
+      "relatedConcepts": ["pvt-ltd-vs-llp-structure", "cash-conversion-cycle", "cgtmse-msme-credit-guarantee", "venture-term-sheet-dilution"],
+      "relatedCategories": ["banking-deposits", "credit-borrowing", "career-income-capital", "indian-taxation"],
+      "regulatorsAndSources": ["SRC-MCA-MAIN", "SRC-MSME-GOV", "SRC-SIDBI-MAIN", "SRC-IBBI-MAIN"],
       "plannedArticles": [
-        "investing-in-us-stocks-from-india-lrs-tcs-and-taxation",
-        "itr-schedule-fa-foreign-assets-reporting-compliance-guide",
-        "us-estate-tax-trap-for-indian-investors-in-us-equities"
+        "indian-business-entity-selection-pvt-ltd-vs-llp-vs-proprietorship",
+        "working-capital-architecture-cash-conversion-cycles-and-msme-financing",
+        "venture-capital-term-sheets-liquidation-preferences-and-founder-dilution"
       ],
-      "researchGaps": ["Detailed double tax avoidance agreement (DTAA) credit workflow on US dividend 25% withholding via Form 67."],
-      "timeSensitivity": "High - frequent changes to TCS rates and foreign asset reporting stringency.",
-      "validationStatus": "validated"
+      "researchGaps": ["Historical default and recovery rates under CGTMSE collateral-free lending schemes."],
+      "timeSensitivity": "Medium - MCA notifications, corporate tax rates, and MSME thresholds change periodically.",
+      "validationStatus": "validated",
+      "aliases": ["entrepreneurship", "business-finance", "startups", "msme", "corporate-finance"]
     },
     {
-      "id": "digital-assets",
-      "canonicalName": "Digital Assets and Emerging Financial Products",
+      "id": "career-income-capital",
+      "domainCode": "DOMAIN-T",
+      "canonicalName": "Career Development, Income and Human Capital",
       "parentId": null,
-      "shortDescription": "Virtual Digital Assets (VDAs) in India, Section 115BBH 30% tax, Section 194S 1% TDS, FIU-IND registration, and Central Bank Digital Currency (e-Rupee).",
-      "scope": "Cryptocurrency and VDA regulatory framework in India, 30% flat tax on gains without loss set-off, 1% TDS tracking, Financial Intelligence Unit (FIU-IND) compliance for exchanges, RBI Digital Rupee (CBDC-R).",
-      "exclusions": "Promotional token shilling, unlicensed gambling platforms.",
+      "shortDescription": "Human capital valuation, salary negotiation, professional freelancing, cross-border remote work taxation, and career resilience in India.",
+      "scope": "Human capital economics: Valuation of lifetime earning capacity, salary structure optimization (basic salary, HRA, special allowances, NPS employer contribution under Section 80CCD(2)), variable compensation and bonus clawbacks, professional freelancing under presumptive taxation (Section 44ADA), cross-border remote software contract income, GST export of services without payment of tax under Letter of Undertaking (LUT), professional skill compounding, and career transition risk management.",
+      "exclusions": "Generic resume template design, unverified job-board listings.",
       "coreQuestions": [
-        "What are the exact statutory mechanics of Section 115BBH 30% tax and no-loss set-off provisions on VDAs in India?",
-        "How does 1% TDS under Section 194S apply across Indian vs foreign cryptocurrency exchanges?",
-        "What is the RBI Central Bank Digital Currency (CBDC) architecture and how does it differ from UPI and commercial bank deposits?"
+        "How does corporate salary structuring optimize net take-home pay under both the Old and New Tax Regimes in India?",
+        "What are the legal compliance, GST LUT filing, and Foreign Inward Remittance Certificate (FIRC) requirements for cross-border freelancing?",
+        "How is Section 44ADA presumptive taxation applied to IT consultants, software engineers, and professionals with gross receipts up to ₹75 Lakh?"
       ],
-      "relatedConcepts": ["section-115bbh-vda-tax", "section-194s-crypto-tds", "fiu-ind-crypto-compliance", "rbi-cbdc-digital-rupee"],
-      "relatedCategories": ["taxes-compliance", "banking-payments", "fraud-investor-rights"],
-      "regulatorsAndSources": ["SRC-RBI-MAIN", "SRC-ITD-PORTAL"],
+      "relatedConcepts": ["human-capital-valuation", "salary-structuring-optimization", "section-44ada-presumptive-tax", "gst-lut-export-of-services"],
+      "relatedCategories": ["pf-foundations", "entrepreneurship-business-finance", "indian-taxation"],
+      "regulatorsAndSources": ["SRC-ITD-PORTAL", "SRC-CBIC-MAIN", "SRC-EPFO-MAIN"],
       "plannedArticles": [
-        "crypto-taxation-in-india-section-115bbh-and-194s-guide",
-        "rbi-digital-rupee-cbdc-architecture-and-implications"
+        "salary-structuring-optimization-basic-hra-allowances-and-tax-efficiency",
+        "freelance-and-remote-income-architecture-section-44ada-gst-lut-and-firc",
+        "human-capital-as-an-asset-class-career-risk-and-earning-capacity-valuation"
       ],
-      "researchGaps": ["Tax tribunal decisions regarding classification of DeFi staking rewards and airdrops under direct tax provisions."],
-      "timeSensitivity": "High - active regulatory evolution and FIU enforcement.",
-      "validationStatus": "validated"
+      "researchGaps": ["Empirical income growth trajectories across Indian software engineering specializations over 15-year tenures."],
+      "timeSensitivity": "Low - structural career economics and tax provisions remain consistent between Finance Acts.",
+      "validationStatus": "validated",
+      "aliases": ["income-career-capital", "career", "freelancing", "salary-negotiation", "human-capital"]
     },
     {
-      "id": "fraud-investor-rights",
-      "canonicalName": "Financial Fraud, Investor Rights, and Dispute Resolution",
+      "id": "fintech-automation",
+      "domainCode": "DOMAIN-U",
+      "canonicalName": "Financial Technology and Automation",
       "parentId": null,
-      "shortDescription": "Escalation procedures, RBI Integrated Ombudsman, SEBI SCORES 2.0, cyber fraud helpline (1930), Ponzi schemes, and consumer courts.",
-      "scope": "Banking fraud liability under RBI limited liability circular, 1930 National Cyber Crime Reporting Portal (NCRP), SEBI SCORES 2.0 dispute flow, SMART ODR portal, IRDAI Bima Bharosa, consumer protection act 2019.",
-      "exclusions": "Commercial arbitration between multinational sovereign entities.",
+      "shortDescription": "Account Aggregator (AA) framework, Open Credit Enablement Network (OCEN), financial data APIs, automated portfolio tracking, and algorithm security.",
+      "scope": "Indian FinTech infrastructure: RBI-regulated Account Aggregator (NBFC-AA) ecosystem, consent management architecture, Financial Information Providers (FIP) and Financial Information Users (FIU), Open Credit Enablement Network (OCEN), algorithmic trading API regulations (SEBI Algo Circulars), broker trading APIs (OAuth2, WebSockets, rate limiting), personal finance automated data parsers, Python/TypeScript for financial modeling, and cryptographic key management.",
+      "exclusions": "Unregulated cryptocurrency token launches, automated trading bots claiming guaranteed returns.",
       "coreQuestions": [
-        "What is the statutory procedure to escalate an unresolved banking complaint to the RBI Integrated Ombudsman?",
-        "How does SEBI SCORES 2.0 and the SMART ODR platform handle disputes against brokers and mutual funds?",
-        "What is an individual's zero-liability timeline under the RBI circular for unauthorized electronic banking transactions?"
+        "How does the RBI Account Aggregator framework ensure data confidentiality, end-to-end encryption, and revocable consent?",
+        "What are SEBI's regulatory guidelines regarding algorithmic order execution, broker API authentication, and testing sandboxes?",
+        "How can an individual engineer build secure, local personal finance data pipelines without exposing private banking credentials?"
       ],
-      "relatedConcepts": ["rbi-limited-liability-circular", "sebi-scores-escalation", "smart-odr-arbitration", "cyber-crime-1930-golden-hour"],
-      "relatedCategories": ["banking-payments", "mutual-funds-etfs", "insurance-risk-management"],
-      "regulatorsAndSources": ["SRC-RBI-CMS", "SRC-SEBI-SCORES", "SRC-RBI-MAIN"],
+      "relatedConcepts": ["account-aggregator-nbfc-aa", "ocen-protocol-credit", "sebi-algo-trading-regulations", "financial-api-security"],
+      "relatedCategories": ["banking-deposits", "payments-digital-infrastructure", "derivatives-trading"],
+      "regulatorsAndSources": ["SRC-RBI-MAIN", "SRC-SEBI-MAIN", "SRC-REBIT-MAIN"],
       "plannedArticles": [
-        "rbi-integrated-ombudsman-scheme-escalation-blueprint",
-        "sebi-scores-2-and-smart-odr-investor-dispute-resolution",
-        "unauthorized-bank-transactions-and-cyber-fraud-recovery-playbook"
+        "account-aggregator-ecosystem-architecture-consent-artefacts-and-data-security",
+        "algorithmic-trading-in-india-sebi-regulations-broker-apis-and-execution-risks",
+        "personal-finance-automation-local-data-pipelines-and-privacy-engineering"
       ],
-      "researchGaps": ["Resolution success rates and average turnaround times across banking ombudsman offices."],
-      "timeSensitivity": "Medium - regulatory grievance procedures are refined periodically.",
-      "validationStatus": "validated"
+      "researchGaps": ["Technical latency and consent failure rates across operational Indian Account Aggregators."],
+      "timeSensitivity": "High - rapid technical and regulatory standards updates by RBI, SEBI, and Sahamati.",
+      "validationStatus": "validated",
+      "aliases": ["fintech-algorithmic-finance", "fintech-automation-data-systems", "fintech", "automation", "account-aggregator", "algo-trading"]
     },
     {
-      "id": "family-wealth-estate",
-      "canonicalName": "Family Wealth, Inheritance, and Estate Planning",
+      "id": "economics-monetary-history",
+      "domainCode": "DOMAIN-V",
+      "canonicalName": "Economics, Monetary Policy and Financial History",
       "parentId": null,
-      "shortDescription": "Wills, probate, Hindu Succession Act, Indian Succession Act, private family trusts, nominations vs legal heirs, and transmission of assets.",
-      "scope": "Wills drafting and execution, witness requirements, probate rules (Bombay, Calcutta, Madras jurisdictions), nominee vs legal heir statutory supremacy, private family trusts for asset protection, power of attorney.",
-      "exclusions": "International cross-border royal succession trusts.",
+      "shortDescription": "Reserve Bank of India Monetary Policy Committee (MPC), repo rate transmission, banking liquidity (LAF), currency history, and macroeconomic cycles.",
+      "scope": "Macroeconomic dynamics of the Indian economy: RBI Monetary Policy Committee (MPC) mandates, flexible inflation targeting framework (4% target with +/- 2% tolerance band), Liquidity Adjustment Facility (LAF), repo and reverse repo operations, standing deposit facility (SDF), marginal standing facility (MSF), Cash Reserve Ratio (CRR), Statutory Liquidity Ratio (SLR), balance of payments, current account deficit (CAD), foreign exchange reserve management, historical financial reforms (1991 liberalization, Narasimham Committee reports, 2016 demonetization), and sovereign debt dynamics.",
+      "exclusions": "Academic macroeconomic modeling without practical financial transmission implications.",
       "coreQuestions": [
-        "Why is a nominee merely a custodian and not the absolute legal owner of financial assets in India?",
-        "What is the statutory process and jurisdiction requirement for obtaining probate of a Will?",
-        "How can a private family trust protect generational wealth and bypass probate in India?"
+        "How does the RBI Monetary Policy Committee utilize the Liquidity Adjustment Facility and Repo Corridor to steer domestic money market rates?",
+        "What are the historical lessons and structural banking reforms stemming from the 1991 balance-of-payments crisis and the Narasimham Committee recommendations?",
+        "How do crude oil import prices and global capital flows influence the Indian Rupee exchange rate and domestic inflation dynamics?"
       ],
-      "relatedConcepts": ["nominee-vs-legal-heir", "will-execution-probate", "private-family-trust-india", "hindu-succession-act-coparcenary"],
-      "relatedCategories": ["taxes-compliance", "insurance-risk-management", "pf-foundations"],
-      "regulatorsAndSources": ["SRC-ITD-PORTAL"],
+      "relatedConcepts": ["rbi-mpc-inflation-targeting", "liquidity-adjustment-facility-laf", "twin-balance-sheet-problem", "foreign-exchange-reserve-dynamics"],
+      "relatedCategories": ["banking-deposits", "fixed-income-debt-markets", "portfolio-management-quant"],
+      "regulatorsAndSources": ["SRC-RBI-MAIN", "SRC-DEA-MOF", "SRC-MOSPI-CPI"],
       "plannedArticles": [
-        "nominee-vs-legal-heir-in-india-legal-ownership-realities",
-        "drafting-a-legally-valid-will-and-probate-process-in-india",
-        "private-family-trusts-in-india-asset-protection-and-succession"
+        "rbi-monetary-policy-transmission-repo-corridor-and-banking-system-liquidity",
+        "financial-history-of-independent-india-1991-reforms-banking-crises-and-modernization",
+        "macroeconomic-indicators-cpi-iip-gdp-cad-and-investor-asset-allocation"
       ],
-      "researchGaps": ["State-level stamp duty schedules for registering private family trust deeds across Maharashtra, Karnataka, Delhi, and Haryana."],
-      "timeSensitivity": "Low - succession laws are stable statutory frameworks.",
-      "validationStatus": "validated"
+      "researchGaps": ["Long-run monetary policy pass-through speed to bank lending rates across different policy regimes."],
+      "timeSensitivity": "Medium - bi-monthly MPC meetings and quarterly macroeconomic data releases.",
+      "validationStatus": "validated",
+      "aliases": ["macro-monetary-policy", "economics-monetary-policy-history", "macroeconomics", "monetary-policy", "financial-history"]
     },
     {
-      "id": "fintech-calculators",
-      "canonicalName": "Financial Data, Calculators, and Personal-Finance Technology",
+      "id": "estate-planning-succession",
+      "domainCode": "DOMAIN-W",
+      "canonicalName": "Estate Planning, Succession and Wealth Preservation",
       "parentId": null,
-      "shortDescription": "Transparent, auditable financial calculators: SIP, SWP, EMI, compound interest, Old vs New tax regime, FIRE corpus, and inflation adjustment.",
-      "scope": "Mathematical formulation and transparent code for financial decision tools, amortization schedules, Monte Carlo simulation concepts, open financial data APIs.",
-      "exclusions": "Closed proprietary black-box predictive AI price estimators.",
+      "shortDescription": "Wills, probate, Hindu Succession Act, Indian Succession Act, private family trusts, nomination vs legal heirship jurisprudence, and estate asset transmission.",
+      "scope": "Estate transmission and legacy planning under Indian laws: Legal execution of Wills (testamentary succession under Indian Succession Act 1925), intestate succession rules (Hindu Succession Act 1956 as amended 2005, personal succession laws), probate requirements (mandatory in Mumbai, Kolkata, Chennai for real estate), nomination versus legal heir rights (Supreme Court jurisprudence confirming nominees are trustees, not absolute owners, except specific company share provisions), private family trusts (Indian Trusts Act 1882, revocable versus irrevocable trusts, tax status), gift deeds, and powers of attorney.",
+      "exclusions": "Inheritance litigation advocacy, criminal estate disputes.",
       "coreQuestions": [
-        "What are the precise closed-form mathematical equations governing loan amortization and SIP compound return calculations?",
-        "How do you implement a deterministic, client-side Old vs New Tax Regime comparative calculator?",
-        "How do you accurately model inflation-adjusted safe retirement withdrawal amounts over 30+ year horizons?"
+        "What is the definitive legal distinction between an account nominee and a statutory legal heir according to Supreme Court of India rulings?",
+        "Under what statutory conditions is probate of a Will mandatory in India, and how does the probate procedure operate in competent High Courts?",
+        "How do irrevocable discretionary family trusts protect family wealth from business liabilities, matrimonial disputes, and potential future estate duties?"
       ],
-      "relatedConcepts": ["loan-amortization-math", "sip-future-value-formula", "tax-regime-comparator-algorithm", "swp-annuity-depletion"],
-      "relatedCategories": ["pf-foundations", "retirement-fire", "taxes-compliance"],
-      "regulatorsAndSources": ["SRC-RBI-MAIN", "SRC-ITD-PORTAL"],
+      "relatedConcepts": ["nominee-vs-legal-heir-jurisprudence", "testamentary-will-probate-rules", "hindu-succession-coparcenary", "private-family-trust-structuring"],
+      "relatedCategories": ["banking-deposits", "real-estate-property-land", "insurance-risk-protection", "indian-taxation"],
+      "regulatorsAndSources": ["SRC-INDIA-CODE", "SRC-SC-JUDGMENTS", "SRC-ITD-PORTAL"],
       "plannedArticles": [
-        "mathematical-formulas-behind-every-personal-finance-calculator",
-        "loan-prepayment-amortization-mathematics-and-algorithms"
+        "nomination-vs-legal-heirship-supreme-court-jurisprudence-and-asset-transmission",
+        "will-drafting-probate-architecture-and-intestate-succession-laws-in-india",
+        "private-family-trusts-in-india-asset-protection-succession-and-taxation"
       ],
-      "researchGaps": ["Standardizing unified test vectors across public financial calculators for edge cases (leap years, daily compounding conventions)."],
-      "timeSensitivity": "Low - mathematical formulas are invariant.",
-      "validationStatus": "validated"
+      "researchGaps": ["Comparative probate timeline and judicial stamp duty expenses across Indian metropolitan jurisdictions."],
+      "timeSensitivity": "Low - succession statutes and judicial principles change slowly through landmark court judgments.",
+      "validationStatus": "validated",
+      "aliases": ["estate-planning", "succession", "wills", "inheritance", "trusts"]
     },
     {
-      "id": "playbooks-guides",
-      "canonicalName": "Practical Financial Playbooks and Goal-Based Guides",
+      "id": "consumer-protection-grievance",
+      "domainCode": "DOMAIN-X",
+      "canonicalName": "Consumer Protection and Financial Dispute Resolution",
       "parentId": null,
-      "shortDescription": "Step-by-step actionable financial playbooks for specific life milestones: first job, buying a home, marriage, parenthood, and sudden windfalls.",
-      "scope": "Comprehensive sequencing of financial actions, multi-step checklist guides, decision trees, coordination of banking, tax, investment, and insurance steps.",
-      "exclusions": "Generic lifestyle advice without financial implementation steps.",
+      "shortDescription": "RBI Integrated Ombudsman Scheme, SEBI SCORES 2.0, SMART ODR, IRDAI Bima Bharosa, consumer commissions under CPA 2019, and statutory rights.",
+      "scope": "Statutory financial dispute resolution and consumer rights in India: Reserve Bank - Integrated Ombudsman Scheme 2021 (RB-IOS, covering banks, NBFCs, and non-bank payment system participants), SEBI Complaints Redress System (SCORES 2.0) and Securities Market Approach for Resolution Through ODR Portal (SMART ODR), Insurance Ombudsman (IRDAI Bima Bharosa), PFRDA grievance redressal, Consumer Protection Act 2019 (District, State, and National Consumer Disputes Redressal Commissions), and digital financial consumer rights.",
+      "exclusions": "High-value commercial arbitration between institutional corporations.",
       "coreQuestions": [
-        "What is the step-by-step financial checklist for an Indian professional starting their first salaried job?",
-        "How should an Indian household financially prepare for welcoming a child (medical costs, insurance expansion, education corpus)?",
-        "What is the exact financial protocol for handling a sudden windfall (ESOP liquidation, inheritance, real estate sale) without destruction of wealth?"
+        "What are the precise escalation stages, timelines, and compensation limits under the Reserve Bank - Integrated Ombudsman Scheme 2021?",
+        "How does SEBI SMART ODR facilitate conciliation and binding online arbitration between retail investors, brokers, and listed companies?",
+        "What are the procedural steps to file a financial deficiency claim before District and State Consumer Commissions under the Consumer Protection Act 2019?"
       ],
-      "relatedConcepts": ["first-job-financial-checklist", "sudden-windfall-protocol", "child-education-corpus-planning", "home-buying-financial-readiness"],
-      "relatedCategories": ["pf-foundations", "banking-payments", "emergency-protection", "taxes-compliance"],
+      "relatedConcepts": ["rbi-integrated-ombudsman", "sebi-scores-two-smart-odr", "consumer-protection-act-deficiency", "insurance-ombudsman-adjudication"],
+      "relatedCategories": ["banking-deposits", "insurance-risk-protection", "financial-fraud-scams-shadow-economy"],
+      "regulatorsAndSources": ["SRC-RBI-CMS", "SRC-SEBI-SCORES", "SRC-INS-OMBUDSMAN", "SRC-NCDRC-GOV"],
+      "plannedArticles": [
+        "rbi-integrated-ombudsman-scheme-complete-escalation-and-compensation-guide",
+        "sebi-scores-and-smart-odr-resolving-securities-and-broker-disputes",
+        "consumer-protection-act-2019-filing-financial-service-deficiency-claims"
+      ],
+      "researchGaps": ["Average empirical case resolution turnaround times under SMART ODR arbitration."],
+      "timeSensitivity": "Medium - regulatory complaint portals and escalation paths receive periodic technical and policy updates.",
+      "validationStatus": "validated",
+      "aliases": ["dispute-resolution-consumer-rights", "consumer-protection-grievance-redressal", "consumer-rights", "ombudsman", "disputes", "grievances"]
+    },
+    {
+      "id": "international-cross-border-finance",
+      "domainCode": "DOMAIN-Y",
+      "canonicalName": "International and Cross-Border Finance",
+      "parentId": null,
+      "shortDescription": "Liberalised Remittance Scheme (LRS), FEMA regulations, overseas investing, Double Tax Avoidance Agreements (DTAA), foreign assets, and NRI banking.",
+      "scope": "Cross-border financial transactions for Indian residents and Non-Resident Indians (NRIs): Foreign Exchange Management Act 1999 (FEMA), Liberalised Remittance Scheme (LRS, $250,000 annual limit per individual), Tax Collected at Source (TCS) on LRS remittances under Section 206C(1G), overseas direct investment (ODI) and portfolio investment rules, US estate tax exposure for Indian investors holding US securities, Double Tax Avoidance Agreements (DTAA under Section 90), Foreign Tax Credit (FTC) via Form 67, Schedule FA (Foreign Assets) reporting in Income Tax Return with Black Money Act penalties for non-disclosure, NRI bank accounts (NRE, NRO, FCNR), and International Financial Services Centres (IFSC GIFT City under IFSCA).",
+      "exclusions": "Commercial foreign direct investment (FDI) approvals for multinational conglomerate acquisitions.",
+      "coreQuestions": [
+        "How do the $250,000 annual LRS ceiling and 20 percent TCS deduction operate when an Indian resident invests in overseas equity markets?",
+        "What are the severe statutory penalties under the Black Money Act 2015 for failing to accurately disclose foreign assets in Schedule FA of the ITR?",
+        "What are the structural banking, repatriability, and tax differences between NRE, NRO, and FCNR bank deposit accounts for Non-Resident Indians?"
+      ],
+      "relatedConcepts": ["lrs-tcs-section-206c", "schedule-fa-foreign-asset-disclosure", "dtaa-foreign-tax-credit-form-67", "nre-nro-fcnr-account-rules"],
+      "relatedCategories": ["banking-deposits", "mutual-funds-pooled", "indian-taxation", "financial-fraud-scams-shadow-economy"],
+      "regulatorsAndSources": ["SRC-RBI-MAIN", "SRC-ITD-PORTAL", "SRC-IFSCA-MAIN"],
+      "plannedArticles": [
+        "lrs-and-overseas-investing-fema-regulations-tcs-deduction-and-remittance-mechanics",
+        "schedule-fa-foreign-asset-reporting-and-black-money-act-compliance",
+        "nri-banking-and-taxation-nre-nro-fcnr-accounts-and-dtaa-repatriation"
+      ],
+      "researchGaps": ["Operational reconciliation timelines between authorized dealer bank TCS collections and Form 26AS/AIS credit postings."],
+      "timeSensitivity": "High - frequent RBI circulars on LRS, Ministry of Finance notifications on TCS rates, and tax reporting requirements.",
+      "validationStatus": "validated",
+      "aliases": ["international-investing", "cross-border-finance", "lrs", "nri-banking", "fema", "gift-city"]
+    },
+    {
+      "id": "financial-education-decision-tools",
+      "domainCode": "DOMAIN-Z",
+      "canonicalName": "Financial Education, Decision Frameworks and Reference Tools",
+      "parentId": null,
+      "shortDescription": "Financial ratios, decision trees, comparison matrices, mathematical formulas in plain text, checklists, and empirical reference tools.",
+      "scope": "Synthesized reference knowledge, decision architectures, and tool inventories: Mathematical financial formulas transcribed into spoken paragraph and plain-text formats for audio accessibility, comparative decision trees (Buy vs Rent in Indian real estate, Old vs New Tax Regime, Active vs Passive funds), comprehensive financial checklists (annual tax filing, insurance due diligence, loan prepayment audit), master glossaries of Indian financial acronyms and statutory legal terms, and calculator inventories.",
+      "exclusions": "Unverified generic motivational slogans without analytical decision value.",
+      "coreQuestions": [
+        "How can complex multi-step financial mathematics be structured into natural spoken prose for seamless audio comprehension and accessibility?",
+        "What comprehensive decision tree methodology should an Indian household follow when evaluating the financial decision to buy versus rent residential housing?",
+        "What are the primary statutory due-diligence checklist verifications required before deploying capital into any retail investment product in India?"
+      ],
+      "relatedConcepts": ["spoken-audio-math-prose", "buy-vs-rent-indian-decision-tree", "financial-statutory-checklist", "master-financial-acronym-index"],
+      "relatedCategories": ["pf-foundations", "real-estate-property-land", "indian-taxation"],
       "regulatorsAndSources": ["SRC-RBI-MAIN", "SRC-SEBI-MAIN", "SRC-ITD-PORTAL"],
       "plannedArticles": [
-        "first-job-personal-finance-playbook-for-indian-graduates",
-        "handling-a-financial-windfall-esop-inheritance-protocol",
-        "complete-financial-guide-to-buying-your-first-home-in-india"
+        "buy-vs-rent-in-india-complete-financial-mathematical-and-opportunity-cost-model",
+        "audio-native-financial-mathematics-transcribing-formulas-for-listening-comprehension",
+        "master-indian-financial-decision-trees-tax-regimes-debt-payoff-and-allocation"
       ],
-      "researchGaps": ["Long-term higher education inflation indices for domestic Indian colleges vs foreign university tuition."],
-      "timeSensitivity": "Medium - practical costs and regulatory limits change periodically.",
-      "validationStatus": "validated"
+      "researchGaps": ["Standardized phonetic and spoken phrasing standards for complex Indian legislative sections and mathematical equations."],
+      "timeSensitivity": "Low - structural educational methodologies and reference frameworks remain durable across market cycles.",
+      "validationStatus": "validated",
+      "aliases": ["decision-tools", "financial-education", "reference-tools", "glossaries", "checklists"]
     }
   ]
 }

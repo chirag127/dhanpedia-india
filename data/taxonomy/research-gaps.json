@@ -1,11 +1,11 @@
 {
   "$schema": "./research-gaps.schema.json",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "lastUpdated": "2026-10-17",
   "gaps": [
     {
       "gapId": "GAP-TAX-87A-SPL",
-      "categoryId": "taxes-compliance",
+      "categoryId": "indian-taxation",
       "title": "Section 87A rebate applicability on Special Rate Income under Section 115BAC",
       "description": "Income Tax Department utility updates for AY 2024-25 restricted Section 87A rebate against short-term capital gains (Section 111A) and long-term capital gains (Section 112A) under the New Tax Regime, despite statutory wording ambiguities in the Income-tax Act. Need authoritative ITAT rulings and CBDT clarification circulars.",
       "severity": "High",
@@ -14,7 +14,7 @@
     },
     {
       "gapId": "GAP-SMREIT-TRACK",
-      "categoryId": "real-estate-property",
+      "categoryId": "real-estate-property-land",
       "title": "Small & Medium REIT (SM REIT) initial listing mechanics and secondary market liquidity",
       "description": "SEBI introduced the SM REIT regulatory framework in March 2024 to regulate fractional ownership of commercial properties with asset sizes between ₹50 Cr and ₹500 Cr. Live listing track records, liquidity, and distribution yield data are currently minimal.",
       "severity": "Medium",
@@ -23,7 +23,7 @@
     },
     {
       "gapId": "GAP-LRS-TCS-RECON",
-      "categoryId": "international-investing",
+      "categoryId": "international-cross-border-finance",
       "title": "Operational reconciliation of 20% TCS on LRS outward remittances with advance tax filings",
       "description": "Under revised LRS rules, 20% TCS is levied on overseas investments exceeding ₹7 Lakh per financial year. While this TCS is adjustable against domestic tax liability, real-world cashflow drag and automated bank deduction errors remain widespread.",
       "severity": "Medium",
@@ -41,12 +41,21 @@
     },
     {
       "gapId": "GAP-SGB-FUTURE",
-      "categoryId": "gold-commodities",
+      "categoryId": "gold-silver-commodities",
       "title": "Sovereign Gold Bond (SGB) future issuance policy after Budget 2024 customs duty reduction",
       "description": "Following the reduction of gold import duty from 15% to 6% in Union Budget 2024, the Ministry of Finance and RBI have paused fresh SGB tranche issuances. The government's long-term policy on future tranches and fiscal cost needs primary confirmation.",
       "severity": "Medium",
       "status": "monitoring",
       "actionPlan": "Track RBI issuance calendars and Ministry of Finance borrowing announcements for FY 2025-26."
+    },
+    {
+      "gapId": "GAP-REAL-ESTATE-CASH",
+      "categoryId": "financial-fraud-scams-shadow-economy",
+      "title": "Judicial precedents on Section 271D penalties where cash property payments were forced by seller demands",
+      "description": "Under Section 269SS, accepting or paying ₹20,000 or more in cash for real estate transfers triggers a 100% penalty under Section 271D. Investigation required on High Court rulings regarding 'reasonable cause' defenses under Section 273B when buyers are coerced into cash components in Tier 2/3 land markets.",
+      "severity": "High",
+      "status": "investigating",
+      "actionPlan": "Analyze Supreme Court and High Court tax appeal jurisprudence on Section 273B reasonable cause in Section 269SS/ST violations."
     }
   ]
 }

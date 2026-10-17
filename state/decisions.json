@@ -1,6 +1,6 @@
 {
   "$schema": "./decisions.schema.json",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "lastUpdated": "2026-10-17",
   "decisions": [
     {
@@ -51,11 +51,47 @@
     {
       "id": "DEC-006",
       "date": "2026-10-17",
-      "title": "Strict Three-Tier Statutory Evidence Hierarchy",
+      "title": "Strict Statutory Evidence Hierarchy",
       "status": "accepted",
       "context": "Prevent hallucinated financial facts, unverified tax thresholds, and speculative marketing claims from corrupting the encyclopedia.",
-      "decision": "Require all legal, tax, and product mechanisms to cite Tier 1 statutory authorities (RBI, SEBI, CBDT, PFRDA, IRDAI, EPFO). Permit Tier 3 secondary sources solely for discovery.",
+      "decision": "Require all legal, tax, and product mechanisms to cite Tier 1 statutory authorities (RBI, SEBI, CBDT, PFRDA, IRDAI, EPFO, DICGC). Permit Tier 3 secondary sources solely for discovery.",
       "consequences": "Unimpeachable educational credibility, explicit tracking of research gaps where statutory ambiguity exists."
+    },
+    {
+      "id": "DEC-007",
+      "date": "2026-10-17",
+      "title": "Expansion to 26 Canonical Domains (A through Z)",
+      "status": "accepted",
+      "context": "Prompt 002 required mapping the entire Indian financial system into a comprehensive 26-domain taxonomy covering personal finance, banking, payments, credit, taxation, real estate, commodities, derivatives, quant, forensics, and reference tools.",
+      "decision": "Codify 26 canonical domains in `data/taxonomy/taxonomy.json` and `data/taxonomy/financial-system.json`, maintaining backward-compatible aliases for legacy Prompt 001 categories.",
+      "consequences": "Standardized information architecture, comprehensive coverage of Indian financial infrastructure, zero broken URLs."
+    },
+    {
+      "id": "DEC-008",
+      "date": "2026-10-17",
+      "title": "Audio-Native Continuous Prose and Spoken Mathematical Formulations",
+      "status": "accepted",
+      "context": "Complex equations and multi-column visual tables create severe comprehension barriers when rendered through screen readers or converted into text-to-speech audiobooks.",
+      "decision": "Mandate that all substantive treatises structure calculations, statutory provisions, and compounding formulas into natural, flowing spoken English paragraphs without isolated LaTeX or ASCII formula barriers.",
+      "consequences": "Effortless listening comprehension for audiobooks, universal accessibility, enhanced clarity of financial thought."
+    },
+    {
+      "id": "DEC-009",
+      "date": "2026-10-17",
+      "title": "Substantive Treatises Scale Mandate Exceeding 10,000 Words",
+      "status": "accepted",
+      "context": "Superficial 1,000-word blog summaries fail to equip investors with deep operational understanding of complex legal, tax, and market mechanisms.",
+      "decision": "Establish a policy that every foundational pillar article must be an exhaustive, technically rigorous treatise exceeding 10,000 words, validated by automated tests.",
+      "consequences": "Definitive reference authority in Indian financial publishing, high educational value, deep long-term defensibility."
+    },
+    {
+      "id": "DEC-010",
+      "date": "2026-10-17",
+      "title": "Explicit Real-World Shadow Economy and Forensic Finance Integration",
+      "status": "accepted",
+      "context": "Citizens encounter informal black money demands, real estate cash components ('on-money'), predatory unapproved loan apps, and dabba trading in everyday reality.",
+      "decision": "Explicitly incorporate shadow economy mechanisms into Domain R, documenting circle rate gaps, Section 269SS/ST limits, Section 271D/DA 100% penalties, Benami Property Transactions Act confiscation, and SCRA dabba trading criminal sanctions.",
+      "consequences": "Complete real-world relevance, practical citizen empowerment, rigorous legal and forensic honesty without moralizing."
     }
   ]
 }

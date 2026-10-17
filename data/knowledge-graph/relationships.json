@@ -1,0 +1,224 @@
+{
+  "$schema": "./relationships.schema.json",
+  "version": "1.0.0",
+  "lastUpdated": "2026-10-17",
+  "totalRelationships": 24,
+  "relationships": [
+    {
+      "relationId": "REL-001",
+      "sourceId": "banking-deposits",
+      "sourceType": "domain",
+      "predicate": "regulated_by",
+      "targetId": "SRC-RBI-MAIN",
+      "targetType": "regulator",
+      "evidence": "Banking Regulation Act 1949 and Reserve Bank of India Act 1934 empower RBI as primary banking regulator."
+    },
+    {
+      "relationId": "REL-002",
+      "sourceId": "dicgc-deposit-insurance",
+      "sourceType": "concept",
+      "predicate": "governed_by",
+      "targetId": "SRC-DICGC-MAIN",
+      "targetType": "regulator",
+      "evidence": "Deposit Insurance and Credit Guarantee Corporation Act 1961 establishes statutory guarantee framework."
+    },
+    {
+      "relationId": "REL-003",
+      "sourceId": "dicgc-deposit-insurance",
+      "sourceType": "concept",
+      "predicate": "supported_by",
+      "targetId": "CLM-DICGC-LIMIT",
+      "targetType": "claim",
+      "evidence": "Section 16(1) of DICGC Act guarantees up to ₹5,00,000 per depositor per bank in the same right and capacity."
+    },
+    {
+      "relationId": "REL-004",
+      "sourceId": "dicgc-deposit-insurance-architecture-limits-and-ownership-structures",
+      "sourceType": "article",
+      "predicate": "explained_by",
+      "targetId": "dicgc-deposit-insurance",
+      "targetType": "concept",
+      "evidence": "Article ART-BANK-001 provides canonical 11,000-word treatise on DICGC statutory architecture."
+    },
+    {
+      "relationId": "REL-005",
+      "sourceId": "mutual-funds-pooled",
+      "sourceType": "domain",
+      "predicate": "regulated_by",
+      "targetId": "SRC-SEBI-MAIN",
+      "targetType": "regulator",
+      "evidence": "SEBI (Mutual Funds) Regulations 1996 govern all asset management companies and mutual fund schemes."
+    },
+    {
+      "relationId": "REL-006",
+      "sourceId": "total-expense-ratio-ter",
+      "sourceType": "concept",
+      "predicate": "has_calculator",
+      "targetId": "CALC-MF-003",
+      "targetType": "calculator",
+      "evidence": "Calculator CALC-MF-003 models wealth erosion between direct and regular mutual fund expense ratios."
+    },
+    {
+      "relationId": "REL-007",
+      "sourceId": "equity-markets-listed-securities",
+      "sourceType": "domain",
+      "predicate": "taxed_under",
+      "targetId": "indian-taxation",
+      "targetType": "domain",
+      "evidence": "Listed equity shares are taxed under Sections 111A (STCG) and 112A (LTCG) of the Income-tax Act 1961."
+    },
+    {
+      "relationId": "REL-008",
+      "sourceId": "indian-taxation",
+      "sourceType": "domain",
+      "predicate": "regulated_by",
+      "targetId": "SRC-CBDT-MAIN",
+      "targetType": "regulator",
+      "evidence": "Central Board of Direct Taxes administers the Income-tax Act 1961."
+    },
+    {
+      "relationId": "REL-009",
+      "sourceId": "section-115bac-new-regime",
+      "sourceType": "concept",
+      "predicate": "has_calculator",
+      "targetId": "CALC-TAX-001",
+      "targetType": "calculator",
+      "evidence": "Calculator CALC-TAX-001 calculates exact comparative liabilities between New and Old tax regimes."
+    },
+    {
+      "relationId": "REL-010",
+      "sourceId": "section-269ss-269st-cash-penalties",
+      "sourceType": "concept",
+      "predicate": "supported_by",
+      "targetId": "CLM-ITD-269SS",
+      "targetType": "claim",
+      "evidence": "Section 269SS limits cash property transactions to ₹20,000 under threat of 100% penalty under Section 271D."
+    },
+    {
+      "relationId": "REL-011",
+      "sourceId": "financial-fraud-scams-shadow-economy",
+      "sourceType": "domain",
+      "predicate": "prohibits",
+      "targetId": "dabba-trading-scra-prohibition",
+      "targetType": "concept",
+      "evidence": "SCRA Sections 13 and 16 criminalize all off-exchange bucketing and unregistered derivative trades."
+    },
+    {
+      "relationId": "REL-012",
+      "sourceId": "dabba-trading-scra-prohibition",
+      "sourceType": "concept",
+      "predicate": "supported_by",
+      "targetId": "CLM-SCRA-DABBA",
+      "targetType": "claim",
+      "evidence": "SCRA Section 23 prescribes up to 10 years imprisonment and ₹25 Crore fine for dabba trading offenses."
+    },
+    {
+      "relationId": "REL-013",
+      "sourceId": "benami-property-confiscation-act",
+      "sourceType": "concept",
+      "predicate": "supported_by",
+      "targetId": "CLM-BENAMI-ACT",
+      "targetType": "claim",
+      "evidence": "PBPT Act 1988 as amended 2016 authorizes absolute confiscation without compensation for benami properties."
+    },
+    {
+      "relationId": "REL-014",
+      "sourceId": "real-estate-property-land",
+      "sourceType": "domain",
+      "predicate": "exposes_to",
+      "targetId": "section-50c-circle-rate-safe-harbor",
+      "targetType": "concept",
+      "evidence": "Transactions below circle rates trigger dual tax additions under Sections 50C and 56(2)(x)."
+    },
+    {
+      "relationId": "REL-015",
+      "sourceId": "section-50c-circle-rate-safe-harbor",
+      "sourceType": "concept",
+      "predicate": "supported_by",
+      "targetId": "CLM-ITD-SEC50C",
+      "targetType": "claim",
+      "evidence": "Section 50C provides a 10% safe harbor between stamp duty value and actual consideration."
+    },
+    {
+      "relationId": "REL-016",
+      "sourceId": "credit-borrowing",
+      "sourceType": "domain",
+      "predicate": "has_calculator",
+      "targetId": "CALC-PF-006",
+      "targetType": "calculator",
+      "evidence": "Calculator CALC-PF-006 provides loan amortization and EMI calculation."
+    },
+    {
+      "relationId": "REL-017",
+      "sourceId": "eblr-home-loan-transmission",
+      "sourceType": "concept",
+      "predicate": "governed_by",
+      "targetId": "SRC-RBI-MAIN",
+      "targetType": "regulator",
+      "evidence": "RBI Circular on External Benchmark Based Lending mandated repo-linked floating rate retail loans."
+    },
+    {
+      "relationId": "REL-018",
+      "sourceId": "insurance-risk-protection",
+      "sourceType": "domain",
+      "predicate": "regulated_by",
+      "targetId": "SRC-IRDAI-MAIN",
+      "targetType": "regulator",
+      "evidence": "IRDAI regulates all life and general insurance contracts under the Insurance Act 1938."
+    },
+    {
+      "relationId": "REL-019",
+      "sourceId": "section-45-incontestability",
+      "sourceType": "concept",
+      "predicate": "supported_by",
+      "targetId": "CLM-INS-SEC45",
+      "targetType": "claim",
+      "evidence": "Section 45 of Insurance Act 1938 bars repudiation of life insurance policies after three years."
+    },
+    {
+      "relationId": "REL-020",
+      "sourceId": "retirement-pensions",
+      "sourceType": "domain",
+      "predicate": "regulated_by",
+      "targetId": "SRC-PFRDA-MAIN",
+      "targetType": "regulator",
+      "evidence": "PFRDA regulates the National Pension System under PFRDA Act 2013."
+    },
+    {
+      "relationId": "REL-021",
+      "sourceId": "sovereign-gold-bonds-sgb",
+      "sourceType": "concept",
+      "predicate": "governed_by",
+      "targetId": "SRC-RBI-MAIN",
+      "targetType": "regulator",
+      "evidence": "Sovereign Gold Bonds are issued by the RBI on behalf of the Government of India."
+    },
+    {
+      "relationId": "REL-022",
+      "sourceId": "nominee-vs-legal-heir-jurisprudence",
+      "sourceType": "concept",
+      "predicate": "governed_by",
+      "targetId": "SRC-SC-JUDGMENTS",
+      "targetType": "regulator",
+      "evidence": "Supreme Court rulings establish that nominees hold assets as fiduciary trustees for legal heirs."
+    },
+    {
+      "relationId": "REL-023",
+      "sourceId": "p2p-lending-private-credit",
+      "sourceType": "domain",
+      "predicate": "supported_by",
+      "targetId": "CLM-RBI-P2P-AUG2024",
+      "targetType": "claim",
+      "evidence": "RBI August 2024 Master Direction prohibits assured returns and instant-liquidity sweep products in P2P."
+    },
+    {
+      "relationId": "REL-024",
+      "sourceId": "consumer-protection-grievance",
+      "sourceType": "domain",
+      "predicate": "governed_by",
+      "targetId": "SRC-RBI-CMS",
+      "targetType": "regulator",
+      "evidence": "Reserve Bank - Integrated Ombudsman Scheme 2021 unifies dispute redressal across banking and payment rails."
+    }
+  ]
+}

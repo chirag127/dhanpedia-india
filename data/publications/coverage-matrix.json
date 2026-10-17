@@ -1,0 +1,327 @@
+{
+  "$schema": "./coverage-matrix.schema.json",
+  "version": "1.0.0",
+  "lastUpdated": "2026-10-17",
+  "totalPlannedPublications": 30,
+  "substantiveWordTargetPerTreatise": "10000+",
+  "audioNativeProseMandate": "All formulas, calculations, and regulatory sections must be transcribed into flowing, spoken English paragraph prose suitable for text-to-speech audiobooks.",
+  "publications": [
+    {
+      "articleId": "ART-BANK-001",
+      "workingTitle": "DICGC Deposit Insurance: Architecture, Coverage Limits, and Capacity Structures in Indian Banking",
+      "slug": "dicgc-deposit-insurance-architecture-limits-and-ownership-structures",
+      "primaryDomainId": "banking-deposits",
+      "secondaryDomainIds": ["pf-foundations", "consumer-protection-grievance"],
+      "articleType": "pillar_guide",
+      "intendedAudience": "Indian bank depositors, high-net-worth savers, corporate treasury managers, legal professionals",
+      "estimatedWordCount": "10000-12000",
+      "actualWordCount": 11021,
+      "priority": "P0",
+      "researchStatus": "research_complete",
+      "publicationStatus": "published",
+      "coreQuestionsAnswered": [
+        "How does the DICGC Act 1961 structure the five-lakh-rupee statutory insurance ceiling?",
+        "How do different account capacities (individual, joint, partner, guardian) create separate insurance limits within the same bank?",
+        "What are the statutory mechanics of Section 18A providing 90-day interim payouts during bank directions?"
+      ],
+      "requiredSources": ["SRC-DICGC-MAIN", "SRC-RBI-MAIN", "SRC-ITD-PORTAL", "SRC-RBI-CMS"],
+      "duplicateRisk": "None - canonical foundation for Indian deposit safety."
+    },
+    {
+      "articleId": "ART-FRAUD-001",
+      "workingTitle": "Black Money in Indian Real Estate: Circle Rates, Cash Penalties under Section 269SS/ST, and Benami Property Laws",
+      "slug": "black-money-in-indian-real-estate-circle-rates-cash-penalties-under-section-269ss-and-benami-laws",
+      "primaryDomainId": "financial-fraud-scams-shadow-economy",
+      "secondaryDomainIds": ["real-estate-property-land", "indian-taxation"],
+      "articleType": "fraud_or_risk_guide",
+      "intendedAudience": "Property buyers, real estate investors, chartered accountants, legal counsel, investigative journalists",
+      "estimatedWordCount": "10000-14000",
+      "actualWordCount": null,
+      "priority": "P0",
+      "researchStatus": "sources_verified",
+      "publicationStatus": "planned",
+      "coreQuestionsAnswered": [
+        "How do the black money generation mechanisms ('on-money' vs 'white') operate in Indian real estate transactions?",
+        "What are the severe 100% monetary penalties under Sections 271D and 271DA for violating Sections 269SS and 269ST cash limits?",
+        "How does the Prohibition of Benami Property Transactions Act empower authorities to confiscate property without compensation and prosecute offenders?",
+        "What are the investigative techniques employed by the Income Tax Investigation Wing and Enforcement Directorate to trace unexplained property wealth?"
+      ],
+      "requiredSources": ["SRC-CBDT-MAIN", "SRC-ITD-PORTAL", "SRC-ED-GOV", "SRC-INDIA-CODE"],
+      "duplicateRisk": "Low - dedicated forensic treatise on real estate shadow economy."
+    },
+    {
+      "articleId": "ART-DERIV-001",
+      "workingTitle": "Dabba Trading and Shadow Bucket Shops: SCRA Prohibitions, Cash Clearing, and Illegal Derivatives Networks",
+      "slug": "dabba-trading-bucket-shops-scra-prohibitions-and-shadow-market-risks",
+      "primaryDomainId": "derivatives-trading",
+      "secondaryDomainIds": ["financial-fraud-scams-shadow-economy", "equity-markets-listed-securities"],
+      "articleType": "fraud_or_risk_guide",
+      "intendedAudience": "Secivatives traders, financial compliance officers, forensic auditors, market participants",
+      "estimatedWordCount": "10000-13000",
+      "actualWordCount": null,
+      "priority": "P0",
+      "researchStatus": "sources_verified",
+      "publicationStatus": "planned",
+      "coreQuestionsAnswered": [
+        "What is dabba trading and how do illicit off-exchange bucketing operations execute outside recognized exchanges?",
+        "What are the criminal prosecution and imprisonment provisions under Sections 13, 16, and 23 of the SCRA 1956?",
+        "Why do investors lose complete capital in dabba networks without any statutory clearing or investor protection fund recourse?",
+        "How do law enforcement agencies and SEBI coordinate raids on dabba operators using digital forensic evidence?"
+      ],
+      "requiredSources": ["SRC-SEBI-MAIN", "SRC-NSE-MAIN", "SRC-INDIA-CODE"],
+      "duplicateRisk": "Low - definitive reference on illegal off-exchange bucketing in India."
+    },
+    {
+      "articleId": "ART-TAX-001",
+      "workingTitle": "New versus Old Tax Regime: Complete Mathematical Crossover Framework under Section 115BAC",
+      "slug": "new-vs-old-tax-regime-complete-mathematical-crossover-framework",
+      "primaryDomainId": "indian-taxation",
+      "secondaryDomainIds": ["pf-foundations", "career-income-capital"],
+      "articleType": "decision_framework",
+      "intendedAudience": "Salaried employees, software engineers, tax planners, consultants, self-employed professionals",
+      "estimatedWordCount": "10000-12000",
+      "actualWordCount": null,
+      "priority": "P0",
+      "researchStatus": "sources_verified",
+      "publicationStatus": "planned",
+      "coreQuestionsAnswered": [
+        "What are the exact deduction and exemption breakeven thresholds where the New Tax Regime surpasses the Old Regime?",
+        "How do standard deduction, Section 87A rebate, and corporate NPS contributions under Section 80CCD(2) alter take-home pay?",
+        "What are the switching rules between regimes for individuals with and without business income under Section 115BAC(6)?"
+      ],
+      "requiredSources": ["SRC-CBDT-MAIN", "SRC-ITD-PORTAL"],
+      "duplicateRisk": "Low - authoritative mathematical decision engine."
+    },
+    {
+      "articleId": "ART-TAX-002",
+      "workingTitle": "Capital Gains Taxation Architecture in India: Complete Analysis Post-Finance Act 2024",
+      "slug": "capital-gains-taxation-architecture-post-finance-act-2024",
+      "primaryDomainId": "indian-taxation",
+      "secondaryDomainIds": ["equity-markets-listed-securities", "mutual-funds-pooled", "real-estate-property-land"],
+      "articleType": "legal_or_regulatory_reference",
+      "intendedAudience": "Equity investors, mutual fund unitholders, property owners, family offices, portfolio managers",
+      "estimatedWordCount": "10000-13000",
+      "actualWordCount": null,
+      "priority": "P0",
+      "researchStatus": "sources_verified",
+      "publicationStatus": "planned",
+      "coreQuestionsAnswered": [
+        "How did Finance (No. 2) Act 2024 restructure short-term and long-term capital gains across listed equities, unlisted shares, and debt?",
+        "What are the grandfathering and indexation choice provisions for real estate acquired prior to July 23, 2024?",
+        "How do loss set-off, eight-year carry-forward, and Section 54/54F capital gains exemptions operate under the revised statute?"
+      ],
+      "requiredSources": ["SRC-CBDT-MAIN", "SRC-ITD-PORTAL"],
+      "duplicateRisk": "Low - comprehensive master guide to Indian capital gains law."
+    },
+    {
+      "articleId": "ART-REAL-001",
+      "workingTitle": "Property Title Due Diligence, Circle Rates, and RERA Safeguards in Indian Real Estate",
+      "slug": "property-title-due-diligence-encumbrance-certificates-and-rera-protections",
+      "primaryDomainId": "real-estate-property-land",
+      "secondaryDomainIds": ["financial-fraud-scams-shadow-economy", "credit-borrowing"],
+      "articleType": "pillar_guide",
+      "intendedAudience": "Home buyers, commercial property investors, conveyancing attorneys, mortgage underwriters",
+      "estimatedWordCount": "10000-14000",
+      "actualWordCount": null,
+      "priority": "P0",
+      "researchStatus": "sources_verified",
+      "publicationStatus": "planned",
+      "coreQuestionsAnswered": [
+        "How is a flawless 30-year title search executed across sub-registrar indices, revenue patta/khata records, and litigation dockets?",
+        "What protections does the RERA 70% project escrow mandate provide against builder insolvency and project abandonment?",
+        "How do Section 50C and Section 56(2)(x) circle rate discrepancies trigger unexpected tax notices for honest buyers?"
+      ],
+      "requiredSources": ["SRC-MOHUA-RERA", "SRC-CBDT-MAIN", "SRC-INDIA-CODE"],
+      "duplicateRisk": "Low - canonical technical manual on Indian real estate acquisitions."
+    },
+    {
+      "articleId": "ART-MF-001",
+      "workingTitle": "Mutual Fund Categorization, Total Expense Ratios, and Wealth Compounding Mechanics in India",
+      "slug": "mutual-fund-categorization-sebi-mandates-and-portfolio-constraints",
+      "primaryDomainId": "mutual-funds-pooled",
+      "secondaryDomainIds": ["portfolio-management-quant", "equity-markets-listed-securities"],
+      "articleType": "pillar_guide",
+      "intendedAudience": "Mutual fund investors, financial planners, retail unitholders, wealth managers",
+      "estimatedWordCount": "10000-12000",
+      "actualWordCount": null,
+      "priority": "P0",
+      "researchStatus": "sources_verified",
+      "publicationStatus": "planned",
+      "coreQuestionsAnswered": [
+        "How do SEBI scheme categorization guidelines govern portfolio mandates across Large-Cap, Mid-Cap, Flexi-Cap, and Hybrid funds?",
+        "What is the mathematical terminal wealth erosion of Total Expense Ratios across 25-year compounding horizons in Direct vs Regular plans?",
+        "How do tracking error, tracking difference, and market maker spreads dictate passive ETF investment efficiency in India?"
+      ],
+      "requiredSources": ["SRC-SEBI-MAIN", "SRC-AMFI-MAIN"],
+      "duplicateRisk": "Low - authoritative reference on Indian pooled investment plumbing."
+    },
+    {
+      "articleId": "ART-INS-001",
+      "workingTitle": "Term Life Insurance Underwriting: Section 45 Incontestability and MWP Act Policy Trusts",
+      "slug": "term-life-insurance-underwriting-section-45-and-mwp-act-structuring",
+      "primaryDomainId": "insurance-risk-protection",
+      "secondaryDomainIds": ["pf-foundations", "estate-planning-succession"],
+      "articleType": "pillar_guide",
+      "intendedAudience": "Family primary earners, corporate executives, entrepreneurs, insurance advisors",
+      "estimatedWordCount": "10000-12000",
+      "actualWordCount": null,
+      "priority": "P0",
+      "researchStatus": "sources_verified",
+      "publicationStatus": "planned",
+      "coreQuestionsAnswered": [
+        "How does Section 45 of the Insurance Act 1938 provide absolute claim protection after three continuous years?",
+        "How does an endorsement under Section 6 of the Married Women's Property Act legally ring-fence policy proceeds from creditors and court attachments?",
+        "What medical underwriting disclosures and financial documentation eliminate grounds for early claim disputes?"
+      ],
+      "requiredSources": ["SRC-IRDAI-MAIN", "SRC-INDIA-CODE", "SRC-INS-OMBUDSMAN"],
+      "duplicateRisk": "Low - master treatise on Indian life insurance jurisprudence."
+    },
+    {
+      "articleId": "ART-INS-002",
+      "workingTitle": "Health Insurance Architecture: Room-Rent Sublimits, Restoration, and Super Top-up Deductibles",
+      "slug": "health-insurance-architecture-room-rent-sublimits-restoration-and-super-topups",
+      "primaryDomainId": "insurance-risk-protection",
+      "secondaryDomainIds": ["pf-foundations", "consumer-protection-grievance"],
+      "articleType": "pillar_guide",
+      "intendedAudience": "Health policyholders, families, senior citizens, human resource benefits administrators",
+      "estimatedWordCount": "10000-12000",
+      "actualWordCount": null,
+      "priority": "P0",
+      "researchStatus": "sources_verified",
+      "publicationStatus": "planned",
+      "coreQuestionsAnswered": [
+        "How does proportionate deduction under room rent sub-limits mathematically slash overall hospital claim reimbursements?",
+        "What are the underwriting mechanics and deductible synchronization rules of super top-up policies?",
+        "How do pre-existing disease waiting periods and moratorium periods operate under IRDAI master circulars?"
+      ],
+      "requiredSources": ["SRC-IRDAI-MAIN", "SRC-INS-OMBUDSMAN"],
+      "duplicateRisk": "Low - comprehensive consumer guide to health policy clauses."
+    },
+    {
+      "articleId": "ART-RET-001",
+      "workingTitle": "National Pension System and EPF Architecture: Statutory Framework, Tax Caps, and Annuity Rules",
+      "slug": "national-pension-system-architecture-tier1-tier2-and-annuity-mechanics",
+      "primaryDomainId": "retirement-pensions",
+      "secondaryDomainIds": ["gov-small-savings", "indian-taxation"],
+      "articleType": "pillar_guide",
+      "intendedAudience": "Salaried corporate employees, government servants, self-employed professionals, retirement planners",
+      "estimatedWordCount": "10000-13000",
+      "actualWordCount": null,
+      "priority": "P0",
+      "researchStatus": "sources_verified",
+      "publicationStatus": "planned",
+      "coreQuestionsAnswered": [
+        "How do NPS Tier I asset allocation choices (Active vs Auto) compare with active mutual funds over multi-decade tenures?",
+        "What are the mathematical implications of the mandatory 40% annuity purchase and its taxation as ordinary income?",
+        "How does Section 10(11)/10(12) taxation on EPF contributions exceeding ₹2.5 Lakh alter retirement corpus accumulation?"
+      ],
+      "requiredSources": ["SRC-PFRDA-MAIN", "SRC-EPFO-MAIN", "SRC-ITD-PORTAL"],
+      "duplicateRisk": "Low - definitive reference on Indian statutory pension instruments."
+    },
+    {
+      "articleId": "ART-RET-002",
+      "workingTitle": "Retirement Corpus Sizing, Safe Withdrawal Rates, and Longevity Risk in the Indian Macroeconomy",
+      "slug": "retirement-corpus-sizing-and-safe-withdrawal-rates-in-the-indian-economy",
+      "primaryDomainId": "retirement-pensions",
+      "secondaryDomainIds": ["pf-foundations", "portfolio-management-quant"],
+      "articleType": "decision_framework",
+      "intendedAudience": "Pre-retirees, financial independence seekers (FIRE), wealth planners, longevity risk analysts",
+      "estimatedWordCount": "10000-13000",
+      "actualWordCount": null,
+      "priority": "P0",
+      "researchStatus": "sources_verified",
+      "publicationStatus": "planned",
+      "coreQuestionsAnswered": [
+        "Why does the classical American 4% rule fail when applied to Indian emerging market inflation regimes?",
+        "What is the mathematical formula for calculating a realistic inflation-adjusted retirement corpus across 35-year retirement spans?",
+        "How does sequence-of-returns risk during the first five years of retirement permanently dictate portfolio survival?"
+      ],
+      "requiredSources": ["SRC-RBI-MAIN", "SRC-MOSPI-CPI", "SRC-PFRDA-MAIN"],
+      "duplicateRisk": "Low - core retirement decumulation treatise."
+    },
+    {
+      "articleId": "ART-EST-001",
+      "workingTitle": "Nomination versus Legal Heirship: Supreme Court Jurisprudence and Estate Asset Transmission",
+      "slug": "nomination-vs-legal-heirship-supreme-court-jurisprudence-and-asset-transmission",
+      "primaryDomainId": "estate-planning-succession",
+      "secondaryDomainIds": ["banking-deposits", "real-estate-property-land", "insurance-risk-protection"],
+      "articleType": "legal_or_regulatory_reference",
+      "intendedAudience": "Estate planners, legal heirs, testators, high-net-worth families, financial advisors",
+      "estimatedWordCount": "10000-12000",
+      "actualWordCount": null,
+      "priority": "P0",
+      "researchStatus": "sources_verified",
+      "publicationStatus": "planned",
+      "coreQuestionsAnswered": [
+        "What is the conclusive legal difference between an account nominee and a statutory legal heir under Supreme Court precedents?",
+        "Under what conditions is probate of a Will mandatory in Mumbai, Kolkata, and Chennai under the Indian Succession Act 1925?",
+        "How do irrevocable private family trusts protect generational wealth from succession disputes and business liabilities?"
+      ],
+      "requiredSources": ["SRC-SC-JUDGMENTS", "SRC-INDIA-CODE"],
+      "duplicateRisk": "Low - foundational legal reference on Indian succession."
+    },
+    {
+      "articleId": "ART-DEBT-001",
+      "workingTitle": "Sovereign Debt and Fixed Income Architecture: G-Secs, T-Bills, and RBI Retail Direct",
+      "slug": "sovereign-debt-architecture-gsecs-tbills-and-rbi-retail-direct",
+      "primaryDomainId": "fixed-income-debt-markets",
+      "secondaryDomainIds": ["gov-small-savings", "portfolio-management-quant"],
+      "articleType": "pillar_guide",
+      "intendedAudience": "Fixed income investors, retirees, treasury analysts, wealth managers",
+      "estimatedWordCount": "10000-12000",
+      "actualWordCount": null,
+      "priority": "P0",
+      "researchStatus": "sources_verified",
+      "publicationStatus": "planned",
+      "coreQuestionsAnswered": [
+        "How does the RBI Retail Direct platform enable individual retail investors to participate in primary sovereign bond auctions without intermediaries?",
+        "How do Macaulay duration and modified duration quantify price volatility across shifting Indian yield curves?",
+        "What are the credit rating, subordination, and capital write-down risks of Additional Tier-1 (AT1) bank bonds?"
+      ],
+      "requiredSources": ["SRC-RBI-MAIN", "SRC-CCIL-MAIN", "SRC-FIMMDA-MAIN"],
+      "duplicateRisk": "Low - comprehensive manual on Indian sovereign and corporate fixed income."
+    },
+    {
+      "articleId": "ART-P2P-001",
+      "workingTitle": "P2P Lending and Private Credit in India: RBI August 2024 Regulations and Default Realities",
+      "slug": "p2p-lending-in-india-rbi-regulations-2024-amendments-and-default-reality",
+      "primaryDomainId": "p2p-lending-private-credit",
+      "secondaryDomainIds": ["banking-deposits", "credit-borrowing", "financial-fraud-scams-shadow-economy"],
+      "articleType": "pillar_guide",
+      "intendedAudience": "Yield-seeking investors, private credit analysts, risk managers, FinTech operators",
+      "estimatedWordCount": "10000-12000",
+      "actualWordCount": null,
+      "priority": "P0",
+      "researchStatus": "sources_verified",
+      "publicationStatus": "planned",
+      "coreQuestionsAnswered": [
+        "How did the RBI August 2024 Master Direction amendments dismantle instant-liquidity sweep models and credit enhancements in P2P?",
+        "What are the true mathematical differences between advertised gross platform interest rates and net realized returns after defaults?",
+        "How do TReDS institutional platforms provide lower-risk invoice discounting backed by corporate buyers?"
+      ],
+      "requiredSources": ["SRC-RBI-MAIN", "SRC-RXIL-TREDS"],
+      "duplicateRisk": "Low - definitive forensic analysis of Indian private credit risks."
+    },
+    {
+      "articleId": "ART-INT-001",
+      "workingTitle": "LRS and Cross-Border Investing: FEMA Rules, 20% TCS, and Schedule FA Compliance",
+      "slug": "lrs-and-overseas-investing-fema-regulations-tcs-deduction-and-remittance-mechanics",
+      "primaryDomainId": "international-cross-border-finance",
+      "secondaryDomainIds": ["indian-taxation", "financial-fraud-scams-shadow-economy"],
+      "articleType": "pillar_guide",
+      "intendedAudience": "Global Indian investors, cross-border tech employees with US RSUs, tax professionals",
+      "estimatedWordCount": "10000-13000",
+      "actualWordCount": null,
+      "priority": "P0",
+      "researchStatus": "sources_verified",
+      "publicationStatus": "planned",
+      "coreQuestionsAnswered": [
+        "How does the $250,000 annual Liberalised Remittance Scheme ceiling operate alongside mandatory 20% TCS deductions under Section 206C(1G)?",
+        "What are the severe statutory penalties under the Black Money Act 2015 for failing to report foreign shares or bank accounts in Schedule FA of the ITR?",
+        "How does Foreign Tax Credit under Section 90 and Form 67 eliminate double taxation on foreign dividend and capital gains income?"
+      ],
+      "requiredSources": ["SRC-RBI-MAIN", "SRC-CBDT-MAIN", "SRC-ITD-PORTAL"],
+      "duplicateRisk": "Low - essential cross-border compliance treatise."
+    }
+  ]
+}

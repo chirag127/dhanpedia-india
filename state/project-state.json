@@ -1,6 +1,6 @@
 {
   "$schema": "./project-state.schema.json",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "projectIdentity": {
     "name": "Dhanpedia India",
     "title": "Dhanpedia India — The Indian Personal Finance, Investing and Wealth-Building Encyclopedia",
@@ -22,45 +22,50 @@
     "cost": "Zero mandatory infrastructure expenditure"
   },
   "promptExecution": {
-    "currentPrompt": "PROMPT-001",
+    "currentPrompt": "PROMPT-002",
     "totalPlannedPrompts": 70,
-    "currentPhase": "Phase 1: Foundation, Taxonomy & Design Shell",
+    "currentPhase": "Phase 1: Research, Taxonomy Expansion, Source Discovery & Knowledge Architecture",
     "completedMilestones": [
-      "Repository & Environment Audit",
-      "Statutory Financial Regulatory Research",
-      "Source Registry Creation (10 primary sources)",
-      "22-Category Hierarchical Taxonomy & Documentation",
-      "Research Gaps Registry",
-      "Canonical Concept Registry",
-      "Technical Decision Records (TDR)",
-      "Editorial & TTS Content Guide",
-      "70-Prompt Master Roadmap"
+      "Repository & Environment Audit (Prompt 001)",
+      "Astro 5 Website Shell & 16 Initial Pages (Prompt 001)",
+      "Master Flagship Treatise 11,021 Words (Prompt 001)",
+      "26-Domain Master Taxonomy Architecture (Domain A to Z) (Prompt 002)",
+      "Machine-Readable Financial System Tree with 52 Nodes (Prompt 002)",
+      "Statutory Source Registry Expansion to 32 Primary Bodies (Prompt 002)",
+      "Statutory Claim Registry with 12 Verified Legal Propositions (Prompt 002)",
+      "Canonical Concept Registry Expanded to 20 Core Concepts (Prompt 002)",
+      "Article Coverage Matrix Mapping 30 Planned Treatises >10,000 Words (Prompt 002)",
+      "Financial Calculator Inventory Documenting 42 Calculators (Prompt 002)",
+      "Public Data Source Catalogue with 12 Zero-Cost Datasets (Prompt 002)",
+      "Knowledge Graph Model with 24 Semantic Relationships (Prompt 002)",
+      "Shadow Economy, Black Money, Cash Limits & Dabba Trading Codified (Prompt 002)",
+      "Audio-Native Prose and Spoken Mathematics Standards (Prompt 002)",
+      "Automated Quality Gate Suite Passing 100% (Prompt 002)"
     ],
-    "inProgressMilestones": [
-      "Website Shell Implementation (Layouts, Components, Navigation)",
-      "Initial 16 Utility Pages",
-      "Integrity & Duplicate Detection Test Suite",
-      "Production Build & Verification"
-    ],
+    "inProgressMilestones": [],
     "incompleteMilestones": [
-      "Client-side search modal and tokenizer (Prompt 002)",
-      "Interactive glossary engine (Prompt 003)",
-      "40 financial calculators (Prompts 016-022)",
-      "300 long-form substantive articles (Prompts 023-058)",
-      "Master EPUB and PDF build engines (Prompts 060-061)"
+      "Interactive Concept Directory and Tokenized Search (Prompt 003)",
+      "Comprehensive Coverage-Gap Audit (Prompt 003)",
+      "Substantive Article Generation Batches (Prompts 004-058)",
+      "Master EPUB and PDF Publication Engines (Prompts 060-061)"
     ],
     "knownBlockers": [],
-    "nextRecommendedAction": "Complete Astro design system, components, initial pages, and run automated validation suite."
+    "nextRecommendedAction": "Proceed to Prompt 003: Financial Knowledge Graph Expansion, Interactive Concept Engine, and Coverage-Gap Audit."
   },
   "metrics": {
-    "totalCategories": 22,
-    "totalRegisteredSources": 10,
-    "totalRegisteredConcepts": 5,
-    "totalResearchGaps": 5,
+    "totalCategories": 26,
+    "totalTaxonomyNodes": 52,
+    "totalRegisteredSources": 32,
+    "totalRegisteredConcepts": 20,
+    "totalRegisteredClaims": 12,
+    "totalDocumentedCalculators": 42,
+    "totalCataloguedDataSources": 12,
+    "totalKnowledgeGraphRelationships": 24,
+    "totalResearchGaps": 6,
     "totalPublishedArticles": 1,
-    "totalPlannedArticles": 48,
+    "totalPlannedPublications": 30,
     "targetSubstantiveWords": 3000000,
-    "currentSubstantiveWords": 5200,
-    "lastCheckpointTimestamp": "2026-10-17T22:30:00+05:30"
+    "currentSubstantiveWords": 11021,
+    "lastCheckpointTimestamp": "2026-10-17T23:07:00+05:30"
   }
 }

@@ -3,8 +3,8 @@ id: "ART-BANK-001"
 title: "DICGC Deposit Insurance: Architecture, Coverage Limits, and Capacity Structures in Indian Banking"
 slug: "dicgc-deposit-insurance-architecture-limits-and-ownership-structures"
 summary: "An exhaustive, audio-native technical treatise on the Deposit Insurance and Credit Guarantee Corporation Act of 1961, the five-lakh-rupee statutory insurance ceiling, capacity-based ownership structures, the ninety-day liquidation mandate under Section 18A, subrogation jurisprudence, and systemic deposit safety in India."
-categoryId: "banking-payments"
-categoryName: "Indian Banking and Payments"
+categoryId: "banking-deposits"
+categoryName: "Banking and Deposit Products"
 canonicalConceptIds: ["dicgc-deposit-insurance", "rbi-scheduled-bank", "emergency-protection"]
 tags: ["DICGC", "Banking Safety", "Deposit Insurance", "Fixed Deposits", "RBI Regulations", "Section 18A", "Cooperative Banks"]
 author: "Chirag Singhal"

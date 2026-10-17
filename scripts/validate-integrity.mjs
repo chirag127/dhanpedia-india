@@ -16,15 +16,16 @@ function assert(condition, message) {
 
 console.log('\n======================================================');
 console.log('  DHANPEDIA INDIA — QUALITY GATE & INTEGRITY VALIDATOR');
+console.log('  Prompt 002 — Financial System Research & Taxonomy');
 console.log('======================================================\n');
 
-// 1. Taxonomy Validation
-console.log('[1/7] Validating 22-Category Taxonomy Integrity...');
+// 1. Taxonomy Validation (26 Domains A to Z)
+console.log('[1/11] Validating 26-Domain Taxonomy Integrity (taxonomy.json)...');
 const taxonomyPath = path.resolve('data/taxonomy/taxonomy.json');
 assert(fs.existsSync(taxonomyPath), 'taxonomy.json exists');
 
 const taxonomy = JSON.parse(fs.readFileSync(taxonomyPath, 'utf8'));
-assert(taxonomy.categories && taxonomy.categories.length === 22, `Exactly 22 canonical categories defined (found ${taxonomy.categories?.length})`);
+assert(taxonomy.categories && taxonomy.categories.length === 26, `Exactly 26 canonical categories defined (found ${taxonomy.categories?.length})`);
 
 const categoryIds = new Set();
 taxonomy.categories.forEach(cat => {
@@ -38,13 +39,28 @@ taxonomy.categories.forEach(cat => {
   assert(Array.isArray(cat.regulatorsAndSources) && cat.regulatorsAndSources.length > 0, `Category ${cat.id} has assigned regulators`);
 });
 
-// 2. Source Registry Validation
-console.log('\n[2/7] Validating Primary Statutory Source Registry...');
+// 2. Machine-Readable Financial System Tree
+console.log('\n[2/11] Validating Machine-Readable Financial System Tree (financial-system.json)...');
+const finSystemPath = path.resolve('data/taxonomy/financial-system.json');
+assert(fs.existsSync(finSystemPath), 'financial-system.json exists');
+const finSystem = JSON.parse(fs.readFileSync(finSystemPath, 'utf8'));
+assert(Array.isArray(finSystem.nodes) && finSystem.nodes.length >= 26, `At least 26 hierarchical nodes defined (found ${finSystem.nodes?.length})`);
+
+const nodeIds = new Set();
+finSystem.nodes.forEach(node => {
+  assert(node.id && !nodeIds.has(node.id), `Taxonomy node ${node.id} has unique ID`);
+  nodeIds.add(node.id);
+  assert(node.canonicalName && node.slug, `Node ${node.id} has canonical name and slug`);
+  assert(node.primaryRegulator && node.primaryRegulator.length > 0, `Node ${node.id} has primary regulator`);
+});
+
+// 3. Source Registry Validation (30+ Statutory Bodies)
+console.log('\n[3/11] Validating Primary Statutory Source Registry (source-registry.json)...');
 const sourceRegistryPath = path.resolve('data/sources/source-registry.json');
 assert(fs.existsSync(sourceRegistryPath), 'source-registry.json exists');
 
 const sourceRegistry = JSON.parse(fs.readFileSync(sourceRegistryPath, 'utf8'));
-assert(Array.isArray(sourceRegistry.sources) && sourceRegistry.sources.length >= 10, `At least 10 primary sources registered (found ${sourceRegistry.sources?.length})`);
+assert(Array.isArray(sourceRegistry.sources) && sourceRegistry.sources.length >= 30, `At least 30 primary sources registered (found ${sourceRegistry.sources?.length})`);
 
 const sourceIds = new Set();
 sourceRegistry.sources.forEach(src => {
@@ -55,12 +71,32 @@ sourceRegistry.sources.forEach(src => {
   assert(src.reliabilityClassification && src.reliabilityClassification.includes('Tier'), `Source ${src.sourceId} has Tier classification`);
 });
 
-// 3. Canonical Concept Registry Validation
-console.log('\n[3/7] Validating Canonical Concept Registry...');
+// 4. Statutory Claim Registry Validation
+console.log('\n[4/11] Validating Statutory Claim Registry (claim-registry.json)...');
+const claimRegistryPath = path.resolve('data/claims/claim-registry.json');
+assert(fs.existsSync(claimRegistryPath), 'claim-registry.json exists');
+const claimRegistry = JSON.parse(fs.readFileSync(claimRegistryPath, 'utf8'));
+assert(Array.isArray(claimRegistry.claims) && claimRegistry.claims.length >= 10, `At least 10 verified statutory claims registered (found ${claimRegistry.claims?.length})`);
+
+const claimIds = new Set();
+claimRegistry.claims.forEach(clm => {
+  assert(clm.claimId && !claimIds.has(clm.claimId), `Claim ID ${clm.claimId} is unique`);
+  claimIds.add(clm.claimId);
+  assert(clm.proposition && clm.proposition.length > 30, `Claim ${clm.claimId} has substantive proposition`);
+  assert(clm.statutoryReference && clm.statutoryReference.length > 10, `Claim ${clm.claimId} has specific statutory reference`);
+  assert(['legal_rule', 'tax_rule', 'regulatory_requirement', 'current_fact'].includes(clm.classification), `Claim ${clm.claimId} has valid classification`);
+  clm.sourceIds.forEach(sid => {
+    assert(sourceIds.has(sid), `Claim ${clm.claimId} citation ${sid} exists in source registry`);
+  });
+});
+
+// 5. Canonical Concept Registry Validation
+console.log('\n[5/11] Validating Canonical Concept Registry (concept-registry.json)...');
 const conceptRegistryPath = path.resolve('data/concepts/concept-registry.json');
 assert(fs.existsSync(conceptRegistryPath), 'concept-registry.json exists');
 
 const conceptRegistry = JSON.parse(fs.readFileSync(conceptRegistryPath, 'utf8'));
+assert(Array.isArray(conceptRegistry.concepts) && conceptRegistry.concepts.length >= 20, `At least 20 concepts registered (found ${conceptRegistry.concepts?.length})`);
 const conceptIds = new Set();
 conceptRegistry.concepts.forEach(c => {
   assert(c.id && !conceptIds.has(c.id), `Concept ID ${c.id} is valid and unique`);
@@ -69,8 +105,72 @@ conceptRegistry.concepts.forEach(c => {
   assert(categoryIds.has(c.categoryId), `Concept ${c.id} references valid category ${c.categoryId}`);
 });
 
-// 4. Research Gaps Validation
-console.log('\n[4/7] Validating Research Gaps Registry...');
+// 6. Article Coverage Matrix Validation
+console.log('\n[6/11] Validating Article Coverage Matrix (coverage-matrix.json)...');
+const coverageMatrixPath = path.resolve('data/publications/coverage-matrix.json');
+assert(fs.existsSync(coverageMatrixPath), 'coverage-matrix.json exists');
+const coverageMatrix = JSON.parse(fs.readFileSync(coverageMatrixPath, 'utf8'));
+assert(Array.isArray(coverageMatrix.publications) && coverageMatrix.publications.length >= 15, `At least 15 planned publications mapped (found ${coverageMatrix.publications?.length})`);
+
+const publicationSlugs = new Set();
+coverageMatrix.publications.forEach(pub => {
+  assert(pub.articleId && pub.workingTitle, `Publication ${pub.articleId} has valid title`);
+  assert(!publicationSlugs.has(pub.slug), `Publication slug ${pub.slug} is unique`);
+  publicationSlugs.add(pub.slug);
+  assert(categoryIds.has(pub.primaryDomainId), `Publication ${pub.articleId} maps to valid domain ${pub.primaryDomainId}`);
+  assert(pub.estimatedWordCount && pub.estimatedWordCount.includes('10000'), `Publication ${pub.articleId} targets >10,000 words`);
+});
+
+// 7. Calculator Inventory Validation (40+ Calculators across 7 Clusters)
+console.log('\n[7/11] Validating Financial Calculator Inventory (calculator-inventory.json)...');
+const calcInventoryPath = path.resolve('data/calculators/calculator-inventory.json');
+assert(fs.existsSync(calcInventoryPath), 'calculator-inventory.json exists');
+const calcInventory = JSON.parse(fs.readFileSync(calcInventoryPath, 'utf8'));
+assert(Array.isArray(calcInventory.calculators) && calcInventory.calculators.length >= 40, `At least 40 calculators documented (found ${calcInventory.calculators?.length})`);
+assert(Array.isArray(calcInventory.clusters) && calcInventory.clusters.length === 7, `All 7 required clusters represented (found ${calcInventory.clusters?.length})`);
+
+const calcIds = new Set();
+calcInventory.calculators.forEach(calc => {
+  assert(calc.id && !calcIds.has(calc.id), `Calculator ID ${calc.id} is unique`);
+  calcIds.add(calc.id);
+  assert(calc.title && calc.userProblem, `Calculator ${calc.id} has title and problem statement`);
+  assert(Array.isArray(calc.inputs) && calc.inputs.length > 0, `Calculator ${calc.id} specifies inputs`);
+  assert(Array.isArray(calc.outputs) && calc.outputs.length > 0, `Calculator ${calc.id} specifies outputs`);
+  assert(calc.formulaSpoken && calc.formulaSpoken.length > 30, `Calculator ${calc.id} has spoken paragraph formula`);
+  assert(calcInventory.clusters.includes(calc.cluster), `Calculator ${calc.id} belongs to valid cluster ${calc.cluster}`);
+});
+
+// 8. Public Data Sources Catalogue Validation
+console.log('\n[8/11] Validating Public Data Source Catalogue (data-source-catalogue.json)...');
+const dataCatalogPath = path.resolve('data/sources/data-source-catalogue.json');
+assert(fs.existsSync(dataCatalogPath), 'data-source-catalogue.json exists');
+const dataCatalog = JSON.parse(fs.readFileSync(dataCatalogPath, 'utf8'));
+assert(Array.isArray(dataCatalog.dataSources) && dataCatalog.dataSources.length >= 10, `At least 10 free public data sources catalogued (found ${dataCatalog.dataSources?.length})`);
+
+dataCatalog.dataSources.forEach(ds => {
+  assert(ds.datasetId && ds.name, `Dataset ${ds.datasetId} has valid name`);
+  assert(ds.officialUrl && ds.officialUrl.startsWith('https://'), `Dataset ${ds.datasetId} has secure official URL`);
+  assert(ds.authenticationRequired === false, `Dataset ${ds.datasetId} adheres to free-first unauthenticated policy`);
+  assert(ds.cost.toLowerCase().includes('free'), `Dataset ${ds.datasetId} is zero-cost`);
+});
+
+// 9. Knowledge Graph Relationships Validation
+console.log('\n[9/11] Validating Knowledge Graph Relationships (relationships.json)...');
+const relsPath = path.resolve('data/knowledge-graph/relationships.json');
+assert(fs.existsSync(relsPath), 'relationships.json exists');
+const relsData = JSON.parse(fs.readFileSync(relsPath, 'utf8'));
+assert(Array.isArray(relsData.relationships) && relsData.relationships.length >= 20, `At least 20 semantic relationships mapped (found ${relsData.relationships?.length})`);
+
+const relIds = new Set();
+relsData.relationships.forEach(rel => {
+  assert(rel.relationId && !relIds.has(rel.relationId), `Relationship ID ${rel.relationId} is unique`);
+  relIds.add(rel.relationId);
+  assert(rel.predicate && typeof rel.predicate === 'string', `Relationship ${rel.relationId} has valid predicate`);
+  assert(rel.evidence && rel.evidence.length > 10, `Relationship ${rel.relationId} has statutory or analytical evidence`);
+});
+
+// 10. Research Gaps Validation
+console.log('\n[10/11] Validating Research Gaps Registry...');
 const gapsPath = path.resolve('data/taxonomy/research-gaps.json');
 assert(fs.existsSync(gapsPath), 'research-gaps.json exists');
 
@@ -81,8 +181,8 @@ gapsData.gaps.forEach(g => {
   assert(['High', 'Medium', 'Low'].includes(g.severity), `Gap ${g.gapId} has valid severity`);
 });
 
-// 5. Article Registry & Substantive Word Count Validation
-console.log('\n[5/7] Validating Article Registry & Substantive Word Counts...');
+// 11. Article Registry, Substantive Word Counts, GitHub Pages, and Secret Scanning
+console.log('\n[11/11] Validating Article Word Counts, GitHub Pages Config, and Secret Exposure...');
 const articleRegistryPath = path.resolve('data/articles/article-registry.json');
 assert(fs.existsSync(articleRegistryPath), 'article-registry.json exists');
 
@@ -111,8 +211,7 @@ articleRegistry.articles.forEach(art => {
   assert(words >= 10000, `Article ${art.slug} meets >10,000 word mandate (actual: ${words.toLocaleString()} words)`);
 });
 
-// 6. Base Path and GitHub Pages Deployment Configuration
-console.log('\n[6/7] Validating Astro GitHub Pages Configuration...');
+// GitHub Pages configuration check
 const astroConfigPath = path.resolve('astro.config.mjs');
 assert(fs.existsSync(astroConfigPath), 'astro.config.mjs exists');
 const astroConfigContent = fs.readFileSync(astroConfigPath, 'utf8');
@@ -120,8 +219,7 @@ assert(astroConfigContent.includes("base: '/dhanpedia-india'"), "Astro config sp
 assert(astroConfigContent.includes("site: 'https://chirag127.github.io'"), "Astro config specifies site: 'https://chirag127.github.io'");
 assert(astroConfigContent.includes("output: 'static'"), "Astro config specifies output: 'static'");
 
-// 7. Secret & Credential Exposure Scan
-console.log('\n[7/7] Scanning Repository for Secrets & Private Data...');
+// Secret scanning check
 const credentialPatterns = [
   /AIza[0-9A-Za-z-_]{35}/, // Google API key
   /sk-[a-zA-Z0-9]{32,}/, // OpenAI/Secret key
@@ -159,5 +257,5 @@ console.log('------------------------------------------------------\n');
 if (failures > 0) {
   process.exit(1);
 } else {
-  console.log('✓ All quality gates passed successfully!\n');
+  console.log('✓ All Prompt 002 quality gates passed successfully!\n');
 }
