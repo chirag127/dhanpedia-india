@@ -61,7 +61,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 10 0 R >>
 endobj
 10 0 obj
-<< /Length 4685 >>
+<< /Length 4669 >>
 stream
 BT /F1 8 Tf 54 800 Td (Financial Mathematics in Spoken English) Tj ET
 0.5 w 54 792 m 541 792 l S
@@ -71,7 +71,7 @@ BT /F2 12 Tf 54 721.65 Td (Part Three: Mathematical Formulas in Spoken English) 
 BT /F1 10 Tf 54 698.9699999999999 Td (Fourteen foundational formulas translated into clear spoken English paragraphs, eliminating) Tj ET
 BT /F1 10 Tf 54 685.4699999999999 Td (mathematical notation barriers for text-to-speech listening.) Tj ET
 BT /F2 12 Tf 54 666.5699999999999 Td (Formula 1: Compound Interest Future Value) Tj ET
-BT /F1 10 Tf 54 643.8899999999999 Td (Symbolic Formula: FV = PV * \(1 + r / n\)^\(n * t\)) Tj ET
+BT /F1 10 Tf 54 643.8899999999999 Td (Symbolic Formula: FV = PV \(1 + r / n\)^\(n t\)) Tj ET
 BT /F1 10 Tf 54 624.9899999999999 Td (Spoken Narration: The future value of an investment is calculated by multiplying the initial) Tj ET
 BT /F1 10 Tf 54 611.4899999999999 Td (principal by the factor of one plus the annual interest rate divided by the compounding) Tj ET
 BT /F1 10 Tf 54 597.9899999999999 Td (frequency, all raised to the power of the compounding frequency multiplied by the total) Tj ET
@@ -82,7 +82,7 @@ BT /F1 10 Tf 54 538.5899999999999 Td (varying annual return rates.) Tj ET
 BT /F1 10 Tf 54 519.6899999999999 Td (Numerical Example: Verify that Rs. 1,00,000 at 8% compounded quarterly for 5 years yields) Tj ET
 BT /F1 10 Tf 54 506.18999999999994 Td (exactly Rs. 1,48,594.74.) Tj ET
 BT /F2 12 Tf 54 487.28999999999996 Td (Formula 2: Inflation-Adjusted Purchasing Power) Tj ET
-BT /F1 10 Tf 54 464.60999999999996 Td (Symbolic Formula: PV_real = FV / \(1 + i\)^t) Tj ET
+BT /F1 10 Tf 54 464.60999999999996 Td (Symbolic Formula: PVreal = FV / \(1 + i\)^t) Tj ET
 BT /F1 10 Tf 54 445.71 Td (Spoken Narration: The real present purchasing power of a future sum of money is calculated by) Tj ET
 BT /F1 10 Tf 54 432.21 Td (dividing the future nominal amount by the factor of one plus the annual inflation rate raised) Tj ET
 BT /F1 10 Tf 54 418.71 Td (to the power of the number of years.) Tj ET
@@ -92,7 +92,7 @@ BT /F1 10 Tf 54 372.81 Td (exceeding general CPI.) Tj ET
 BT /F1 10 Tf 54 353.91 Td (Numerical Example: Verify that Rs. 1,00,00,000 in 20 years at 6% annual inflation has a real) Tj ET
 BT /F1 10 Tf 54 340.41 Td (purchasing power of Rs. 31,18047.) Tj ET
 BT /F2 12 Tf 54 321.51000000000005 Td (Formula 3: Amortized Equated Monthly Installment \(EMI\)) Tj ET
-BT /F1 10 Tf 54 298.83000000000004 Td (Symbolic Formula: EMI = P * r_m * \(1 + r_m\)^n / \(\(1 + r_m\)^n - 1\)) Tj ET
+BT /F1 10 Tf 54 298.83000000000004 Td (Symbolic Formula: EMI = P rm \(1 + rm\)^n / \(\(1 + rm\)^n - 1\)) Tj ET
 BT /F1 10 Tf 54 279.93000000000006 Td (Spoken Narration: The monthly loan installment is computed by multiplying the loan principal) Tj ET
 BT /F1 10 Tf 54 266.43000000000006 Td (by the monthly interest rate, multiplied by the factor of one plus monthly rate raised to the) Tj ET
 BT /F1 10 Tf 54 252.93000000000006 Td (total months, all divided by the factor of one plus monthly rate raised to months minus one.) Tj ET
@@ -102,7 +102,7 @@ BT /F1 10 Tf 54 207.03000000000006 Td (benchmark rate shifts.) Tj ET
 BT /F1 10 Tf 54 188.13000000000005 Td (Numerical Example: Verify that Rs. 50,00,000 at 8.5% annual interest for 240 months \(20 years\)) Tj ET
 BT /F1 10 Tf 54 174.63000000000005 Td (yields an EMI of Rs. 43,391.) Tj ET
 BT /F2 12 Tf 54 155.73000000000005 Td (Formula 4: Systematic Investment Plan Future Value) Tj ET
-BT /F1 10 Tf 54 133.05000000000004 Td (Symbolic Formula: FV = P * \(\(\(1 + i\)^n - 1\) / i\) * \(1 + i\)) Tj ET
+BT /F1 10 Tf 54 133.05000000000004 Td (Symbolic Formula: FV = P \(\(\(1 + i\)^n - 1\) / i\) \(1 + i\)) Tj ET
 BT /F1 10 Tf 54 114.15000000000003 Td (Spoken Narration: The accumulated wealth of a monthly mutual fund SIP is calculated by) Tj ET
 BT /F1 10 Tf 54 100.65000000000003 Td (multiplying the monthly installment by the result of one plus the monthly return raised to) Tj ET
 BT /F1 10 Tf 54 87.15000000000003 Td (total months minus one, divided by the monthly return, and finally multiplied by one plus the) Tj ET
@@ -114,7 +114,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 12 0 R >>
 endobj
 12 0 obj
-<< /Length 4781 >>
+<< /Length 4768 >>
 stream
 BT /F1 8 Tf 54 800 Td (Financial Mathematics in Spoken English) Tj ET
 0.5 w 54 792 m 541 792 l S
@@ -134,7 +134,7 @@ BT /F1 10 Tf 54 570.72 Td (withdrawals. Note that Masks underlying year-to-year 
 BT /F1 10 Tf 54 551.82 Td (Numerical Example: Verify that an asset growing from Rs. 1,00,000 to Rs. 2,50,000 in 7 years has a) Tj ET
 BT /F1 10 Tf 54 538.32 Td (CAGR of 13.98%.) Tj ET
 BT /F2 12 Tf 54 519.4200000000001 Td (Formula 6: Extended Internal Rate of Return \(XIRR\)) Tj ET
-BT /F1 10 Tf 54 496.74000000000007 Td (Symbolic Formula: Sum_{j=1}^N \(C_j / \(1 + r\)^\(\(d_j - d_1\) / 365\)\) = 0) Tj ET
+BT /F1 10 Tf 54 496.74000000000007 Td (Symbolic Formula: Sum{j=1}^N \(Cj / \(1 + r\)^\(\(dj - d1\) / 365\)\) = 0) Tj ET
 BT /F1 10 Tf 54 477.8400000000001 Td (Spoken Narration: The extended internal rate of return is the exact discount rate that makes) Tj ET
 BT /F1 10 Tf 54 464.3400000000001 Td (the sum of all irregular cash inflows and outflows, discounted according to their exact day) Tj ET
 BT /F1 10 Tf 54 450.8400000000001 Td (count fraction, equal to zero.) Tj ET
@@ -143,7 +143,7 @@ BT /F1 10 Tf 54 418.4400000000001 Td (return. Note that Requires numerical itera
 BT /F1 10 Tf 54 404.9400000000001 Td (closed-form solution.) Tj ET
 BT /F1 10 Tf 54 386.04000000000013 Td (Numerical Example: Verify convergence against standard financial ledger cashflow schedules.) Tj ET
 BT /F2 12 Tf 54 367.14000000000016 Td (Formula 7: Macaulay and Modified Duration) Tj ET
-BT /F1 10 Tf 54 344.46000000000015 Td (Symbolic Formula: D_mod = [ \(1 / P\) * Sum_{t=1}^T \(t * C_t / \(1 + y\)^t\) ] / \(1 + y / m\)) Tj ET
+BT /F1 10 Tf 54 344.46000000000015 Td (Symbolic Formula: Dmod = [ \(1 / P\) Sum{t=1}^T \(t Ct / \(1 + y\)^t\) ] / \(1 + y / m\)) Tj ET
 BT /F1 10 Tf 54 325.5600000000002 Td (Spoken Narration: Modified duration is calculated by taking the Macaulay duration \(the) Tj ET
 BT /F1 10 Tf 54 312.0600000000002 Td (cash-flow weighted present value times divided by bond price\) and dividing it by the factor) Tj ET
 BT /F1 10 Tf 54 298.5600000000002 Td (of one plus the bond yield to maturity divided by coupon payment frequency.) Tj ET
@@ -153,7 +153,7 @@ BT /F1 10 Tf 54 252.6600000000002 Td (rate movements exceeding 100 basis points.
 BT /F1 10 Tf 54 233.7600000000002 Td (Numerical Example: Verify that an 8% 10-year semi-annual bond yielding 8% has a Macaulay) Tj ET
 BT /F1 10 Tf 54 220.2600000000002 Td (duration of 7.25 years.) Tj ET
 BT /F2 12 Tf 54 201.36000000000018 Td (Formula 8: Tax-Adjusted Equivalent Yield) Tj ET
-BT /F1 10 Tf 54 178.6800000000002 Td (Symbolic Formula: TEY = r_taxfree / \(1 - t_m\)) Tj ET
+BT /F1 10 Tf 54 178.6800000000002 Td (Symbolic Formula: TEY = rtaxfree / \(1 - tm\)) Tj ET
 BT /F1 10 Tf 54 159.7800000000002 Td (Spoken Narration: The pre-tax equivalent yield required on a taxable instrument to match a) Tj ET
 BT /F1 10 Tf 54 146.2800000000002 Td (tax-free product is calculated by dividing the tax-free return rate by the factor of one) Tj ET
 BT /F1 10 Tf 54 132.7800000000002 Td (minus the investor's marginal income tax rate.) Tj ET
@@ -167,14 +167,14 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 14 0 R >>
 endobj
 14 0 obj
-<< /Length 4548 >>
+<< /Length 4528 >>
 stream
 BT /F1 8 Tf 54 800 Td (Financial Mathematics in Spoken English) Tj ET
 0.5 w 54 792 m 541 792 l S
 BT /F1 8 Tf 270 40 Td (Page 5 of 6) Tj ET
 BT /F1 10 Tf 54 750 Td (yield for an investor in the 31.2% marginal bracket.) Tj ET
 BT /F2 12 Tf 54 731.1 Td (Formula 9: Return on Invested Capital \(ROIC\)) Tj ET
-BT /F1 10 Tf 54 708.42 Td (Symbolic Formula: ROIC = NOPAT / Invested_Capital) Tj ET
+BT /F1 10 Tf 54 708.42 Td (Symbolic Formula: ROIC = NOPAT / InvestedCapital) Tj ET
 BT /F1 10 Tf 54 689.52 Td (Spoken Narration: Return on invested capital is calculated by dividing net operating profit) Tj ET
 BT /F1 10 Tf 54 676.02 Td (after tax by total invested capital, where invested capital equals total debt plus equity) Tj ET
 BT /F1 10 Tf 54 662.52 Td (minus non-operating cash.) Tj ET
@@ -184,7 +184,7 @@ BT /F1 10 Tf 54 616.62 Td (of leases and intangible R&D.) Tj ET
 BT /F1 10 Tf 54 597.72 Td (Numerical Example: Verify that a company with Rs. 500 Cr NOPAT and Rs. 2,500 Cr Invested Capital) Tj ET
 BT /F1 10 Tf 54 584.22 Td (generates an ROIC of 20%.) Tj ET
 BT /F2 12 Tf 54 565.32 Td (Formula 10: Expected Credit Loss \(ECL\)) Tj ET
-BT /F1 10 Tf 54 542.64 Td (Symbolic Formula: ECL = PD * LGD * EAD) Tj ET
+BT /F1 10 Tf 54 542.64 Td (Symbolic Formula: ECL = PD LGD EAD) Tj ET
 BT /F1 10 Tf 54 523.74 Td (Spoken Narration: The expected credit loss in a lending portfolio is calculated by) Tj ET
 BT /F1 10 Tf 54 510.24 Td (multiplying the probability of borrower default by the percentage loss given default by the) Tj ET
 BT /F1 10 Tf 54 496.74 Td (total monetary exposure at default.) Tj ET
@@ -194,7 +194,7 @@ BT /F1 10 Tf 54 450.84000000000003 Td (simultaneously.) Tj ET
 BT /F1 10 Tf 54 431.94000000000005 Td (Numerical Example: Verify that an unsecured loan of Rs. 5,00,000 with a 5% PD and an 80% LGD has) Tj ET
 BT /F1 10 Tf 54 418.44000000000005 Td (an Expected Credit Loss of Rs. 20,000.) Tj ET
 BT /F2 12 Tf 54 399.5400000000001 Td (Formula 11: Retirement Safe Withdrawal Decumulation) Tj ET
-BT /F1 10 Tf 54 376.86000000000007 Td (Symbolic Formula: W_t = W_{t-1} * \(1 + i_t\); Corpus_t = \(Corpus_{t-1} - W_t\) * \(1 + r_t\)) Tj ET
+BT /F1 10 Tf 54 376.86000000000007 Td (Symbolic Formula: Wt = W{t-1} \(1 + it\); Corpust = \(Corpus{t-1} - Wt\) \(1 + rt\)) Tj ET
 BT /F1 10 Tf 54 357.9600000000001 Td (Spoken Narration: The annual retirement withdrawal starts as a fixed percentage of initial) Tj ET
 BT /F1 10 Tf 54 344.4600000000001 Td (wealth and increases each year by the inflation rate, with the remaining corpus earning the) Tj ET
 BT /F1 10 Tf 54 330.9600000000001 Td (annual portfolio return.) Tj ET
@@ -204,8 +204,8 @@ BT /F1 10 Tf 54 285.0600000000001 Td (drawdowns occur early.) Tj ET
 BT /F1 10 Tf 54 266.16000000000014 Td (Numerical Example: Verify corpus survival over 30 years using Indian historical return and) Tj ET
 BT /F1 10 Tf 54 252.66000000000014 Td (inflation sequences.) Tj ET
 BT /F2 12 Tf 54 233.76000000000013 Td (Formula 12: Post-Finance Act 2024 Capital Gains Computation) Tj ET
-BT /F1 10 Tf 54 211.08000000000013 Td (Symbolic Formula: Gain = Sale_Consideration - \(Cost_Acquisition + Cost_Improvement +) Tj ET
-BT /F1 10 Tf 54 197.58000000000013 Td (Transfer_Expenses\)) Tj ET
+BT /F1 10 Tf 54 211.08000000000013 Td (Symbolic Formula: Gain = SaleConsideration - \(CostAcquisition + CostImprovement +) Tj ET
+BT /F1 10 Tf 54 197.58000000000013 Td (TransferExpenses\)) Tj ET
 BT /F1 10 Tf 54 178.68000000000012 Td (Spoken Narration: Capital gain is computed by subtracting the purchase cost, improvement) Tj ET
 BT /F1 10 Tf 54 165.18000000000012 Td (expenses, and transfer fees from the sale consideration, taxed at 20% for listed equity STCG) Tj ET
 BT /F1 10 Tf 54 151.68000000000012 Td (\(Section 111A\) and 12.5% for LTCG \(Section 112A\) beyond a Rs. 1.25 Lakh exemption.) Tj ET
@@ -220,14 +220,14 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 16 0 R >>
 endobj
 16 0 obj
-<< /Length 2220 >>
+<< /Length 2215 >>
 stream
 BT /F1 8 Tf 54 800 Td (Financial Mathematics in Spoken English) Tj ET
 0.5 w 54 792 m 541 792 l S
 BT /F1 8 Tf 270 40 Td (Page 6 of 6) Tj ET
 BT /F2 12 Tf 54 750 Td (Formula 13: Net Operating Income and Real Estate Cap Rate) Tj ET
-BT /F1 10 Tf 54 727.3199999999999 Td (Symbolic Formula: Cap_Rate = NOI / Property_Value; NOI = Gross_Rent - Vacancy_Loss -) Tj ET
-BT /F1 10 Tf 54 713.8199999999999 Td (Operating_Expenses) Tj ET
+BT /F1 10 Tf 54 727.3199999999999 Td (Symbolic Formula: CapRate = NOI / PropertyValue; NOI = GrossRent - VacancyLoss -) Tj ET
+BT /F1 10 Tf 54 713.8199999999999 Td (OperatingExpenses) Tj ET
 BT /F1 10 Tf 54 694.92 Td (Spoken Narration: The capitalization rate of a property is calculated by dividing its Net) Tj ET
 BT /F1 10 Tf 54 681.42 Td (Operating Income by the total property market value, where Net Operating Income equals gross) Tj ET
 BT /F1 10 Tf 54 667.92 Td (potential rent minus vacancy losses minus operating expenses.) Tj ET
@@ -260,14 +260,14 @@ xref
 0000000951 00000 n 
 0000003234 00000 n 
 0000003371 00000 n 
-0000008109 00000 n 
-0000008247 00000 n 
-0000013081 00000 n 
-0000013219 00000 n 
-0000017820 00000 n 
-0000017958 00000 n 
+0000008093 00000 n 
+0000008231 00000 n 
+0000013052 00000 n 
+0000013190 00000 n 
+0000017771 00000 n 
+0000017909 00000 n 
 trailer
 << /Size 17 /Root 1 0 R >>
 startxref
-20231
+20177
 %%EOF

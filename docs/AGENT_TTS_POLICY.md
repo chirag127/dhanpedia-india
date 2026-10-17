@@ -18,17 +18,18 @@ Audio-native comprehension is not an afterthought; it is a **first-class publish
 
 ### 2.1 Paragraph Format Exclusivity
 - Substantive analysis must be written in continuous, cohesive English paragraphs.
+- **Absolute Ban on ASCII Diagrams and Box Trees:** Never author ASCII box trees, arrows, or flowcharts (e.g., `└──`, `──>`, `│`, `▼`, `┌`, `└`). Neural voice engines vocalize each character individually (e.g. *"box drawings light down and right... rightwards arrow"*), completely destroying auditory comprehension. All organizational hierarchies, escalation tiers, and flowcharts must be written in natural, fluent English paragraphs.
+- **Zero Code Fences:** Never insert code blocks (` ``` `) in article bodies.
 - **Zero Raw LaTeX or ASCII Equations:** Never author raw mathematical syntax like `$$CAGR = (EV / BV)^{1/n} - 1$$`. Neural voice engines pronounce this literally as:
   > *"Dollar sign dollar sign capital C capital A capital G capital R equals open parenthesis capital E capital V slash capital B capital V close parenthesis caret..."*
-  This destroys auditory comprehension.
-- **Mandatory Spoken English Mathematics:** Every formula must be articulated in natural spoken words first:
+- **Mandatory Spoken English Mathematics:** Every formula must be articulated in natural spoken words:
   > *“The compound annual growth rate is calculated by dividing the ending value by the beginning value, raising that ratio to the power of one divided by the number of years, and then subtracting one.”*
-- The formatted visual equation may be presented separately for sighted readers, but the spoken explanation must carry complete, self-contained mathematical meaning.
+- **Zero Raw Markdown Asterisks in TTS Audio Output:** Visual editions retain HTML bolding, but clean-text and audio-native TTS editions must strip all markdown asterisks (`**` and `*`) so Moon+ Reader Pro never vocalizes "asterisk" or "star".
 
 ### 2.2 Table Traps Prohibition
 - Sighted readers scan multi-column tables easily, but Android TTS engines read tabular cells sequentially across columns. If a table contains 4 columns and 5 rows of financial metrics, TTS reads:
   > *"Scheme A Scheme B Return Expense 12 percent 14 percent 0.5 percent 1.2 percent..."*
-- **Strict Rule:** Every comparative table must be accompanied by comprehensive narrative paragraphs detailing the exact findings, tradeoffs, and quantitative implications. A listener listening with the screen turned off must absorb 100% of the insights without looking at the table.
+- **Strict Rule:** Canonical articles must not contain data tables. Every comparative metric and tradeoff must be explained in flowing narrative paragraphs. A listener listening with the screen turned off must absorb 100% of the insights through spoken narrative.
 
 ### 2.3 Punctuation, Breathing, and Line Breaks
 - **No Hard Line Breaks Inside Paragraphs:** Never use `<br>` tags within a paragraph. Android TTS engines treat hard line breaks as sentence terminators, creating awkward, staccato pauses.

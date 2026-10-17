@@ -35,7 +35,7 @@ Fourteen foundational formulas translated into clear spoken English paragraphs, 
 
 === Formula 1: Compound Interest Future Value ===
 
-Symbolic Formula: FV = PV * (1 + r / n)^(n * t)
+Symbolic Formula: FV = PV  (1 + r / n)^(n  t)
 
 Spoken Narration: The future value of an investment is calculated by multiplying the initial principal by the factor of one plus the annual interest rate divided by the compounding frequency, all raised to the power of the compounding frequency multiplied by the total number of years.
 
@@ -45,7 +45,7 @@ Numerical Example: Verify that ₹1,00,000 at 8% compounded quarterly for 5 year
 
 === Formula 2: Inflation-Adjusted Purchasing Power ===
 
-Symbolic Formula: PV_real = FV / (1 + i)^t
+Symbolic Formula: PVreal = FV / (1 + i)^t
 
 Spoken Narration: The real present purchasing power of a future sum of money is calculated by dividing the future nominal amount by the factor of one plus the annual inflation rate raised to the power of the number of years.
 
@@ -55,7 +55,7 @@ Numerical Example: Verify that ₹1,00,00,000 in 20 years at 6% annual inflation
 
 === Formula 3: Amortized Equated Monthly Installment (EMI) ===
 
-Symbolic Formula: EMI = P * r_m * (1 + r_m)^n / ((1 + r_m)^n - 1)
+Symbolic Formula: EMI = P  rm  (1 + rm)^n / ((1 + rm)^n - 1)
 
 Spoken Narration: The monthly loan installment is computed by multiplying the loan principal by the monthly interest rate, multiplied by the factor of one plus monthly rate raised to the total months, all divided by the factor of one plus monthly rate raised to months minus one.
 
@@ -65,7 +65,7 @@ Numerical Example: Verify that ₹50,00,000 at 8.5% annual interest for 240 mont
 
 === Formula 4: Systematic Investment Plan Future Value ===
 
-Symbolic Formula: FV = P * (((1 + i)^n - 1) / i) * (1 + i)
+Symbolic Formula: FV = P  (((1 + i)^n - 1) / i)  (1 + i)
 
 Spoken Narration: The accumulated wealth of a monthly mutual fund SIP is calculated by multiplying the monthly installment by the result of one plus the monthly return raised to total months minus one, divided by the monthly return, and finally multiplied by one plus the monthly return to account for beginning-of-month investing.
 
@@ -85,7 +85,7 @@ Numerical Example: Verify that an asset growing from ₹1,00,000 to ₹2,50,000 
 
 === Formula 6: Extended Internal Rate of Return (XIRR) ===
 
-Symbolic Formula: Sum_{j=1}^N (C_j / (1 + r)^((d_j - d_1) / 365)) = 0
+Symbolic Formula: Sum{j=1}^N (Cj / (1 + r)^((dj - d1) / 365)) = 0
 
 Spoken Narration: The extended internal rate of return is the exact discount rate that makes the sum of all irregular cash inflows and outflows, discounted according to their exact day count fraction, equal to zero.
 
@@ -95,7 +95,7 @@ Numerical Example: Verify convergence against standard financial ledger cashflow
 
 === Formula 7: Macaulay and Modified Duration ===
 
-Symbolic Formula: D_mod = [ (1 / P) * Sum_{t=1}^T (t * C_t / (1 + y)^t) ] / (1 + y / m)
+Symbolic Formula: Dmod = [ (1 / P)  Sum{t=1}^T (t  Ct / (1 + y)^t) ] / (1 + y / m)
 
 Spoken Narration: Modified duration is calculated by taking the Macaulay duration (the cash-flow weighted present value times divided by bond price) and dividing it by the factor of one plus the bond yield to maturity divided by coupon payment frequency.
 
@@ -105,7 +105,7 @@ Numerical Example: Verify that an 8% 10-year semi-annual bond yielding 8% has a 
 
 === Formula 8: Tax-Adjusted Equivalent Yield ===
 
-Symbolic Formula: TEY = r_taxfree / (1 - t_m)
+Symbolic Formula: TEY = rtaxfree / (1 - tm)
 
 Spoken Narration: The pre-tax equivalent yield required on a taxable instrument to match a tax-free product is calculated by dividing the tax-free return rate by the factor of one minus the investor's marginal income tax rate.
 
@@ -115,7 +115,7 @@ Numerical Example: Verify that a 7.1% tax-free PPF rate equals a 10.32% pre-tax 
 
 === Formula 9: Return on Invested Capital (ROIC) ===
 
-Symbolic Formula: ROIC = NOPAT / Invested_Capital
+Symbolic Formula: ROIC = NOPAT / InvestedCapital
 
 Spoken Narration: Return on invested capital is calculated by dividing net operating profit after tax by total invested capital, where invested capital equals total debt plus equity minus non-operating cash.
 
@@ -125,7 +125,7 @@ Numerical Example: Verify that a company with ₹500 Cr NOPAT and ₹2,500 Cr In
 
 === Formula 10: Expected Credit Loss (ECL) ===
 
-Symbolic Formula: ECL = PD * LGD * EAD
+Symbolic Formula: ECL = PD  LGD  EAD
 
 Spoken Narration: The expected credit loss in a lending portfolio is calculated by multiplying the probability of borrower default by the percentage loss given default by the total monetary exposure at default.
 
@@ -135,7 +135,7 @@ Numerical Example: Verify that an unsecured loan of ₹5,00,000 with a 5% PD and
 
 === Formula 11: Retirement Safe Withdrawal Decumulation ===
 
-Symbolic Formula: W_t = W_{t-1} * (1 + i_t); Corpus_t = (Corpus_{t-1} - W_t) * (1 + r_t)
+Symbolic Formula: Wt = W{t-1}  (1 + it); Corpust = (Corpus{t-1} - Wt)  (1 + rt)
 
 Spoken Narration: The annual retirement withdrawal starts as a fixed percentage of initial wealth and increases each year by the inflation rate, with the remaining corpus earning the annual portfolio return.
 
@@ -145,7 +145,7 @@ Numerical Example: Verify corpus survival over 30 years using Indian historical 
 
 === Formula 12: Post-Finance Act 2024 Capital Gains Computation ===
 
-Symbolic Formula: Gain = Sale_Consideration - (Cost_Acquisition + Cost_Improvement + Transfer_Expenses)
+Symbolic Formula: Gain = SaleConsideration - (CostAcquisition + CostImprovement + TransferExpenses)
 
 Spoken Narration: Capital gain is computed by subtracting the purchase cost, improvement expenses, and transfer fees from the sale consideration, taxed at 20% for listed equity STCG (Section 111A) and 12.5% for LTCG (Section 112A) beyond a ₹1.25 Lakh exemption.
 
@@ -155,7 +155,7 @@ Numerical Example: Verify that a ₹5,00,000 LTCG on listed equities incurs tax 
 
 === Formula 13: Net Operating Income and Real Estate Cap Rate ===
 
-Symbolic Formula: Cap_Rate = NOI / Property_Value; NOI = Gross_Rent - Vacancy_Loss - Operating_Expenses
+Symbolic Formula: CapRate = NOI / PropertyValue; NOI = GrossRent - VacancyLoss - OperatingExpenses
 
 Spoken Narration: The capitalization rate of a property is calculated by dividing its Net Operating Income by the total property market value, where Net Operating Income equals gross potential rent minus vacancy losses minus operating expenses.
 

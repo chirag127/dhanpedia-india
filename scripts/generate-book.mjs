@@ -367,20 +367,50 @@ learningPathData.learningPaths.forEach((pathItem, idx) => {
 });
 allChapters.push({ id: 'ch04_learning_paths', title: "Part Four: Structured Learning Curricula and Wealth Milestones", filename: 'ch04_learning_paths.xhtml', htmlContent: ch4Html, category: 'learning' });
 
-// Ch 5: DICGC Master Treatise
-let ch5Html = `
-<h1>Part Five: Master Treatise — DICGC Deposit Insurance Architecture</h1>
-<p>Comprehensive analysis of the statutory deposit insurance framework established under the Deposit Insurance and Credit Guarantee Corporation Act 1961.</p>
-<hr/>
-`;
-const flagshipParas = flagshipContent.split(/\n\n+/).map(p => p.trim()).filter(Boolean);
-flagshipParas.forEach(p => {
-  if (p.startsWith('# ')) ch5Html += `<h2>${p.replace(/^#\s+/, '')}</h2>\n`;
-  else if (p.startsWith('## ')) ch5Html += `<h3>${p.replace(/^##\s+/, '')}</h3>\n`;
-  else if (p.startsWith('### ')) ch5Html += `<h4>${p.replace(/^###\s+/, '')}</h4>\n`;
-  else ch5Html += `<p>${p.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\*(.*?)\*/g, '<em>$1</em>')}</p>\n`;
+// Ch 5: Master Articles from src/content/articles/
+const articlesDir = path.resolve('src/content/articles');
+const articleFiles = fs.existsSync(articlesDir)
+  ? fs.readdirSync(articlesDir).filter(f => f.endsWith('.md')).sort()
+  : [];
+
+let dicgcChapterIndex = 5;
+
+articleFiles.forEach((file, idx) => {
+  const fullPath = path.join(articlesDir, file);
+  const raw = fs.readFileSync(fullPath, 'utf8');
+  const frontmatterMatch = raw.match(/^---([\s\S]*?)---\s*/);
+  let title = file.replace(/^\d+-/, '').replace(/\.md$/, '').replace(/-/g, ' ');
+  let category = 'article';
+  if (frontmatterMatch) {
+    const titleMatch = frontmatterMatch[1].match(/title:\s*["']?([^"'\n]+)["']?/);
+    if (titleMatch) title = titleMatch[1].trim();
+    const catMatch = frontmatterMatch[1].match(/categoryId:\s*["']?([^"'\n]+)["']?/);
+    if (catMatch) category = catMatch[1].trim();
+  }
+  const body = raw.replace(/^---[\s\S]*?---\s*/, '');
+  let chapterHtml = `<h1>${title}</h1>\n<hr/>\n`;
+  const paras = body.split(/\n\n+/).map(p => p.trim()).filter(Boolean);
+  paras.forEach(p => {
+    if (p.startsWith('# ')) chapterHtml += `<h2>${p.replace(/^#\s+/, '')}</h2>\n`;
+    else if (p.startsWith('## ')) chapterHtml += `<h3>${p.replace(/^##\s+/, '')}</h3>\n`;
+    else if (p.startsWith('### ')) chapterHtml += `<h4>${p.replace(/^###\s+/, '')}</h4>\n`;
+    else if (p.startsWith('---')) chapterHtml += `<hr/>\n`;
+    else chapterHtml += `<p>${p.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\*(.*?)\*/g, '<em>$1</em>')}</p>\n`;
+  });
+
+  const chIndex = allChapters.length;
+  if (file.includes('vault-banking') || file.includes('dicgc')) {
+    dicgcChapterIndex = chIndex;
+  }
+
+  allChapters.push({
+    id: `art_${file.replace(/[^a-zA-Z0-9]/g, '_')}`,
+    title: `Treatise ${idx + 1}: ${title}`,
+    filename: `art_${idx + 1}.xhtml`,
+    htmlContent: chapterHtml,
+    category
+  });
 });
-allChapters.push({ id: 'ch05_dicgc_treatise', title: "Part Five: Master Treatise — DICGC Deposit Insurance Architecture", filename: 'ch05_dicgc_treatise.xhtml', htmlContent: ch5Html, category: 'treatise' });
 
 // Ch 6: Forensic Shadow Economy
 let ch6Html = `
@@ -424,6 +454,10 @@ function htmlToPlainText(html) {
     .replace(/&lt;/g, '<')
     .replace(/&gt;/g, '>')
     .replace(/&quot;/g, '"')
+    // Remove all markdown formatting characters so Moon+ Reader Pro TTS is pure natural spoken prose
+    .replace(/\*{1,3}/g, '')
+    .replace(/`{1,3}/g, '')
+    .replace(/_{1,3}/g, '')
     .replace(/\n\s+\n/g, '\n\n')
     .trim();
 }
@@ -656,7 +690,7 @@ publishPublication(
   'Chapter: DICGC Deposit Insurance Architecture & Bank Failure Resolution',
   'chapter_edition',
   'Banking Safety',
-  [allChapters[5]],
+  [allChapters[dicgcChapterIndex] || allChapters[5]],
   'Chapter-DICGC-Deposit-Insurance-Architecture'
 );
 

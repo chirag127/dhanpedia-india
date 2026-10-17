@@ -142,30 +142,37 @@ Agents must adhere to [`docs/AGENT_RESEARCH_POLICY.md`](file:///c:/g/dhanpedia-i
 ## 9. Content-Writing Standards
 
 Agents must adhere to [`docs/AGENT_CONTENT_POLICY.md`](file:///c:/g/dhanpedia-india/docs/AGENT_CONTENT_POLICY.md):
-1. **Depth:** All flagship articles must exceed **10,000 words** of original, non-duplicative analysis.
-2. **Layered Pedagogy:** Executive Summary -> Statutory Framework -> Operational Mechanics -> Spoken Quantitative Models -> Tax Treatment -> Forensic Failure Modes -> Redressal & Ombudsman Matrix.
-3. **Forensic Reality:** Document cash components in real estate (Sections 269SS, 271D, 269ST, 50C), Benami property confiscation, and illegal dabba trading bucket shops.
+1. **Depth Strategy:** Modular and rigorous (1,500 to 3,500 words of dense, original prose per specialized article; 5,000 to 10,000+ words for foundational pillar treatises). Zero padding, zero repetition, zero fluff.
+2. **Prose-Only Mandate (Non-Negotiable):** Canonical article bodies must consist strictly of natural-language prose organized into semantic headings (`#`, `##`, `###`) and connected paragraphs.
+   - **Absolute Ban on ASCII Art & Box Diagrams:** Never author ASCII box trees or arrow diagrams (e.g. `└──`, `──>`, `│`, `▼`, `┌`, `└`). Neural voice engines read these character-by-character, destroying the listening experience.
+   - **Zero Code Fences:** Never insert code blocks (` ``` `) in article bodies.
+   - **Zero Raw Formulas:** Never use LaTeX blocks (`$$...$$`). Articulate all mathematical relationships, compounding mechanics, and financial formulas in flowing spoken English.
+   - **Zero Data Tables or Table Traps:** Tabular data must be explained in comparative narrative paragraphs.
+   - **Zero Mermaid Diagrams in Article Bodies:** Use descriptive prose to explain flows, branches, and decision trees.
+3. **Multi-Level Categorization Hierarchy:** Organize the corpus into a 3-tier hierarchy: Domain Category (Domains A to Z), Subcategory, and Sub-subcategory in frontmatter metadata to seamlessly support scaling across hundreds and thousands of articles.
+4. **Forensic Reality:** Document statutory cash limits (Sections 269SS, 271D, 269ST, 50C), Benami property confiscation, and illegal dabba trading bucket shops.
 
 ---
 
 ## 10. Moon+ Reader Pro TTS Standards
 
 Agents must adhere to [`docs/AGENT_TTS_POLICY.md`](file:///c:/g/dhanpedia-india/docs/AGENT_TTS_POLICY.md):
-1. **No Raw LaTeX Equations:** Never author `$$...$$` blocks. Always author spoken English formulas (e.g. *"The future value is calculated by multiplying..."*).
-2. **No Table Traps:** Tables must be accompanied by comprehensive narrative paragraphs detailing comparisons.
-3. **No Hard Line Breaks (`<br>`):** Maintain natural paragraph flow for Android neural voice engines.
-4. **Indian Numbers & Currency:** Express figures in words (*"five lakh rupees"*, *"twenty-five crore rupees"*).
-5. **Mermaid Diagrams:** Always follow every diagram with a complete spoken explanatory narrative.
+1. **Paragraph Format Exclusivity:** Every concept, escalation process, and comparison must be written in continuous, natural English paragraphs with smooth transitional sentences.
+2. **No Raw LaTeX Equations:** Formulas must be spoken (e.g. *"The future value is calculated by multiplying the initial principal by one plus the periodic interest rate raised to the power of the compounding periods"*).
+3. **Indian Numbers & Currency in Words:** Express financial figures in spoken words (*"five lakh rupees"*, *"twenty-five crore rupees"*).
+4. **No Hard Line Breaks (`<br>`):** Maintain natural paragraph flow for Android neural voice engines.
+5. **No Bracketed Footnote Traps:** Inline citations must be woven naturally into the prose (e.g., *"Under Section 18A of the Deposit Insurance and Credit Guarantee Corporation Act..."*).
 
 ---
 
 ## 11. Book-Generation Rules
 
 Agents must adhere to [`docs/AGENT_BOOK_PUBLISHING_POLICY.md`](file:///c:/g/dhanpedia-india/docs/AGENT_BOOK_PUBLISHING_POLICY.md):
-1. Ingest canonical content directly from `src/content/articles/` and `data/`.
-2. Generate Master Complete Reference, Master TTS Audiobook Edition, 7 Subject-Wise Volumes, and Chapter Editions across EPUB, PDF, and TXT.
-3. Generate and validate `public/books/publication-manifest.json` with SHA-256 hashes and real word counts.
-4. Mirror all files to `public/books/` and `dist/books/`.
+1. **Dynamic Ingestion:** Automatically crawl all canonical markdown files in `src/content/articles/` and organize them into multi-level categories and subcategories.
+2. **Markdown Asterisk Stripping for TTS:** Markdown bold (`**word**`) is converted to styled HTML elements (`<strong>`) in visual EPUBs and styled typography in PDFs. However, in the plain-text edition and TTS audiobook generation, all markdown asterisks (`**` and `*`) must be stripped cleanly so Moon+ Reader Pro never vocalizes "asterisk" or "star".
+3. **Multi-Format Publication Suite:** Generate Master Complete Reference, Master TTS Audiobook Edition, Subject-Wise Volumes, and Chapter Editions across EPUB, PDF, and TXT.
+4. **Automated Manifest:** Generate and validate `public/books/publication-manifest.json` with SHA-256 hashes, exact word counts, and verified file sizes.
+5. **Artifact Mirroring:** Mirror all generated files to `public/books/` and `dist/books/`.
 
 ---
 
