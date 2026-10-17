@@ -1,13 +1,14 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import zlib from 'node:zlib';
+import crypto from 'node:crypto';
 
-console.log('\n======================================================');
-console.log('  DHANPEDIA INDIA — MASTER PUBLICATION & EPUB ENGINE');
-console.log('  Optimized for Moon+ Reader Pro TTS & Audiobook Audio');
-console.log('======================================================\n');
+console.log('\n================================================================');
+console.log('  DHANPEDIA INDIA — CANONICAL MULTI-FORMAT PUBLICATION PIPELINE');
+console.log('  Master Reference, TTS Editions, Subject Volumes & PDF Engine');
+console.log('================================================================\n');
 
-// 1. Load All Knowledge Base Registries
+// 1. Load Canonical Knowledge Base Data
 const taxonomy = JSON.parse(fs.readFileSync('data/taxonomy/taxonomy.json', 'utf8'));
 const conceptData = JSON.parse(fs.readFileSync('data/concepts/concept-registry.json', 'utf8'));
 const formulaData = JSON.parse(fs.readFileSync('data/calculators/formula-registry.json', 'utf8'));
@@ -21,279 +22,10 @@ const flagshipPath = 'src/content/articles/dicgc-deposit-insurance-architecture-
 let flagshipContent = '';
 if (fs.existsSync(flagshipPath)) {
   const raw = fs.readFileSync(flagshipPath, 'utf8');
-  // Strip frontmatter
   flagshipContent = raw.replace(/^---[\s\S]*?---\s*/, '');
 }
 
-// 2. Build Chapter Content Structure
-// Chapters array: { id, title, filename, htmlContent, textContent }
-const chapters = [];
-
-// Chapter 0: Title & TTS Listening Guide
-const ch0Title = "Title Page and Audiobook Listening Guide";
-const ch0Html = `
-<div class="title-page">
-  <h1 class="book-title">Dhanpedia India</h1>
-  <p class="book-subtitle">The Indian Personal Finance, Investing and Wealth-Building Encyclopedia</p>
-  <p class="book-tagline">Master your money. Understand every investment. Build lasting wealth.</p>
-  <p class="book-author">By Chirag Singhal</p>
-  <p class="book-edition">Master Encyclopedia Edition — Audio-Native Prose Standard</p>
-  <p class="book-url">Official Website: https://chirag127.github.io/dhanpedia-india/</p>
-</div>
-<hr/>
-<h2>How to Listen via Text-to-Speech in Moon+ Reader Pro</h2>
-<p>This master volume has been engineered specifically for continuous, uninterrupted text-to-speech listening using Moon+ Reader Pro and modern Android neural speech engines. Unlike conventional financial textbooks that rely on visual equation blocks, ASCII diagrams, and multi-column tables that choke screen readers, every concept, mathematical formula, statutory tax bracket, and legal penalty in this work is narrated in flowing, spoken English paragraphs.</p>
-<p>To enjoy the best possible listening experience on your mobile device, please review the following optimization guidelines:</p>
-<p>First, ensure that your text-to-speech engine is configured with high-quality natural voices. In Android system settings under Accessibility and Text-to-Speech, select Google Speech Services or your preferred neural engine, and download the high-quality English India or English natural voice pack. High-quality neural voices handle Indian financial terminology, rupee denominations, and long sentences with natural intonation.</p>
-<p>Second, in Moon+ Reader Pro, activate Text-to-Speech by tapping the center of the screen, selecting the speaker icon, and opening the audio options. We recommend enabling the keep-screen-on or background audio playback toggle so that playback continues effortlessly when your device screen is turned off during your commute, workout, or daily routine.</p>
-<p>Third, Moon+ Reader Pro features a Name Replacement option under its text-to-speech configuration. If you notice your speech engine mispronouncing specific statutory acronyms like DICGC, CIBIL, or TDS, you can add simple phonetic substitutions so the audio sounds completely natural.</p>
-<p>Fourth, this book includes visual diagrams for readers viewing the screen, but every single diagram is accompanied by complete spoken narrative prose that explains the entire workflow, so listeners relying purely on audio will not miss a single insight.</p>
-`;
-chapters.push({
-  id: 'ch00_intro',
-  title: ch0Title,
-  filename: 'ch00_intro.xhtml',
-  htmlContent: ch0Html
-});
-
-// Chapter 1: The 26 Master Domains of Indian Finance
-let ch1Html = `
-<h1>Part One: The Twenty-Six Master Domains of Indian Finance</h1>
-<p>The financial system of India is a sophisticated, rapidly modernizing architecture governed by specialized statutory regulators, parliamentary enactments, and market infrastructure institutions. To provide an exhaustive, disciplined reference for every saver, investor, and entrepreneur, Dhanpedia India organizes the entire financial landscape into twenty-six canonical domains, designated from Domain A through Domain Z.</p>
-<p>Every domain addresses a fundamental pillar of economic life, from basic liquidity buffers to algorithmic market microstructure. Below is the comprehensive architectural overview of all twenty-six domains, detailing their regulatory authorities, core mandates, and key consumer questions.</p>
-`;
-
-taxonomy.categories.forEach((cat, idx) => {
-  ch1Html += `
-<h2>Domain ${String.fromCharCode(65 + idx)}: ${cat.canonicalName}</h2>
-<p><strong>Primary Regulators and Statutory Authorities:</strong> ${cat.regulatorsAndSources.join(', ')}.</p>
-<p><strong>Scope and Mandate:</strong> ${cat.scope}</p>
-<p><strong>Exclusions and Boundaries:</strong> ${cat.exclusions}</p>
-<p><strong>Core Consumer Inquiries:</strong></p>
-<p>${cat.coreQuestions.join(' Furthermore, ')}</p>
-`;
-});
-
-chapters.push({
-  id: 'ch01_taxonomy',
-  title: "Part One: The Twenty-Six Master Domains of Indian Finance",
-  filename: 'ch01_taxonomy.xhtml',
-  htmlContent: ch1Html
-});
-
-// Chapter 2: The Foundational Concept Encyclopedia (52 Concepts)
-let ch2Html = `
-<h1>Part Two: The Canonical Concept Encyclopedia</h1>
-<p>Personal finance in India cannot be mastered through superficial rules of thumb. True financial sovereignty requires a deep understanding of core economic concepts, statutory definitions, and practical decision rules. This encyclopedia defines fifty-two foundational concepts spanning Personal Finance, Investments, Corporate Accounting, Market Infrastructure, Taxation, and Quantitative Risk Modeling.</p>
-<p>Each concept is articulated across three distinct levels: first, an intuitive plain-English explanation; second, a precise technical definition; and third, an audio-native spoken formulation of its governing mathematical or legal logic.</p>
-`;
-
-conceptData.concepts.forEach((c, idx) => {
-  ch2Html += `
-<h2>Concept ${idx + 1}: ${c.canonicalTerm}</h2>
-<p><strong>Plain English Explanation:</strong> ${c.definitionPlainEnglish || c.shortDefinition}</p>
-<p><strong>Technical and Statutory Definition:</strong> ${c.definitionTechnical || c.shortDefinition}</p>
-${c.spokenFormula ? `<p><strong>Spoken Mathematical Logic:</strong> ${c.spokenFormula}</p>` : ''}
-${c.commonMisconceptions ? `<p><strong>Common Misconceptions:</strong> ${c.commonMisconceptions}</p>` : ''}
-${c.inclusions && c.inclusions.length ? `<p><strong>Scope of Inclusions:</strong> ${c.inclusions.join(', ')}.</p>` : ''}
-${c.jurisdiction ? `<p><strong>Governing Jurisdiction:</strong> ${c.jurisdiction}.</p>` : ''}
-`;
-});
-
-chapters.push({
-  id: 'ch02_concepts',
-  title: "Part Two: The Canonical Concept Encyclopedia",
-  filename: 'ch02_concepts.xhtml',
-  htmlContent: ch2Html
-});
-
-// Chapter 3: Mathematical Formulas in Spoken English (14 Formulas)
-let ch3Html = `
-<h1>Part Three: Mathematical Formulas in Spoken English</h1>
-<p>Financial mathematics is frequently presented as intimidating algebraic notation that alienates listeners and creates barriers for text-to-speech audio engines. In this section, fourteen foundational financial formulas are translated into clear, flowing spoken English paragraphs. Whether calculating compound interest, inflation-adjusted purchasing power, home loan equated monthly installments, or bond duration, listeners can follow the exact mathematical steps without looking at a blackboard or screen.</p>
-`;
-
-formulaData.formulas.forEach((form, idx) => {
-  ch3Html += `
-<h2>Formula ${idx + 1}: ${form.name}</h2>
-<p><strong>Mathematical Expression:</strong> ${form.mathematicalExpression}</p>
-<p><strong>Audio-Native Spoken Narration:</strong> ${form.plainEnglishInterpretation}</p>
-<p><strong>Underlying Assumptions and Limitations:</strong> ${form.assumptions} It must be noted that ${form.limitations}</p>
-<p><strong>Verification Example:</strong> ${form.testRequirements || 'Calculated using standard financial conventions.'}</p>
-`;
-});
-
-chapters.push({
-  id: 'ch03_formulas',
-  title: "Part Three: Mathematical Formulas in Spoken English",
-  filename: 'ch03_formulas.xhtml',
-  htmlContent: ch3Html
-});
-
-// Chapter 4: Structured Financial Learning Paths
-let ch4Html = `
-<h1>Part Four: Structured Learning Curricula and Wealth Milestones</h1>
-<p>Building enduring wealth in India requires a deliberate, step-by-step educational progression. One should not attempt complex derivative strategies before mastering basic cash flow hygiene, emergency liquidity, and health insurance shields. This section outlines twelve structured learning paths designed to take readers from introductory financial literacy to advanced quantitative asset management.</p>
-`;
-
-learningPathData.learningPaths.forEach((pathItem, idx) => {
-  ch4Html += `
-<h2>Curriculum ${idx + 1}: ${pathItem.title}</h2>
-<p><strong>Target Audience:</strong> ${pathItem.targetAudience}.</p>
-<p><strong>Estimated Study Commitment:</strong> Approximately ${pathItem.estimatedHours} hours of deep reading and exercise completion.</p>
-<p><strong>Milestone Outcome:</strong> ${pathItem.milestoneOutcome}</p>
-<p><strong>Curriculum Stages:</strong></p>
-`;
-  pathItem.curriculumStages.forEach(stg => {
-    ch4Html += `
-<p><strong>Stage ${stg.stageNumber}: ${stg.stageName}.</strong> Focus concepts include ${stg.conceptIds.join(', ')}. Practical exercise: ${stg.practicalExercise}</p>
-`;
-  });
-});
-
-chapters.push({
-  id: 'ch04_learning_paths',
-  title: "Part Four: Structured Learning Curricula and Wealth Milestones",
-  filename: 'ch04_learning_paths.xhtml',
-  htmlContent: ch4Html
-});
-
-// Chapter 5: Master Flagship Treatise (DICGC Deposit Insurance)
-let ch5Html = `
-<h1>Part Five: Master Treatise — DICGC Deposit Insurance Architecture</h1>
-<p>The following comprehensive treatise examines the statutory deposit insurance framework established under the Deposit Insurance and Credit Guarantee Corporation Act of 1961. It details insurance limits, single versus joint ownership capacities, bank liquidation resolution timelines, and mathematical balance sheet allocation rules across commercial and cooperative banks in India.</p>
-<hr/>
-`;
-
-// Convert markdown paragraphs into HTML paragraphs
-const flagshipParas = flagshipContent
-  .split(/\n\n+/)
-  .map(p => p.trim())
-  .filter(p => p.length > 0);
-
-flagshipParas.forEach(p => {
-  if (p.startsWith('# ')) {
-    ch5Html += `<h2>${p.replace(/^#\s+/, '')}</h2>\n`;
-  } else if (p.startsWith('## ')) {
-    ch5Html += `<h3>${p.replace(/^##\s+/, '')}</h3>\n`;
-  } else if (p.startsWith('### ')) {
-    ch5Html += `<h4>${p.replace(/^###\s+/, '')}</h4>\n`;
-  } else if (p.startsWith('- ') || p.startsWith('* ')) {
-    const items = p.split(/\n[-*]\s+/).map(i => i.replace(/^[-*]\s+/, '').trim()).filter(Boolean);
-    ch5Html += `<ul>${items.map(i => `<li>${i}</li>`).join('')}</ul>\n`;
-  } else {
-    ch5Html += `<p>${p.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\*(.*?)\*/g, '<em>$1</em>')}</p>\n`;
-  }
-});
-
-chapters.push({
-  id: 'ch05_dicgc_treatise',
-  title: "Part Five: Master Treatise — DICGC Deposit Insurance Architecture",
-  filename: 'ch05_dicgc_treatise.xhtml',
-  htmlContent: ch5Html
-});
-
-// Chapter 6: Forensic Shadow Economy and Criminal Sanctions
-let ch6Html = `
-<h1>Part Six: Forensic Finance, Real Estate Black Money, and Shadow Economics</h1>
-<p>Personal finance in India does not operate in an idealized vacuum. Millions of citizens encounter real-world cash pressures, unaccounted on-money demands during property acquisitions, predatory illegal digital lending apps, and off-exchange dabba trading bucket shops. Dhanpedia India approaches these realities with absolute forensic honesty, objective statutory citations, and zero moralizing.</p>
-
-<h2>1. The Real Estate Cash Trap and Section 269SS/ST Violations</h2>
-<p>In many Indian metropolitan and Tier 2 property transactions, sellers demand a cash component, colloquially termed on-money, representing the gap between the municipal circle rate (or guidance value) and the true negotiated market price. Buyers who succumb to this pressure frequently fail to realize that the Income-tax Act of 1961 contains draconian statutory penalties specifically designed to penalize cash property dealings.</p>
-<p>Under Section 269SS of the Income-tax Act, no person is permitted to accept or take any loan, deposit, or specified sum in cash exceeding nineteen thousand nine hundred and ninety-nine rupees in relation to the transfer of an immovable property. If a seller accepts cash of twenty thousand rupees or more as an advance or part of property consideration, Section 271D mandates that the Joint Commissioner of Income Tax shall impose a monetary penalty exactly equal to one hundred percent of the cash accepted. This is not a tax on profit; it is a total confiscation of the entire cash amount.</p>
-<p>Similarly, Section 269ST prohibits any person from receiving cash of two lakh rupees or more in aggregate from a single person in a day, in respect of a single transaction, or in respect of transactions relating to one event. Any violation triggers a mandatory one hundred percent monetary penalty under Section 271DA on the recipient.</p>
-
-<h2>2. Double Taxation Penalties under Sections 50C and 56(2)(x)</h2>
-<p>When parties attempt to evade stamp duty and capital gains by registering an agreement value significantly below the circle rate, the Income Tax Department applies a double-ended statutory squeeze. Under Section 50C, if the circle rate exceeds the registered agreement value by more than ten percent (the statutory safe harbor tolerance band), the full circle rate is deemed to be the sales consideration received by the seller. The seller is then assessed capital gains tax on phantom money they officially claim they never received.</p>
-<p>Simultaneously, under Section 56(2)(x), the buyer is penalized on the exact same transaction. The difference between the higher circle rate and the lower agreement value is deemed to be unearned taxable gift income in the hands of the buyer, taxed under the head Income from Other Sources at their applicable slab rate, which can reach up to thirty-nine percent under the highest surcharge bracket. Thus, both buyer and seller are penalized on the identical unrecorded valuation gap.</p>
-
-<h2>3. Total Asset Seizure under the Benami Property Transactions Act</h2>
-<p>Where properties are purchased using unaccounted funds in the name of extended family members, domestic staff, or shell corporate entities, the transaction falls squarely under the Prohibition of Benami Property Transactions Act of 1988, as amended in 2016. Under Section 5 of the Act, any property that is found to be benami is subject to absolute confiscation by the Central Government without paying any compensation whatsoever to any party.</p>
-<p>Furthermore, under Section 53 of the Act, any person who enters into a benami transaction, as well as anyone who abets or induces another person to do so, is punishable with rigorous imprisonment for a term between one year and seven years, in addition to a monetary fine extending up to twenty-five percent of the fair market value of the property.</p>
-
-<h2>4. Illegal Dabba Trading Bucket Shops and Criminal Sanctions</h2>
-<p>Dabba trading refers to illegal off-exchange bucketing where operators maintain private, unrecorded ledgers of equity and commodity derivative trades outside the clearing corporation framework of the National Stock Exchange and Bombay Stock Exchange. While operators entice speculators with promises of massive leverage, zero securities transaction tax, and cash payouts outside the banking system, participants forfeit all statutory safeguards.</p>
-<p>Under Sections 13 and 16 of the Securities Contracts (Regulation) Act of 1956, all contracts in securities are illegal unless entered into through a recognized stock exchange member. Operating or participating in a dabba trading network is a serious non-bailable offense under Section 23 of the SCRA, punishable with imprisonment extending up to ten years, a fine of up to twenty-five crore rupees, or both. Investors who fall victim to operator default or ledger manipulation have zero recourse to SEBI SCORES, the Investor Protection Fund, or statutory ombudsman mechanisms.</p>
-`;
-
-chapters.push({
-  id: 'ch06_shadow_economy',
-  title: "Part Six: Forensic Finance, Real Estate Black Money, and Shadow Economics",
-  filename: 'ch06_shadow_economy.xhtml',
-  htmlContent: ch6Html
-});
-
-// Chapter 7: Primary Statutory Authorities and Evidence Registry
-let ch7Html = `
-<h1>Part Seven: Primary Statutory Authorities and Evidence Registry</h1>
-<p>Dhanpedia India enforces a strict four-tier evidentiary hierarchy. Every claim of legal right, tax liability, or regulatory protection must originate from Tier 1 statutory authorities or Tier 2 market infrastructure institutions. Below is the complete catalogue of thirty-two primary statutory bodies and twelve verified legal claims that form the evidentiary bedrock of this encyclopedia.</p>
-
-<h2>Catalogue of Primary Statutory Authorities</h2>
-<p>The encyclopedia monitors thirty-two primary public institutions across banking, securities, insurance, pensions, taxation, insolvency, and criminal economic intelligence:</p>
-<ul>
-${sourceData.sources.map(s => `<li><strong>${s.officialName || s.sourceId} (${s.sourceId}):</strong> Authority Tier: ${s.authorityTier || s.reliabilityClassification}. Jurisdiction: ${s.jurisdiction}. Mandate: ${s.notes || s.sourceType}. Official Portal: ${s.canonicalUrl}</li>`).join('\n')}
-</ul>
-
-<h2>Verified Statutory Claims and Legal Propositions</h2>
-<p>The following twelve legal propositions are verified directly against Central Acts of Parliament, Master Directions, and Supreme Court jurisprudence:</p>
-<ul>
-${claimData.claims.map(clm => `<li><strong>${clm.claimId} (${clm.classification}):</strong> ${clm.proposition} Statutory Authority: ${clm.statutoryReference}. Supporting Sources: ${clm.sourceIds.join(', ')}.</li>`).join('\n')}
-</ul>
-`;
-
-chapters.push({
-  id: 'ch07_statutory_sources',
-  title: "Part Seven: Primary Statutory Authorities and Evidence Registry",
-  filename: 'ch07_statutory_sources.xhtml',
-  htmlContent: ch7Html
-});
-
-// 3. Build Pure Markdown Master Edition (for direct Moon+ Reader import or reading)
-console.log('Generating Master Audio-Native Markdown Edition...');
-let masterMarkdown = `# Dhanpedia India — The Indian Personal Finance, Investing and Wealth-Building Encyclopedia
-*Master Encyclopedia Edition — Audio-Native Prose Standard*
-*Author: Chirag Singhal*
-*Official Website: https://chirag127.github.io/dhanpedia-india/*
-
----
-
-`;
-
-chapters.forEach(ch => {
-  // Simple HTML to markdown translation for the text edition
-  const text = ch.htmlContent
-    .replace(/<h1>(.*?)<\/h1>/g, '\n# $1\n\n')
-    .replace(/<h2>(.*?)<\/h2>/g, '\n## $1\n\n')
-    .replace(/<h3>(.*?)<\/h3>/g, '\n### $1\n\n')
-    .replace(/<h4>(.*?)<\/h4>/g, '\n#### $1\n\n')
-    .replace(/<p>(.*?)<\/p>/g, '$1\n\n')
-    .replace(/<strong>(.*?)<\/strong>/g, '**$1**')
-    .replace(/<em>(.*?)<\/em>/g, '*$1*')
-    .replace(/<li>(.*?)<\/li>/g, '- $1\n')
-    .replace(/<ul[^>]*>/g, '\n')
-    .replace(/<\/ul>/g, '\n')
-    .replace(/<hr\/>/g, '\n---\n')
-    .replace(/<[^>]+>/g, '')
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"');
-
-  masterMarkdown += `${text}\n\n---\n\n`;
-});
-
-const booksDir = path.resolve('dist/books');
-fs.mkdirSync(booksDir, { recursive: true });
-
-const masterMdPath = path.join(booksDir, 'dhanpedia-india-master-edition.md');
-fs.writeFileSync(masterMdPath, masterMarkdown, 'utf8');
-const mdWordCount = masterMarkdown.trim().split(/\s+/).length;
-console.log(`✓ Master Markdown Edition generated at ${masterMdPath} (${mdWordCount.toLocaleString()} words).`);
-
-// 4. Build Standards-Compliant EPUB 3 File for Moon+ Reader Pro
-console.log('Generating Standards-Compliant EPUB for Moon+ Reader Pro...');
-
-// Helper: CRC32
+// 2. Helper Utilities: CRC32, ZIP Builder, PDF Writer, Hashing
 function crc32(buf) {
   let table = new Uint32Array(256);
   for (let i = 0; i < 256; i++) {
@@ -306,7 +38,10 @@ function crc32(buf) {
   return (crc ^ (-1)) >>> 0;
 }
 
-// Minimal in-memory ZIP builder with uncompressed mimetype support
+function computeSha256(buf) {
+  return crypto.createHash('sha256').update(buf).digest('hex');
+}
+
 class ZipBuilder {
   constructor() {
     this.files = [];
@@ -346,17 +81,17 @@ class ZipBuilder {
 
       // Local File Header
       const lh = Buffer.alloc(30 + nameBuf.length);
-      lh.writeUInt32LE(0x04034b50, 0); // signature
-      lh.writeUInt16LE(0x0014, 4); // version needed (2.0)
-      lh.writeUInt16LE(0x0000, 6); // general purpose flag
-      lh.writeUInt16LE(f.method, 8); // compression method
-      lh.writeUInt16LE(0x0000, 10); // file mod time
-      lh.writeUInt16LE(0x0000, 12); // file mod date
-      lh.writeUInt32LE(f.crc, 14); // crc-32
-      lh.writeUInt32LE(f.compressedSize, 18); // compressed size
-      lh.writeUInt32LE(f.uncompressedSize, 22); // uncompressed size
-      lh.writeUInt16LE(nameBuf.length, 26); // file name length
-      lh.writeUInt16LE(0, 28); // extra field length
+      lh.writeUInt32LE(0x04034b50, 0);
+      lh.writeUInt16LE(0x0014, 4);
+      lh.writeUInt16LE(0x0000, 6);
+      lh.writeUInt16LE(f.method, 8);
+      lh.writeUInt16LE(0x0000, 10);
+      lh.writeUInt16LE(0x0000, 12);
+      lh.writeUInt32LE(f.crc, 14);
+      lh.writeUInt32LE(f.compressedSize, 18);
+      lh.writeUInt32LE(f.uncompressedSize, 22);
+      lh.writeUInt16LE(nameBuf.length, 26);
+      lh.writeUInt16LE(0, 28);
       nameBuf.copy(lh, 30);
 
       const localOffset = offset;
@@ -366,23 +101,23 @@ class ZipBuilder {
 
       // Central Directory Header
       const cdh = Buffer.alloc(46 + nameBuf.length);
-      cdh.writeUInt32LE(0x02014b50, 0); // central dir signature
-      cdh.writeUInt16LE(0x0014, 4); // version made by
-      cdh.writeUInt16LE(0x0014, 6); // version needed
-      cdh.writeUInt16LE(0x0000, 8); // general purpose flag
-      cdh.writeUInt16LE(f.method, 10); // compression method
-      cdh.writeUInt16LE(0x0000, 12); // file mod time
-      cdh.writeUInt16LE(0x0000, 14); // file mod date
-      cdh.writeUInt32LE(f.crc, 16); // crc-32
-      cdh.writeUInt32LE(f.compressedSize, 20); // compressed size
-      cdh.writeUInt32LE(f.uncompressedSize, 24); // uncompressed size
-      cdh.writeUInt16LE(nameBuf.length, 28); // file name length
-      cdh.writeUInt16LE(0, 30); // extra field length
-      cdh.writeUInt16LE(0, 32); // comment length
-      cdh.writeUInt16LE(0, 34); // disk number start
-      cdh.writeUInt16LE(0, 36); // internal file attributes
-      cdh.writeUInt32LE(0, 38); // external file attributes
-      cdh.writeUInt32LE(localOffset, 42); // relative offset of local header
+      cdh.writeUInt32LE(0x02014b50, 0);
+      cdh.writeUInt16LE(0x0014, 4);
+      cdh.writeUInt16LE(0x0014, 6);
+      cdh.writeUInt16LE(0x0000, 8);
+      cdh.writeUInt16LE(f.method, 10);
+      cdh.writeUInt16LE(0x0000, 12);
+      cdh.writeUInt16LE(0x0000, 14);
+      cdh.writeUInt32LE(f.crc, 16);
+      cdh.writeUInt32LE(f.compressedSize, 20);
+      cdh.writeUInt32LE(f.uncompressedSize, 24);
+      cdh.writeUInt16LE(nameBuf.length, 28);
+      cdh.writeUInt16LE(0, 30);
+      cdh.writeUInt16LE(0, 32);
+      cdh.writeUInt16LE(0, 34);
+      cdh.writeUInt16LE(0, 36);
+      cdh.writeUInt32LE(0, 38);
+      cdh.writeUInt32LE(localOffset, 42);
       nameBuf.copy(cdh, 46);
 
       centralDirectoryHeaders.push(cdh);
@@ -396,213 +131,560 @@ class ZipBuilder {
 
     // End of Central Directory Record
     const eocd = Buffer.alloc(22);
-    eocd.writeUInt32LE(0x06054b50, 0); // eocd signature
-    eocd.writeUInt16LE(0, 4); // disk number
-    eocd.writeUInt16LE(0, 6); // disk where cd starts
-    eocd.writeUInt16LE(this.files.length, 8); // total entries on this disk
-    eocd.writeUInt16LE(this.files.length, 10); // total entries in central dir
-    eocd.writeUInt32LE(cdSize, 12); // size of central dir
-    eocd.writeUInt32LE(cdStartOffset, 16); // offset of start of central dir
-    eocd.writeUInt16LE(0, 20); // comment length
+    eocd.writeUInt32LE(0x06054b50, 0);
+    eocd.writeUInt16LE(0, 4);
+    eocd.writeUInt16LE(0, 6);
+    eocd.writeUInt16LE(this.files.length, 8);
+    eocd.writeUInt16LE(this.files.length, 10);
+    eocd.writeUInt32LE(cdSize, 12);
+    eocd.writeUInt32LE(cdStartOffset, 16);
+    eocd.writeUInt16LE(0, 20);
 
     return Buffer.concat([...localHeaders, ...centralDirectoryHeaders, eocd]);
   }
 }
 
-const zip = new ZipBuilder();
+class SimplePdfWriter {
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+    this.pages = [];
+    this.currentPage = [];
+    this.y = 750;
+    this.pageHeight = 842;
+    this.margin = 54;
+    this.contentWidth = 595 - (this.margin * 2);
+  }
 
-// 1. mimetype (MUST be first file, uncompressed!)
-zip.addFile('mimetype', 'application/epub+zip', false);
+  escapePdfText(text) {
+    return text
+      .replace(/₹/g, 'Rs. ')
+      .replace(/[^\x20-\x7E]/g, ' ')
+      .replace(/\\/g, '\\\\')
+      .replace(/\(/g, '\\(')
+      .replace(/\)/g, '\\)');
+  }
 
-// 2. META-INF/container.xml
-const containerXml = `<?xml version="1.0" encoding="UTF-8"?>
+  addPage() {
+    if (this.currentPage.length > 0 || this.pages.length === 0) {
+      this.pages.push(this.currentPage);
+      this.currentPage = [];
+    }
+    this.y = 750;
+  }
+
+  addText(text, fontSize = 10, isBold = false, indent = 0) {
+    const font = isBold ? '/F2' : '/F1';
+    const lineHeight = fontSize * 1.35;
+    const charWidth = fontSize * 0.52;
+    const maxCharsPerLine = Math.floor((this.contentWidth - indent) / charWidth);
+
+    const words = text.split(/\s+/).filter(Boolean);
+    let currentLine = '';
+
+    for (const word of words) {
+      if ((currentLine + ' ' + word).trim().length <= maxCharsPerLine) {
+        currentLine = (currentLine + ' ' + word).trim();
+      } else {
+        if (this.y - lineHeight < 60) {
+          this.addPage();
+        }
+        this.currentPage.push({
+          font,
+          fontSize,
+          x: this.margin + indent,
+          y: this.y,
+          text: this.escapePdfText(currentLine)
+        });
+        this.y -= lineHeight;
+        currentLine = word;
+      }
+    }
+
+    if (currentLine.length > 0) {
+      if (this.y - lineHeight < 60) {
+        this.addPage();
+      }
+      this.currentPage.push({
+        font,
+        fontSize,
+        x: this.margin + indent,
+        y: this.y,
+        text: this.escapePdfText(currentLine)
+      });
+      this.y -= lineHeight;
+    }
+    this.y -= lineHeight * 0.4;
+  }
+
+  build() {
+    if (this.currentPage.length > 0) {
+      this.pages.push(this.currentPage);
+    }
+    const totalPages = Math.max(1, this.pages.length);
+    let objects = [];
+    let nextId = 5;
+
+    let pageObjIds = [];
+    let contentObjIds = [];
+
+    for (let i = 0; i < totalPages; i++) {
+      pageObjIds.push(nextId++);
+      contentObjIds.push(nextId++);
+    }
+
+    const catalogObj = '1 0 obj\n<< /Type /Catalog /Pages 2 0 R >>\nendobj';
+    const pagesObj = '2 0 obj\n<< /Type /Pages /Kids [' + pageObjIds.map(id => id + ' 0 R').join(' ') + '] /Count ' + totalPages + ' >>\nendobj';
+    const font1Obj = '3 0 obj\n<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>\nendobj';
+    const font2Obj = '4 0 obj\n<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>\nendobj';
+
+    objects.push(catalogObj, pagesObj, font1Obj, font2Obj);
+
+    for (let i = 0; i < totalPages; i++) {
+      const pageId = pageObjIds[i];
+      const contentId = contentObjIds[i];
+      const pageLines = this.pages[i] || [];
+
+      let stream = '';
+      if (i > 0) {
+        stream += 'BT /F1 8 Tf 54 800 Td (' + this.escapePdfText(this.title) + ') Tj ET\n';
+        stream += '0.5 w 54 792 m 541 792 l S\n';
+      }
+      stream += 'BT /F1 8 Tf 270 40 Td (Page ' + (i + 1) + ' of ' + totalPages + ') Tj ET\n';
+
+      for (const line of pageLines) {
+        stream += 'BT ' + line.font + ' ' + line.fontSize + ' Tf ' + line.x + ' ' + line.y + ' Td (' + line.text + ') Tj ET\n';
+      }
+
+      const streamObj = contentId + ' 0 obj\n<< /Length ' + Buffer.byteLength(stream) + ' >>\nstream\n' + stream + '\nendstream\nendobj';
+      const pageObj = pageId + ' 0 obj\n<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents ' + contentId + ' 0 R >>\nendobj';
+
+      objects.push(pageObj, streamObj);
+    }
+
+    let fullDoc = '%PDF-1.4\n';
+    let xref = 'xref\n0 ' + (objects.length + 1) + '\n0000000000 65535 f \n';
+
+    for (const obj of objects) {
+      xref += String(fullDoc.length).padStart(10, '0') + ' 00000 n \n';
+      fullDoc += obj + '\n';
+    }
+
+    const startxref = fullDoc.length;
+    fullDoc += xref;
+    fullDoc += 'trailer\n<< /Size ' + (objects.length + 1) + ' /Root 1 0 R >>\nstartxref\n' + startxref + '\n%%EOF';
+    return Buffer.from(fullDoc, 'utf8');
+  }
+}
+
+// 3. Build Core Chapter Models
+const allChapters = [];
+
+// Ch 0: Title and TTS Guide
+const ch0Title = "Title Page and Audiobook Listening Guide";
+const ch0Html = `
+<div class="title-page">
+  <h1 class="book-title">Dhanpedia India</h1>
+  <p class="book-subtitle">The Indian Personal Finance, Investing and Wealth-Building Encyclopedia</p>
+  <p class="book-tagline">Master your money. Understand every investment. Build lasting wealth.</p>
+  <p class="book-author">By Chirag Singhal</p>
+  <p class="book-edition">Master Reference & TTS Audio-Native Edition</p>
+  <p class="book-url">Official Website: https://chirag127.github.io/dhanpedia-india/</p>
+</div>
+<hr/>
+<h2>How to Listen via Text-to-Speech in Moon+ Reader Pro</h2>
+<p>This volume is engineered specifically for uninterrupted text-to-speech listening using Moon+ Reader Pro on Android devices. Every formula, statutory tax bracket, interest compounding rule, and legal penalty is articulated in flowing spoken English paragraphs without raw equation blocks or visual table traps.</p>
+<p>To listen comfortably with your screen turned off:</p>
+<p>First, select Google Speech Services or your preferred neural engine under Android Accessibility Text-to-Speech settings, downloading the English India high-quality voice pack.</p>
+<p>Second, in Moon+ Reader Pro, tap the screen center, select the Speaker (TTS) icon, and enable background audio playback.</p>
+<p>Third, all visual diagrams are paired with complete spoken narrative paragraphs explaining the entire decision logic, so listeners relying on audio will absorb one hundred percent of the knowledge.</p>
+`;
+allChapters.push({ id: 'ch00_intro', title: ch0Title, filename: 'ch00_intro.xhtml', htmlContent: ch0Html, category: 'foundation' });
+
+// Ch 1: 26 Master Domains
+let ch1Html = `
+<h1>Part One: The Twenty-Six Master Domains of Indian Finance</h1>
+<p>Dhanpedia India organizes the entire financial landscape into twenty-six canonical domains, designated from Domain A through Domain Z. Each domain represents an indispensable pillar of personal wealth, banking security, capital markets, or statutory compliance.</p>
+`;
+taxonomy.categories.forEach((cat, idx) => {
+  ch1Html += `
+<h2>Domain ${String.fromCharCode(65 + idx)}: ${cat.canonicalName}</h2>
+<p><strong>Primary Regulators and Authorities:</strong> ${cat.regulatorsAndSources.join(', ')}.</p>
+<p><strong>Scope and Mandate:</strong> ${cat.scope}</p>
+<p><strong>Exclusions and Boundaries:</strong> ${cat.exclusions}</p>
+<p><strong>Core Questions Addressed:</strong> ${cat.coreQuestions.join(' Furthermore, ')}</p>
+`;
+});
+allChapters.push({ id: 'ch01_taxonomy', title: "Part One: The Twenty-Six Master Domains of Indian Finance", filename: 'ch01_taxonomy.xhtml', htmlContent: ch1Html, category: 'foundation' });
+
+// Ch 2: 52 Concepts
+let ch2Html = `
+<h1>Part Two: The Canonical Concept Encyclopedia</h1>
+<p>True financial mastery requires understanding foundational constructs across their intuitive, technical, and mathematical dimensions. This section defines fifty-two core concepts of the Indian financial architecture.</p>
+`;
+conceptData.concepts.forEach((c, idx) => {
+  ch2Html += `
+<h2>Concept ${idx + 1}: ${c.canonicalTerm}</h2>
+<p><strong>Intuitive Meaning:</strong> ${c.definitionPlainEnglish || c.shortDefinition}</p>
+<p><strong>Technical Precision:</strong> ${c.definitionTechnical || c.shortDefinition}</p>
+${c.spokenFormula ? `<p><strong>Spoken Mathematical Formulation:</strong> ${c.spokenFormula}</p>` : ''}
+${c.commonMisconceptions ? `<p><strong>Common Pitfalls:</strong> ${c.commonMisconceptions}</p>` : ''}
+${c.jurisdiction ? `<p><strong>Statutory Context:</strong> ${c.jurisdiction}.</p>` : ''}
+`;
+});
+allChapters.push({ id: 'ch02_concepts', title: "Part Two: The Canonical Concept Encyclopedia", filename: 'ch02_concepts.xhtml', htmlContent: ch2Html, category: 'concepts' });
+
+// Ch 3: 14 Formulas
+let ch3Html = `
+<h1>Part Three: Mathematical Formulas in Spoken English</h1>
+<p>Fourteen foundational formulas translated into clear spoken English paragraphs, eliminating mathematical notation barriers for text-to-speech listening.</p>
+`;
+formulaData.formulas.forEach((form, idx) => {
+  ch3Html += `
+<h2>Formula ${idx + 1}: ${form.name}</h2>
+<p><strong>Symbolic Formula:</strong> ${form.mathematicalExpression}</p>
+<p><strong>Spoken Narration:</strong> ${form.plainEnglishInterpretation}</p>
+<p><strong>Assumptions and Limitations:</strong> ${form.assumptions} Note that ${form.limitations}</p>
+<p><strong>Numerical Example:</strong> ${form.testRequirements || 'Calculated using standard financial conventions.'}</p>
+`;
+});
+allChapters.push({ id: 'ch03_formulas', title: "Part Three: Mathematical Formulas in Spoken English", filename: 'ch03_formulas.xhtml', htmlContent: ch3Html, category: 'formulas' });
+
+// Ch 4: 12 Learning Paths
+let ch4Html = `
+<h1>Part Four: Structured Learning Curricula and Wealth Milestones</h1>
+<p>Twelve structured educational progressions taking savers from foundational cashflow hygiene to advanced quantitative risk modeling.</p>
+`;
+learningPathData.learningPaths.forEach((pathItem, idx) => {
+  ch4Html += `
+<h2>Curriculum ${idx + 1}: ${pathItem.title}</h2>
+<p><strong>Target Audience:</strong> ${pathItem.targetAudience}.</p>
+<p><strong>Study Commitment:</strong> Approximately ${pathItem.estimatedHours} hours.</p>
+<p><strong>Milestone Outcome:</strong> ${pathItem.milestoneOutcome}</p>
+`;
+  pathItem.curriculumStages.forEach(stg => {
+    ch4Html += `<p><strong>Stage ${stg.stageNumber} (${stg.stageName}):</strong> Practical exercise: ${stg.practicalExercise}</p>`;
+  });
+});
+allChapters.push({ id: 'ch04_learning_paths', title: "Part Four: Structured Learning Curricula and Wealth Milestones", filename: 'ch04_learning_paths.xhtml', htmlContent: ch4Html, category: 'learning' });
+
+// Ch 5: DICGC Master Treatise
+let ch5Html = `
+<h1>Part Five: Master Treatise — DICGC Deposit Insurance Architecture</h1>
+<p>Comprehensive analysis of the statutory deposit insurance framework established under the Deposit Insurance and Credit Guarantee Corporation Act 1961.</p>
+<hr/>
+`;
+const flagshipParas = flagshipContent.split(/\n\n+/).map(p => p.trim()).filter(Boolean);
+flagshipParas.forEach(p => {
+  if (p.startsWith('# ')) ch5Html += `<h2>${p.replace(/^#\s+/, '')}</h2>\n`;
+  else if (p.startsWith('## ')) ch5Html += `<h3>${p.replace(/^##\s+/, '')}</h3>\n`;
+  else if (p.startsWith('### ')) ch5Html += `<h4>${p.replace(/^###\s+/, '')}</h4>\n`;
+  else ch5Html += `<p>${p.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\*(.*?)\*/g, '<em>$1</em>')}</p>\n`;
+});
+allChapters.push({ id: 'ch05_dicgc_treatise', title: "Part Five: Master Treatise — DICGC Deposit Insurance Architecture", filename: 'ch05_dicgc_treatise.xhtml', htmlContent: ch5Html, category: 'treatise' });
+
+// Ch 6: Forensic Shadow Economy
+let ch6Html = `
+<h1>Part Six: Forensic Finance, Real Estate Black Money, and Shadow Economics</h1>
+<p>Forensic legal analysis of real estate cash limits under Section 269SS/ST, mandatory one hundred percent penalties under Section 271D/DA, Section 50C/56(2)(x) circle rate safe-harbor double taxation, asset confiscation under the Benami Property Transactions Act, and criminal sanctions against dabba trading under SCRA 1956.</p>
+<h2>1. Real Estate Cash Restrictions and Penalties</h2>
+<p>Under Section 269SS of the Income-tax Act 1961, accepting cash of twenty thousand rupees or more for immovable property transfer is prohibited. Section 271D imposes a mandatory penalty equal to one hundred percent of the cash accepted. Section 269ST restricts general cash receipts of two lakh rupees or more, backed by a one hundred percent penalty under Section 271DA.</p>
+<h2>2. Double Taxation Penalties under Sections 50C and 56(2)(x)</h2>
+<p>Discrepancies exceeding ten percent between registered agreement value and circle rate trigger capital gains tax on the seller on deemed consideration, while the buyer is taxed on the difference as income from other sources.</p>
+<h2>3. Prohibition of Benami Property Transactions</h2>
+<p>Under Section 5 of the PBPT Act 1988, benami assets are subject to absolute confiscation without compensation, accompanied by up to seven years rigorous imprisonment under Section 53.</p>
+<h2>4. Criminal Sanctions on Dabba Trading</h2>
+<p>Off-exchange bucket shops operating outside recognized stock exchanges violate Sections 13 and 16 of the SCRA 1956, carrying penalties under Section 23 of up to ten years imprisonment and fines up to twenty-five crore rupees.</p>
+`;
+allChapters.push({ id: 'ch06_shadow_economy', title: "Part Six: Forensic Finance, Real Estate Black Money, and Shadow Economics", filename: 'ch06_shadow_economy.xhtml', htmlContent: ch6Html, category: 'forensics' });
+
+// Ch 7: Statutory Evidence & Claims
+let ch7Html = `
+<h1>Part Seven: Primary Statutory Authorities and Evidence Registry</h1>
+<p>Catalogue of thirty-two primary statutory bodies and twelve verified legal propositions forming the evidentiary grounding of Dhanpedia India.</p>
+<h2>Primary Statutory Authorities</h2>
+<ul>
+${sourceData.sources.map(s => `<li><strong>${s.officialName || s.sourceId} (${s.sourceId}):</strong> Authority Tier: ${s.authorityTier || s.reliabilityClassification}. Scope: ${s.notes || s.sourceType}. URL: ${s.canonicalUrl}</li>`).join('\n')}
+</ul>
+<h2>Verified Statutory Claims</h2>
+<ul>
+${claimData.claims.map(clm => `<li><strong>${clm.claimId} (${clm.classification}):</strong> ${clm.proposition} Authority: ${clm.statutoryReference}. Citations: ${clm.sourceIds.join(', ')}.</li>`).join('\n')}
+</ul>
+`;
+allChapters.push({ id: 'ch07_statutory_sources', title: "Part Seven: Primary Statutory Authorities and Evidence Registry", filename: 'ch07_statutory_sources.xhtml', htmlContent: ch7Html, category: 'sources' });
+
+// 4. Publication Generation Functions
+function htmlToPlainText(html) {
+  return html
+    .replace(/<h[1-6][^>]*>(.*?)<\/h[1-6]>/gi, '\n\n=== $1 ===\n\n')
+    .replace(/<p[^>]*>(.*?)<\/p>/gi, '$1\n\n')
+    .replace(/<li[^>]*>(.*?)<\/li>/gi, '- $1\n')
+    .replace(/<hr\/?>/gi, '\n----------------------------------------\n')
+    .replace(/<[^>]+>/gi, '')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/\n\s+\n/g, '\n\n')
+    .trim();
+}
+
+function generateEpubBuffer(bookTitle, chapterList) {
+  const zip = new ZipBuilder();
+  zip.addFile('mimetype', 'application/epub+zip', false);
+
+  const containerXml = `<?xml version="1.0" encoding="UTF-8"?>
 <container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container">
   <rootfiles>
     <rootfile full-path="OEBPS/content.opf" media-type="application/oebps-package+xml"/>
   </rootfiles>
 </container>`;
-zip.addFile('META-INF/container.xml', containerXml, true);
+  zip.addFile('META-INF/container.xml', containerXml, true);
 
-// 3. OEBPS/style.css (Clean, high-contrast, TTS-friendly styling)
-const epubCss = `
-@charset "utf-8";
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  line-height: 1.65;
-  color: #1a1a1a;
-  background-color: #ffffff;
-  padding: 5% 7%;
-  margin: 0;
-  text-rendering: optimizeLegibility;
-}
-h1, h2, h3, h4 {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  color: #0b1a2f;
-  line-height: 1.25;
-  margin-top: 1.5em;
-  margin-bottom: 0.5em;
-}
-h1 { font-size: 1.8em; border-bottom: 2px solid #0052cc; padding-bottom: 0.3em; }
-h2 { font-size: 1.4em; border-bottom: 1px solid #e1e4e8; padding-bottom: 0.2em; }
-h3 { font-size: 1.2em; }
-p {
-  margin-top: 0;
-  margin-bottom: 1.1em;
-  text-align: justify;
-}
-ul, ol {
-  margin-top: 0;
-  margin-bottom: 1.2em;
-  padding-left: 1.5em;
-}
-li {
-  margin-bottom: 0.5em;
-}
-hr {
-  border: 0;
-  border-top: 1px solid #d1d5db;
-  margin: 2em 0;
-}
-.title-page {
-  text-align: center;
-  padding: 10% 5%;
-}
-.book-title {
-  font-size: 2.2em;
-  color: #0052cc;
-  margin-bottom: 0.2em;
-}
-.book-subtitle {
-  font-size: 1.2em;
-  font-weight: 600;
-  color: #374151;
-  margin-bottom: 0.8em;
-}
-.book-tagline {
-  font-style: italic;
-  color: #4b5563;
-  margin-bottom: 2em;
-}
-.book-author {
-  font-size: 1.1em;
-  font-weight: bold;
-  color: #111827;
-}
-.book-edition, .book-url {
-  font-size: 0.9em;
-  color: #6b7280;
-}
+  const css = `
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.65; color: #111827; padding: 4% 6%; margin: 0; }
+h1, h2, h3, h4 { color: #0b132b; line-height: 1.25; margin-top: 1.4em; }
+h1 { font-size: 1.8em; border-bottom: 2px solid #0052cc; padding-bottom: 0.25em; }
+h2 { font-size: 1.35em; border-bottom: 1px solid #e5e7eb; padding-bottom: 0.2em; }
+p { margin: 0 0 1.1em; text-align: justify; }
+ul, ol { margin: 0 0 1.2em; padding-left: 1.5em; }
+li { margin-bottom: 0.4em; }
+.title-page { text-align: center; padding: 10% 4%; }
+.book-title { font-size: 2.2em; color: #0052cc; }
 `;
-zip.addFile('OEBPS/style.css', epubCss, true);
+  zip.addFile('OEBPS/style.css', css, true);
 
-// 4. Chapter XHTML Files
-chapters.forEach(ch => {
-  const xhtml = `<?xml version="1.0" encoding="utf-8"?>
+  chapterList.forEach(ch => {
+    const xhtml = `<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
-<head>
-  <meta charset="utf-8"/>
-  <title>${ch.title}</title>
-  <link rel="stylesheet" type="text/css" href="style.css"/>
-</head>
-<body>
-${ch.htmlContent}
-</body>
-</html>`;
-  zip.addFile(`OEBPS/${ch.filename}`, xhtml, true);
-});
+<head><meta charset="utf-8"/><title>${ch.title}</title><link rel="stylesheet" type="text/css" href="style.css"/></head>
+<body>${ch.htmlContent}</body></html>`;
+    zip.addFile(`OEBPS/${ch.filename}`, xhtml, true);
+  });
 
-// 5. OEBPS/toc.ncx (NCX for standard e-readers and Moon+ Reader Pro ToC navigation)
-let ncx = `<?xml version="1.0" encoding="UTF-8"?>
+  let ncx = `<?xml version="1.0" encoding="UTF-8"?>
 <ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1">
-  <head>
-    <meta name="dtb:uid" content="urn:uuid:dhanpedia-india-master-2026"/>
-    <meta name="dtb:depth" content="1"/>
-    <meta name="dtb:totalPageCount" content="0"/>
-    <meta name="dtb:maxPageNumber" content="0"/>
-  </head>
-  <docTitle>
-    <text>Dhanpedia India — The Indian Personal Finance, Investing and Wealth-Building Encyclopedia</text>
-  </docTitle>
-  <docAuthor>
-    <text>Chirag Singhal</text>
-  </docAuthor>
+  <head><meta name="dtb:uid" content="urn:uuid:dhanpedia-india-${Date.now()}"/><meta name="dtb:depth" content="1"/></head>
+  <docTitle><text>${bookTitle}</text></docTitle>
+  <docAuthor><text>Chirag Singhal</text></docAuthor>
   <navMap>
 `;
+  chapterList.forEach((ch, idx) => {
+    ncx += `    <navPoint id="np-${idx + 1}" playOrder="${idx + 1}"><navLabel><text>${ch.title}</text></navLabel><content src="${ch.filename}"/></navPoint>\n`;
+  });
+  ncx += `  </navMap>\n</ncx>`;
+  zip.addFile('OEBPS/toc.ncx', ncx, true);
 
-chapters.forEach((ch, idx) => {
-  ncx += `    <navPoint id="navPoint-${idx + 1}" playOrder="${idx + 1}">
-      <navLabel><text>${ch.title}</text></navLabel>
-      <content src="${ch.filename}"/>
-    </navPoint>\n`;
-});
-ncx += `  </navMap>
-</ncx>`;
-zip.addFile('OEBPS/toc.ncx', ncx, true);
-
-// 6. OEBPS/nav.xhtml (EPUB 3 Navigation Document)
-let navXhtml = `<?xml version="1.0" encoding="utf-8"?>
+  let navXhtml = `<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
-<head>
-  <meta charset="utf-8"/>
-  <title>Table of Contents</title>
-  <link rel="stylesheet" type="text/css" href="style.css"/>
-</head>
-<body>
-  <nav epub:type="toc" id="toc">
-    <h1>Table of Contents</h1>
-    <ol>
-`;
-chapters.forEach(ch => {
-  navXhtml += `      <li><a href="${ch.filename}">${ch.title}</a></li>\n`;
-});
-navXhtml += `    </ol>
-  </nav>
-</body>
-</html>`;
-zip.addFile('OEBPS/nav.xhtml', navXhtml, true);
+<head><meta charset="utf-8"/><title>Table of Contents</title><link rel="stylesheet" type="text/css" href="style.css"/></head>
+<body><nav epub:type="toc" id="toc"><h1>Table of Contents</h1><ol>
+${chapterList.map(ch => `  <li><a href="${ch.filename}">${ch.title}</a></li>`).join('\n')}
+</ol></nav></body></html>`;
+  zip.addFile('OEBPS/nav.xhtml', navXhtml, true);
 
-// 7. OEBPS/content.opf (OPF Package Metadata and Spine)
-let opf = `<?xml version="1.0" encoding="utf-8"?>
+  let opf = `<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://www.idpf.org/2007/opf" unique-identifier="BookId" version="3.0">
   <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
-    <dc:identifier id="BookId">urn:uuid:dhanpedia-india-master-2026</dc:identifier>
-    <dc:title>Dhanpedia India — The Indian Personal Finance, Investing and Wealth-Building Encyclopedia</dc:title>
+    <dc:identifier id="BookId">urn:uuid:dhanpedia-india-${Date.now()}</dc:identifier>
+    <dc:title>${bookTitle}</dc:title>
     <dc:creator>Chirag Singhal</dc:creator>
     <dc:language>en</dc:language>
     <dc:publisher>Dhanpedia India</dc:publisher>
-    <dc:date>2026-10-17</dc:date>
-    <dc:description>The comprehensive, evidence-grounded reference encyclopedia on Indian personal finance, banking, mutual funds, debt, direct tax, real estate cash limits, and wealth-building architecture.</dc:description>
-    <meta property="dcterms:modified">2026-10-17T23:30:00Z</meta>
+    <meta property="dcterms:modified">${new Date().toISOString().replace(/\.\d+Z$/, 'Z')}</meta>
   </metadata>
   <manifest>
     <item id="style" href="style.css" media-type="text/css"/>
     <item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
     <item id="nav" href="nav.xhtml" media-type="application/xhtml+xml" properties="nav"/>
-`;
-
-chapters.forEach(ch => {
-  opf += `    <item id="${ch.id}" href="${ch.filename}" media-type="application/xhtml+xml"/>\n`;
-});
-
-opf += `  </manifest>
+${chapterList.map(ch => `    <item id="${ch.id}" href="${ch.filename}" media-type="application/xhtml+xml"/>`).join('\n')}
+  </manifest>
   <spine toc="ncx">
-`;
+${chapterList.map(ch => `    <itemref idref="${ch.id}"/>`).join('\n')}
+  </spine>
+</package>`;
+  zip.addFile('OEBPS/content.opf', opf, true);
 
-chapters.forEach(ch => {
-  opf += `    <itemref idref="${ch.id}"/>\n`;
+  return zip.build();
+}
+
+function generatePdfBuffer(bookTitle, chapterList) {
+  const doc = new SimplePdfWriter(bookTitle, 'Chirag Singhal');
+  doc.addText(bookTitle, 18, true);
+  doc.addText('Author: Chirag Singhal — Dhanpedia India Reference Publishing', 11, false);
+  doc.addText('--------------------------------------------------------------------------------', 10, false);
+
+  chapterList.forEach(ch => {
+    doc.addPage();
+    doc.addText(ch.title, 15, true);
+    const plain = htmlToPlainText(ch.htmlContent);
+    const paras = plain.split(/\n\n+/).filter(Boolean);
+    paras.forEach(p => {
+      if (p.startsWith('=== ')) {
+        doc.addText(p.replace(/===/g, '').trim(), 12, true);
+      } else {
+        doc.addText(p, 10, false);
+      }
+    });
+  });
+
+  return { buffer: doc.build(), pageCount: doc.pages.length };
+}
+
+// 5. Target Directories
+const distBooksDir = path.resolve('dist/books');
+const publicBooksDir = path.resolve('public/books');
+fs.mkdirSync(distBooksDir, { recursive: true });
+fs.mkdirSync(publicBooksDir, { recursive: true });
+
+const manifestItems = [];
+
+function publishPublication(pubId, title, editionType, subject, chaptersToInclude, baseFilename) {
+  const epubBuf = generateEpubBuffer(title, chaptersToInclude);
+  const pdfRes = generatePdfBuffer(title, chaptersToInclude);
+  
+  let txtContent = `# ${title}\nAuthor: Chirag Singhal\n\n`;
+  chaptersToInclude.forEach(ch => {
+    txtContent += `${htmlToPlainText(ch.htmlContent)}\n\n----------------------------------------\n\n`;
+  });
+  const txtBuf = Buffer.from(txtContent, 'utf8');
+
+  const epubName = `${baseFilename}.epub`;
+  const pdfName = `${baseFilename}.pdf`;
+  const txtName = `${baseFilename}.txt`;
+
+  // Write files to dist and public
+  [distBooksDir, publicBooksDir].forEach(dir => {
+    fs.writeFileSync(path.join(dir, epubName), epubBuf);
+    fs.writeFileSync(path.join(dir, pdfName), pdfRes.buffer);
+    fs.writeFileSync(path.join(dir, txtName), txtBuf);
+  });
+
+  const wordCount = txtContent.trim().split(/\s+/).length;
+
+  manifestItems.push(
+    {
+      publicationId: `${pubId}-EPUB`,
+      title,
+      editionType,
+      subject,
+      format: 'epub',
+      filename: epubName,
+      fileSizeBytes: epubBuf.length,
+      sha256: computeSha256(epubBuf),
+      wordCount,
+      pageCount: null,
+      ttsSuitability: 'Excellent (Moon+ Reader Pro Optimized)',
+      downloadUrl: `/books/${epubName}`
+    },
+    {
+      publicationId: `${pubId}-PDF`,
+      title,
+      editionType,
+      subject,
+      format: 'pdf',
+      filename: pdfName,
+      fileSizeBytes: pdfRes.buffer.length,
+      sha256: computeSha256(pdfRes.buffer),
+      wordCount,
+      pageCount: pdfRes.pageCount,
+      ttsSuitability: 'Visual Reference & Print',
+      downloadUrl: `/books/${pdfName}`
+    },
+    {
+      publicationId: `${pubId}-TXT`,
+      title,
+      editionType,
+      subject,
+      format: 'txt',
+      filename: txtName,
+      fileSizeBytes: txtBuf.length,
+      sha256: computeSha256(txtBuf),
+      wordCount,
+      pageCount: null,
+      ttsSuitability: 'Plain Text TTS Compatible',
+      downloadUrl: `/books/${txtName}`
+    }
+  );
+
+  console.log(`✓ Published: ${baseFilename} (EPUB: ${(epubBuf.length/1024).toFixed(1)}KB, PDF: ${(pdfRes.buffer.length/1024).toFixed(1)}KB [${pdfRes.pageCount} pgs], Words: ${wordCount.toLocaleString()})`);
+}
+
+// 6. Generate Complete Publications Suite
+console.log('[1/4] Publishing Master Editions...');
+// 1. Master Complete Reference (All Chapters)
+publishPublication(
+  'PUB-MASTER-REF',
+  'Dhanpedia India: The Complete Reference (Master Edition)',
+  'master_reference',
+  'All Domains A to Z',
+  allChapters,
+  'Dhanpedia-India-Complete-Reference'
+);
+
+// 2. Master TTS Audio-Native Edition
+publishPublication(
+  'PUB-MASTER-TTS',
+  'Dhanpedia India: TTS Audiobook Edition (Moon+ Reader Pro)',
+  'tts_optimized',
+  'All Domains A to Z (Spoken Audio-Native)',
+  allChapters,
+  'Dhanpedia-India-TTS-Edition'
+);
+
+console.log('\n[2/4] Publishing Subject-Wise Volumes...');
+// Subject Volumes
+const subjectMap = [
+  { id: 'SUBJ-PF', title: 'Personal Finance Foundations & Household Wealth', subject: 'Personal Finance', chapters: [allChapters[0], allChapters[1], allChapters[2]], filename: 'Personal-Finance-Foundations' },
+  { id: 'SUBJ-BANK', title: 'Indian Banking, Deposits & Resolution Architecture', subject: 'Banking & Deposits', chapters: [allChapters[0], allChapters[5]], filename: 'Banking-and-Deposit-Products' },
+  { id: 'SUBJ-TAX', title: 'Indian Taxation, Slabs & Dual Regime Architecture', subject: 'Taxation', chapters: [allChapters[0], allChapters[2]], filename: 'Indian-Taxation-Architecture' },
+  { id: 'SUBJ-FORMULAS', title: 'Financial Mathematics in Spoken English', subject: 'Quantitative Finance', chapters: [allChapters[0], allChapters[3]], filename: 'Financial-Mathematics-Spoken-English' },
+  { id: 'SUBJ-CURRICULA', title: 'Structured Wealth Milestones & Learning Paths', subject: 'Education', chapters: [allChapters[0], allChapters[4]], filename: 'Structured-Learning-Curricula' },
+  { id: 'SUBJ-FORENSIC', title: 'Forensic Shadow Economy, Cash Penalties & Scams', subject: 'Forensic Finance', chapters: [allChapters[0], allChapters[6]], filename: 'Forensic-Finance-and-Shadow-Economy' },
+  { id: 'SUBJ-STATUTORY', title: 'Statutory Authorities & Primary Legal Grounding', subject: 'Regulatory', chapters: [allChapters[0], allChapters[7]], filename: 'Statutory-Authorities-Registry' }
+];
+
+subjectMap.forEach(s => {
+  publishPublication(s.id, s.title, 'subject_volume', s.subject, s.chapters, s.filename);
 });
 
-opf += `  </spine>
-</package>`;
-zip.addFile('OEBPS/content.opf', opf, true);
+console.log('\n[3/4] Publishing Standalone Chapter Editions...');
+// Standalone Chapter Editions
+publishPublication(
+  'CHAP-DICGC',
+  'Chapter: DICGC Deposit Insurance Architecture & Bank Failure Resolution',
+  'chapter_edition',
+  'Banking Safety',
+  [allChapters[5]],
+  'Chapter-DICGC-Deposit-Insurance-Architecture'
+);
 
-// 8. Output EPUB File
-const epubBuffer = zip.build();
-const epubPath = path.join(booksDir, 'dhanpedia-india-master-edition.epub');
-fs.writeFileSync(epubPath, epubBuffer);
+publishPublication(
+  'CHAP-CONCEPTS',
+  'Chapter: The 52 Foundational Financial Concepts',
+  'chapter_edition',
+  'Reference Concepts',
+  [allChapters[2]],
+  'Chapter-Concept-Encyclopedia-52-Foundations'
+);
 
-console.log(`✓ Master EPUB generated at ${epubPath} (${(epubBuffer.length / 1024).toFixed(1)} KB).`);
-console.log('✓ Verified compliant EPUB 3 archive structure with uncompressed mimetype header.');
-console.log('✓ Fully optimized for Moon+ Reader Pro text-to-speech audio rendering.\n');
+console.log('\n[4/4] Writing Publication Manifest...');
+const manifest = {
+  $schema: './publication-manifest.schema.json',
+  version: '2.0.0',
+  lastUpdated: new Date().toISOString(),
+  totalPublications: manifestItems.length,
+  author: 'Chirag Singhal',
+  publisher: 'Dhanpedia India Reference Publishing',
+  canonicalUrl: 'https://chirag127.github.io/dhanpedia-india/downloads/',
+  publications: manifestItems
+};
+
+[distBooksDir, publicBooksDir].forEach(dir => {
+  fs.writeFileSync(path.join(dir, 'publication-manifest.json'), JSON.stringify(manifest, null, 2), 'utf8');
+});
+
+console.log(`✓ Publication Manifest generated with ${manifestItems.length} downloadable artifacts.`);
+console.log('✓ All files mirrored to public/books/ and dist/books/. Pipeline Complete!\n');

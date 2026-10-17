@@ -1,0 +1,177 @@
+# Financial Mathematics in Spoken English
+Author: Chirag Singhal
+
+=== Dhanpedia India ===
+
+  The Indian Personal Finance, Investing and Wealth-Building Encyclopedia
+
+  Master your money. Understand every investment. Build lasting wealth.
+
+  By Chirag Singhal
+
+  Master Reference & TTS Audio-Native Edition
+
+  Official Website: https://chirag127.github.io/dhanpedia-india/
+
+----------------------------------------
+
+=== How to Listen via Text-to-Speech in Moon+ Reader Pro ===
+
+This volume is engineered specifically for uninterrupted text-to-speech listening using Moon+ Reader Pro on Android devices. Every formula, statutory tax bracket, interest compounding rule, and legal penalty is articulated in flowing spoken English paragraphs without raw equation blocks or visual table traps.
+
+To listen comfortably with your screen turned off:
+
+First, select Google Speech Services or your preferred neural engine under Android Accessibility Text-to-Speech settings, downloading the English India high-quality voice pack.
+
+Second, in Moon+ Reader Pro, tap the screen center, select the Speaker (TTS) icon, and enable background audio playback.
+
+Third, all visual diagrams are paired with complete spoken narrative paragraphs explaining the entire decision logic, so listeners relying on audio will absorb one hundred percent of the knowledge.
+
+----------------------------------------
+
+=== Part Three: Mathematical Formulas in Spoken English ===
+
+Fourteen foundational formulas translated into clear spoken English paragraphs, eliminating mathematical notation barriers for text-to-speech listening.
+
+=== Formula 1: Compound Interest Future Value ===
+
+Symbolic Formula: FV = PV * (1 + r / n)^(n * t)
+
+Spoken Narration: The future value of an investment is calculated by multiplying the initial principal by the factor of one plus the annual interest rate divided by the compounding frequency, all raised to the power of the compounding frequency multiplied by the total number of years.
+
+Assumptions and Limitations: Constant rate of return throughout the tenure without interim withdrawals or tax drag. Note that Does not account for periodic additional contributions or varying annual return rates.
+
+Numerical Example: Verify that ₹1,00,000 at 8% compounded quarterly for 5 years yields exactly ₹1,48,594.74.
+
+=== Formula 2: Inflation-Adjusted Purchasing Power ===
+
+Symbolic Formula: PV_real = FV / (1 + i)^t
+
+Spoken Narration: The real present purchasing power of a future sum of money is calculated by dividing the future nominal amount by the factor of one plus the annual inflation rate raised to the power of the number of years.
+
+Assumptions and Limitations: Uniform inflation rate across the entire consumption basket over the time span. Note that Fails to capture personalized aspirational lifestyle inflation exceeding general CPI.
+
+Numerical Example: Verify that ₹1,00,00,000 in 20 years at 6% annual inflation has a real purchasing power of ₹31,18047.
+
+=== Formula 3: Amortized Equated Monthly Installment (EMI) ===
+
+Symbolic Formula: EMI = P * r_m * (1 + r_m)^n / ((1 + r_m)^n - 1)
+
+Spoken Narration: The monthly loan installment is computed by multiplying the loan principal by the monthly interest rate, multiplied by the factor of one plus monthly rate raised to the total months, all divided by the factor of one plus monthly rate raised to months minus one.
+
+Assumptions and Limitations: Fixed interest rate and timely monthly repayments without prepayment or default. Note that Floating rate loans require recalculation whenever the benchmark rate shifts.
+
+Numerical Example: Verify that ₹50,00,000 at 8.5% annual interest for 240 months (20 years) yields an EMI of ₹43,391.
+
+=== Formula 4: Systematic Investment Plan Future Value ===
+
+Symbolic Formula: FV = P * (((1 + i)^n - 1) / i) * (1 + i)
+
+Spoken Narration: The accumulated wealth of a monthly mutual fund SIP is calculated by multiplying the monthly installment by the result of one plus the monthly return raised to total months minus one, divided by the monthly return, and finally multiplied by one plus the monthly return to account for beginning-of-month investing.
+
+Assumptions and Limitations: Constant monthly rate of return without interim volatility or capital gains taxes. Note that Real equity mutual fund returns exhibit non-linear volatility and sequence-of-returns variance.
+
+Numerical Example: Verify that ₹10,000 invested monthly at 12% annual return for 10 years (120 months) yields approximately ₹23,23,391.
+
+=== Formula 5: Compound Annual Growth Rate (CAGR) ===
+
+Symbolic Formula: CAGR = (EV / BV)^(1 / n) - 1
+
+Spoken Narration: The compound annual growth rate is calculated by dividing the ending investment value by the beginning value, raising that quotient to the power of one divided by the number of years, and then subtracting one.
+
+Assumptions and Limitations: Single lump sum invested at start with no interim deposits or withdrawals. Note that Masks underlying year-to-year volatility and severe interim drawdowns.
+
+Numerical Example: Verify that an asset growing from ₹1,00,000 to ₹2,50,000 in 7 years has a CAGR of 13.98%.
+
+=== Formula 6: Extended Internal Rate of Return (XIRR) ===
+
+Symbolic Formula: Sum_{j=1}^N (C_j / (1 + r)^((d_j - d_1) / 365)) = 0
+
+Spoken Narration: The extended internal rate of return is the exact discount rate that makes the sum of all irregular cash inflows and outflows, discounted according to their exact day count fraction, equal to zero.
+
+Assumptions and Limitations: All cash flows reinvested at the identical internal rate of return. Note that Requires numerical iteration (Newton-Raphson method) rather than algebraic closed-form solution.
+
+Numerical Example: Verify convergence against standard financial ledger cashflow schedules.
+
+=== Formula 7: Macaulay and Modified Duration ===
+
+Symbolic Formula: D_mod = [ (1 / P) * Sum_{t=1}^T (t * C_t / (1 + y)^t) ] / (1 + y / m)
+
+Spoken Narration: Modified duration is calculated by taking the Macaulay duration (the cash-flow weighted present value times divided by bond price) and dividing it by the factor of one plus the bond yield to maturity divided by coupon payment frequency.
+
+Assumptions and Limitations: Parallel shift in the yield curve and small yield changes (first-order Taylor approximation). Note that Does not capture convexity for large interest rate movements exceeding 100 basis points.
+
+Numerical Example: Verify that an 8% 10-year semi-annual bond yielding 8% has a Macaulay duration of 7.25 years.
+
+=== Formula 8: Tax-Adjusted Equivalent Yield ===
+
+Symbolic Formula: TEY = r_taxfree / (1 - t_m)
+
+Spoken Narration: The pre-tax equivalent yield required on a taxable instrument to match a tax-free product is calculated by dividing the tax-free return rate by the factor of one minus the investor's marginal income tax rate.
+
+Assumptions and Limitations: Marginal tax slab remains stable throughout the holding period. Note that Does not account for differences in liquidity, credit risk, or lock-in tenures.
+
+Numerical Example: Verify that a 7.1% tax-free PPF rate equals a 10.32% pre-tax equivalent yield for an investor in the 31.2% marginal bracket.
+
+=== Formula 9: Return on Invested Capital (ROIC) ===
+
+Symbolic Formula: ROIC = NOPAT / Invested_Capital
+
+Spoken Narration: Return on invested capital is calculated by dividing net operating profit after tax by total invested capital, where invested capital equals total debt plus equity minus non-operating cash.
+
+Assumptions and Limitations: Non-operating income (like treasury gains) and excess cash are excluded from invested capital. Note that Subject to accounting distortions in capitalization of leases and intangible R&D.
+
+Numerical Example: Verify that a company with ₹500 Cr NOPAT and ₹2,500 Cr Invested Capital generates an ROIC of 20%.
+
+=== Formula 10: Expected Credit Loss (ECL) ===
+
+Symbolic Formula: ECL = PD * LGD * EAD
+
+Spoken Narration: The expected credit loss in a lending portfolio is calculated by multiplying the probability of borrower default by the percentage loss given default by the total monetary exposure at default.
+
+Assumptions and Limitations: Independent default events across diversified borrower cohorts. Note that Macroeconomic correlation during recessions causes PD and LGD to spike simultaneously.
+
+Numerical Example: Verify that an unsecured loan of ₹5,00,000 with a 5% PD and an 80% LGD has an Expected Credit Loss of ₹20,000.
+
+=== Formula 11: Retirement Safe Withdrawal Decumulation ===
+
+Symbolic Formula: W_t = W_{t-1} * (1 + i_t); Corpus_t = (Corpus_{t-1} - W_t) * (1 + r_t)
+
+Spoken Narration: The annual retirement withdrawal starts as a fixed percentage of initial wealth and increases each year by the inflation rate, with the remaining corpus earning the annual portfolio return.
+
+Assumptions and Limitations: Withdrawals occur at the start or throughout the year before returns compound. Note that Fixed real withdrawals can accelerate ruin if large market drawdowns occur early.
+
+Numerical Example: Verify corpus survival over 30 years using Indian historical return and inflation sequences.
+
+=== Formula 12: Post-Finance Act 2024 Capital Gains Computation ===
+
+Symbolic Formula: Gain = Sale_Consideration - (Cost_Acquisition + Cost_Improvement + Transfer_Expenses)
+
+Spoken Narration: Capital gain is computed by subtracting the purchase cost, improvement expenses, and transfer fees from the sale consideration, taxed at 20% for listed equity STCG (Section 111A) and 12.5% for LTCG (Section 112A) beyond a ₹1.25 Lakh exemption.
+
+Assumptions and Limitations: Transactions executed on or after July 23, 2024. Note that Indexation benefits eliminated for post-July 23, 2024 acquisitions.
+
+Numerical Example: Verify that a ₹5,00,000 LTCG on listed equities incurs tax of ₹46,875 after deducting the ₹1.25 Lakh Section 112A exemption.
+
+=== Formula 13: Net Operating Income and Real Estate Cap Rate ===
+
+Symbolic Formula: Cap_Rate = NOI / Property_Value; NOI = Gross_Rent - Vacancy_Loss - Operating_Expenses
+
+Spoken Narration: The capitalization rate of a property is calculated by dividing its Net Operating Income by the total property market value, where Net Operating Income equals gross potential rent minus vacancy losses minus operating expenses.
+
+Assumptions and Limitations: Operating expenses exclude mortgage interest and principal debt payments. Note that Does not capture potential future land value capital appreciation.
+
+Numerical Example: Verify that a property generating ₹12 Lakh annual NOI on a ₹3 Crore valuation has a 4.0% capitalization rate.
+
+=== Formula 14: Working Capital Cash Conversion Cycle (CCC) ===
+
+Symbolic Formula: CCC = DSI + DSO - DPO
+
+Spoken Narration: The cash conversion cycle measures the number of days a business takes to turn operational investments into realized cash inflows, calculated by adding Days Sales of Inventory to Days Sales Outstanding and subtracting Days Payable Outstanding.
+
+Assumptions and Limitations: Uniform sales and purchasing velocity throughout the financial year. Note that Can be distorted by seasonal sales spikes or one-off inventory write-downs.
+
+Numerical Example: Verify that DSI of 45 days, DSO of 30 days, and DPO of 50 days produce a Cash Conversion Cycle of 25 days.
+
+----------------------------------------
+

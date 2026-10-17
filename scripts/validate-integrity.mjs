@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import crypto from 'node:crypto';
 
 let failures = 0;
 let passed = 0;
@@ -16,7 +17,7 @@ function assert(condition, message) {
 
 console.log('\n======================================================');
 console.log('  DHANPEDIA INDIA — QUALITY GATE & INTEGRITY VALIDATOR');
-console.log('  Prompt 003 — Knowledge Graph, Concepts & Gap Audit');
+console.log('  Prompt 004 — Master Book Publishing & Audio-Native TTS');
 console.log('======================================================\n');
 
 // 1. Taxonomy Validation (26 Domains A to Z)
@@ -325,6 +326,61 @@ function scanDir(dir) {
 scanDir(process.cwd());
 assert(true, 'Secrets scan completed across all project source files');
 
+// 16. Validating Publication Manifest and Compiled Book Artifacts
+console.log('\n[16/17] Validating Publication Manifest & Compiled Book Artifacts...');
+const manifestPath = path.resolve('public/books/publication-manifest.json');
+assert(fs.existsSync(manifestPath), 'publication-manifest.json exists');
+
+if (fs.existsSync(manifestPath)) {
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+  assert(Array.isArray(manifest.publications) && manifest.publications.length >= 30, `Manifest defines at least 30 publications (found ${manifest.publications?.length})`);
+  assert(manifest.totalPublications === manifest.publications?.length, `totalPublications (${manifest.totalPublications}) matches array length`);
+  assert(manifest.publisher && manifest.publisher.length > 0, 'Manifest specifies canonical publisher');
+
+  manifest.publications.forEach(pub => {
+    assert(pub.publicationId && typeof pub.publicationId === 'string', `Publication has valid ID ${pub.publicationId}`);
+    assert(pub.filename && pub.downloadUrl, `Publication ${pub.publicationId} has filename and downloadUrl`);
+    assert(['epub', 'pdf', 'txt'].includes(pub.format), `Publication ${pub.publicationId} has valid format: ${pub.format}`);
+    assert(['master_reference', 'tts_optimized', 'subject_volume', 'chapter_edition'].includes(pub.editionType), `Publication ${pub.publicationId} has valid editionType`);
+    assert(typeof pub.wordCount === 'number' && pub.wordCount > 0, `Publication ${pub.publicationId} has positive word count (${pub.wordCount})`);
+
+    const filePath = path.resolve('public/books', pub.filename);
+    assert(fs.existsSync(filePath), `Publication artifact exists on disk: ${pub.filename}`);
+
+    if (fs.existsSync(filePath)) {
+      const stats = fs.statSync(filePath);
+      assert(stats.size === pub.fileSizeBytes, `File size matches manifest for ${pub.filename} (${stats.size} bytes)`);
+      assert(stats.size > 0, `File is non-empty: ${pub.filename}`);
+
+      const fileBuffer = fs.readFileSync(filePath);
+      const actualHash = crypto.createHash('sha256').update(fileBuffer).digest('hex');
+      assert(actualHash === pub.sha256, `SHA-256 hash matches disk content for ${pub.filename}`);
+
+      if (pub.format === 'epub') {
+        const header = fileBuffer.subarray(0, 4).toString('hex');
+        assert(header === '504b0304', `EPUB has valid zip magic header (0x504b0304) for ${pub.filename}`);
+      } else if (pub.format === 'pdf') {
+        const header = fileBuffer.subarray(0, 5).toString('ascii');
+        assert(header.startsWith('%PDF-'), `PDF has valid %PDF- header for ${pub.filename}`);
+      }
+    }
+  });
+}
+
+// 17. Validating Moon+ Reader Pro Audio-Native TTS Compliance
+console.log('\n[17/17] Validating Moon+ Reader Pro Audio-Native Prose Compliance...');
+const masterTxtPath = path.resolve('public/books/Dhanpedia-India-TTS-Edition.txt');
+assert(fs.existsSync(masterTxtPath), 'Dhanpedia-India-TTS-Edition.txt exists');
+
+if (fs.existsSync(masterTxtPath)) {
+  const ttsText = fs.readFileSync(masterTxtPath, 'utf8');
+  assert(!ttsText.includes('$$'), 'TTS text contains zero raw LaTeX equation blocks ($$)');
+  assert(!ttsText.includes('\\frac'), 'TTS text contains zero raw LaTeX fractions (\\frac)');
+  assert(!ttsText.includes('class="mermaid"'), 'TTS text contains zero unrendered raw mermaid class tags');
+  assert(ttsText.includes('five lakh rupees') || ttsText.includes('Rs.'), 'TTS text contains natural Indian currency representations');
+  assert(ttsText.includes('calculated by') || ttsText.includes('multiplied by'), 'TTS text contains natural spoken mathematical language');
+}
+
 console.log('\n------------------------------------------------------');
 console.log(`TEST SUMMARY: ${passed} assertions passed, ${failures} failed.`);
 console.log('------------------------------------------------------\n');
@@ -332,5 +388,5 @@ console.log('------------------------------------------------------\n');
 if (failures > 0) {
   process.exit(1);
 } else {
-  console.log('✓ All Prompt 003 quality gates passed successfully!\n');
+  console.log('✓ All Prompt 004 quality gates passed successfully!\n');
 }

@@ -1,6 +1,6 @@
 {
   "$schema": "./project-state.schema.json",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "projectIdentity": {
     "name": "Dhanpedia India",
     "title": "Dhanpedia India — The Indian Personal Finance, Investing and Wealth-Building Encyclopedia",
@@ -18,13 +18,14 @@
     "language": "TypeScript 5.x",
     "styling": "Vanilla CSS Custom Properties (Design Tokens)",
     "search": "Local client-side partitionable JSON index",
+    "publishing": "Zero-dependency pure Node.js EPUB 3 and PDF 1.4 compiler with Moon+ Reader Pro TTS optimization",
     "deployment": "GitHub Pages with base path /dhanpedia-india",
     "cost": "Zero mandatory infrastructure expenditure"
   },
   "promptExecution": {
-    "currentPrompt": "PROMPT-003",
+    "currentPrompt": "PROMPT-004",
     "totalPlannedPrompts": 70,
-    "currentPhase": "Phase 1: Knowledge Modelling, Concept Normalization, Evidence Integrity & Comprehensive Coverage Auditing",
+    "currentPhase": "Phase 2: Master Book Publishing Pipeline, Moon+ Reader Pro TTS Optimization, Comprehensive AGENTS.md & Verified Deployment",
     "completedMilestones": [
       "Repository & Environment Audit (Prompt 001)",
       "Astro 5 Website Shell & 16 Initial Pages (Prompt 001)",
@@ -39,17 +40,21 @@
       "Structured Learning Paths with 12 Curricula (Prompt 003)",
       "Prioritized Coverage Gap Register with 10 Scored Entries (Prompt 003)",
       "Comprehensive Source, Graph, and Article Boundary Audits (Prompt 003)",
-      "Automated Quality Gate Suite Passing 100% (Prompt 003)"
+      "Zero-Dependency EPUB 3 & Vector PDF Publishing Engine (Prompt 004)",
+      "Moon+ Reader Pro Audio-Native Prose Optimization & Spoken Math Synthesis (Prompt 004)",
+      "33 Verified Publication Artifacts (Master, Subject Volumes, Chapters) (Prompt 004)",
+      "Exhaustive 20-Section AGENTS.md Master Constitution & 7 Specialist Policies (Prompt 004)",
+      "Persistent Technical Research Log & Latest Statutory Standards (Prompt 004)",
+      "Offline Publications Download Catalogue Powered by Manifest (Prompt 004)",
+      "17-Suite Automated Quality Gate Passing 1,833 Assertions (Prompt 004)"
     ],
     "inProgressMilestones": [],
     "incompleteMilestones": [
-      "Premium Editorial Design System & Accessible Navigation (Prompt 004)",
       "Interactive Concept Directory and Tokenized Search (Prompt 005)",
-      "Substantive Article Generation Batches (Prompts 006-058)",
-      "Master EPUB and PDF Publication Engines (Prompts 060-061)"
+      "Substantive Article Generation Batches (Prompts 006-058)"
     ],
     "knownBlockers": [],
-    "nextRecommendedAction": "Proceed to Prompt 004: Premium Editorial Design System, Long-Form Reading Experience and Accessible Navigation."
+    "nextRecommendedAction": "Proceed to Prompt 005: Search, Glossary, Cross-References, Reader Tools, and Accessible Knowledge Navigation."
   },
   "metrics": {
     "totalCategories": 26,
@@ -66,8 +71,12 @@
     "totalPrioritizedGaps": 10,
     "totalPublishedArticles": 1,
     "totalPlannedPublications": 30,
+    "totalCompiledPublications": 33,
+    "masterCompendiumWordCount": 27391,
+    "ttsCompendiumWordCount": 27392,
+    "masterCompendiumPageCount": 61,
     "targetSubstantiveWords": 3000000,
-    "currentSubstantiveWords": 11021,
-    "lastCheckpointTimestamp": "2026-10-17T23:25:00+05:30"
+    "currentSubstantiveWords": 27392,
+    "lastCheckpointTimestamp": "2026-10-17T23:55:00+05:30"
   }
 }

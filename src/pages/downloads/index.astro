@@ -1,92 +1,218 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { url } from '../../utils/paths';
+import manifest from '../../../public/books/publication-manifest.json';
 import articleRegistry from '../../../data/articles/article-registry.json';
 
 const articles = articleRegistry.articles;
+const publications = manifest.publications;
+
+const masterRefPubs = publications.filter(p => p.editionType === 'master_reference');
+const masterTtsPubs = publications.filter(p => p.editionType === 'tts_optimized');
+const subjectPubs = publications.filter(p => p.editionType === 'subject_volume');
+const chapterPubs = publications.filter(p => p.editionType === 'chapter_edition');
+
+function formatBytes(bytes: number) {
+  if (bytes < 1024) return bytes + ' B';
+  const kb = bytes / 1024;
+  if (kb < 1024) return kb.toFixed(1) + ' KB';
+  const mb = kb / 1024;
+  return mb.toFixed(1) + ' MB';
+}
 ---
 
 <BaseLayout
-  title="Books & Offline Downloads — Multi-Format Library | Dhanpedia India"
-  description="Download offline reading editions of Dhanpedia India: clean Markdown files, plain text, and planned master EPUB and PDF publication volumes."
+  title="Books & Multi-Format Offline Publications | Dhanpedia India"
+  description="Download offline reading and Moon+ Reader Pro TTS audio editions of Dhanpedia India: complete Master Reference EPUBs, PDFs, plain-text archives, and subject volumes."
 >
   <div class="site-container page-container">
     <div class="page-header">
       <nav class="breadcrumbs" aria-label="Breadcrumb">
         <a href={url('/')}>Home</a>
         <span class="sep">/</span>
-        <span class="current">Downloads</span>
+        <span class="current">Downloads & Publications</span>
       </nav>
-      <h1 class="page-title">Books & Offline Downloads</h1>
+      <h1 class="page-title">Offline Multi-Format Library</h1>
       <p class="page-lead">
-        Dhanpedia India is engineered as a single-source-of-truth publication. The same canonical content that powers our web pages generates clean Markdown reading files, audio-friendly text files, and future master multi-volume EPUB and PDF editions.
+        Dhanpedia India is engineered as a single-source-of-truth publication engine. Every verified statutory claim, financial formula, and treatise compiles directly from our canonical research models into standards-compliant <strong>EPUB 3</strong>, print-ready <strong>PDF</strong>, and audio-native <strong>Moon+ Reader Pro Text-to-Speech (TTS)</strong> editions.
       </p>
     </div>
 
-    <!-- Active Master Publication Box -->
-    <div class="master-publication-banner" style="background: linear-gradient(135deg, rgba(0, 82, 204, 0.08) 0%, rgba(16, 185, 129, 0.08) 100%); border: 2px solid var(--color-primary); padding: 2rem; border-radius: 12px; margin-bottom: 2.5rem;">
-      <div class="banner-badge">
-        <span class="badge badge-emerald" style="background: var(--color-primary); color: #ffffff; padding: 0.35rem 0.75rem; border-radius: 20px; font-weight: 600; font-size: 0.85rem;">Active Master Edition Available</span>
+    <!-- Master TTS Edition Highlight Card -->
+    <div class="master-highlight-card tts-card">
+      <div class="card-badge-row">
+        <span class="badge badge-gold">Primary Audio-Native Master Edition</span>
+        <span class="badge-sub">27,392 Words • Verified Moon+ Reader Pro Compatible</span>
       </div>
-      <h2 class="banner-title" style="font-size: 1.8rem; margin: 0.8rem 0 0.5rem; color: var(--color-text-heading);">Dhanpedia India: The Master Encyclopedia (Audio-Native Edition)</h2>
-      <p class="banner-desc" style="font-size: 1.05rem; line-height: 1.6; color: var(--color-text-body); max-width: 850px; margin-bottom: 1.25rem;">
-        Compiled directly from our canonical research models, covering the 26 Master Domains, all 52 Foundational Concepts, 14 Spoken Mathematical Formulas, 12 Structured Learning Curricula, the complete 11,000-word DICGC Deposit Insurance Treatise, 32 Statutory Authorities, and Forensic Shadow Economy legal limits.
+      <h2 class="card-title">Dhanpedia India: TTS Audiobook Master Edition</h2>
+      <p class="card-desc">
+        Engineered specifically for listening with the screen turned off. Contains zero raw LaTeX equations (every formula is articulated in spoken English), zero visual table traps, natural breathing cadence, and Indian currency spoken in words (e.g. <em>five lakh rupees</em>).
       </p>
       
-      <div class="banner-features" style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; font-size: 0.9rem; color: var(--color-text-muted);">
-        <span>✦ <strong>Moon+ Reader Pro TTS Ready</strong></span>
-        <span>✦ <strong>Zero Raw Formulas (Spoken English Math)</strong></span>
-        <span>✦ <strong>EPUB 3 with Hierarchical NCX Table of Contents</strong></span>
-        <span>✦ <strong>100% Free & Open Access</strong></span>
+      <div class="card-actions-row">
+        {masterTtsPubs.map(pub => (
+          <a
+            href={url(pub.downloadUrl)}
+            download={pub.filename}
+            class={pub.format === 'epub' ? 'btn btn-gold btn-lg' : 'btn btn-outline'}
+          >
+            {pub.format === 'epub' && '🎧 Download Master TTS EPUB'}
+            {pub.format === 'pdf' && '📄 Download TTS PDF (' + (pub.pageCount || 61) + ' pgs)'}
+            {pub.format === 'txt' && '📝 Download Plain Text (.txt)'}
+            <span class="btn-meta">({formatBytes(pub.fileSizeBytes)})</span>
+          </a>
+        ))}
       </div>
 
-      <div class="banner-actions" style="display: flex; flex-wrap: wrap; gap: 1rem;">
-        <a href={url('/books/dhanpedia-india-master-edition.epub')} download="dhanpedia-india-master-edition.epub" class="btn btn-primary" style="padding: 0.75rem 1.5rem; font-weight: 600; text-decoration: none; border-radius: 6px; display: inline-flex; align-items: center; gap: 0.5rem; background: var(--color-primary); color: #fff;">
-          📥 Download Master EPUB (for Moon+ Reader Pro)
-        </a>
-        <a href={url('/books/dhanpedia-india-master-edition.md')} download="dhanpedia-india-master-edition.md" class="btn btn-outline" style="padding: 0.75rem 1.5rem; font-weight: 600; text-decoration: none; border-radius: 6px; border: 1px solid var(--color-primary); color: var(--color-primary); display: inline-flex; align-items: center; gap: 0.5rem;">
-          📄 Download Master Markdown (.md)
-        </a>
-      </div>
-
-      <div class="tts-guide-box" style="margin-top: 1.5rem; padding: 1rem 1.25rem; background: rgba(0,0,0,0.03); border-radius: 8px; font-size: 0.9rem; line-height: 1.55; color: var(--color-text-muted);">
-        <strong>🎧 Moon+ Reader Pro Text-to-Speech (TTS) Listening Tips:</strong>
-        Download the EPUB file to your Android phone, open it in <em>Moon+ Reader Pro</em>, tap the screen center, select the <strong>Speaker (TTS)</strong> icon. Enable background playback so listening continues with the screen turned off. Pair with Google Speech Services Neural Voice (English India or English Natural) for human-like audio cadence.
+      <div class="tts-instruction-box">
+        <strong>🎧 Recommended Moon+ Reader Pro Configuration:</strong>
+        <p>
+          Download the <em>TTS Edition EPUB</em> to your Android phone, open it in <em>Moon+ Reader Pro</em>, tap the center of the screen, and select the <strong>Speaker icon</strong>. Enable <em>Background Playback</em> to listen seamlessly with the screen off. Pair with Google Speech Services or Android System TTS using the <em>English (India) Neural Voice</em> for human-like auditory cadence.
+        </p>
       </div>
     </div>
 
-    <!-- Active Article Downloads -->
-    <section class="downloads-section">
-      <h2 class="section-title">Available Substantive Treatises for Offline Reading</h2>
-      <div class="download-cards-grid">
-        {articles.map(art => (
-          <div class="dl-card">
-            <div class="dl-card-badge">
-              <span class="badge badge-emerald">{art.categoryName}</span>
-              <span class="dl-words">{art.wordCount.toLocaleString()} words</span>
-            </div>
-            <h3 class="dl-card-title">{art.title}</h3>
-            <p class="dl-card-desc">{art.summary}</p>
-            
-            <div class="dl-actions-row">
-              <a href={url(`/articles/${art.slug}`)} class="btn btn-outline btn-sm">
-                Read Online
-              </a>
-              <a href={`https://raw.githubusercontent.com/chirag127/dhanpedia-india/main/src/content/articles/${art.slug}.md`} target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-                Download Markdown (.md)
-              </a>
-            </div>
-          </div>
+    <!-- Master Reference Edition Highlight Card -->
+    <div class="master-highlight-card ref-card">
+      <div class="card-badge-row">
+        <span class="badge badge-emerald">Comprehensive Visual Reference Edition</span>
+        <span class="badge-sub">27,391 Words • Print & Desktop Reference</span>
+      </div>
+      <h2 class="card-title">Dhanpedia India: Complete Reference Master Compendium</h2>
+      <p class="card-desc">
+        The complete unedited compendium for desktop reading and A4 printing. Features hierarchical typography, multi-page vector page numbers, running headers, complete statutory source citations, and verified cross-reference tables.
+      </p>
+      
+      <div class="card-actions-row">
+        {masterRefPubs.map(pub => (
+          <a
+            href={url(pub.downloadUrl)}
+            download={pub.filename}
+            class={pub.format === 'epub' ? 'btn btn-primary btn-lg' : 'btn btn-outline'}
+          >
+            {pub.format === 'epub' && '📥 Download Master EPUB 3'}
+            {pub.format === 'pdf' && '📄 Download Master PDF (' + (pub.pageCount || 61) + ' pgs)'}
+            {pub.format === 'txt' && '📝 Download Plain Text (.txt)'}
+            <span class="btn-meta">({formatBytes(pub.fileSizeBytes)})</span>
+          </a>
         ))}
+      </div>
+    </div>
+
+    <!-- Subject-Wise Volumes Section -->
+    <section class="downloads-section">
+      <div class="section-header-row">
+        <h2 class="section-title">Subject-Wise Publication Volumes</h2>
+        <span class="section-count">{subjectPubs.length / 3} Domain Compendiums Available</span>
+      </div>
+      <p class="section-intro">
+        Curated domain volumes designed for focused offline study and targeted audio listening:
+      </p>
+
+      <div class="volumes-table-container">
+        <table class="volumes-table">
+          <thead>
+            <tr>
+              <th>Subject Compendium</th>
+              <th>Word Count</th>
+              <th>Est. Pages</th>
+              <th>Available Formats</th>
+            </tr>
+          </thead>
+          <tbody>
+            {Array.from(new Set(subjectPubs.map(p => p.title))).map(title => {
+              const formats = subjectPubs.filter(p => p.title === title);
+              const sample = formats[0];
+              const pdf = formats.find(p => p.format === 'pdf');
+              return (
+                <tr>
+                  <td>
+                    <strong>{sample.subject}</strong>
+                    <div class="vol-title-sub">{sample.title}</div>
+                  </td>
+                  <td>{sample.wordCount.toLocaleString()} words</td>
+                  <td>{pdf ? pdf.pageCount + ' pages' : '—'}</td>
+                  <td>
+                    <div class="format-links-row">
+                      {formats.map(f => (
+                        <a
+                          href={url(f.downloadUrl)}
+                          download={f.filename}
+                          class="format-pill"
+                          title={`${f.format.toUpperCase()} (${formatBytes(f.fileSizeBytes)})`}
+                        >
+                          {f.format.toUpperCase()} <span class="pill-size">({formatBytes(f.fileSizeBytes)})</span>
+                        </a>
+                      ))}
+                    </div>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
     </section>
 
-    <!-- Architecture Note on Decoupled Distribution -->
-    <div class="distribution-note-box callout callout-info">
-      <div class="callout-title">Architecture Notice: Zero-Cost Large File Distribution</div>
-      <p>
-        To respect GitHub Pages repository size limits and ensure ultra-fast web deployments, master EPUB and PDF compendiums exceeding several hundred megabytes are published as detached release assets via GitHub Releases. The core website shell remains lightweight, fast, and free of hosting costs.
+    <!-- Standalone Substantive Chapter Editions -->
+    <section class="downloads-section">
+      <div class="section-header-row">
+        <h2 class="section-title">Standalone Substantive Chapter Editions</h2>
+        <span class="section-count">{chapterPubs.length / 3} Treatises</span>
+      </div>
+      <p class="section-intro">
+        Full standalone publications of our exhaustive pillar treatises, exceeding our rigorous research and depth benchmarks:
       </p>
+
+      <div class="chapter-cards-grid">
+        {Array.from(new Set(chapterPubs.map(p => p.title))).map(title => {
+          const formats = chapterPubs.filter(p => p.title === title);
+          const sample = formats[0];
+          const pdf = formats.find(p => p.format === 'pdf');
+          return (
+            <div class="chapter-card">
+              <div class="card-badge-row">
+                <span class="badge badge-emerald">{sample.subject}</span>
+                <span class="badge-sub">{sample.wordCount.toLocaleString()} Words</span>
+              </div>
+              <h3 class="chapter-card-title">{sample.title}</h3>
+              <p class="chapter-card-desc">
+                {sample.title.includes('DICGC') && 'Complete statutory treatise on deposit insurance limits, ownership structures, joint account rules, DICGC 2021 amendment Section 18A 90-day payouts, and bank resolution mechanics.'}
+                {sample.title.includes('Concept') && 'Comprehensive encyclopedia of all 52 foundational Indian personal finance concepts with multi-layered statutory definitions, mathematical formulas, and forensic risk indicators.'}
+              </p>
+              <div class="chapter-actions">
+                {formats.map(f => (
+                  <a
+                    href={url(f.downloadUrl)}
+                    download={f.filename}
+                    class="btn btn-outline btn-sm"
+                  >
+                    📥 {f.format.toUpperCase()} ({formatBytes(f.fileSizeBytes)})
+                  </a>
+                ))}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+
+    <!-- Machine-Readable Publication Manifest Notice -->
+    <div class="manifest-notice-box">
+      <div class="manifest-header">
+        <span class="manifest-icon">📜</span>
+        <div>
+          <h3 class="manifest-title">Cryptographic Integrity & Publication Manifest</h3>
+          <p class="manifest-desc">
+            All 33 publication artifacts are tracked in our machine-readable manifest with SHA-256 hashes and build timestamps:
+          </p>
+        </div>
+      </div>
+      <div class="manifest-links">
+        <a href={url('/books/publication-manifest.json')} target="_blank" class="btn btn-outline btn-sm">
+          View Machine-Readable Manifest (JSON)
+        </a>
+      </div>
     </div>
   </div>
 </BaseLayout>
@@ -94,7 +220,7 @@ const articles = articleRegistry.articles;
 <style>
   .page-container {
     padding: var(--space-8) var(--space-4) var(--space-16) var(--space-4);
-    max-width: 900px;
+    max-width: 960px;
   }
 
   .page-header {
@@ -132,59 +258,222 @@ const articles = articleRegistry.articles;
     line-height: 1.7;
   }
 
-  .master-publication-banner {
+  /* Master Highlight Cards */
+  .master-highlight-card {
     background-color: var(--bg-surface);
-    border: 2px solid var(--accent-gold);
     border-radius: var(--radius-lg);
     padding: var(--space-8);
-    margin-bottom: var(--space-12);
+    margin-bottom: var(--space-8);
     box-shadow: var(--shadow-md);
   }
 
-  .banner-title {
+  .tts-card {
+    border: 2px solid var(--accent-gold);
+    background: linear-gradient(135deg, rgba(212, 160, 23, 0.05) 0%, rgba(16, 185, 129, 0.03) 100%);
+  }
+
+  .ref-card {
+    border: 2px solid var(--accent-emerald);
+    background: linear-gradient(135deg, rgba(0, 82, 204, 0.04) 0%, rgba(16, 185, 129, 0.04) 100%);
+  }
+
+  .card-badge-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+  }
+
+  .badge-gold {
+    background-color: var(--accent-gold);
+    color: #ffffff;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+  }
+
+  .badge-emerald {
+    background-color: var(--accent-emerald);
+    color: #ffffff;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+  }
+
+  .badge-sub {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  .card-title {
     font-size: 1.6rem;
-    margin-top: var(--space-2);
     margin-bottom: var(--space-2);
     border: none;
     padding: 0;
   }
 
-  .banner-desc {
+  .card-desc {
     font-size: 1.05rem;
     color: var(--text-secondary);
     line-height: 1.6;
+    margin-bottom: var(--space-6);
+  }
+
+  .card-actions-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
     margin-bottom: var(--space-4);
   }
 
-  .banner-features {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-4);
-    font-size: 0.85rem;
+  .btn-gold {
+    background-color: var(--accent-gold);
+    color: #ffffff;
     font-weight: 600;
-    color: var(--accent-gold-dark);
+    text-decoration: none;
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-md);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
   }
 
-  [data-theme="dark"] .banner-features {
-    color: var(--accent-gold);
+  .btn-gold:hover {
+    background-color: var(--accent-gold-dark);
   }
 
+  .btn-lg {
+    font-size: 1rem;
+    padding: var(--space-3) var(--space-6);
+  }
+
+  .btn-meta {
+    font-size: 0.85rem;
+    opacity: 0.85;
+    font-weight: normal;
+  }
+
+  .tts-instruction-box {
+    margin-top: var(--space-4);
+    padding: var(--space-4) var(--space-5);
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+
+  [data-theme="dark"] .tts-instruction-box {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .tts-instruction-box strong {
+    color: var(--text-primary);
+  }
+
+  /* Section Layout */
   .downloads-section {
+    margin-top: var(--space-12);
     margin-bottom: var(--space-12);
+  }
+
+  .section-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: var(--space-2);
   }
 
   .section-title {
     font-size: 1.6rem;
+  }
+
+  .section-count {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+
+  .section-intro {
+    font-size: 1rem;
+    color: var(--text-secondary);
     margin-bottom: var(--space-6);
   }
 
-  .download-cards-grid {
+  /* Volumes Table */
+  .volumes-table-container {
+    overflow-x: auto;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    background-color: var(--bg-surface);
+  }
+
+  .volumes-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+
+  .volumes-table th {
+    background-color: var(--bg-surface-secondary);
+    padding: var(--space-3) var(--space-4);
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid var(--border-medium);
+  }
+
+  .volumes-table td {
+    padding: var(--space-3) var(--space-4);
+    border-bottom: 1px solid var(--border-light);
+    vertical-align: middle;
+  }
+
+  .vol-title-sub {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  .format-links-row {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .format-pill {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid var(--border-medium);
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--text-primary);
+    background-color: var(--bg-surface-secondary);
+  }
+
+  .format-pill:hover {
+    border-color: var(--accent-emerald);
+    color: var(--accent-emerald);
+  }
+
+  .pill-size {
+    font-weight: normal;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+  }
+
+  /* Chapter Cards Grid */
+  .chapter-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: var(--space-6);
   }
 
-  .dl-card {
+  .chapter-card {
     background-color: var(--bg-surface);
     border: 1px solid var(--border-light);
     border-left: 5px solid var(--accent-emerald);
@@ -192,40 +481,55 @@ const articles = articleRegistry.articles;
     padding: var(--space-6);
   }
 
-  .dl-card-badge {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
+  .chapter-card-title {
+    font-size: 1.25rem;
     margin-bottom: var(--space-2);
   }
 
-  .dl-words {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-  }
-
-  .dl-card-title {
-    font-size: 1.35rem;
-    margin-bottom: var(--space-2);
-  }
-
-  .dl-card-desc {
-    font-size: 0.95rem;
+  .chapter-card-desc {
+    font-size: 0.9rem;
     color: var(--text-secondary);
-    line-height: 1.6;
+    line-height: 1.55;
     margin-bottom: var(--space-4);
   }
 
-  .dl-actions-row {
+  .chapter-actions {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-3);
-    padding-top: var(--space-3);
-    border-top: 1px solid var(--border-light);
+    gap: var(--space-2);
   }
 
-  .btn-sm {
-    padding: var(--space-2) var(--space-4);
+  /* Manifest Notice Box */
+  .manifest-notice-box {
+    margin-top: var(--space-12);
+    padding: var(--space-6);
+    background-color: var(--bg-surface-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+
+  .manifest-header {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+
+  .manifest-icon {
+    font-size: 2rem;
+  }
+
+  .manifest-title {
+    font-size: 1.1rem;
+    margin-bottom: 2px;
+  }
+
+  .manifest-desc {
     font-size: 0.85rem;
+    color: var(--text-secondary);
   }
 </style>

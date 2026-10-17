@@ -1,0 +1,129 @@
+# Statutory Authorities & Primary Legal Grounding
+Author: Chirag Singhal
+
+=== Dhanpedia India ===
+
+  The Indian Personal Finance, Investing and Wealth-Building Encyclopedia
+
+  Master your money. Understand every investment. Build lasting wealth.
+
+  By Chirag Singhal
+
+  Master Reference & TTS Audio-Native Edition
+
+  Official Website: https://chirag127.github.io/dhanpedia-india/
+
+----------------------------------------
+
+=== How to Listen via Text-to-Speech in Moon+ Reader Pro ===
+
+This volume is engineered specifically for uninterrupted text-to-speech listening using Moon+ Reader Pro on Android devices. Every formula, statutory tax bracket, interest compounding rule, and legal penalty is articulated in flowing spoken English paragraphs without raw equation blocks or visual table traps.
+
+To listen comfortably with your screen turned off:
+
+First, select Google Speech Services or your preferred neural engine under Android Accessibility Text-to-Speech settings, downloading the English India high-quality voice pack.
+
+Second, in Moon+ Reader Pro, tap the screen center, select the Speaker (TTS) icon, and enable background audio playback.
+
+Third, all visual diagrams are paired with complete spoken narrative paragraphs explaining the entire decision logic, so listeners relying on audio will absorb one hundred percent of the knowledge.
+
+----------------------------------------
+
+=== Part Seven: Primary Statutory Authorities and Evidence Registry ===
+
+Catalogue of thirty-two primary statutory bodies and twelve verified legal propositions forming the evidentiary grounding of Dhanpedia India.
+
+=== Primary Statutory Authorities ===
+
+- Reserve Bank of India Official Portal (SRC-RBI-MAIN): Authority Tier: Tier 1: Primary Statutory & Regulatory Authority. Scope: Authoritative for monetary policy, repo corridor, banking regulations, digital lending guidelines, NBFC-P2P rules, FEMA circulars, and G-Sec Retail Direct.. URL: https://www.rbi.org.in
+
+- RBI Complaint Management System & Integrated Ombudsman Scheme (SRC-RBI-CMS): Authority Tier: Tier 1: Primary Statutory & Regulatory Authority. Scope: Governs the Reserve Bank - Integrated Ombudsman Scheme 2021 covering commercial banks, NBFCs, and non-bank prepaid payment issuers.. URL: https://cms.rbi.org.in
+
+- Securities and Exchange Board of India Portal (SRC-SEBI-MAIN): Authority Tier: Tier 1: Primary Statutory & Regulatory Authority. Scope: Authoritative for Mutual Fund categorization, REIT/InvIT regulations, AIF guidelines, F&O risk circulars, algorithmic trading norms, and insider trading prohibitions.. URL: https://www.sebi.gov.in
+
+- SEBI Complaints Redress System (SCORES 2.0) and SMART ODR (SRC-SEBI-SCORES): Authority Tier: Tier 1: Primary Statutory & Regulatory Authority. Scope: Covers SCORES 2.0 automated escalation workflows and SMART ODR institutional conciliation and arbitration.. URL: https://scores.sebi.gov.in
+
+- Central Board of Direct Taxes & Income Tax Department Portal (SRC-CBDT-MAIN): Authority Tier: Tier 1: Primary Statutory & Regulatory Authority. Scope: Authoritative for Income-tax Act 1961, Section 115BAC slabs, capital gains rules under Finance Act 2024, Section 269SS/ST cash penalties, and Section 50C circle rate safe harbor.. URL: https://incometaxindia.gov.in
+
+- Income Tax e-Filing Portal (Project Insight) (SRC-ITD-PORTAL): Authority Tier: Tier 1: Primary Statutory & Regulatory Authority. Scope: Authoritative for Annual Information Statement (AIS), Taxpayer Information Summary (TIS), 26AS reflection, Advance Tax challans, and Form 67 filings.. URL: https://www.incometax.gov.in
+
+- Central Board of Indirect Taxes and Customs Portal (SRC-CBIC-MAIN): Authority Tier: Tier 1: Primary Statutory & Regulatory Authority. Scope: Authoritative for CGST/IGST Acts, export of services without tax under LUT, reverse charge mechanism (RCM), and precious metal customs import duties.. URL: https://cbic-gst.gov.in
+
+- Deposit Insurance and Credit Guarantee Corporation Portal (SRC-DICGC-MAIN): Authority Tier: Tier 1: Primary Statutory & Regulatory Authority. Scope: Authoritative for DICGC Act 1961, Section 18A 90-day resolution payments, ₹5 Lakh per depositor per bank ceiling, and right/capacity ownership rules.. URL: https://www.dicgc.org.in
+
+- Employees' Provident Fund Organisation Portal (SRC-EPFO-MAIN): Authority Tier: Tier 1: Primary Statutory & Regulatory Authority. Scope: Authoritative for EPF Scheme 1952, EPS 1995, annual statutory interest rate declarations, ₹15,000 wage ceilings, and Section 10(11)/10(12) tax segregation.. URL: https://www.epfindia.gov.in
+
+- Pension Fund Regulatory and Development Authority Portal (SRC-PFRDA-MAIN): Authority Tier: Tier 1: Primary Statutory & Regulatory Authority. Scope: Authoritative for NPS Tier I/II architecture, Pension Fund Manager guidelines, Auto vs Active choice, 60% lump sum exit, and mandatory annuity directives.. URL: https://www.pfrda.org.in
+
+- Insurance Regulatory and Development Authority of India Portal (SRC-IRDAI-MAIN): Authority Tier: Tier 1: Primary Statutory & Regulatory Authority. Scope: Authoritative for Insurance Act 1938, Section 45 claim repudiation moratorium, health insurance room-rent regulations, and Bima Bharosa escalation.. URL: https://irdai.gov.in
+
+- Council for Insurance Ombudsmen Portal (SRC-INS-OMBUDSMAN): Authority Tier: Tier 1: Primary Statutory & Regulatory Authority. Scope: Authoritative for statutory insurance complaint awards up to ₹30 Lakh, binding on insurers under Insurance Ombudsman Rules 2017.. URL: https://www.cioins.co.in
+
+- Department of Economic Affairs, Ministry of Finance Portal (SRC-DEA-MOF): Authority Tier: Tier 1: Primary Statutory & Regulatory Authority. Scope: Authoritative for quarterly PPF, SSY, SCSS, and NSC interest notifications, sovereign borrowing calendars, and Union Budget publications.. URL: https://dea.gov.in
+
+- Department of Posts (India Post) National Savings Portal (SRC-DOP-MAIN): Authority Tier: Tier 1: Primary Statutory & Regulatory Authority. Scope: Authoritative for Post Office Monthly Income Scheme (POMIS), POTD deposit terms, joint account limits, and postal branch transfer rules.. URL: https://www.indiapost.gov.in
+
+- National Payments Corporation of India Portal (SRC-NPCI-MAIN): Authority Tier: Tier 1: Primary Statutory & Regulatory Authority. Scope: Authoritative for UPI transaction limits, interchange circulars, RuPay specifications, IMPS settlement parameters, and NACH e-mandate guidelines.. URL: https://www.npci.org.in
+
+- Ministry of Corporate Affairs Portal (MCA21) (SRC-MCA-MAIN): Authority Tier: Tier 1: Primary Statutory & Regulatory Authority. Scope: Authoritative for Companies Act 2013, LLP Act 2008, corporate share buyback approvals, director identification numbers (DIN), and incorporation compliance.. URL: https://www.mca.gov.in
+
+- Insolvency and Bankruptcy Board of India Portal (SRC-IBBI-MAIN): Authority Tier: Tier 1: Primary Statutory & Regulatory Authority. Scope: Authoritative for Insolvency and Bankruptcy Code 2016 (IBC), corporate insolvency resolution process (CIRP), and creditor waterfall rankings.. URL: https://www.ibbi.gov.in
+
+- Directorate of Enforcement (ED) Portal (SRC-ED-GOV): Authority Tier: Tier 1: Primary Statutory & Regulatory Authority. Scope: Authoritative for Prevention of Money Laundering Act 2002 (PMLA), FEMA criminal penalties, hawala operations prosecution, and provisional property attachment.. URL: https://enforcementdirectorate.gov.in
+
+- Financial Intelligence Unit - India Portal (SRC-FIU-IND): Authority Tier: Tier 1: Primary Statutory & Regulatory Authority. Scope: Authoritative for Suspicious Transaction Reports (STRs), Cash Transaction Reports (CTRs), and reporting entity compliance under PMLA.. URL: https://fiuindia.gov.in
+
+- National Cyber Crime Reporting Portal (I4C) (SRC-MHA-CYBER): Authority Tier: Tier 1: Primary Statutory & Regulatory Authority. Scope: Authoritative for National Cyber Fraud Helpline 1930, mule account lien freezing procedures, and APK loan app advisories.. URL: https://cybercrime.gov.in
+
+- Real Estate (Regulation and Development) Act State Portals (SRC-MOHUA-RERA): Authority Tier: Tier 1: Primary Statutory & Regulatory Authority. Scope: Authoritative for RERA 70% separate escrow account requirements, carpet area definitions, promoter delivery obligations, and interest compensation.. URL: https://mohua.gov.in
+
+- National Consumer Disputes Redressal Commission (e-Daakhil) (SRC-NCDRC-GOV): Authority Tier: Tier 1: Primary Statutory & Regulatory Authority. Scope: Authoritative for Consumer Protection Act 2019 deficiency jurisprudence, real estate builder delay refunds, and bank service negligence compensation.. URL: https://ncdrc.nic.in
+
+- India Code Digital Legislative Repository (SRC-INDIA-CODE): Authority Tier: Tier 1: Primary Statutory & Regulatory Authority. Scope: Authoritative text for Indian Succession Act 1925, Hindu Succession Act 1956, Transfer of Property Act 1882, Indian Trusts Act 1882, Benami Transactions Act, and BUDS Act 2019.. URL: https://www.indiacode.nic.in
+
+- Supreme Court of India Official Judgments Portal (SRC-SC-JUDGMENTS): Authority Tier: Tier 1: Primary Statutory & Regulatory Authority. Scope: Authoritative precedent on nominee versus legal heirship rights (Sarbati Devi, Ram Chander Talwar, Shakti Yezdani rulings) and Section 45 insurance precedents.. URL: https://main.sci.gov.in
+
+- International Financial Services Centres Authority Portal (SRC-IFSCA-MAIN): Authority Tier: Tier 1: Primary Statutory & Regulatory Authority. Scope: Authoritative for GIFT City banking units, outbound investment funds, global in-house centres, and dollar-denominated cross-border instruments.. URL: https://ifsca.gov.in
+
+- Ministry of Statistics and Programme Implementation Portal (SRC-MOSPI-CPI): Authority Tier: Tier 1: Primary Statutory & Regulatory Authority. Scope: Authoritative for official Consumer Price Index (CPI Combined, Rural, Urban), Index of Industrial Production (IIP), and Gross Domestic Product (GDP) prints.. URL: https://www.mospi.gov.in
+
+- Association of Mutual Funds in India Portal (SRC-AMFI-MAIN): Authority Tier: Tier 2: Recognized Institutional & Market Infrastructure. Scope: Authoritative for scheme category historical NAV feeds, AMFI Code of Ethics, distributor ARN regulations, and industry AUM trends.. URL: https://www.amfiindia.com
+
+- National Stock Exchange of India Official Portal (SRC-NSE-MAIN): Authority Tier: Tier 2: Recognized Institutional & Market Infrastructure. Scope: Authoritative for NIFTY 50 index rules, settlement holiday calendars, derivative lot size adjustments, circuit filter guidelines, and exchange RFQ executions.. URL: https://www.nseindia.com
+
+- Bombay Stock Exchange Official Portal (SRC-BSE-MAIN): Authority Tier: Tier 2: Recognized Institutional & Market Infrastructure. Scope: Authoritative for SENSEX index rules, SME exchange listings, listed company financial results disclosures, and corporate buyback notices.. URL: https://www.bseindia.com
+
+- TransUnion CIBIL Official Portal (SRC-CIC-CIBIL): Authority Tier: Tier 2: Recognized Institutional & Market Infrastructure. Scope: Authoritative for credit score ranges (300 to 900), credit report dispute resolution rules under CICRA 2005, and credit utilization parameters.. URL: https://www.cibil.com
+
+- Multi Commodity Exchange of India Portal (SRC-MCX-MAIN): Authority Tier: Tier 2: Recognized Institutional & Market Infrastructure. Scope: Authoritative for gold, silver, crude oil, and natural gas domestic futures specifications, contract settlement calendars, and physical delivery norms.. URL: https://www.mcxindia.com
+
+- Bureau of Indian Standards Hallmarking Portal (SRC-BIS-MAIN): Authority Tier: Tier 1: Primary Statutory & Regulatory Authority. Scope: Authoritative for 6-digit alphanumeric Hallmarking Unique Identification (HUID), gold purity standards (999, 916, 750, 585), and consumer assaying rights.. URL: https://www.bis.gov.in
+
+=== Verified Statutory Claims ===
+
+- CLM-DICGC-LIMIT (legal_rule): Deposit Insurance and Credit Guarantee Corporation (DICGC) provides statutory insurance coverage up to a maximum limit of ₹5,00,000 per depositor for both principal and interest across all accounts held in the same right and capacity in an insured bank. Authority: DICGC Act 1961, Section 16(1), as amended by Gazette Notification dated February 4, 2020. Citations: SRC-DICGC-MAIN, SRC-RBI-MAIN.
+
+- CLM-DICGC-SEC18A (legal_rule): Under Section 18A of the DICGC Act (inserted by 2021 Amendment Act), depositors of an insured bank placed under directions or moratorium by the RBI with withdrawal restrictions are entitled to receive interim insurance payments up to ₹5,00,000 within 90 days. Authority: Deposit Insurance and Credit Guarantee Corporation (Amendment) Act, 2021 (Act No. 30 of 2021), Section 18A. Citations: SRC-DICGC-MAIN, SRC-RBI-MAIN.
+
+- CLM-ITD-269SS (tax_rule): Under Section 269SS of the Income-tax Act 1961, no person shall take or accept from any other person any loan, deposit, or specified advance relating to the transfer of immovable property in cash if the aggregate amount exceeds ₹20,000; violation triggers a 100 percent monetary penalty under Section 271D. Authority: Income-tax Act 1961, Section 269SS read with Section 271D and Section 273B. Citations: SRC-CBDT-MAIN, SRC-ITD-PORTAL.
+
+- CLM-ITD-269ST (tax_rule): Under Section 269ST of the Income-tax Act 1961, no person shall receive an amount of ₹2,00,000 or more in cash in aggregate from a person in a day, in respect of a single transaction, or in respect of transactions relating to one event or occasion; violation triggers a 100 percent monetary penalty on the receiver under Section 271DA. Authority: Income-tax Act 1961, Section 269ST inserted by Finance Act 2017, read with Section 271DA. Citations: SRC-CBDT-MAIN, SRC-ITD-PORTAL.
+
+- CLM-ITD-SEC50C (tax_rule): Under Section 50C and Section 56(2)(x) of the Income-tax Act 1961, if the stamp duty value (circle rate) of land or building exceeds the declared agreement consideration by more than 10 percent (safe-harbor tolerance band), the stamp duty value is deemed to be the full value of consideration for computing capital gains for the seller and taxable as other income for the buyer. Authority: Income-tax Act 1961, Section 50C(1) third proviso and Section 56(2)(x)(b)(B). Citations: SRC-CBDT-MAIN, SRC-ITD-PORTAL.
+
+- CLM-SCRA-DABBA (legal_rule): Dabba trading (operating or trading in contracts in securities outside a recognized stock exchange) is prohibited under Sections 13 and 16 of the Securities Contracts (Regulation) Act 1956, and constitutes a criminal offense punishable under Section 23 with imprisonment for up to 10 years, a fine up to ₹25 Crore, or both. Authority: Securities Contracts (Regulation) Act 1956, Sections 13, 16, and Section 23(1). Citations: SRC-SEBI-MAIN, SRC-INDIA-CODE.
+
+- CLM-BENAMI-ACT (legal_rule): Under the Prohibition of Benami Property Transactions Act 1988 (as amended in 2016), entering into a benami transaction is a cognizable criminal offense punishable under Section 53 with rigorous imprisonment of 1 to 7 years and a fine up to 25 percent of the fair market value of the property, with mandatory statutory confiscation of the property without compensation under Section 5. Authority: Prohibition of Benami Property Transactions Act 1988 as amended by Benami Transactions (Prohibition) Amendment Act 2016, Sections 3, 5, and 53. Citations: SRC-CBDT-MAIN, SRC-INDIA-CODE, SRC-ED-GOV.
+
+- CLM-BUDS-ACT (legal_rule): The Banning of Unregulated Deposit Schemes Act 2019 (BUDS Act) completely bans all unregulated deposit schemes operating without registration under designated statutory regulators, making deposit-taking or advertisement a cognizable criminal offense punishable with imprisonment up to 10 years and fines up to ₹50 Crore under Section 21. Authority: Banning of Unregulated Deposit Schemes Act 2019 (Act No. 21 of 2019), Sections 3, 7, and 21. Citations: SRC-INDIA-CODE, SRC-RBI-MAIN, SRC-SEBI-MAIN.
+
+- CLM-TAX-FA2024-CAPGAINS (tax_rule): Under the Finance (No. 2) Act 2024, short-term capital gains on listed equity shares, equity mutual fund units, and business trust units under Section 111A are taxed at 20 percent (up from 15 percent), while long-term capital gains under Section 112A are taxed at 12.5 percent (up from 10 percent) with an increased annual exemption threshold of ₹1.25 Lakh (up from ₹1 Lakh). Authority: Finance (No. 2) Act 2024 (Act No. 15 of 2024), amending Sections 111A, 112, 112A of the Income-tax Act 1961. Citations: SRC-CBDT-MAIN, SRC-ITD-PORTAL.
+
+- CLM-EPF-CONTRIB-CEIL (regulatory_requirement): Under the Employees' Provident Funds and Miscellaneous Provisions Act 1952, employees in covered establishments contribute 12 percent of their basic wage plus dearness allowance, with employers matching 12 percent (split into 8.33% to EPS subject to statutory wage ceiling and 3.67% to EPF), with mandatory coverage applicable to employees earning up to ₹15,000 monthly at the time of joining. Authority: EPF Scheme 1952, Paragraph 29 read with EPS 1995 Paragraph 3. Citations: SRC-EPFO-MAIN.
+
+- CLM-RBI-P2P-AUG2024 (regulatory_requirement): Under the RBI August 16, 2024 Master Direction amendments for NBFC-P2P lending platforms, platforms are strictly prohibited from providing credit enhancements, assured returns, or structuring investment products with instant liquidity, tenure mismatch, or auto-reinvestment without explicit prior lender consent. Authority: RBI Master Direction - NBFC - Peer to Peer Lending Platform (Reserve Bank) Directions, 2017 (Updated as on August 16, 2024). Citations: SRC-RBI-MAIN.
+
+- CLM-INS-SEC45 (legal_rule): Under Section 45 of the Insurance Act 1938 (as substituted by Insurance Laws (Amendment) Act 2015), no policy of life insurance shall be called in question on any ground whatsoever, including fraud or misrepresentation, after the expiry of three years from the date of issuance of the policy or the date of commencement of risk or date of revival, whichever is later. Authority: Insurance Act 1938, Section 45 as amended by Act No. 5 of 2015. Citations: SRC-IRDAI-MAIN, SRC-INDIA-CODE.
+
+----------------------------------------
+

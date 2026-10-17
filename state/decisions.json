@@ -128,6 +128,33 @@
       "context": "Mass content generation easily results in dozens of superficial articles repeating the same definitions and competing for identical search intent.",
       "decision": "Establish a canonical primary home rule in `reports/article-boundary-audit.md`: each foundational economic concept has one primary home; secondary articles must reference the canonical concept and provide unique decision-making value.",
       "consequences": "Zero keyword cannibalization, cohesive reference architecture, high editorial density across all publications."
+    },
+    {
+      "id": "DEC-015",
+      "date": "2026-10-17",
+      "title": "Zero-Dependency Multi-Format Publishing Engine (EPUB 3.3 & PDF 1.4)",
+      "status": "accepted",
+      "context": "Standard eBook generation pipelines rely on heavy native binaries (Calibre, Pandoc) or headless browsers (Puppeteer, Playwright) which trigger frequent sandbox crashes, memory leaks, and version drift in CI runners.",
+      "decision": "Construct custom pure Node.js byte-level compilers in scripts/generate-book.mjs: ZipBuilder for standards-compliant EPUB 3.3 (uncompressed mimetype 0x04034b50) and SimplePdfWriter for vector A4 PDF 1.4.",
+      "consequences": "100% reproducible builds, 0 external dependencies, builds in under 5 seconds on any Node 20+ runtime, zero cloud or API costs."
+    },
+    {
+      "id": "DEC-016",
+      "date": "2026-10-17",
+      "title": "Moon+ Reader Pro Audio-Native Text-to-Speech (TTS) Mandate",
+      "status": "accepted",
+      "context": "Primary reader and listeners consume content as audiobooks with screens turned off via Android TTS. Visual equations and tables destroy listening comprehension.",
+      "decision": "Mandate spoken English math formulas across all publications (zero raw LaTeX or $$ blocks in TTS text), enforce descriptive narrative paragraphs for all tables and Mermaid diagrams, and format Indian currency in spoken words.",
+      "consequences": "Flawless listening comprehension in Moon+ Reader Pro, natural auditory pacing, accessible to both visually impaired readers and screen-off commuters."
+    },
+    {
+      "id": "DEC-017",
+      "date": "2026-10-17",
+      "title": "20-Section Master Operating Constitution with Specialist Policies",
+      "status": "accepted",
+      "context": "Autonomous AI agents operating in the repository require precise, testable, operational instructions rather than vague generic advice.",
+      "decision": "Codify root AGENTS.md v4.0.0 spanning all 20 required sections and decompose deep operational rules into 7 modular specialist policies in docs/ (Research, Content, TTS, Publishing, Testing, Deployment, Versioning).",
+      "consequences": "Consistent multi-agent behavior, clear source-of-truth hierarchy, zero ambiguity across coding, research, and publishing tasks."
     }
   ]
 }

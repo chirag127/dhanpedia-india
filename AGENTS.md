@@ -1,164 +1,249 @@
-# AGENTS.md — Dhanpedia India Agent Operating Constitution
+# AGENTS.md — Dhanpedia India Master Operating Constitution
 
 **Project:** Dhanpedia India  
-**Repository:** `dhanpedia-india`  
+**Repository:** `chirag127/dhanpedia-india`  
 **Hosting Target:** GitHub Pages (`https://chirag127.github.io/dhanpedia-india/`)  
 **Website Title:** Dhanpedia India — The Indian Personal Finance, Investing and Wealth-Building Encyclopedia  
 **Tagline:** Master your money. Understand every investment. Build lasting wealth.  
 **Author & Primary Reader:** Chirag Singhal  
-**Primary Audience:** Indian savers, salaried professionals, software engineers, entrepreneurs, and advanced investors seeking exhaustive, technically rigorous, legally grounded financial intelligence.  
-**Operating Standard:** Version 3.0.0 (October 2026) — Universal Machine-Readable Constitution
+**Operating Standard:** Version 4.0.0 (October 2026) — Universal Machine-Readable Constitution  
 
 ---
 
-## 1. Prime Directive and Foundational Identity
+## 1. Project Identity
 
-Dhanpedia India is engineered as an uncompromising, authoritative, multi-million-word reference encyclopedia for the Indian financial system, personal wealth accumulation, corporate structuring, and forensic financial reality.
+Dhanpedia India is engineered as an authoritative, multi-million-word reference encyclopedia and book publishing system for personal finance, investment management, taxation, corporate structuring, and the Indian financial system.
 
-All autonomous AI agents, subagents, and human contributors operating in this repository must strictly adhere to the following non-negotiable operating principles:
-
-1. **Zero-Cost Infrastructure Mandate:** The entire website, content database, search indices, and downloadable publications must run on 100% free, static, open-source infrastructure. Zero mandatory paid APIs, zero cloud server runtime dependencies, zero database subscriptions. All assets must build to static HTML/CSS/JS and deploy seamlessly to GitHub Pages under the base path `/dhanpedia-india`.
-2. **The 10,000-Word Substantive Depth Standard:** Dhanpedia India does not publish superficial, shallow 1,000-word blog summaries. Every foundational treatise must be an exhaustive, technically rigorous, deeply researched pillar publication exceeding **10,000 words** of original, non-duplicative prose.
-3. **Evidence-Linked Statutory Truth:** Under no circumstances may an agent fabricate a legal statute, invent a circular number, cite a non-existent regulatory notification, project speculative returns as guaranteed, or rely on unvetted commercial blogs. Every legal, tax, or banking statement must trace directly to primary authorities (Parliamentary Enactments, RBI Master Directions, SEBI Regulations, CBDT Notifications, IRDAI Master Circulars, PFRDA Guidelines, or reported High Court / Supreme Court judgments).
-
----
-
-## 2. Audio-Native Prose and Moon+ Reader Pro TTS Standard
-
-A foundational requirement of Dhanpedia India is that the author, Chirag Singhal, and readers frequently consume content as **audiobooks using Text-to-Speech (TTS)** in **Moon+ Reader Pro** on mobile devices with the screen turned off.
-
-Every article, chapter, reference page, and book publication must be authored to ensure seamless, human-sounding text-to-speech rendering:
-
-### 2.1 Paragraph Format Exclusivity
-- Structure all substantive analysis into natural, cohesive, flowing English paragraphs.
-- **Strict Prohibition on Raw Formula Blocks:** Never write isolated LaTeX equations (e.g. `$$FV = PV(1+r)^n$$`) or raw ASCII text art. When a TTS engine encounters raw equations, it awkwardly speaks out *"dollar sign dollar sign F V equals P V open parenthesis one plus r close parenthesis..."*, which destroys auditory comprehension.
-- **Mandatory Spoken English Mathematics:** Every formula must be articulated in natural spoken prose. For example:  
-  *“The future value of an investment is calculated by multiplying the initial principal by the factor of one plus the annual interest rate divided by the compounding frequency, all raised to the power of the compounding frequency multiplied by the total number of years.”*
-- **No Table Traps:** Multi-column visual tables frequently cause TTS engines to read across columns as a jumbled sequence of numbers. When tables are used for visual scanning, they must always be preceded or followed by comprehensive narrative paragraphs detailing the exact comparisons and conclusions.
-- **No Hard Line Breaks Inside Paragraphs:** Avoid `<br>` tags inside prose. Hard line breaks cause Android TTS engines to treat every line as the end of a sentence, leading to unnatural, staccato pauses.
-- **Punctuation for Natural Audio Cadence:** Use standard commas, semicolons, and periods to create natural breathing pauses in neural voice engines. Avoid bracketed footnote traps like `[^1]` or `[see note 4]`, which TTS reads literally as *"bracket footnote one bracket"*.
-
-### 2.2 Mermaid Diagram Guidelines
-- **Visual Excellence:** Mermaid diagrams are fully supported and encouraged for visual readers scanning the website or PDF editions.
-- **Non-Mandatory Audio Accompaniment:** Mermaid diagrams must **NEVER** be required for understanding the content. Because the primary reader will listen via TTS with the screen turned off, every Mermaid diagram must have a full, conversational spoken narrative immediately following it that explains the entire workflow, decision branches, and quantitative consequences. A listener must absorb 100% of the knowledge without looking at the diagram.
+- **Author & Principal Subject Specialist:** Chirag Singhal.
+- **Geographic Focus:** Republic of India (sovereign jurisdiction, Union laws, Reserve Bank of India, SEBI, IRDAI, PFRDA, CBDT, and judicial authorities).
+- **Primary Audience:** Salaried professionals, software engineers, founders, and advanced Indian investors requiring exhaustive, legally grounded, mathematically verified financial intelligence.
+- **Core Principles:** Free-first, static-first, zero-mandatory paid infrastructure, audio-native text-to-speech design for Moon+ Reader Pro, and uncompromising statutory depth.
 
 ---
 
-## 3. Web Search and Continuous Deep Research Protocol
+## 2. Mission and Scope
 
-### 3.1 Mandatory Search Frequency
-- **Search the Web Hundreds of Times Before Authoring:** Agents must not rely on memory or assumed statutory thresholds. Prior to authoring any section on tax slabs, regulatory rules, circular dates, interest rate formulas, or legal penalties, perform comprehensive web searches across official government and regulatory domains (`rbi.org.in`, `sebi.gov.in`, `incometax.gov.in`, `indiacode.nic.in`, `irdai.gov.in`, `pfrda.org.in`, `dicgc.org.in`).
-- **Latest Versions Only:** Ensure all citations reference the **latest gazetted versions and current legislative circulars**. Never present superseded rules as current law:
-  - *Direct Tax:* Finance (No. 2) Act 2024 revised capital gains tax rates under Section 112/112A (effective July 23, 2024), default New Concessional Tax Regime under Section 115BAC, and Section 87A rebate limitations.
-  - *Health Insurance:* IRDAI Master Circular 2024 reducing maximum pre-existing disease waiting periods from 48 months to 36 months, strict 60-day cashless authorization timelines, and Section 45 3-year incontestability.
-  - *Deposit Insurance:* DICGC (Amendment) Act 2021 Section 18A providing 90-day interim relief payout of up to ₹5 Lakh during cooperative or commercial bank moratoriums.
-  - *Digital Lending & Cyber Fraud:* RBI Digital Lending Guidelines 2022, banning third-party pass-through accounts and mandating direct borrower-to-RE bank transfers.
-- **No Stale or Bad Versions:** If a historical rule is discussed (e.g. indexation benefits prior to July 2024 or 80C deductions under the Old Tax Regime), it must be explicitly labeled as *historical context* and segregated from current operational law.
+1. **The Comprehensive Financial Map:** Cover the entire Indian financial reality across 26 canonical domains (Domains A to Z), 52 system nodes, 42 financial calculators, and hundreds of verified statutory sources.
+2. **Corpus Scale Benchmark:** The long-term objective of Dhanpedia India is at least 300 exhaustive treatises and 3,000,000 words of original, deduplicated prose.
+3. **The 10,000-Word Standard:** Foundational pillar publications must exceed **10,000 words** of original prose. Superficial 800-word summaries are strictly banned.
+4. **Honest Metric Reporting:** Completeness must be measured strictly by verified content on disk, never by ungrounded forward-looking claims or inflated word counts.
 
 ---
 
-## 4. Real-World Shadow Economy and Forensic Finance Standards
+## 3. Source-of-Truth Hierarchy
 
-Personal finance in India does not operate in a clean textbook vacuum. Citizens constantly confront informal black money demands, cash pressures in real estate transactions, unapproved digital loan apps, and dabba trading networks. Dhanpedia India documents these realities with absolute forensic clarity, objective statutory analysis, and zero moralizing:
+All autonomous agents must respect the following data architecture:
 
-1. **Real Estate Cash Components ('On-Money'):**
-   - Must document the gap between municipal circle rates (ready reckoner / guidance values) and prevailing market prices.
-   - Must cite **Section 269SS** of the Income-tax Act 1961: strict restriction prohibiting cash advances or payments of ₹20,000 or more for immovable property transfer.
-   - Must cite **Section 271D**: mandatory monetary penalty on the recipient equal to **100% of the cash accepted**.
-   - Must cite **Section 269ST**: prohibiting cash receipts of ₹2,00,000 or more from a person in a day or in respect of a single transaction, backed by a **100% penalty under Section 271DA**.
-   - Must analyze **Section 50C and Section 56(2)(x)**: detailing the 10% statutory safe-harbor tolerance band, and how discrepancies trigger double-ended taxation on both seller (capital gains on deemed circle rate) and buyer (other-sources tax on unearned difference).
-2. **Prohibition of Benami Property Transactions:**
-   - Must explain the legal definition under the Prohibition of Benami Property Transactions Act 1988 (as amended 2016).
-   - Must document statutory consequences: **absolute confiscation of property without compensation** under Section 5, and rigorous imprisonment up to 7 years plus a 25% fine on fair market value under Section 53.
-3. **Illegal Dabba Trading Bucket Shops:**
-   - Must document off-exchange bucketing networks operating outside recognized exchanges (NSE, BSE, MCX).
-   - Must cite **Sections 13 and 16 of the Securities Contracts (Regulation) Act 1956 (SCRA)** and criminal sanctions under **Section 23** (up to 10 years imprisonment, fine up to ₹25 Crore).
-   - Must emphasize the total absence of investor protection, clearing corporation guarantees, or SEBI SCORES 2.0 ombudsman recourse.
-4. **Forensic Enforcement Agencies:**
-   - Clearly differentiate the attachment and prosecution powers of the Directorate of Enforcement (ED under PMLA), Income Tax Investigation Wing (Sections 132/133A), Serious Fraud Investigation Office (SFIO under Companies Act), and Financial Intelligence Unit - India (FIU-IND).
-
----
-
-## 5. Master Book & EPUB Publishing Architecture
-
-Dhanpedia India is engineered as a single-source-of-truth publication engine:
-- The same research registries and substantive markdown files that render the web pages compile into master publication files located in `dist/books/` and `public/books/`:
-  - `dhanpedia-india-master-edition.epub`: Standards-compliant EPUB 3 with uncompressed `mimetype`, hierarchical NCX table of contents, high-contrast typography, and audio-native prose tailored for Moon+ Reader Pro.
-  - `dhanpedia-india-master-edition.md`: Single-file clean markdown edition (>29,000 words, growing to 3,000,000 words across phases) for offline reading and TTS text importing.
-- **Automated Book Compilation:** The publication engine is executed via `npm run build:book` (`node scripts/generate-book.mjs`) and is automatically chained to `npm run build`.
+- **Master Agent Constitution:** `AGENTS.md` (this document).
+- **Specialist Policy Directives:**
+  - Research & Verification: [`docs/AGENT_RESEARCH_POLICY.md`](file:///c:/g/dhanpedia-india/docs/AGENT_RESEARCH_POLICY.md)
+  - Content Editorial: [`docs/AGENT_CONTENT_POLICY.md`](file:///c:/g/dhanpedia-india/docs/AGENT_CONTENT_POLICY.md)
+  - Moon+ Reader Pro TTS: [`docs/AGENT_TTS_POLICY.md`](file:///c:/g/dhanpedia-india/docs/AGENT_TTS_POLICY.md)
+  - Book Publishing Pipeline: [`docs/AGENT_BOOK_PUBLISHING_POLICY.md`](file:///c:/g/dhanpedia-india/docs/AGENT_BOOK_PUBLISHING_POLICY.md)
+  - Testing & Quality Gates: [`docs/AGENT_TESTING_POLICY.md`](file:///c:/g/dhanpedia-india/docs/AGENT_TESTING_POLICY.md)
+  - Deployment & GitHub Pages: [`docs/AGENT_DEPLOYMENT_POLICY.md`](file:///c:/g/dhanpedia-india/docs/AGENT_DEPLOYMENT_POLICY.md)
+  - Dependency & Versioning: [`docs/AGENT_VERSION_POLICY.md`](file:///c:/g/dhanpedia-india/docs/AGENT_VERSION_POLICY.md)
+- **Canonical Data Models:**
+  - Taxonomy (26 Domains): [`data/taxonomy/taxonomy.json`](file:///c:/g/dhanpedia-india/data/taxonomy/taxonomy.json)
+  - Financial System Tree: [`data/taxonomy/financial-system.json`](file:///c:/g/dhanpedia-india/data/taxonomy/financial-system.json)
+  - Statutory Sources (32 Bodies): [`data/sources/source-registry.json`](file:///c:/g/dhanpedia-india/data/sources/source-registry.json)
+  - Verified Claims (12 Propositions): [`data/claims/claim-registry.json`](file:///c:/g/dhanpedia-india/data/claims/claim-registry.json)
+  - Foundational Concepts (52 Entities): [`data/concepts/concept-registry.json`](file:///c:/g/dhanpedia-india/data/concepts/concept-registry.json)
+  - Knowledge Graph: [`data/knowledge-graph/nodes.json`](file:///c:/g/dhanpedia-india/data/knowledge-graph/nodes.json) and [`data/knowledge-graph/relationships.json`](file:///c:/g/dhanpedia-india/data/knowledge-graph/relationships.json)
+  - Mathematical Formulas: [`data/calculators/formulas.json`](file:///c:/g/dhanpedia-india/data/calculators/formulas.json)
+  - Calculators: [`data/calculators/calculator-inventory.json`](file:///c:/g/dhanpedia-india/data/calculators/calculator-inventory.json)
+  - Learning Curricula: [`data/publications/learning-paths.json`](file:///c:/g/dhanpedia-india/data/publications/learning-paths.json)
+  - Coverage Gaps: [`data/research/coverage-gaps.json`](file:///c:/g/dhanpedia-india/data/research/coverage-gaps.json)
+  - Publications Manifest: [`public/books/publication-manifest.json`](file:///c:/g/dhanpedia-india/public/books/publication-manifest.json)
+- **Persistent State:** [`state/project-state.json`](file:///c:/g/dhanpedia-india/state/project-state.json), [`state/task-registry.json`](file:///c:/g/dhanpedia-india/state/task-registry.json), and [`state/decisions.json`](file:///c:/g/dhanpedia-india/state/decisions.json).
 
 ---
 
-## 6. Technical Stack, Commands, and Quality Gates
-
-### 6.1 Toolchain
-- **Framework:** Astro 5+ (Static Output Mode).
-- **Language:** TypeScript 5.x.
-- **Styling:** Vanilla CSS Custom Properties (Design Tokens in `src/styles/theme.css`).
-- **Package Manager:** `npm` (Node.js 20+ runtime).
-- **Search Engine:** Local client-side partitionable JSON index (`public/search-index.json`).
-
-### 6.2 Essential Commands
-- **Start Development Server:** `npm run dev` (runs local Astro server on `http://localhost:4321/dhanpedia-india/`).
-- **Run Quality Gates & Integrity Suite:** `npm test` (`node scripts/validate-integrity.mjs`). Must pass 100% of assertions before committing.
-- **Full Type Check & Quality Gate:** `npm run test:quality` (`astro check && node scripts/validate-integrity.mjs`).
-- **Compile Master Book & EPUB:** `npm run build:book` (`node scripts/generate-book.mjs`).
-- **Build Static Production Bundle:** `npm run build` (builds all static HTML pages and compiles master book editions).
-- **Preview Production Build:** `npm run preview`.
-
-### 6.3 Quality Gate Requirements
-Every commit must satisfy:
-1. `validate-integrity.mjs` passes 100% (currently 1,504+ assertions across taxonomy, sources, claims, concepts, nodes, relationships, formulas, learning paths, and word counts).
-2. All substantive articles in `src/content/articles/` exceed **10,000 words**.
-3. Zero secret exposure: Automated credential scanning across all `.json`, `.js`, `.mjs`, `.ts`, `.astro`, `.md`, and `.css` files.
-4. Astro static build succeeds with 0 errors across all routes.
-5. All external statutory URLs enforce HTTPS transport.
-
----
-
-## 7. Knowledge Base Directory Structure
+## 4. Repository Map
 
 ```
 dhanpedia-india/
-├── .github/workflows/deploy.yml       # GitHub Actions workflow deploying to GitHub Pages
-├── astro.config.mjs                   # Astro configuration (base: /dhanpedia-india, static)
+├── .github/workflows/deploy.yml       # Automated GitHub Pages CI/CD deployment
+├── astro.config.mjs                   # Static Astro config (base: /dhanpedia-india)
 ├── package.json                       # Scripts, dependencies, and metadata
-├── AGENTS.md                          # Master Agent Constitution (this document)
-├── README.md                          # Public repository overview
-├── data/
-│   ├── articles/                      # Article registry with word counts and categories
-│   ├── calculators/                   # 42 calculators inventory and 14 canonical formulas
-│   ├── claims/                        # Statutory claim registry (12 verified legal propositions)
-│   ├── concepts/                      # 52 foundational concepts with layered definitions
-│   ├── knowledge-graph/               # 65 typed nodes and 45 verified semantic relationships
-│   ├── publications/                  # Article coverage matrix and 12 structured learning paths
-│   ├── research/                      # Prioritized coverage gaps register (P0 to P4 bands)
-│   ├── sources/                       # 32 primary statutory bodies and 12 public datasets
-│   └── taxonomy/                      # 26 canonical domains (A to Z) and 52 system nodes
-├── docs/                              # Architecture, Content Guide, Taxonomy, and Methodology
-├── reports/                           # Audit reports (Source, Graph, Backlog, Scorecard)
+├── AGENTS.md                          # Master Operating Constitution
+├── data/                              # Canonical JSON data stores
+├── docs/                              # Specialist agent policies and architecture
+│   ├── AGENT_RESEARCH_POLICY.md       # Primary source hierarchy and search mandate
+│   ├── AGENT_CONTENT_POLICY.md        # 10k-word standard and editorial structure
+│   ├── AGENT_TTS_POLICY.md            # Moon+ Reader Pro TTS audio-native rules
+│   ├── AGENT_BOOK_PUBLISHING_POLICY.md# EPUB, PDF, and TXT publishing rules
+│   ├── AGENT_TESTING_POLICY.md        # 17-suite automated quality gate
+│   ├── AGENT_DEPLOYMENT_POLICY.md     # GitHub Pages base path routing
+│   ├── AGENT_VERSION_POLICY.md        # Node.js LTS and zero-dependency baseline
+│   └── research/                      # Persistent technical research logs
+├── public/                            # Static assets and compiled publications
+│   └── books/                         # Master EPUBs, PDFs, TXTs & publication-manifest.json
+├── reports/                           # Implementation and audit reports
 ├── scripts/
-│   ├── generate-book.mjs              # Master EPUB and Markdown publication engine
-│   └── validate-integrity.mjs         # 15-suite CI/CD quality gate and integrity validator
+│   ├── generate-book.mjs              # Multi-format publication compiler
+│   └── validate-integrity.mjs         # Automated quality gate and validation suite
 ├── src/
-│   ├── content/articles/              # Substantive >10k word markdown treatises
-│   ├── layouts/                       # BaseLayout with responsive 3-column architecture
-│   ├── pages/                         # Astro static routes (Home, Categories, Downloads, etc.)
-│   ├── styles/                        # Theme tokens and responsive typography
+│   ├── content/articles/              # Substantive >10,000 word markdown treatises
+│   ├── layouts/                       # BaseLayout (3-column responsive grid)
+│   ├── pages/                         # Astro pages (Home, Categories, Downloads, etc.)
+│   ├── styles/                        # CSS variables and design tokens
 │   └── utils/                         # Path helpers, reading time, and search utilities
-└── state/                             # Persistent state, task registry, decisions, and checkpoints
+└── state/                             # Resumable task state, decisions, and checkpoints
 ```
 
 ---
 
-## 8. Definition of Done for Any Future Phase
+## 5. Technical Stack
 
-No task or prompt may be marked complete unless:
-1. Code and content are written directly to the workspace repository (`c:\g\dhanpedia-india`).
-2. All new concepts, formulas, claims, and sources are registered in their canonical JSON files.
-3. Every equation and calculation provides full audio-native spoken English narration for Moon+ Reader Pro TTS.
-4. Every Mermaid diagram is paired with comprehensive spoken narrative text.
-5. `npm test` runs and passes with zero failures.
-6. `npm run build` runs and generates all static HTML routes and master book artifacts.
-7. Resumable checkpoint is saved in `state/checkpoints/` and `state/project-state.json` is updated.
-8. Changes are committed to git with descriptive semantic commit messages.
+- **Framework:** Astro 5 (`astro@^5.1.0`), configured for static pre-rendering.
+- **Language:** TypeScript 5.x (`typescript@^5.7.0`) with strict type checking.
+- **Styling:** Vanilla CSS Custom Properties (Design tokens in `src/styles/theme.css`). Zero Tailwind runtime overhead.
+- **Runtime:** Node.js 20+ LTS (Node 20 in GitHub Actions runner, Node 26 supported locally).
+- **EPUB Engine:** Built-in Node.js `ZipBuilder` enforcing uncompressed `mimetype` and EPUB 3.3 standards.
+- **PDF Engine:** Built-in Node.js `SimplePdfWriter` (ISO 32000-1 / PDF 1.4 stream writer).
+- **Search Engine:** Local partitionable client-side JSON search index (`public/search-index.json`).
+- **Standard Commands:**
+  - Dev server: `npm run dev`
+  - Run quality gates: `npm test`
+  - Compile books: `npm run build:book`
+  - Full static build: `npm run build`
+  - Preview build: `npm run preview`
+
+---
+
+## 6. Version-Selection Rules
+
+Agents must adhere to [`docs/AGENT_VERSION_POLICY.md`](file:///c:/g/dhanpedia-india/docs/AGENT_VERSION_POLICY.md):
+1. Lock all versions in `package-lock.json`.
+2. Do not adopt prerelease or unstable alpha/beta packages.
+3. Check official release notes and run `npm audit` prior to any dependency change.
+4. Verify full test suite passing (`npm test`) before committing version bumps.
+
+---
+
+## 7. Research Policy
+
+Agents must adhere to [`docs/AGENT_RESEARCH_POLICY.md`](file:///c:/g/dhanpedia-india/docs/AGENT_RESEARCH_POLICY.md):
+1. Rely exclusively on primary statutory authorities: Acts of Parliament, RBI Master Directions, SEBI Master Circulars, CBDT Notifications, IRDAI Regulations, PFRDA Guidelines, and High Court / Supreme Court precedents.
+2. Verify effective legal dates: All tax analysis must reflect the **Finance (No. 2) Act 2024** (effective July 23, 2024).
+3. Record all research queries and official URLs in [`docs/research/technical-research-log.md`](file:///c:/g/dhanpedia-india/docs/research/technical-research-log.md).
+
+---
+
+## 8. Web Research Policy
+
+1. **Broad, Systematic Querying:** Perform web searches across official government domains (`rbi.org.in`, `sebi.gov.in`, `incometax.gov.in`, `indiacode.nic.in`, `irdai.gov.in`, `dicgc.org.in`).
+2. Search as many times as necessary to eliminate uncertainty regarding circular dates, interest rate formulas, penalty thresholds, and judicial appeals.
+3. Every factual claim must be backed by an accessible primary URL.
+
+---
+
+## 9. Content-Writing Standards
+
+Agents must adhere to [`docs/AGENT_CONTENT_POLICY.md`](file:///c:/g/dhanpedia-india/docs/AGENT_CONTENT_POLICY.md):
+1. **Depth:** All flagship articles must exceed **10,000 words** of original, non-duplicative analysis.
+2. **Layered Pedagogy:** Executive Summary -> Statutory Framework -> Operational Mechanics -> Spoken Quantitative Models -> Tax Treatment -> Forensic Failure Modes -> Redressal & Ombudsman Matrix.
+3. **Forensic Reality:** Document cash components in real estate (Sections 269SS, 271D, 269ST, 50C), Benami property confiscation, and illegal dabba trading bucket shops.
+
+---
+
+## 10. Moon+ Reader Pro TTS Standards
+
+Agents must adhere to [`docs/AGENT_TTS_POLICY.md`](file:///c:/g/dhanpedia-india/docs/AGENT_TTS_POLICY.md):
+1. **No Raw LaTeX Equations:** Never author `$$...$$` blocks. Always author spoken English formulas (e.g. *"The future value is calculated by multiplying..."*).
+2. **No Table Traps:** Tables must be accompanied by comprehensive narrative paragraphs detailing comparisons.
+3. **No Hard Line Breaks (`<br>`):** Maintain natural paragraph flow for Android neural voice engines.
+4. **Indian Numbers & Currency:** Express figures in words (*"five lakh rupees"*, *"twenty-five crore rupees"*).
+5. **Mermaid Diagrams:** Always follow every diagram with a complete spoken explanatory narrative.
+
+---
+
+## 11. Book-Generation Rules
+
+Agents must adhere to [`docs/AGENT_BOOK_PUBLISHING_POLICY.md`](file:///c:/g/dhanpedia-india/docs/AGENT_BOOK_PUBLISHING_POLICY.md):
+1. Ingest canonical content directly from `src/content/articles/` and `data/`.
+2. Generate Master Complete Reference, Master TTS Audiobook Edition, 7 Subject-Wise Volumes, and Chapter Editions across EPUB, PDF, and TXT.
+3. Generate and validate `public/books/publication-manifest.json` with SHA-256 hashes and real word counts.
+4. Mirror all files to `public/books/` and `dist/books/`.
+
+---
+
+## 12. Website Design Rules
+
+1. **Visual Identity:** Deep navy brand color, warm ivory reading surface, restrained emerald/gold accents, and high-contrast typography.
+2. **Layout:** 3-column desktop layout (Collapsible Topic Navigation on left, Central Reading Column, Sticky Table of Contents on right). Responsive single-column layout on mobile.
+3. **Accessibility:** WCAG 2.2 AA compliance, semantic HTML, visible focus states, and reduced-motion support.
+
+---
+
+## 13. Testing Policy
+
+Agents must adhere to [`docs/AGENT_TESTING_POLICY.md`](file:///c:/g/dhanpedia-india/docs/AGENT_TESTING_POLICY.md):
+1. Execute `npm test` before any commit.
+2. Maintain 100% passing rate across all 17 validation suites.
+3. Enforce the >10,000-word mandate and secret scanning across all files.
+
+---
+
+## 14. GitHub Pages Publishing Policy
+
+Agents must adhere to [`docs/AGENT_DEPLOYMENT_POLICY.md`](file:///c:/g/dhanpedia-india/docs/AGENT_DEPLOYMENT_POLICY.md):
+1. Subpath routing: all links and static assets must resolve via `/dhanpedia-india`.
+2. Automated workflow in `.github/workflows/deploy.yml`.
+3. Verify live URL `https://chirag127.github.io/dhanpedia-india/` following deployment.
+
+---
+
+## 15. Security and Privacy
+
+1. **Zero Secret Exposure:** Never commit API keys, personal access tokens, or private credentials.
+2. **No Analytics Bloat:** Zero third-party trackers, cookies, or intrusive telemetry scripts.
+3. **Static Integrity:** No user data collection, database connections, or external runtime endpoints.
+
+---
+
+## 16. Parallel Agent Coordination
+
+1. Tasks must be divided with explicit file ownership boundaries.
+2. Agents working in parallel must never modify the same JSON schema or Astro page concurrently.
+3. All parallel branches must be validated against `npm test` prior to consolidation.
+
+---
+
+## 17. Project State and Checkpoints
+
+1. Track progress in [`state/project-state.json`](file:///c:/g/dhanpedia-india/state/project-state.json).
+2. Record task completion in [`state/task-registry.json`](file:///c:/g/dhanpedia-india/state/task-registry.json).
+3. Log technical decisions in [`state/decisions.json`](file:///c:/g/dhanpedia-india/state/decisions.json).
+4. Save resumable phase checkpoints in `state/checkpoints/`.
+
+---
+
+## 18. Completion Gates
+
+A prompt or phase may only be marked complete when:
+1. All required code, markdown files, and JSON registries are physically written to disk.
+2. `npm test` runs and passes with 0 failures.
+3. `npm run build` runs and generates all static HTML pages and book compendiums.
+4. All generated publications are verified against `publication-manifest.json`.
+5. An audit report is saved in `reports/`.
+
+---
+
+## 19. Failure Handling
+
+1. Never retry commands blindly if a build or test fails.
+2. Inspect log outputs and fix root causes (e.g., broken JSON syntax, missing fields, or broken links).
+3. Preserve existing working code; never wipe valid repository content to create an empty scaffold.
+
+---
+
+## 20. Definition of Done
+
+A deliverable is Done only when:
+- 100% of required files are committed to the repository.
+- Full test suite passes (0 errors).
+- Static build succeeds with complete book compilation.
+- The live deployment is pushed to GitHub Pages.
+- A comprehensive implementation report is published in `reports/`.

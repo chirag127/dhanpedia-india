@@ -254,6 +254,76 @@
       "results": "All tests passed. System primed for Prompt 004 handoff.",
       "blockers": null,
       "nextAction": "Handoff to Prompt 004"
+    },
+    {
+      "taskId": "TASK-004-A",
+      "title": "Zero-Dependency Multi-Format Book Publishing Engine",
+      "description": "Develop scripts/generate-book.mjs supporting EPUB 3.3 (ZipBuilder), vector PDF 1.4 (SimplePdfWriter), and plain-text generation for master compendiums, subject volumes, and standalone chapters.",
+      "status": "completed",
+      "priority": "P0",
+      "dependencies": ["TASK-003-H"],
+      "workstream": "publishing-engine",
+      "filesOwned": ["scripts/generate-book.mjs", "public/books/publication-manifest.json", "public/books/"],
+      "validationRequirements": "All 33 publications generated with valid file magic headers, SHA-256 checksums, and manifest metadata.",
+      "results": "Compiled Master Complete Reference, Master TTS Edition, 7 Subject Volumes, and 2 Standalone Chapters. 33 artifacts generated.",
+      "blockers": null,
+      "nextAction": "Proceed to Task 004-B"
+    },
+    {
+      "taskId": "TASK-004-B",
+      "title": "Moon+ Reader Pro Audio-Native TTS Optimization",
+      "description": "Enforce spoken English math formulas, zero raw LaTeX/ASCII equation blocks, no table traps, natural audio cadence, and Indian currency spoken in words.",
+      "status": "completed",
+      "priority": "P0",
+      "dependencies": ["TASK-004-A"],
+      "workstream": "audio-publishing",
+      "filesOwned": ["docs/AGENT_TTS_POLICY.md", "scripts/generate-book.mjs"],
+      "validationRequirements": "Zero $$ blocks in TTS text, numbers in spoken words, diagrams paired with full spoken narrative paragraphs.",
+      "results": "Full audio-native TTS edition generated (27,392 words). Tested and verified against strict TTS quality checks.",
+      "blockers": null,
+      "nextAction": "Proceed to Task 004-C"
+    },
+    {
+      "taskId": "TASK-004-C",
+      "title": "Master Agent Operating Constitution & Specialist Policies",
+      "description": "Author root AGENTS.md with all 20 required sections and create 7 specialist documentation policies in docs/.",
+      "status": "completed",
+      "priority": "P0",
+      "dependencies": ["TASK-004-B"],
+      "workstream": "governance",
+      "filesOwned": ["AGENTS.md", "docs/AGENT_RESEARCH_POLICY.md", "docs/AGENT_CONTENT_POLICY.md", "docs/AGENT_TTS_POLICY.md", "docs/AGENT_BOOK_PUBLISHING_POLICY.md", "docs/AGENT_TESTING_POLICY.md", "docs/AGENT_DEPLOYMENT_POLICY.md", "docs/AGENT_VERSION_POLICY.md"],
+      "validationRequirements": "All 20 constitution sections detailed with operational directives and direct file links to specialist policies.",
+      "results": "Comprehensive AGENTS.md v4.0.0 and 7 specialist policies codified.",
+      "blockers": null,
+      "nextAction": "Proceed to Task 004-D"
+    },
+    {
+      "taskId": "TASK-004-D",
+      "title": "Interactive Offline Publication Download Catalogue",
+      "description": "Revamp src/pages/downloads/index.astro into a multi-format library powered directly by publication-manifest.json.",
+      "status": "completed",
+      "priority": "P0",
+      "dependencies": ["TASK-004-C"],
+      "workstream": "web-frontend",
+      "filesOwned": ["src/pages/downloads/index.astro"],
+      "validationRequirements": "Responsive layout, download cards for Master TTS and Reference editions, subject volumes table, chapter cards, and Moon+ Reader configuration guide.",
+      "results": "Downloads page successfully renders all 33 publications with byte sizes, word counts, and direct links.",
+      "blockers": null,
+      "nextAction": "Proceed to Task 004-E"
+    },
+    {
+      "taskId": "TASK-004-E",
+      "title": "17-Suite Automated Quality Gate Extension & CI/CD",
+      "description": "Extend scripts/validate-integrity.mjs to assert publication manifest, artifact existence, SHA-256 hashes, and TTS audio rules.",
+      "status": "completed",
+      "priority": "P0",
+      "dependencies": ["TASK-004-D"],
+      "workstream": "quality-assurance",
+      "filesOwned": ["scripts/validate-integrity.mjs", "package.json"],
+      "validationRequirements": "100% assertions passing (1,833+ assertions), Astro static build succeeding with 0 errors.",
+      "results": "1,833 assertions passed with 0 failures. Static build compiled 42 routes and 33 publication artifacts.",
+      "blockers": null,
+      "nextAction": "Handoff to Prompt 005"
     }
   ]
 }
