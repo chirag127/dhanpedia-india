@@ -1,6 +1,6 @@
 {
   "$schema": "./task-registry.schema.json",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "lastUpdated": "2026-10-17",
   "tasks": [
     {
@@ -142,6 +142,118 @@
       "results": "All quality gates passed 100%. Checkpoint PROMPT-002 saved.",
       "blockers": null,
       "nextAction": "Ready for Prompt 003 handoff"
+    },
+    {
+      "taskId": "TASK-003-A",
+      "title": "Concept Normalization & Foundational Concept Registry Expansion",
+      "description": "Expand concept-registry.json to 50 foundational concepts across Personal Finance, Investments, Accounting, Indian Financial System, Tax/Law, and Quantitative Finance with plain English, technical definitions, and spoken formulas.",
+      "status": "completed",
+      "priority": "P0",
+      "dependencies": ["TASK-002-I"],
+      "workstream": "knowledge-engineering",
+      "filesOwned": ["data/concepts/concept-registry.json"],
+      "validationRequirements": "50 unique concepts with layered definitions, synonyms, scope boundaries, and prerequisites.",
+      "results": "Expanded to 50 concepts with complete plain English, technical, and audio-native spoken definitions.",
+      "blockers": null,
+      "nextAction": "Proceed to Task 003-B"
+    },
+    {
+      "taskId": "TASK-003-B",
+      "title": "Typed Knowledge Graph Node & Relationship Expansion",
+      "description": "Create nodes.json and expand relationships.json to model 65 nodes and 45 verified typed semantic relationships.",
+      "status": "completed",
+      "priority": "P0",
+      "dependencies": ["TASK-003-A"],
+      "workstream": "knowledge-engineering",
+      "filesOwned": ["data/knowledge-graph/nodes.json", "data/knowledge-graph/relationships.json"],
+      "validationRequirements": "All source and target endpoints resolve with 100% referential integrity; zero circular hierarchy loops.",
+      "results": "Codified 65 typed nodes and 45 verified semantic relationships with statutory evidence.",
+      "blockers": null,
+      "nextAction": "Proceed to Task 003-C"
+    },
+    {
+      "taskId": "TASK-003-C",
+      "title": "Canonical Formula Registry & Audio-Native Prose Transcription",
+      "description": "Create formula-registry.json documenting 14 foundational financial formulas with mathematical representations and spoken English narrations.",
+      "status": "completed",
+      "priority": "P0",
+      "dependencies": ["TASK-003-B"],
+      "workstream": "quantitative-engineering",
+      "filesOwned": ["data/calculators/formula-registry.json"],
+      "validationRequirements": "Formulas include spoken descriptions, variable definitions, assumptions, edge cases, and calculator linkages.",
+      "results": "Registered 14 foundational formulas completely narrated for audiobook and screen-reader compatibility.",
+      "blockers": null,
+      "nextAction": "Proceed to Task 003-D"
+    },
+    {
+      "taskId": "TASK-003-D",
+      "title": "Structured Learning Paths & Curricular Prerequisite Modeling",
+      "description": "Create learning-paths.json mapping 12 multi-stage financial learning curricula with milestones and practical exercises.",
+      "status": "completed",
+      "priority": "P0",
+      "dependencies": ["TASK-003-C"],
+      "workstream": "editorial-planning",
+      "filesOwned": ["data/publications/learning-paths.json"],
+      "validationRequirements": "12 learning paths with difficulty levels, prerequisites, stage sequences, and tool connections.",
+      "results": "Mapped 12 structured learning paths spanning debt freedom to quantitative finance.",
+      "blockers": null,
+      "nextAction": "Proceed to Task 003-E"
+    },
+    {
+      "taskId": "TASK-003-E",
+      "title": "Coverage Gap Register & Risk-Weighted Prioritization",
+      "description": "Create coverage-gaps.json documenting 10 prioritized gaps across the Indian financial landscape scored P0 to P4.",
+      "status": "completed",
+      "priority": "P0",
+      "dependencies": ["TASK-003-D"],
+      "workstream": "research",
+      "filesOwned": ["data/research/coverage-gaps.json", "reports/research-priority-backlog.md"],
+      "validationRequirements": "Documented 4-factor scoring formula, explicit resolution criteria, and assigned statutory references.",
+      "results": "Codified 10 prioritized gaps with forensic coverage of real estate cash limits, dabba trading, and insurance repudiation.",
+      "blockers": null,
+      "nextAction": "Proceed to Task 003-F"
+    },
+    {
+      "taskId": "TASK-003-F",
+      "title": "Article Boundary & Deduplication Audit",
+      "description": "Audit publication matrix and publish article-boundary-audit.md disambiguating overlapping search intent and establishing canonical parentage.",
+      "status": "completed",
+      "priority": "P0",
+      "dependencies": ["TASK-003-E"],
+      "workstream": "editorial-planning",
+      "filesOwned": ["reports/article-boundary-audit.md"],
+      "validationRequirements": "Deduplication policy, canonical primary homes assigned, and disambiguation of 5 major economic pairs.",
+      "results": "Established strict uniqueness criteria and resolved scope boundaries across 30 planned treatises.",
+      "blockers": null,
+      "nextAction": "Proceed to Task 003-G"
+    },
+    {
+      "taskId": "TASK-003-G",
+      "title": "Comprehensive Audits (Source Integrity, Knowledge Graph, Coverage Scorecard)",
+      "description": "Author source-integrity-audit.md, knowledge-graph-audit.md, coverage-scorecard.md, and PROMPT-003-REPORT.md.",
+      "status": "completed",
+      "priority": "P0",
+      "dependencies": ["TASK-003-F"],
+      "workstream": "quality-assurance",
+      "filesOwned": ["reports/source-integrity-audit.md", "reports/knowledge-graph-audit.md", "reports/coverage-scorecard.md", "reports/PROMPT-003-REPORT.md"],
+      "validationRequirements": "Explicit denominators across all metrics; full 22-section master audit report.",
+      "results": "All 4 audit reports authored with complete statutory and mathematical rigor.",
+      "blockers": null,
+      "nextAction": "Proceed to Task 003-H"
+    },
+    {
+      "taskId": "TASK-003-H",
+      "title": "Validator Extension & Prompt 003 Checkpoint",
+      "description": "Extend validate-integrity.mjs to assert all Prompt 003 data models, run build test, update project-state, and save checkpoint PROMPT-003.md.",
+      "status": "completed",
+      "priority": "P0",
+      "dependencies": ["TASK-003-G"],
+      "workstream": "quality-assurance",
+      "filesOwned": ["scripts/validate-integrity.mjs", "state/project-state.json", "state/decisions.json", "state/checkpoints/PROMPT-003.md"],
+      "validationRequirements": "100% assertions passing, Astro static build clean, resumable checkpoint saved.",
+      "results": "All tests passed. System primed for Prompt 004 handoff.",
+      "blockers": null,
+      "nextAction": "Handoff to Prompt 004"
     }
   ]
 }

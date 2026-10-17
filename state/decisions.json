@@ -1,6 +1,6 @@
 {
   "$schema": "./decisions.schema.json",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "lastUpdated": "2026-10-17",
   "decisions": [
     {
@@ -92,6 +92,42 @@
       "context": "Citizens encounter informal black money demands, real estate cash components ('on-money'), predatory unapproved loan apps, and dabba trading in everyday reality.",
       "decision": "Explicitly incorporate shadow economy mechanisms into Domain R, documenting circle rate gaps, Section 269SS/ST limits, Section 271D/DA 100% penalties, Benami Property Transactions Act confiscation, and SCRA dabba trading criminal sanctions.",
       "consequences": "Complete real-world relevance, practical citizen empowerment, rigorous legal and forensic honesty without moralizing."
+    },
+    {
+      "id": "DEC-011",
+      "date": "2026-10-17",
+      "title": "Typed Directed Multigraph for Financial System Relationships",
+      "status": "accepted",
+      "context": "Financial products, statutory acts, regulators, risks, and calculators cannot be represented as isolated articles without loss of relational context and regulatory update traceability.",
+      "decision": "Model the knowledge architecture as a typed directed multigraph in `data/knowledge-graph/nodes.json` and `relationships.json` using explicit predicates (governed_by, regulated_by, taxed_under, prohibits, mitigates_risk, exposes_to, has_calculator, requires_prerequisite).",
+      "consequences": "Machine-readable dependency tracing, automated source-change impact cascades, clean referential integrity."
+    },
+    {
+      "id": "DEC-012",
+      "date": "2026-10-17",
+      "title": "Multi-Tier Concept Explanations with Audio-Native Narration",
+      "status": "accepted",
+      "context": "Financial terms have differing levels of depth: beginners require intuitive intuition, while practitioners need precise statutory or mathematical definitions, and screen readers require spoken prose.",
+      "decision": "Structure concept records in `data/concepts/concept-registry.json` with plain-English definitions, technical definitions, and spoken narrative formulas without raw equation blocks.",
+      "consequences": "Universal accessibility, rapid comprehension across all skill levels, seamless text-to-speech rendering."
+    },
+    {
+      "id": "DEC-013",
+      "date": "2026-10-17",
+      "title": "4-Factor Risk-Weighted Prioritization for Research Gaps",
+      "status": "accepted",
+      "context": "With hundreds of potential financial topics, research prioritization must be objective and prevent life-altering consumer harm before niche topics are addressed.",
+      "decision": "Adopt a 4-factor scoring formula: (Financial Harm x 0.35) + (Audience Reach x 0.25) + (Regulatory Sensitivity x 0.25) + (Content Urgency x 0.15) to segment research into P0 (critical blocker) through P4 (future research) bands.",
+      "consequences": "Critical legal liabilities (e.g. Section 269SS/ST cash penalties, health insurance 3-year incontestability, dabba trading bans) are investigated and verified first."
+    },
+    {
+      "id": "DEC-014",
+      "date": "2026-10-17",
+      "title": "Article Boundary Deduplication and Canonical Primary Home Policy",
+      "status": "accepted",
+      "context": "Mass content generation easily results in dozens of superficial articles repeating the same definitions and competing for identical search intent.",
+      "decision": "Establish a canonical primary home rule in `reports/article-boundary-audit.md`: each foundational economic concept has one primary home; secondary articles must reference the canonical concept and provide unique decision-making value.",
+      "consequences": "Zero keyword cannibalization, cohesive reference architecture, high editorial density across all publications."
     }
   ]
 }

@@ -1,0 +1,135 @@
+{
+  "$schema": "./coverage-gaps.schema.json",
+  "version": "1.0.0",
+  "lastUpdated": "2026-10-17",
+  "totalGaps": 10,
+  "priorityBands": {
+    "P0": "Blocks publication of an affected high-impact claim or requires immediate correction.",
+    "P1": "High-consequence gap that should be resolved before related substantive content is published.",
+    "P2": "Important gap needed for comprehensive coverage.",
+    "P3": "Useful specialist enhancement.",
+    "P4": "Optional future research."
+  },
+  "gaps": [
+    {
+      "gapId": "GAP-TAX-87A-SPL",
+      "domainId": "indian-taxation",
+      "missingArea": "Section 87A rebate eligibility on Special Rate Income under Section 115BAC",
+      "evidenceForGap": "Income Tax Department e-filing utility for AY 2024-25 restricted Section 87A rebate against STCG (Section 111A) and LTCG (Section 112A) despite statutory ambiguity in the Act.",
+      "whyItMatters": "Affects millions of retail stock and mutual fund investors earning under ₹7 Lakh total taxable income who face unexpected tax demands.",
+      "priority": "P0",
+      "dependencies": ["CALC-TAX-001", "capital-gains-taxation-architecture-post-finance-act-2024"],
+      "requiredSources": ["SRC-CBDT-MAIN", "SRC-ITD-PORTAL"],
+      "resolutionCriteria": "Authoritative clarification circular issued by CBDT or landmark ruling by ITAT Special Bench.",
+      "currentStatus": "investigating"
+    },
+    {
+      "gapId": "GAP-SHADOW-273B",
+      "domainId": "financial-fraud-scams-shadow-economy",
+      "missingArea": "Judicial standards for Section 273B 'reasonable cause' relief in Section 269SS/ST cash property violations",
+      "evidenceForGap": "Conflicting High Court precedents regarding whether commercial duress from real estate sellers constitutes reasonable cause to waive 100% penalties under Section 271D.",
+      "whyItMatters": "Critical for property buyers coerced into cash transactions who face catastrophic 100% tax penalties on top of purchase prices.",
+      "priority": "P1",
+      "dependencies": ["black-money-in-indian-real-estate-circle-rates-cash-penalties-under-section-269ss-and-benami-laws"],
+      "requiredSources": ["SRC-SC-JUDGMENTS", "SRC-CBDT-MAIN"],
+      "resolutionCriteria": "Comprehensive synthesis of High Court appellate jurisprudence establishing the evidentiary threshold for reasonable cause.",
+      "currentStatus": "investigating"
+    },
+    {
+      "gapId": "GAP-SMREIT-LIQ",
+      "domainId": "real-estate-property-land",
+      "missingArea": "Small & Medium REIT (SM REIT) initial listing mechanics and secondary market liquidity",
+      "evidenceForGap": "SEBI introduced the SM REIT framework in March 2024 for ₹50 Cr to ₹500 Cr asset pools; historical secondary trading volume and distribution yield data remain sparse.",
+      "whyItMatters": "Investors require empirical liquidity evidence before committing capital to fractional commercial real estate schemes.",
+      "priority": "P2",
+      "dependencies": ["reits-and-sm-reits-in-india-structure-yields-taxation-and-liquidity"],
+      "requiredSources": ["SRC-SEBI-MAIN", "SRC-BSE-MAIN", "SRC-NSE-MAIN"],
+      "resolutionCriteria": "Tracking first 5 operational SM REIT scheme listings and publishing secondary bid-ask spread data.",
+      "currentStatus": "monitoring"
+    },
+    {
+      "gapId": "GAP-LRS-TCS-RECON",
+      "domainId": "international-cross-border-finance",
+      "missingArea": "Operational reconciliation of 20% TCS on LRS outward remittances with advance tax filings",
+      "evidenceForGap": "Authorized dealer banks collect 20% TCS on remittances exceeding ₹7 Lakh, but automated credit reflection in AIS/Form 26AS suffers from multi-week reporting lags.",
+      "whyItMatters": "Causes cash flow drag and potential advance tax default interest notices under Section 234B/C for overseas investors.",
+      "priority": "P1",
+      "dependencies": ["lrs-and-overseas-investing-fema-regulations-tcs-deduction-and-remittance-mechanics"],
+      "requiredSources": ["SRC-RBI-MAIN", "SRC-ITD-PORTAL"],
+      "resolutionCriteria": "Documenting exact reporting timelines and corporate salary credit offset protocols under Form 12BAA.",
+      "currentStatus": "investigating"
+    },
+    {
+      "gapId": "GAP-URBAN-INFLATION",
+      "domainId": "pf-foundations",
+      "missingArea": "Empirical lifestyle and private education inflation data across Tier 1 Indian cities",
+      "evidenceForGap": "Official headline CPI averages 4-6%, but urban middle-class expenditures (private school fees, healthcare, housing maintenance) escalate at 8-12% annually.",
+      "whyItMatters": "Retirement planning and education goal calculations based on headline CPI suffer catastrophic underfunding over 15+ years.",
+      "priority": "P1",
+      "dependencies": ["CALC-PF-002", "CALC-TAX-004", "inflation-mechanics-cpi-vs-aspirational-cost-of-living"],
+      "requiredSources": ["SRC-MOSPI-CPI"],
+      "resolutionCriteria": "Publishing empirical 10-year fee escalation studies across Indian private universities and tertiary healthcare chains.",
+      "currentStatus": "open"
+    },
+    {
+      "gapId": "GAP-SGB-FUTURE",
+      "domainId": "gold-silver-commodities",
+      "missingArea": "Sovereign Gold Bond (SGB) future issuance policy after Budget 2024 customs duty reduction",
+      "evidenceForGap": "Ministry of Finance paused fresh SGB tranches following the reduction of gold import duty from 15% to 6%, citing redemption cost considerations.",
+      "whyItMatters": "Investors seeking sovereign gold exposure need clarity on whether secondary market purchases are the sole remaining avenue.",
+      "priority": "P2",
+      "dependencies": ["gold-investment-vehicles-sgb-etf-mutual-funds-vs-physical-bullion"],
+      "requiredSources": ["SRC-DEA-MOF", "SRC-RBI-MAIN"],
+      "resolutionCriteria": "Official Ministry of Finance announcement regarding SGB issuance calendar for FY 2025-26.",
+      "currentStatus": "monitoring"
+    },
+    {
+      "gapId": "GAP-P2P-TRANSITION",
+      "domainId": "p2p-lending-private-credit",
+      "missingArea": "NBFC-P2P platform transition compliance under RBI August 2024 Master Directions",
+      "evidenceForGap": "RBI prohibited assured returns and instant-liquidity sweep products; operational loan matching restructuring is in progress across platforms.",
+      "whyItMatters": "Lenders face liquidity lock-in and potential platform operational restructuring disruptions.",
+      "priority": "P1",
+      "dependencies": ["p2p-lending-in-india-rbi-regulations-2024-amendments-and-default-reality"],
+      "requiredSources": ["SRC-RBI-MAIN"],
+      "resolutionCriteria": "Auditing updated user agreements and escrow flow audits of top operational NBFC-P2P entities.",
+      "currentStatus": "investigating"
+    },
+    {
+      "gapId": "GAP-LAND-DIGITIZATION",
+      "domainId": "real-estate-property-land",
+      "missingArea": "Cross-state electronic title verification depth for pre-2000 land records",
+      "evidenceForGap": "Sub-registrar databases in several states lack digitized encumbrance certificates prior to the year 2000, necessitating manual physical ledger searches.",
+      "whyItMatters": "Property buyers risk purchasing encumbered or disputed land if manual archival searches are omitted.",
+      "priority": "P2",
+      "dependencies": ["property-title-due-diligence-encumbrance-certificates-and-rera-protections"],
+      "requiredSources": ["SRC-MOHUA-RERA"],
+      "resolutionCriteria": "Publishing state-wise land record portal digitization availability matrices across all major Indian states.",
+      "currentStatus": "open"
+    },
+    {
+      "gapId": "GAP-TREDS-MSME-DEFAULT",
+      "domainId": "entrepreneurship-business-finance",
+      "missingArea": "Historical default and recourse rates on TReDS institutional invoice discounting",
+      "evidenceForGap": "While TReDS is backed by corporate buyers, empirical recovery timelines when corporate buyers enter insolvency (IBC) require public data aggregation.",
+      "whyItMatters": "Financiers and MSMEs require transparent risk assessment of delayed corporate buyer acceptances.",
+      "priority": "P3",
+      "dependencies": ["working-capital-architecture-cash-conversion-cycles-and-msme-financing"],
+      "requiredSources": ["SRC-RXIL-TREDS", "SRC-IBBI-MAIN"],
+      "resolutionCriteria": "Compiling published arbitration and resolution records from TReDS institutional exchanges.",
+      "currentStatus": "open"
+    },
+    {
+      "gapId": "GAP-BENAMI-CIVIL-RETRO",
+      "domainId": "financial-fraud-scams-shadow-economy",
+      "missingArea": "Judicial status of civil asset attachment for pre-2016 benami transactions post-Ganpati Dealcom",
+      "evidenceForGap": "Supreme Court held criminal provisions prospective from November 1, 2016, but ongoing civil forfeiture orders for historical properties face split High Court benches.",
+      "whyItMatters": "High-net-worth families with ancestral or historical property arrangements face uncertain title defense.",
+      "priority": "P1",
+      "dependencies": ["black-money-in-indian-real-estate-circle-rates-cash-penalties-under-section-269ss-and-benami-laws"],
+      "requiredSources": ["SRC-SC-JUDGMENTS", "SRC-CBDT-MAIN"],
+      "resolutionCriteria": "Review petition adjudication by Supreme Court Constitutional Bench.",
+      "currentStatus": "monitoring"
+    }
+  ]
+}

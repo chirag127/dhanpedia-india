@@ -1,0 +1,463 @@
+{
+  "$schema": "./nodes.schema.json",
+  "version": "1.0.0",
+  "lastUpdated": "2026-10-17",
+  "totalNodes": 65,
+  "nodes": [
+    {
+      "nodeId": "DOMAIN-A",
+      "entityType": "domain",
+      "canonicalName": "Personal Finance Foundations",
+      "slug": "personal-finance-foundations",
+      "metadata": { "code": "A", "regulator": "RBI / MoSPI", "riskLevel": "Low" }
+    },
+    {
+      "nodeId": "DOMAIN-B",
+      "entityType": "domain",
+      "canonicalName": "Banking and Deposit Products",
+      "slug": "banking-and-deposit-products",
+      "metadata": { "code": "B", "regulator": "Reserve Bank of India / DICGC", "riskLevel": "Low to Moderate" }
+    },
+    {
+      "nodeId": "DOMAIN-C",
+      "entityType": "domain",
+      "canonicalName": "Payments and Digital Financial Infrastructure",
+      "slug": "payments-and-digital-financial-infrastructure",
+      "metadata": { "code": "C", "regulator": "Reserve Bank of India / NPCI", "riskLevel": "Low to Moderate" }
+    },
+    {
+      "nodeId": "DOMAIN-D",
+      "entityType": "domain",
+      "canonicalName": "Credit and Borrowing",
+      "slug": "credit-and-borrowing",
+      "metadata": { "code": "D", "regulator": "Reserve Bank of India / CIBIL", "riskLevel": "Moderate to High" }
+    },
+    {
+      "nodeId": "DOMAIN-E",
+      "entityType": "domain",
+      "canonicalName": "Indian Government Savings and Small-Savings Schemes",
+      "slug": "indian-government-savings-and-small-savings-schemes",
+      "metadata": { "code": "E", "regulator": "Ministry of Finance / Dept of Posts", "riskLevel": "Very Low (Sovereign)" }
+    },
+    {
+      "nodeId": "DOMAIN-F",
+      "entityType": "domain",
+      "canonicalName": "Mutual Funds and Pooled Investments",
+      "slug": "mutual-funds-and-pooled-investments",
+      "metadata": { "code": "F", "regulator": "Securities and Exchange Board of India (SEBI)", "riskLevel": "Moderate to High" }
+    },
+    {
+      "nodeId": "DOMAIN-G",
+      "entityType": "domain",
+      "canonicalName": "Equity Markets and Listed Securities",
+      "slug": "equity-markets-and-listed-securities",
+      "metadata": { "code": "G", "regulator": "SEBI / NSE / BSE / MCA", "riskLevel": "High" }
+    },
+    {
+      "nodeId": "DOMAIN-H",
+      "entityType": "domain",
+      "canonicalName": "Fixed Income, Debt Markets and Credit Analysis",
+      "slug": "fixed-income-debt-markets-and-credit-analysis",
+      "metadata": { "code": "H", "regulator": "RBI / SEBI / FIMMDA / CCIL", "riskLevel": "Low to High" }
+    },
+    {
+      "nodeId": "DOMAIN-I",
+      "entityType": "domain",
+      "canonicalName": "Insurance and Risk Protection",
+      "slug": "insurance-and-risk-protection",
+      "metadata": { "code": "I", "regulator": "IRDAI / Insurance Ombudsman", "riskLevel": "Low (Consumer Contract)" }
+    },
+    {
+      "nodeId": "DOMAIN-J",
+      "entityType": "domain",
+      "canonicalName": "Retirement, Pensions and Social Protection",
+      "slug": "retirement-pensions-and-social-protection",
+      "metadata": { "code": "J", "regulator": "PFRDA / EPFO / Ministry of Labour", "riskLevel": "Moderate" }
+    },
+    {
+      "nodeId": "DOMAIN-K",
+      "entityType": "domain",
+      "canonicalName": "Indian Taxation",
+      "slug": "indian-taxation",
+      "metadata": { "code": "K", "regulator": "Central Board of Direct Taxes (CBDT)", "riskLevel": "Critical (Compliance)" }
+    },
+    {
+      "nodeId": "DOMAIN-L",
+      "entityType": "domain",
+      "canonicalName": "Real Estate, Property and Land",
+      "slug": "real-estate-property-and-land",
+      "metadata": { "code": "L", "regulator": "State RERA Authorities / SEBI / State Revenue", "riskLevel": "High" }
+    },
+    {
+      "nodeId": "DOMAIN-M",
+      "entityType": "domain",
+      "canonicalName": "Gold, Silver and Commodities",
+      "slug": "gold-silver-and-commodities",
+      "metadata": { "code": "M", "regulator": "RBI / BIS / MCX", "riskLevel": "Moderate to High" }
+    },
+    {
+      "nodeId": "DOMAIN-N",
+      "entityType": "domain",
+      "canonicalName": "Alternative and Non-Traditional Investments",
+      "slug": "alternative-and-non-traditional-investments",
+      "metadata": { "code": "N", "regulator": "Securities and Exchange Board of India (SEBI)", "riskLevel": "Very High" }
+    },
+    {
+      "nodeId": "DOMAIN-O",
+      "entityType": "domain",
+      "canonicalName": "P2P Lending and Private Credit",
+      "slug": "p2p-lending-and-private-credit",
+      "metadata": { "code": "O", "regulator": "Reserve Bank of India (RBI)", "riskLevel": "Very High" }
+    },
+    {
+      "nodeId": "DOMAIN-P",
+      "entityType": "domain",
+      "canonicalName": "Derivatives, Leverage and Advanced Trading",
+      "slug": "derivatives-leverage-and-advanced-trading",
+      "metadata": { "code": "P", "regulator": "Securities and Exchange Board of India (SEBI)", "riskLevel": "Extremely High" }
+    },
+    {
+      "nodeId": "DOMAIN-Q",
+      "entityType": "domain",
+      "canonicalName": "Portfolio Management and Quantitative Finance",
+      "slug": "portfolio-management-and-quantitative-finance",
+      "metadata": { "code": "Q", "regulator": "SEBI / NSE Indices / RBI", "riskLevel": "Variable" }
+    },
+    {
+      "nodeId": "DOMAIN-R",
+      "entityType": "domain",
+      "canonicalName": "Financial Fraud, Scams, Forensic Finance and Shadow Economy",
+      "slug": "financial-fraud-scams-forensic-finance-and-shadow-economy",
+      "metadata": { "code": "R", "regulator": "ED / ITD-Investigation / SEBI / RBI / MHA", "riskLevel": "Critical (Criminal)" }
+    },
+    {
+      "nodeId": "DOMAIN-S",
+      "entityType": "domain",
+      "canonicalName": "Entrepreneurship and Business Finance",
+      "slug": "entrepreneurship-and-business-finance",
+      "metadata": { "code": "S", "regulator": "Ministry of Corporate Affairs / SIDBI / IBBI", "riskLevel": "High" }
+    },
+    {
+      "nodeId": "DOMAIN-T",
+      "entityType": "domain",
+      "canonicalName": "Career Development, Income and Human Capital",
+      "slug": "career-development-income-and-human-capital",
+      "metadata": { "code": "T", "regulator": "Income Tax Department / Ministry of Labour", "riskLevel": "Low" }
+    },
+    {
+      "nodeId": "DOMAIN-U",
+      "entityType": "domain",
+      "canonicalName": "Financial Technology and Automation",
+      "slug": "financial-technology-and-automation",
+      "metadata": { "code": "U", "regulator": "Reserve Bank of India / SEBI / ReBIT", "riskLevel": "Moderate" }
+    },
+    {
+      "nodeId": "DOMAIN-V",
+      "entityType": "domain",
+      "canonicalName": "Economics, Monetary Policy and Financial History",
+      "slug": "economics-monetary-policy-and-financial-history",
+      "metadata": { "code": "V", "regulator": "Reserve Bank of India / MoSPI", "riskLevel": "Low to Moderate" }
+    },
+    {
+      "nodeId": "DOMAIN-W",
+      "entityType": "domain",
+      "canonicalName": "Estate Planning, Succession and Wealth Preservation",
+      "slug": "estate-planning-succession-and-wealth-preservation",
+      "metadata": { "code": "W", "regulator": "Civil Courts / Supreme Court Jurisprudence", "riskLevel": "High (Legal Transfer)" }
+    },
+    {
+      "nodeId": "DOMAIN-X",
+      "entityType": "domain",
+      "canonicalName": "Consumer Protection and Financial Dispute Resolution",
+      "slug": "consumer-protection-and-financial-dispute-resolution",
+      "metadata": { "code": "X", "regulator": "RBI-CMS / SEBI-SCORES / NCDRC", "riskLevel": "Low (Consumer Remedy)" }
+    },
+    {
+      "nodeId": "DOMAIN-Y",
+      "entityType": "domain",
+      "canonicalName": "International and Cross-Border Finance",
+      "slug": "international-and-cross-border-finance",
+      "metadata": { "code": "Y", "regulator": "RBI / CBDT / IFSCA GIFT City", "riskLevel": "High (Forex & Tax)" }
+    },
+    {
+      "nodeId": "DOMAIN-Z",
+      "entityType": "domain",
+      "canonicalName": "Financial Education, Decision Frameworks and Reference Tools",
+      "slug": "financial-education-decision-frameworks-and-reference-tools",
+      "metadata": { "code": "Z", "regulator": "Dhanpedia India Research Board", "riskLevel": "Low" }
+    },
+    {
+      "nodeId": "SRC-RBI-MAIN",
+      "entityType": "regulator",
+      "canonicalName": "Reserve Bank of India",
+      "slug": "reserve-bank-of-india",
+      "metadata": { "jurisdiction": "India / Central", "established": "1935" }
+    },
+    {
+      "nodeId": "SRC-SEBI-MAIN",
+      "entityType": "regulator",
+      "canonicalName": "Securities and Exchange Board of India",
+      "slug": "securities-and-exchange-board-of-india",
+      "metadata": { "jurisdiction": "India / Capital Markets", "established": "1992" }
+    },
+    {
+      "nodeId": "SRC-CBDT-MAIN",
+      "entityType": "regulator",
+      "canonicalName": "Central Board of Direct Taxes",
+      "slug": "central-board-of-direct-taxes",
+      "metadata": { "jurisdiction": "India / Direct Taxes", "established": "1963" }
+    },
+    {
+      "nodeId": "SRC-DICGC-MAIN",
+      "entityType": "institution",
+      "canonicalName": "Deposit Insurance and Credit Guarantee Corporation",
+      "slug": "deposit-insurance-and-credit-guarantee-corporation",
+      "metadata": { "jurisdiction": "India / National", "subsidiaryOf": "RBI" }
+    },
+    {
+      "nodeId": "SRC-ED-GOV",
+      "entityType": "institution",
+      "canonicalName": "Directorate of Enforcement (ED)",
+      "slug": "directorate-of-enforcement",
+      "metadata": { "jurisdiction": "India / Economic Intelligence & AML", "statute": "PMLA 2002 / FEMA 1999" }
+    },
+    {
+      "nodeId": "SRC-SC-JUDGMENTS",
+      "entityType": "institution",
+      "canonicalName": "Supreme Court of India",
+      "slug": "supreme-court-of-india",
+      "metadata": { "jurisdiction": "Republic of India", "role": "Apex Judicial Authority" }
+    },
+    {
+      "nodeId": "net-worth",
+      "entityType": "concept",
+      "canonicalName": "Personal Net Worth",
+      "slug": "personal-net-worth",
+      "metadata": { "domain": "pf-foundations", "level": "foundation" }
+    },
+    {
+      "nodeId": "cash-flow",
+      "entityType": "concept",
+      "canonicalName": "Personal Cash Flow",
+      "slug": "personal-cash-flow",
+      "metadata": { "domain": "pf-foundations", "level": "foundation" }
+    },
+    {
+      "nodeId": "time-value-of-money",
+      "entityType": "concept",
+      "canonicalName": "Time Value of Money",
+      "slug": "time-value-of-money",
+      "metadata": { "domain": "pf-foundations", "level": "foundation" }
+    },
+    {
+      "nodeId": "real-rate-of-return",
+      "entityType": "concept",
+      "canonicalName": "Real Rate of Return",
+      "slug": "real-rate-of-return",
+      "metadata": { "domain": "pf-foundations", "level": "beginner" }
+    },
+    {
+      "nodeId": "compounding-mathematics",
+      "entityType": "concept",
+      "canonicalName": "Compounding Mathematics",
+      "slug": "compounding-mathematics",
+      "metadata": { "domain": "pf-foundations", "level": "foundation" }
+    },
+    {
+      "nodeId": "emergency-fund",
+      "entityType": "concept",
+      "canonicalName": "Emergency Liquidity Reserve",
+      "slug": "emergency-liquidity-reserve",
+      "metadata": { "domain": "pf-foundations", "level": "foundation" }
+    },
+    {
+      "nodeId": "financial-independence",
+      "entityType": "concept",
+      "canonicalName": "Financial Independence",
+      "slug": "financial-independence",
+      "metadata": { "domain": "pf-foundations", "level": "intermediate" }
+    },
+    {
+      "nodeId": "dicgc-deposit-insurance",
+      "entityType": "concept",
+      "canonicalName": "DICGC Deposit Insurance",
+      "slug": "dicgc-deposit-insurance",
+      "metadata": { "domain": "banking-deposits", "level": "beginner" }
+    },
+    {
+      "nodeId": "scheduled-commercial-bank",
+      "entityType": "concept",
+      "canonicalName": "Scheduled Commercial Bank",
+      "slug": "scheduled-commercial-bank",
+      "metadata": { "domain": "banking-deposits", "level": "beginner" }
+    },
+    {
+      "nodeId": "cibil-credit-score",
+      "entityType": "concept",
+      "canonicalName": "CIBIL Bureau Credit Score",
+      "slug": "cibil-bureau-credit-score",
+      "metadata": { "domain": "credit-borrowing", "level": "beginner" }
+    },
+    {
+      "nodeId": "eblr-home-loan-transmission",
+      "entityType": "concept",
+      "canonicalName": "External Benchmark Lending Rate",
+      "slug": "external-benchmark-lending-rate",
+      "metadata": { "domain": "credit-borrowing", "level": "intermediate" }
+    },
+    {
+      "nodeId": "total-expense-ratio-ter",
+      "entityType": "concept",
+      "canonicalName": "Mutual Fund Total Expense Ratio",
+      "slug": "mutual-fund-total-expense-ratio",
+      "metadata": { "domain": "mutual-funds-pooled", "level": "beginner" }
+    },
+    {
+      "nodeId": "macaulay-modified-duration",
+      "entityType": "concept",
+      "canonicalName": "Macaulay and Modified Duration",
+      "slug": "macaulay-and-modified-duration",
+      "metadata": { "domain": "fixed-income-debt-markets", "level": "advanced" }
+    },
+    {
+      "nodeId": "section-45-incontestability",
+      "entityType": "concept",
+      "canonicalName": "Section 45 Incontestability in Life Insurance",
+      "slug": "section-45-incontestability-life-insurance",
+      "metadata": { "domain": "insurance-risk-protection", "level": "beginner" }
+    },
+    {
+      "nodeId": "safe-withdrawal-rate-india",
+      "entityType": "concept",
+      "canonicalName": "Safe Withdrawal Rate under Indian Macroeconomics",
+      "slug": "safe-withdrawal-rate-indian-macroeconomics",
+      "metadata": { "domain": "retirement-pensions", "level": "advanced" }
+    },
+    {
+      "nodeId": "section-115bac-new-regime",
+      "entityType": "concept",
+      "canonicalName": "Section 115BAC New Tax Regime",
+      "slug": "section-115bac-new-tax-regime",
+      "metadata": { "domain": "indian-taxation", "level": "beginner" }
+    },
+    {
+      "nodeId": "section-269ss-269st-cash-penalties",
+      "entityType": "concept",
+      "canonicalName": "Sections 269SS and 269ST Cash Prohibitions",
+      "slug": "sections-269ss-and-269st-cash-transaction-prohibitions",
+      "metadata": { "domain": "financial-fraud-scams-shadow-economy", "level": "intermediate" }
+    },
+    {
+      "nodeId": "section-50c-circle-rate-safe-harbor",
+      "entityType": "concept",
+      "canonicalName": "Section 50C Circle Rate Safe Harbor",
+      "slug": "section-50c-circle-rate-safe-harbor",
+      "metadata": { "domain": "real-estate-property-land", "level": "intermediate" }
+    },
+    {
+      "nodeId": "benami-property-confiscation-act",
+      "entityType": "concept",
+      "canonicalName": "Benami Property Confiscation and Prosecution",
+      "slug": "benami-property-confiscation-and-prosecution",
+      "metadata": { "domain": "financial-fraud-scams-shadow-economy", "level": "intermediate" }
+    },
+    {
+      "nodeId": "dabba-trading-scra-prohibition",
+      "entityType": "concept",
+      "canonicalName": "Dabba Trading (Illegal Bucket Shops)",
+      "slug": "dabba-trading-illegal-off-exchange-bucket-shops",
+      "metadata": { "domain": "derivatives-trading", "level": "intermediate" }
+    },
+    {
+      "nodeId": "option-greeks-theta-decay",
+      "entityType": "concept",
+      "canonicalName": "Option Greeks and Theta Time Decay",
+      "slug": "option-greeks-and-theta-time-decay",
+      "metadata": { "domain": "derivatives-trading", "level": "advanced" }
+    },
+    {
+      "nodeId": "capital-gain-stcg-ltcg",
+      "entityType": "concept",
+      "canonicalName": "Capital Gains (STCG and LTCG)",
+      "slug": "capital-gains-taxation-stcg-and-ltcg",
+      "metadata": { "domain": "indian-taxation", "level": "intermediate" }
+    },
+    {
+      "nodeId": "nominee-vs-legal-heir-jurisprudence",
+      "entityType": "concept",
+      "canonicalName": "Nominee vs Legal Heir Ownership Jurisprudence",
+      "slug": "nominee-vs-legal-heir-ownership-jurisprudence",
+      "metadata": { "domain": "estate-planning-succession", "level": "intermediate" }
+    },
+    {
+      "nodeId": "CLM-DICGC-LIMIT",
+      "entityType": "claim",
+      "canonicalName": "DICGC ₹5 Lakh Statutory Insurance Limit",
+      "slug": "dicgc-5-lakh-statutory-insurance-limit",
+      "metadata": { "classification": "legal_rule", "effective": "2020-02-04" }
+    },
+    {
+      "nodeId": "CLM-ITD-269SS",
+      "entityType": "claim",
+      "canonicalName": "Section 269SS ₹20,000 Property Cash Limit",
+      "slug": "section-269ss-20000-property-cash-limit",
+      "metadata": { "classification": "tax_rule", "penalty": "Section 271D 100%" }
+    },
+    {
+      "nodeId": "CLM-SCRA-DABBA",
+      "entityType": "claim",
+      "canonicalName": "SCRA Dabba Trading Off-Exchange Prohibition",
+      "slug": "scra-dabba-trading-off-exchange-prohibition",
+      "metadata": { "classification": "legal_rule", "penalty": "Section 23 up to 10 yrs prison" }
+    },
+    {
+      "nodeId": "CLM-BENAMI-ACT",
+      "entityType": "claim",
+      "canonicalName": "Benami Property Mandatory Confiscation",
+      "slug": "benami-property-mandatory-confiscation",
+      "metadata": { "classification": "legal_rule", "statute": "PBPT Act Section 5" }
+    },
+    {
+      "nodeId": "ART-BANK-001",
+      "entityType": "article",
+      "canonicalName": "DICGC Deposit Insurance Treatise",
+      "slug": "dicgc-deposit-insurance-architecture-limits-and-ownership-structures",
+      "metadata": { "wordCount": 11021, "status": "published" }
+    },
+    {
+      "nodeId": "ART-FRAUD-001",
+      "entityType": "article",
+      "canonicalName": "Black Money in Indian Real Estate Treatise",
+      "slug": "black-money-in-indian-real-estate-circle-rates-cash-penalties-under-section-269ss-and-benami-laws",
+      "metadata": { "targetWords": "10000+", "status": "planned" }
+    },
+    {
+      "nodeId": "ART-DERIV-001",
+      "entityType": "article",
+      "canonicalName": "Dabba Trading and Shadow Bucket Shops Treatise",
+      "slug": "dabba-trading-bucket-shops-scra-prohibitions-and-shadow-market-risks",
+      "metadata": { "targetWords": "10000+", "status": "planned" }
+    },
+    {
+      "nodeId": "CALC-PF-001",
+      "entityType": "calculator",
+      "canonicalName": "Compound Annual Growth Calculator",
+      "slug": "compound-annual-growth-calculator",
+      "metadata": { "cluster": "personal-finance" }
+    },
+    {
+      "nodeId": "CALC-TAX-001",
+      "entityType": "calculator",
+      "canonicalName": "Section 115BAC New vs Old Tax Regime Calculator",
+      "slug": "section-115bac-new-vs-old-tax-regime-calculator",
+      "metadata": { "cluster": "tax-retirement" }
+    },
+    {
+      "nodeId": "DATA-RBI-DBIE",
+      "entityType": "dataset",
+      "canonicalName": "Database on Indian Economy (DBIE)",
+      "slug": "database-on-indian-economy-dbie",
+      "metadata": { "cost": "Zero cost", "publisher": "RBI" }
+    }
+  ]
+}

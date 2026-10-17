@@ -1,0 +1,286 @@
+{
+  "$schema": "./formula-registry.schema.json",
+  "version": "1.0.0",
+  "lastUpdated": "2026-10-17",
+  "totalFormulas": 14,
+  "audioNativeProsePolicy": "Every formula must provide a spoken English interpretation enabling auditory comprehension without visual equation notation.",
+  "formulas": [
+    {
+      "formulaId": "FORMULA-COMP-FV",
+      "name": "Compound Interest Future Value",
+      "mathematicalExpression": "FV = PV * (1 + r / n)^(n * t)",
+      "plainEnglishInterpretation": "The future value of an investment is calculated by multiplying the initial principal by the factor of one plus the annual interest rate divided by the compounding frequency, all raised to the power of the compounding frequency multiplied by the total number of years.",
+      "variables": [
+        { "symbol": "FV", "name": "Future Value", "unit": "Rupees", "description": "Accumulated terminal wealth at end of tenure." },
+        { "symbol": "PV", "name": "Present Value / Principal", "unit": "Rupees", "description": "Starting initial capital invested." },
+        { "symbol": "r", "name": "Annual Interest Rate", "unit": "Decimal (e.g. 0.08 for 8%)", "description": "Nominal annualized rate of return." },
+        { "symbol": "n", "name": "Compounding Frequency", "unit": "Integer (1=annual, 4=quarterly, 12=monthly)", "description": "Number of times interest is credited per year." },
+        { "symbol": "t", "name": "Tenure", "unit": "Years", "description": "Total investment horizon in years." }
+      ],
+      "assumptions": "Constant rate of return throughout the tenure without interim withdrawals or tax drag.",
+      "preconditions": "Principal must be greater than zero; tenure must be greater than zero.",
+      "edgeCases": ["Zero percent interest rate where FV equals PV", "Compounding frequency approaching infinity (continuous compounding)"],
+      "limitations": "Does not account for periodic additional contributions or varying annual return rates.",
+      "relatedConceptIds": ["time-value-of-money", "compounding-mathematics"],
+      "relatedCalculatorIds": ["CALC-PF-001", "CALC-DEP-001"],
+      "supportingSources": ["SRC-RBI-MAIN"],
+      "testRequirements": "Verify that ₹1,00,000 at 8% compounded quarterly for 5 years yields exactly ₹1,48,594.74."
+    },
+    {
+      "formulaId": "FORMULA-INFL-PV",
+      "name": "Inflation-Adjusted Purchasing Power",
+      "mathematicalExpression": "PV_real = FV / (1 + i)^t",
+      "plainEnglishInterpretation": "The real present purchasing power of a future sum of money is calculated by dividing the future nominal amount by the factor of one plus the annual inflation rate raised to the power of the number of years.",
+      "variables": [
+        { "symbol": "PV_real", "name": "Real Purchasing Power", "unit": "Rupees", "description": "Equivalent purchasing power in today's money." },
+        { "symbol": "FV", "name": "Future Nominal Amount", "unit": "Rupees", "description": "Projected cashflow or corpus in future years." },
+        { "symbol": "i", "name": "Annual Inflation Rate", "unit": "Decimal (e.g. 0.06 for 6%)", "description": "Expected annual rise in cost of living." },
+        { "symbol": "t", "name": "Time Horizon", "unit": "Years", "description": "Number of elapsed years." }
+      ],
+      "assumptions": "Uniform inflation rate across the entire consumption basket over the time span.",
+      "preconditions": "Inflation rate must be greater than negative one.",
+      "edgeCases": ["Zero inflation where real value equals nominal value", "Deflation where real value exceeds nominal value"],
+      "limitations": "Fails to capture personalized aspirational lifestyle inflation exceeding general CPI.",
+      "relatedConceptIds": ["inflation-purchasing-power", "real-rate-of-return"],
+      "relatedCalculatorIds": ["CALC-PF-002"],
+      "supportingSources": ["SRC-MOSPI-CPI"],
+      "testRequirements": "Verify that ₹1,00,00,000 in 20 years at 6% annual inflation has a real purchasing power of ₹31,18047."
+    },
+    {
+      "formulaId": "FORMULA-LOAN-EMI",
+      "name": "Amortized Equated Monthly Installment (EMI)",
+      "mathematicalExpression": "EMI = P * r_m * (1 + r_m)^n / ((1 + r_m)^n - 1)",
+      "plainEnglishInterpretation": "The monthly loan installment is computed by multiplying the loan principal by the monthly interest rate, multiplied by the factor of one plus monthly rate raised to the total months, all divided by the factor of one plus monthly rate raised to months minus one.",
+      "variables": [
+        { "symbol": "EMI", "name": "Monthly Installment", "unit": "Rupees", "description": "Fixed monthly payment covering principal and interest." },
+        { "symbol": "P", "name": "Loan Principal", "unit": "Rupees", "description": "Total borrowed loan amount." },
+        { "symbol": "r_m", "name": "Monthly Interest Rate", "unit": "Decimal", "description": "Annual interest rate divided by twelve." },
+        { "symbol": "n", "name": "Tenure in Months", "unit": "Integer", "description": "Total repayment duration in months." }
+      ],
+      "assumptions": "Fixed interest rate and timely monthly repayments without prepayment or default.",
+      "preconditions": "Principal and tenure must be positive numbers; interest rate must be non-zero.",
+      "edgeCases": ["Zero percent promotional loan where EMI equals principal divided by months"],
+      "limitations": "Floating rate loans require recalculation whenever the benchmark rate shifts.",
+      "relatedConceptIds": ["cibil-credit-score", "eblr-home-loan-transmission"],
+      "relatedCalculatorIds": ["CALC-PF-006", "CALC-PF-007"],
+      "supportingSources": ["SRC-RBI-MAIN"],
+      "testRequirements": "Verify that ₹50,00,000 at 8.5% annual interest for 240 months (20 years) yields an EMI of ₹43,391."
+    },
+    {
+      "formulaId": "FORMULA-SIP-FV",
+      "name": "Systematic Investment Plan Future Value",
+      "mathematicalExpression": "FV = P * (((1 + i)^n - 1) / i) * (1 + i)",
+      "plainEnglishInterpretation": "The accumulated wealth of a monthly mutual fund SIP is calculated by multiplying the monthly installment by the result of one plus the monthly return raised to total months minus one, divided by the monthly return, and finally multiplied by one plus the monthly return to account for beginning-of-month investing.",
+      "variables": [
+        { "symbol": "FV", "name": "Maturity Corpus", "unit": "Rupees", "description": "Total accumulated value of periodic investments." },
+        { "symbol": "P", "name": "Monthly Installment", "unit": "Rupees", "description": "Fixed sum invested at the start of each month." },
+        { "symbol": "i", "name": "Periodic Monthly Rate", "unit": "Decimal", "description": "Annual expected return divided by twelve." },
+        { "symbol": "n", "name": "Total Months", "unit": "Integer", "description": "Number of monthly installments made." }
+      ],
+      "assumptions": "Constant monthly rate of return without interim volatility or capital gains taxes.",
+      "preconditions": "Monthly installment and number of months must be greater than zero.",
+      "edgeCases": ["Step-up SIPs require summation across changing monthly installment tranches"],
+      "limitations": "Real equity mutual fund returns exhibit non-linear volatility and sequence-of-returns variance.",
+      "relatedConceptIds": ["total-expense-ratio-ter", "compounding-mathematics"],
+      "relatedCalculatorIds": ["CALC-MF-001"],
+      "supportingSources": ["SRC-AMFI-MAIN", "SRC-SEBI-MAIN"],
+      "testRequirements": "Verify that ₹10,000 invested monthly at 12% annual return for 10 years (120 months) yields approximately ₹23,23,391."
+    },
+    {
+      "formulaId": "FORMULA-CAGR",
+      "name": "Compound Annual Growth Rate (CAGR)",
+      "mathematicalExpression": "CAGR = (EV / BV)^(1 / n) - 1",
+      "plainEnglishInterpretation": "The compound annual growth rate is calculated by dividing the ending investment value by the beginning value, raising that quotient to the power of one divided by the number of years, and then subtracting one.",
+      "variables": [
+        { "symbol": "CAGR", "name": "Compound Annual Growth Rate", "unit": "Percentage", "description": "Smoothed annualized geometric rate of return." },
+        { "symbol": "EV", "name": "Ending Value", "unit": "Rupees", "description": "Final portfolio or asset valuation." },
+        { "symbol": "BV", "name": "Beginning Value", "unit": "Rupees", "description": "Initial capital deployed." },
+        { "symbol": "n", "name": "Time Elapsed", "unit": "Years", "description": "Number of years between beginning and ending dates." }
+      ],
+      "assumptions": "Single lump sum invested at start with no interim deposits or withdrawals.",
+      "preconditions": "Beginning and ending values must be strictly positive; tenure must be greater than zero.",
+      "edgeCases": ["Multiple irregular cash flows require XIRR instead of CAGR"],
+      "limitations": "Masks underlying year-to-year volatility and severe interim drawdowns.",
+      "relatedConceptIds": ["compounding-mathematics", "time-value-of-money"],
+      "relatedCalculatorIds": ["CALC-MF-001", "CALC-PF-001"],
+      "supportingSources": ["SRC-SEBI-MAIN"],
+      "testRequirements": "Verify that an asset growing from ₹1,00,000 to ₹2,50,000 in 7 years has a CAGR of 13.98%."
+    },
+    {
+      "formulaId": "FORMULA-XIRR",
+      "name": "Extended Internal Rate of Return (XIRR)",
+      "mathematicalExpression": "Sum_{j=1}^N (C_j / (1 + r)^((d_j - d_1) / 365)) = 0",
+      "plainEnglishInterpretation": "The extended internal rate of return is the exact discount rate that makes the sum of all irregular cash inflows and outflows, discounted according to their exact day count fraction, equal to zero.",
+      "variables": [
+        { "symbol": "r", "name": "Annualized Internal Rate of Return", "unit": "Percentage", "description": "Discount rate equating cashflows to net zero." },
+        { "symbol": "C_j", "name": "Cash Flow j", "unit": "Rupees (negative for deposits, positive for withdrawals)", "description": "Discrete monetary cash movement." },
+        { "symbol": "d_j", "name": "Date of Cash Flow j", "unit": "Calendar Date", "description": "Exact transaction settlement date." }
+      ],
+      "assumptions": "All cash flows reinvested at the identical internal rate of return.",
+      "preconditions": "Must contain at least one negative and at least one positive cash flow.",
+      "edgeCases": ["Cash flows with non-converging or multiple mathematical internal rates of return"],
+      "limitations": "Requires numerical iteration (Newton-Raphson method) rather than algebraic closed-form solution.",
+      "relatedConceptIds": ["total-expense-ratio-ter", "compounding-mathematics"],
+      "relatedCalculatorIds": ["CALC-MF-004"],
+      "supportingSources": ["SRC-SEBI-MAIN", "SRC-AMFI-MAIN"],
+      "testRequirements": "Verify convergence against standard financial ledger cashflow schedules."
+    },
+    {
+      "formulaId": "FORMULA-BOND-DURATION",
+      "name": "Macaulay and Modified Duration",
+      "mathematicalExpression": "D_mod = [ (1 / P) * Sum_{t=1}^T (t * C_t / (1 + y)^t) ] / (1 + y / m)",
+      "plainEnglishInterpretation": "Modified duration is calculated by taking the Macaulay duration (the cash-flow weighted present value times divided by bond price) and dividing it by the factor of one plus the bond yield to maturity divided by coupon payment frequency.",
+      "variables": [
+        { "symbol": "D_mod", "name": "Modified Duration", "unit": "Percentage per 100 bps", "description": "Percentage bond price change per 100 basis point yield shift." },
+        { "symbol": "P", "name": "Bond Market Price", "unit": "Rupees", "description": "Current dirty price of the security." },
+        { "symbol": "C_t", "name": "Cash Flow at time t", "unit": "Rupees", "description": "Coupon payment or terminal face value." },
+        { "symbol": "y", "name": "Yield to Maturity", "unit": "Decimal", "description": "Annualized market yield." },
+        { "symbol": "m", "name": "Coupon Frequency", "unit": "Integer", "description": "Number of coupon payouts per year (2 for G-Secs)." }
+      ],
+      "assumptions": "Parallel shift in the yield curve and small yield changes (first-order Taylor approximation).",
+      "preconditions": "Bond price and cash flows must be positive.",
+      "edgeCases": ["Zero coupon bond where Macaulay duration equals maturity"],
+      "limitations": "Does not capture convexity for large interest rate movements exceeding 100 basis points.",
+      "relatedConceptIds": ["macaulay-modified-duration", "government-security-gsec"],
+      "relatedCalculatorIds": ["CALC-DEP-003", "CALC-DEP-004"],
+      "supportingSources": ["SRC-RBI-MAIN", "SRC-FIMMDA-MAIN"],
+      "testRequirements": "Verify that an 8% 10-year semi-annual bond yielding 8% has a Macaulay duration of 7.25 years."
+    },
+    {
+      "formulaId": "FORMULA-TAX-EQUIV-YIELD",
+      "name": "Tax-Adjusted Equivalent Yield",
+      "mathematicalExpression": "TEY = r_taxfree / (1 - t_m)",
+      "plainEnglishInterpretation": "The pre-tax equivalent yield required on a taxable instrument to match a tax-free product is calculated by dividing the tax-free return rate by the factor of one minus the investor's marginal income tax rate.",
+      "variables": [
+        { "symbol": "TEY", "name": "Tax-Equivalent Yield", "unit": "Percentage", "description": "Required pre-tax interest rate on taxable deposit or bond." },
+        { "symbol": "r_taxfree", "name": "Tax-Free Return Rate", "unit": "Percentage", "description": "Exempt yield on PPF or mature Sovereign Gold Bonds." },
+        { "symbol": "t_m", "name": "Marginal Tax Bracket", "unit": "Decimal", "description": "Effective marginal slab rate including surcharge and 4% cess." }
+      ],
+      "assumptions": "Marginal tax slab remains stable throughout the holding period.",
+      "preconditions": "Tax rate must be strictly less than one.",
+      "edgeCases": ["Zero percent tax slab where TEY equals tax-free yield"],
+      "limitations": "Does not account for differences in liquidity, credit risk, or lock-in tenures.",
+      "relatedConceptIds": ["real-rate-of-return", "ppf-statutory-immunity"],
+      "relatedCalculatorIds": ["CALC-DEP-005"],
+      "supportingSources": ["SRC-ITD-PORTAL"],
+      "testRequirements": "Verify that a 7.1% tax-free PPF rate equals a 10.32% pre-tax equivalent yield for an investor in the 31.2% marginal bracket."
+    },
+    {
+      "formulaId": "FORMULA-ROIC",
+      "name": "Return on Invested Capital (ROIC)",
+      "mathematicalExpression": "ROIC = NOPAT / Invested_Capital",
+      "plainEnglishInterpretation": "Return on invested capital is calculated by dividing net operating profit after tax by total invested capital, where invested capital equals total debt plus equity minus non-operating cash.",
+      "variables": [
+        { "symbol": "ROIC", "name": "Return on Invested Capital", "unit": "Percentage", "description": "Measure of core business capital efficiency." },
+        { "symbol": "NOPAT", "name": "Net Operating Profit After Tax", "unit": "Rupees", "description": "Operating earnings multiplied by one minus tax rate." },
+        { "symbol": "Invested_Capital", "name": "Invested Capital", "unit": "Rupees", "description": "Total funding capital actively deployed in core operations." }
+      ],
+      "assumptions": "Non-operating income (like treasury gains) and excess cash are excluded from invested capital.",
+      "preconditions": "Invested capital must be non-zero.",
+      "edgeCases": ["Negative invested capital for hyper-efficient negative working capital businesses"],
+      "limitations": "Subject to accounting distortions in capitalization of leases and intangible R&D.",
+      "relatedConceptIds": ["operating-profit-ebitda", "return-on-invested-capital-roic"],
+      "relatedCalculatorIds": ["CALC-EQ-003"],
+      "supportingSources": ["SRC-MCA-MAIN", "SRC-SEBI-MAIN"],
+      "testRequirements": "Verify that a company with ₹500 Cr NOPAT and ₹2,500 Cr Invested Capital generates an ROIC of 20%."
+    },
+    {
+      "formulaId": "FORMULA-ECL",
+      "name": "Expected Credit Loss (ECL)",
+      "mathematicalExpression": "ECL = PD * LGD * EAD",
+      "plainEnglishInterpretation": "The expected credit loss in a lending portfolio is calculated by multiplying the probability of borrower default by the percentage loss given default by the total monetary exposure at default.",
+      "variables": [
+        { "symbol": "ECL", "name": "Expected Credit Loss", "unit": "Rupees", "description": "Anticipated financial credit loss on loan exposure." },
+        { "symbol": "PD", "name": "Probability of Default", "unit": "Percentage", "description": "Statistical likelihood that the borrower will fail to service debt." },
+        { "symbol": "LGD", "name": "Loss Given Default", "unit": "Percentage", "description": "One hundred percent minus expected collateral recovery percentage." },
+        { "symbol": "EAD", "name": "Exposure at Default", "unit": "Rupees", "description": "Total outstanding loan balance at the time of default." }
+      ],
+      "assumptions": "Independent default events across diversified borrower cohorts.",
+      "preconditions": "PD and LGD must be between zero and one.",
+      "edgeCases": ["One hundred percent probability of default for non-performing loans"],
+      "limitations": "Macroeconomic correlation during recessions causes PD and LGD to spike simultaneously.",
+      "relatedConceptIds": ["p2p-lending-platform", "credit-risk"],
+      "relatedCalculatorIds": ["CALC-RISK-001", "CALC-RISK-002"],
+      "supportingSources": ["SRC-RBI-MAIN"],
+      "testRequirements": "Verify that an unsecured loan of ₹5,00,000 with a 5% PD and an 80% LGD has an Expected Credit Loss of ₹20,000."
+    },
+    {
+      "formulaId": "FORMULA-SWR",
+      "name": "Retirement Safe Withdrawal Decumulation",
+      "mathematicalExpression": "W_t = W_{t-1} * (1 + i_t); Corpus_t = (Corpus_{t-1} - W_t) * (1 + r_t)",
+      "plainEnglishInterpretation": "The annual retirement withdrawal starts as a fixed percentage of initial wealth and increases each year by the inflation rate, with the remaining corpus earning the annual portfolio return.",
+      "variables": [
+        { "symbol": "W_t", "name": "Withdrawal at Year t", "unit": "Rupees", "description": "Annual living expenditure withdrawn from portfolio." },
+        { "symbol": "i_t", "name": "Inflation Rate at Year t", "unit": "Decimal", "description": "Actual experienced consumer price inflation." },
+        { "symbol": "Corpus_t", "name": "Remaining Corpus at Year t", "unit": "Rupees", "description": "Terminal portfolio balance after withdrawals and returns." },
+        { "symbol": "r_t", "name": "Portfolio Return at Year t", "unit": "Decimal", "description": "Actual multi-asset return generated by remaining capital." }
+      ],
+      "assumptions": "Withdrawals occur at the start or throughout the year before returns compound.",
+      "preconditions": "Initial corpus and starting withdrawal must be positive.",
+      "edgeCases": ["Negative returns during initial retirement years (sequence of returns risk)"],
+      "limitations": "Fixed real withdrawals can accelerate ruin if large market drawdowns occur early.",
+      "relatedConceptIds": ["safe-withdrawal-rate-india", "financial-independence"],
+      "relatedCalculatorIds": ["CALC-TAX-004", "CALC-MF-005"],
+      "supportingSources": ["SRC-MOSPI-CPI", "SRC-RBI-MAIN"],
+      "testRequirements": "Verify corpus survival over 30 years using Indian historical return and inflation sequences."
+    },
+    {
+      "formulaId": "FORMULA-CAP-GAINS",
+      "name": "Post-Finance Act 2024 Capital Gains Computation",
+      "mathematicalExpression": "Gain = Sale_Consideration - (Cost_Acquisition + Cost_Improvement + Transfer_Expenses)",
+      "plainEnglishInterpretation": "Capital gain is computed by subtracting the purchase cost, improvement expenses, and transfer fees from the sale consideration, taxed at 20% for listed equity STCG (Section 111A) and 12.5% for LTCG (Section 112A) beyond a ₹1.25 Lakh exemption.",
+      "variables": [
+        { "symbol": "Gain", "name": "Taxable Capital Gain", "unit": "Rupees", "description": "Net capital appreciation subject to statutory direct tax." },
+        { "symbol": "Sale_Consideration", "name": "Full Value of Consideration", "unit": "Rupees", "description": "Agreement sale value or Section 50C circle rate." },
+        { "symbol": "Cost_Acquisition", "name": "Purchase Cost", "unit": "Rupees", "description": "Actual purchase price or April 1, 2001 FMV." }
+      ],
+      "assumptions": "Transactions executed on or after July 23, 2024.",
+      "preconditions": "Asset must qualify as a capital asset under Section 2(14) of the Income-tax Act.",
+      "edgeCases": ["Grandfathering election for pre-July 23, 2024 real estate (choice between 12.5% unindexed and 20% indexed)"],
+      "limitations": "Indexation benefits eliminated for post-July 23, 2024 acquisitions.",
+      "relatedConceptIds": ["capital-gain-stcg-ltcg", "section-50c-circle-rate-safe-harbor"],
+      "relatedCalculatorIds": ["CALC-TAX-002"],
+      "supportingSources": ["SRC-CBDT-MAIN", "SRC-ITD-PORTAL"],
+      "testRequirements": "Verify that a ₹5,00,000 LTCG on listed equities incurs tax of ₹46,875 after deducting the ₹1.25 Lakh Section 112A exemption."
+    },
+    {
+      "formulaId": "FORMULA-NOI-CAPRATE",
+      "name": "Net Operating Income and Real Estate Cap Rate",
+      "mathematicalExpression": "Cap_Rate = NOI / Property_Value; NOI = Gross_Rent - Vacancy_Loss - Operating_Expenses",
+      "plainEnglishInterpretation": "The capitalization rate of a property is calculated by dividing its Net Operating Income by the total property market value, where Net Operating Income equals gross potential rent minus vacancy losses minus operating expenses.",
+      "variables": [
+        { "symbol": "Cap_Rate", "name": "Capitalization Rate", "unit": "Percentage", "description": "Unlevered property investment cash yield." },
+        { "symbol": "NOI", "name": "Net Operating Income", "unit": "Rupees", "description": "Annual cash flow generated by property operations before debt service and income taxes." },
+        { "symbol": "Property_Value", "name": "Property Market Valuation", "unit": "Rupees", "description": "Total acquisition price including stamp duty and furnishing." }
+      ],
+      "assumptions": "Operating expenses exclude mortgage interest and principal debt payments.",
+      "preconditions": "Property value and gross rent must be positive.",
+      "edgeCases": ["Operating expenses exceeding gross rent (negative NOI)"],
+      "limitations": "Does not capture potential future land value capital appreciation.",
+      "relatedConceptIds": ["reit-distribution-structure", "rental-yield"],
+      "relatedCalculatorIds": ["CALC-RE-001", "CALC-RE-003"],
+      "supportingSources": ["SRC-MOHUA-RERA"],
+      "testRequirements": "Verify that a property generating ₹12 Lakh annual NOI on a ₹3 Crore valuation has a 4.0% capitalization rate."
+    },
+    {
+      "formulaId": "FORMULA-CCC",
+      "name": "Working Capital Cash Conversion Cycle (CCC)",
+      "mathematicalExpression": "CCC = DSI + DSO - DPO",
+      "plainEnglishInterpretation": "The cash conversion cycle measures the number of days a business takes to turn operational investments into realized cash inflows, calculated by adding Days Sales of Inventory to Days Sales Outstanding and subtracting Days Payable Outstanding.",
+      "variables": [
+        { "symbol": "CCC", "name": "Cash Conversion Cycle", "unit": "Days", "description": "Net duration of working capital tied up in business operations." },
+        { "symbol": "DSI", "name": "Days Sales of Inventory", "unit": "Days", "description": "Average inventory divided by cost of goods sold multiplied by 365." },
+        { "symbol": "DSO", "name": "Days Sales Outstanding", "unit": "Days", "description": "Accounts receivable divided by total credit sales multiplied by 365." },
+        { "symbol": "DPO", "name": "Days Payable Outstanding", "unit": "Days", "description": "Accounts payable divided by cost of goods sold multiplied by 365." }
+      ],
+      "assumptions": "Uniform sales and purchasing velocity throughout the financial year.",
+      "preconditions": "Cost of goods sold and revenue must be non-zero.",
+      "edgeCases": ["Negative cash conversion cycle where supplier credit finances the entire enterprise"],
+      "limitations": "Can be distorted by seasonal sales spikes or one-off inventory write-downs.",
+      "relatedConceptIds": ["working-capital", "cash-conversion-cycle"],
+      "relatedCalculatorIds": ["CALC-BIZ-002"],
+      "supportingSources": ["SRC-MCA-MAIN"],
+      "testRequirements": "Verify that DSI of 45 days, DSO of 30 days, and DPO of 50 days produce a Cash Conversion Cycle of 25 days."
+    }
+  ]
+}

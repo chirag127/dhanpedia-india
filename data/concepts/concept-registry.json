@@ -1,248 +1,2739 @@
 {
   "$schema": "./concept-registry.schema.json",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "lastUpdated": "2026-10-17",
-  "totalConcepts": 20,
+  "totalConcepts": 52,
   "concepts": [
     {
-      "id": "dicgc-deposit-insurance",
-      "canonicalTerm": "DICGC Deposit Insurance",
-      "shortDefinition": "Statutory guarantee provided by the Deposit Insurance and Credit Guarantee Corporation, covering up to ₹5,00,000 per depositor per bank across principal and interest across all branches of a scheduled commercial or cooperative bank.",
-      "technicalDefinition": "A statutory insurance scheme established under the DICGC Act 1961 that insures retail deposits across eligible commercial, small finance, payments, and cooperative banks up to five lakh rupees in the same right and capacity, funded by mandatory insurance premiums paid solely by insured banks without passing cost to depositors.",
-      "categoryId": "banking-deposits",
-      "sources": ["SRC-DICGC-MAIN", "SRC-RBI-MAIN"],
-      "relatedConcepts": ["rbi-scheduled-bank", "emergency-protection"],
-      "synonyms": ["Bank deposit guarantee", "DICGC insurance limit"],
-      "commonMisconceptions": "Believing that opening accounts at five different branches of the same bank gives five separate five-lakh-rupee protections, when the statute pools all branch deposits under one legal entity.",
-      "jurisdictionalNotes": "Applicable across all scheduled commercial banks, small finance banks, payments banks, and registered cooperative banks throughout India."
+      "id": "net-worth",
+      "canonicalTerm": "Personal Net Worth",
+      "slug": "personal-net-worth",
+      "domainId": "pf-foundations",
+      "definitionPlainEnglish": "The financial scorecard of an individual or household, representing the total value of everything owned minus the total amount owed to lenders.",
+      "definitionTechnical": "The arithmetic difference between total tangible and financial assets and total liabilities on an individual personal balance sheet, valued using conservative current liquidation or mark-to-market valuations.",
+      "inclusions": [
+        "Liquid cash",
+        "Bank deposits",
+        "Equities",
+        "Mutual funds",
+        "Provident funds",
+        "Real estate fair value",
+        "Gold",
+        "Mortgages",
+        "Consumer debts"
+      ],
+      "exclusions": [
+        "Projected future salary",
+        "Subjective sentimental value of personal possessions"
+      ],
+      "synonyms": [
+        "Personal balance sheet equity",
+        "Financial net assets"
+      ],
+      "abbreviations": [
+        "NW"
+      ],
+      "aliases": [
+        "net-worth",
+        "personal-net-worth"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "cash-flow",
+        "savings-rate",
+        "emergency-fund"
+      ],
+      "prerequisiteConceptIds": [],
+      "learningLevel": "foundation",
+      "jurisdiction": "Universal / Indian Household Context",
+      "sources": [
+        "SRC-RBI-MAIN",
+        "SRC-MOSPI-CPI"
+      ],
+      "articleIds": [
+        "personal-balance-sheet-and-cashflow-architecture"
+      ],
+      "calculatorIds": [
+        "CALC-PF-004"
+      ],
+      "commonMisconceptions": "Confusing a high annual income with high net worth; an individual earning fifty lakh rupees annually who consumes forty-nine lakh rupees possesses negligible wealth accumulation.",
+      "spokenFormula": "Net worth equals total assets minus total liabilities.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
+    },
+    {
+      "id": "cash-flow",
+      "canonicalTerm": "Personal Cash Flow",
+      "slug": "personal-cash-flow",
+      "domainId": "pf-foundations",
+      "definitionPlainEnglish": "The net movement of money into and out of an individual's accounts over a monthly or annual period, determining whether wealth is growing or draining.",
+      "definitionTechnical": "The temporal ledger of realized income inflows minus mandatory non-discretionary expenses, discretionary consumption, debt service payments, and statutory tax withholdings over a discrete accounting cycle.",
+      "inclusions": [
+        "Take-home salary",
+        "Consulting receipts",
+        "Dividends",
+        "Interest",
+        "Fixed living costs",
+        "Loan EMIs",
+        "Discretionary spends"
+      ],
+      "exclusions": [
+        "Accrued non-cash paper gains",
+        "Unexercised stock options"
+      ],
+      "synonyms": [
+        "Monthly surplus",
+        "Cashflow ledger"
+      ],
+      "abbreviations": [
+        "CF"
+      ],
+      "aliases": [
+        "cash-flow",
+        "personal-cash-flow"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "net-worth",
+        "savings-rate"
+      ],
+      "prerequisiteConceptIds": [],
+      "learningLevel": "foundation",
+      "jurisdiction": "Universal",
+      "sources": [
+        "SRC-RBI-MAIN"
+      ],
+      "articleIds": [
+        "personal-balance-sheet-and-cashflow-architecture"
+      ],
+      "calculatorIds": [
+        "CALC-PF-004"
+      ],
+      "commonMisconceptions": "Believing that profitability or gross CTC implies positive cash flow, ignoring payment lags, taxes, and mandatory debt deductions.",
+      "spokenFormula": "Net cash flow equals total realized cash inflows minus total realized cash outflows.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
+    },
+    {
+      "id": "savings-rate",
+      "canonicalTerm": "Savings Rate",
+      "slug": "savings-rate",
+      "domainId": "pf-foundations",
+      "definitionPlainEnglish": "The percentage of net take-home income that is retained and allocated toward investments and debt elimination rather than consumed.",
+      "definitionTechnical": "The mathematical ratio of retained investable surplus to total net disposable income after direct taxes, serving as the single primary predictor of time required to attain financial independence.",
+      "inclusions": [
+        "Monthly equity SIPs",
+        "Mandatory EPF/PPF contributions",
+        "Principal debt paydowns",
+        "Cash additions to reserves"
+      ],
+      "exclusions": [
+        "Interest paid on consumer loans",
+        "Depreciating vehicle purchases"
+      ],
+      "synonyms": [
+        "Personal savings percentage",
+        "Investable surplus ratio"
+      ],
+      "abbreviations": [
+        "SR"
+      ],
+      "aliases": [
+        "savings-rate"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "cash-flow",
+        "financial-independence"
+      ],
+      "prerequisiteConceptIds": [
+        "cash-flow"
+      ],
+      "learningLevel": "foundation",
+      "jurisdiction": "Universal",
+      "sources": [
+        "SRC-RBI-MAIN",
+        "SRC-MOSPI-CPI"
+      ],
+      "articleIds": [
+        "personal-balance-sheet-and-cashflow-architecture"
+      ],
+      "calculatorIds": [
+        "CALC-PF-001"
+      ],
+      "commonMisconceptions": "Calculating savings rate against gross CTC before tax deductions and loan EMIs, resulting in a dangerously inflated perception of wealth building.",
+      "spokenFormula": "Savings rate equals monthly investable surplus divided by net take-home income, multiplied by one hundred.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
     },
     {
       "id": "time-value-of-money",
       "canonicalTerm": "Time Value of Money (TVM)",
-      "shortDefinition": "The core financial principle establishing that a sum of money today is worth more than the identical sum in the future due to its potential earning capacity, discounting for inflation and opportunity cost.",
-      "technicalDefinition": "The economic foundation of discounted cashflow analysis where a future cash flow is adjusted to present value by dividing the future value by the mathematical product of one plus the periodic discount rate raised to the power of the number of compounding periods.",
-      "categoryId": "pf-foundations",
-      "sources": ["SRC-RBI-MAIN"],
-      "relatedConcepts": ["real-rate-of-return", "compounding-mathematics"],
-      "synonyms": ["Present value discounted cashflow", "TVM"],
-      "commonMisconceptions": "Comparing nominal cash flows received across different years without discounting each back to present value using a relevant hurdle rate.",
-      "jurisdictionalNotes": "Universal economic principle, with Indian discount rates traditionally calibrated to sovereign 10-year G-Sec yields plus equity risk premiums."
+      "slug": "time-value-of-money",
+      "domainId": "pf-foundations",
+      "definitionPlainEnglish": "The fundamental truth that a rupee today is worth more than a rupee promised in the future because today's rupee can be invested to earn compound returns.",
+      "definitionTechnical": "The core axiom of financial mathematics establishing that identical nominal cash flows across different time horizons have unequal economic value, reconciled by discounting future cash flows by a periodic opportunity cost rate.",
+      "inclusions": [
+        "Present value",
+        "Future value",
+        "Discounting",
+        "Compounding",
+        "Annuities"
+      ],
+      "exclusions": [
+        "Non-compounding nominal accounting"
+      ],
+      "synonyms": [
+        "Discounted cash flow principle",
+        "TVM"
+      ],
+      "abbreviations": [
+        "TVM"
+      ],
+      "aliases": [
+        "time-value-of-money",
+        "tvm"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "compounding-mathematics",
+        "real-rate-of-return",
+        "present-value",
+        "future-value"
+      ],
+      "prerequisiteConceptIds": [],
+      "learningLevel": "foundation",
+      "jurisdiction": "Universal Economic Principle",
+      "sources": [
+        "SRC-RBI-MAIN"
+      ],
+      "articleIds": [
+        "time-value-of-money-and-real-returns-india"
+      ],
+      "calculatorIds": [
+        "CALC-PF-001",
+        "CALC-PF-002"
+      ],
+      "commonMisconceptions": "Comparing total nominal rupees received from a 20-year endowment insurance policy directly against total premiums paid without discounting each cash flow back to present value.",
+      "spokenFormula": "Future value equals present value multiplied by the factor of one plus the periodic interest rate raised to the power of the number of periods.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
     },
     {
-      "id": "section-115bac-new-regime",
-      "canonicalTerm": "Section 115BAC New Tax Regime",
-      "shortDefinition": "The concessional direct tax regime under the Indian Income-tax Act 1961 featuring streamlined tax slabs with lower headline rates in exchange for forgoing most exemptions (HRA, 80C, 80D, standard housing loan interest). Default regime from FY 2023-24.",
-      "technicalDefinition": "A simplified direct tax architecture introduced under Section 115BAC of the Income-tax Act 1961 that substitutes graduated progressive tax slabs with reduced rates up to 30% while eliminating chapter six-A deductions and section ten exemptions, accompanied by a full tax rebate under Section 87A for taxable incomes up to seven lakh rupees.",
-      "categoryId": "indian-taxation",
-      "sources": ["SRC-ITD-PORTAL", "SRC-CBDT-MAIN"],
-      "relatedConcepts": ["section-87a-rebate", "standard-deduction"],
-      "synonyms": ["New Tax Regime", "115BAC", "Concessional Tax Regime"],
-      "commonMisconceptions": "Assuming the Old Tax Regime is always superior for high-deduction earners without mathematically calculating the precise exemption threshold where the New Regime yields higher take-home pay.",
-      "jurisdictionalNotes": "Governed by Central Board of Direct Taxes for all Indian resident and non-resident individual taxpayers."
+      "id": "inflation-purchasing-power",
+      "canonicalTerm": "Inflation and Purchasing Power",
+      "slug": "inflation-and-purchasing-power",
+      "domainId": "pf-foundations",
+      "definitionPlainEnglish": "The relentless rise in general prices across the economy over time, which reduces the amount of goods and services each rupee can buy.",
+      "definitionTechnical": "The annualized rate of increase in price index metrics (Consumer Price Index Combined in India), reflecting the dilution of currency purchasing power and driving the spread between nominal returns and real purchasing power growth.",
+      "inclusions": [
+        "Headline CPI",
+        "Core CPI",
+        "Aspirational urban inflation",
+        "Education and healthcare inflation"
+      ],
+      "exclusions": [
+        "Asset price inflation in equities or land (tracked separately from consumer baskets)"
+      ],
+      "synonyms": [
+        "Purchasing power erosion",
+        "Price inflation"
+      ],
+      "abbreviations": [
+        "CPI",
+        "WPI"
+      ],
+      "aliases": [
+        "inflation",
+        "purchasing-power",
+        "cpi-inflation"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "time-value-of-money",
+        "real-rate-of-return"
+      ],
+      "prerequisiteConceptIds": [],
+      "learningLevel": "foundation",
+      "jurisdiction": "India / MoSPI / RBI",
+      "sources": [
+        "SRC-MOSPI-CPI",
+        "SRC-RBI-MAIN"
+      ],
+      "articleIds": [
+        "inflation-mechanics-cpi-vs-aspirational-cost-of-living"
+      ],
+      "calculatorIds": [
+        "CALC-PF-002"
+      ],
+      "commonMisconceptions": "Relying on official headline CPI of five percent to plan for higher education or private healthcare costs in urban India, which empirically escalate at eight to twelve percent annually.",
+      "spokenFormula": "Purchasing power of a future rupee equals one divided by the factor of one plus the annual inflation rate raised to the power of years.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
     },
     {
-      "id": "rbi-integrated-ombudsman",
-      "canonicalTerm": "Reserve Bank - Integrated Ombudsman Scheme (RB-IOS)",
-      "shortDefinition": "Unified grievance redressal mechanism established by the RBI in 2021 integrating ombudsman schemes for commercial banks, NBFCs, and non-bank prepaid payment instrument issuers, operating under 'One Nation One Ombudsman' with zero cost to the complainant.",
-      "technicalDefinition": "A quasi-judicial statutory dispute resolution framework operationalized by the Reserve Bank of India in November 2021 that unifies grievance channels across banks, non-banking financial companies, and system participants with power to award compensation up to thirty lakh rupees for direct financial loss and up to one lakh rupees for loss of time and mental harassment.",
-      "categoryId": "consumer-protection-grievance",
-      "sources": ["SRC-RBI-CMS", "SRC-RBI-MAIN"],
-      "relatedConcepts": ["banking-deposits", "rbi-zero-liability-rule"],
-      "synonyms": ["Banking Ombudsman", "RB-IOS 2021"],
-      "commonMisconceptions": "Attempting to file a direct ombudsman complaint before first lodging a formal grievance with the regulated financial institution and waiting the mandatory thirty-day response window.",
-      "jurisdictionalNotes": "Centralized online portal cms.rbi.org.in serving consumers across all Indian states and Union Territories."
+      "id": "real-rate-of-return",
+      "canonicalTerm": "Real Rate of Return",
+      "slug": "real-rate-of-return",
+      "domainId": "pf-foundations",
+      "definitionPlainEnglish": "The actual percentage gain earned by an investment after subtracting both direct taxes and the wealth-eroding effect of inflation.",
+      "definitionTechnical": "The net annual growth rate of economic purchasing power generated by an asset, precisely calculated using the Fisher equation rather than simple arithmetic subtraction.",
+      "inclusions": [
+        "Inflation adjustment",
+        "Tax adjustment",
+        "Fisher equation"
+      ],
+      "exclusions": [
+        "Nominal pre-tax advertised interest rates"
+      ],
+      "synonyms": [
+        "Inflation-adjusted return",
+        "Purchasing power yield"
+      ],
+      "abbreviations": [
+        "Real Return"
+      ],
+      "aliases": [
+        "real-return",
+        "real-rate-of-return"
+      ],
+      "parentConceptIds": [
+        "time-value-of-money"
+      ],
+      "relatedConceptIds": [
+        "inflation-purchasing-power",
+        "compounding-mathematics"
+      ],
+      "prerequisiteConceptIds": [
+        "inflation-purchasing-power",
+        "time-value-of-money"
+      ],
+      "learningLevel": "beginner",
+      "jurisdiction": "Universal",
+      "sources": [
+        "SRC-RBI-MAIN",
+        "SRC-MOSPI-CPI"
+      ],
+      "articleIds": [
+        "time-value-of-money-and-real-returns-india"
+      ],
+      "calculatorIds": [
+        "CALC-PF-002",
+        "CALC-DEP-005"
+      ],
+      "commonMisconceptions": "Celebrating a seven percent fixed deposit return during a period when inflation is six percent and marginal tax is thirty percent, resulting in a negative real return of approximately minus one point nine percent.",
+      "spokenFormula": "Real rate of return equals the factor of one plus the nominal after-tax rate divided by one plus the inflation rate, minus one.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
     },
     {
-      "id": "sovereign-gold-bonds-sgb",
-      "canonicalTerm": "Sovereign Gold Bonds (SGB)",
-      "shortDefinition": "Government securities denominated in grams of gold issued by the RBI on behalf of the Government of India, paying 2.50% annual interest with complete capital gains tax exemption upon maturity at 8 years under Section 47 of the Income-tax Act.",
-      "technicalDefinition": "Sovereign debt instruments issued under the Government Securities Act 2006 denominated in grams of nine hundred ninety-nine purity gold that pay a semi-annual coupon of two and a half percent per annum on initial issue price and redeem at the prevailing simple average closing gold price published by India Bullion and Jewellers Association.",
-      "categoryId": "gold-silver-commodities",
-      "sources": ["SRC-RBI-MAIN", "SRC-ITD-PORTAL"],
-      "relatedConcepts": ["gold-etf-creation-unit", "portfolio-hedging"],
-      "synonyms": ["SGB", "RBI Gold Bonds"],
-      "commonMisconceptions": "Believing that selling Sovereign Gold Bonds on secondary stock exchanges before the eight-year statutory maturity provides the full Section 47 capital gains tax exemption.",
-      "jurisdictionalNotes": "Available solely to resident Indian individuals, HUFs, trusts, universities, and charitable institutions."
+      "id": "compounding-mathematics",
+      "canonicalTerm": "Compounding Mathematics",
+      "slug": "compounding-mathematics",
+      "domainId": "pf-foundations",
+      "definitionPlainEnglish": "The exponential wealth-building process where interest or investment profits earn additional interest over successive time periods.",
+      "definitionTechnical": "The geometric progression of invested capital over time where accumulated interest or earnings are continuously reinvested to become part of the principal base for subsequent period calculations.",
+      "inclusions": [
+        "Exponential growth",
+        "Compounding frequency",
+        "Rule of 72",
+        "Compound Annual Growth Rate (CAGR)"
+      ],
+      "exclusions": [
+        "Simple interest arithmetic"
+      ],
+      "synonyms": [
+        "Compound growth",
+        "Geometric compounding"
+      ],
+      "abbreviations": [
+        "CAGR"
+      ],
+      "aliases": [
+        "compounding",
+        "compound-growth"
+      ],
+      "parentConceptIds": [
+        "time-value-of-money"
+      ],
+      "relatedConceptIds": [
+        "real-rate-of-return",
+        "future-value"
+      ],
+      "prerequisiteConceptIds": [
+        "time-value-of-money"
+      ],
+      "learningLevel": "foundation",
+      "jurisdiction": "Universal",
+      "sources": [
+        "SRC-RBI-MAIN"
+      ],
+      "articleIds": [
+        "time-value-of-money-and-real-returns-india"
+      ],
+      "calculatorIds": [
+        "CALC-PF-001",
+        "CALC-MF-001"
+      ],
+      "commonMisconceptions": "Underestimating the back-weighted nature of compounding; in a 25-year compounding trajectory, over fifty percent of total terminal wealth is generated in the final five years.",
+      "spokenFormula": "Compound future value equals principal multiplied by the factor of one plus annual rate divided by compounding frequency, all raised to the power of frequency multiplied by tenure in years.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
     },
     {
-      "id": "section-269ss-269st-cash-penalties",
-      "canonicalTerm": "Sections 269SS and 269ST Cash Transaction Prohibitions",
-      "shortDefinition": "Statutory provisions in the Income-tax Act prohibiting cash loans/advances for real estate of ₹20,000 or more (Section 269SS) and general cash receipts of ₹2,00,000 or more (Section 269ST), each enforced with a mandatory 100% penalty.",
-      "technicalDefinition": "Anti-black-money direct tax statutes designed to curb cash transactions in the shadow economy by imposing equal hundred percent monetary penalties on the recipient under Section 271D for Section 269SS violations and Section 271DA for Section 269ST violations.",
-      "categoryId": "financial-fraud-scams-shadow-economy",
-      "sources": ["SRC-CBDT-MAIN", "SRC-ITD-PORTAL"],
-      "relatedConcepts": ["section-50c-circle-rate-safe-harbor", "benami-property-confiscation-act"],
-      "synonyms": ["Real estate cash limit", "Section 269SS penalty", "Section 269ST two-lakh limit"],
-      "commonMisconceptions": "Thinking that splitting a cash payment into several ten-thousand-rupee receipts on consecutive days evades the single transaction or single event aggregation mandate.",
-      "jurisdictionalNotes": "Enforced by the Income Tax Department Investigation Wing and Assessing Officers nationwide."
+      "id": "emergency-fund",
+      "canonicalTerm": "Emergency Liquidity Reserve",
+      "slug": "emergency-liquidity-reserve",
+      "domainId": "pf-foundations",
+      "definitionPlainEnglish": "A dedicated cushion of safe, immediately accessible money set aside to cover unexpected life emergencies without being forced to sell long-term investments.",
+      "definitionTechnical": "A segregated liquidity reserve sized to cover three to twelve months of non-discretionary living expenses and debt service obligations, deployed exclusively in capital-guaranteed or ultra-low-volatility instruments.",
+      "inclusions": [
+        "Savings accounts",
+        "Sweep-in fixed deposits",
+        "Liquid mutual funds",
+        "Overnight funds"
+      ],
+      "exclusions": [
+        "Equity shares",
+        "Real estate",
+        "Locked-in small savings certificates (PPF/NSC)"
+      ],
+      "synonyms": [
+        "Emergency fund",
+        "Contingency reserve",
+        "Liquidity buffer"
+      ],
+      "abbreviations": [
+        "EF"
+      ],
+      "aliases": [
+        "emergency-fund",
+        "emergency-reserve"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "net-worth",
+        "liquidity-risk",
+        "dicgc-deposit-insurance"
+      ],
+      "prerequisiteConceptIds": [
+        "cash-flow"
+      ],
+      "learningLevel": "foundation",
+      "jurisdiction": "Universal / Indian Retail Banking",
+      "sources": [
+        "SRC-RBI-MAIN",
+        "SRC-DICGC-MAIN"
+      ],
+      "articleIds": [
+        "personal-balance-sheet-and-cashflow-architecture"
+      ],
+      "calculatorIds": [
+        "CALC-PF-003",
+        "CALC-PF-008"
+      ],
+      "commonMisconceptions": "Treating unused credit card limits or pre-approved personal loans as an emergency fund, ignoring that banks aggressively slash credit lines during systemic economic downturns.",
+      "spokenFormula": "Recommended emergency fund equals monthly essential expenses plus monthly loan EMIs, multiplied by an employment volatility multiplier from three to twelve months.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
     },
     {
-      "id": "section-50c-circle-rate-safe-harbor",
-      "canonicalTerm": "Section 50C Circle Rate Safe Harbor",
-      "shortDefinition": "The statutory 10% tolerance band under the Income-tax Act permitting declared property sale consideration to be up to 10% below the state stamp duty circle rate without triggering deemed capital gains additions.",
-      "technicalDefinition": "A valuation mechanism under Section 50C of the Income-tax Act 1961 providing that where the stamp duty valuation does not exceed one hundred and ten percent of the consideration received, the actual agreement consideration is accepted as full value of consideration for computing capital gains.",
-      "categoryId": "real-estate-property-land",
-      "sources": ["SRC-CBDT-MAIN", "SRC-ITD-PORTAL"],
-      "relatedConcepts": ["section-269ss-269st-cash-penalties", "reit-distribution-structure"],
-      "synonyms": ["Circle rate safe harbor", "Section 50C 10 percent tolerance", "Section 56(2)(x) property gap"],
-      "commonMisconceptions": "Assuming any difference between circle rate and market price is acceptable, without recognizing that gaps exceeding ten percent trigger tax on the buyer under Section 56(2)(x) and on the seller under Section 50C.",
-      "jurisdictionalNotes": "Applicable across all Indian state stamp duty guidelines and registrar valuation tables."
+      "id": "financial-independence",
+      "canonicalTerm": "Financial Independence",
+      "slug": "financial-independence",
+      "domainId": "pf-foundations",
+      "definitionPlainEnglish": "The financial status where investment returns and passive income generate sufficient cash flow to cover all living expenses forever without needing active employment.",
+      "definitionTechnical": "The macroeconomic condition where an individual's accumulated net liquid wealth multiplied by a sustainable safe withdrawal rate equal or exceed annualized living expenses adjusted for inflation.",
+      "inclusions": [
+        "Safe withdrawal rate",
+        "Passive cash flows",
+        "Perpetual corpus sizing",
+        "FIRE movement principles"
+      ],
+      "exclusions": [
+        "Luxury lifestyle inflation unsupported by capital"
+      ],
+      "synonyms": [
+        "FIRE",
+        "Financial freedom",
+        "Economic self-sufficiency"
+      ],
+      "abbreviations": [
+        "FI",
+        "FIRE"
+      ],
+      "aliases": [
+        "financial-independence",
+        "fire"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "safe-withdrawal-rate-india",
+        "savings-rate",
+        "retirement-corpus-sizing"
+      ],
+      "prerequisiteConceptIds": [
+        "time-value-of-money",
+        "real-rate-of-return",
+        "savings-rate"
+      ],
+      "learningLevel": "intermediate",
+      "jurisdiction": "Universal / Calibrated to Indian Macroeconomics",
+      "sources": [
+        "SRC-RBI-MAIN",
+        "SRC-MOSPI-CPI"
+      ],
+      "articleIds": [
+        "retirement-corpus-sizing-and-safe-withdrawal-rates-in-the-indian-economy"
+      ],
+      "calculatorIds": [
+        "CALC-TAX-004",
+        "CALC-MF-005"
+      ],
+      "commonMisconceptions": "Believing financial independence requires completely stopping work, whereas it represents complete freedom from compulsory labor dictated by financial survival.",
+      "spokenFormula": "Financial independence corpus equals annual living expenses divided by the sustainable safe withdrawal rate.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
     },
     {
-      "id": "dabba-trading-scra-prohibition",
-      "canonicalTerm": "Dabba Trading (Illegal Bucket Shops)",
-      "shortDefinition": "Illicit off-exchange trading networks matching equity and commodity contracts in cash outside recognized exchanges, prohibited under the Securities Contracts (Regulation) Act 1956.",
-      "technicalDefinition": "An illegal shadow market mechanism where brokers operate bucketing operations that record trades on proprietary software or physical ledgers without routing orders to recognized exchanges like NSE, BSE, or MCX, evading Securities Transaction Tax, exchange margins, and statutory clearing oversight.",
-      "categoryId": "derivatives-trading",
-      "sources": ["SRC-SEBI-MAIN", "SRC-INDIA-CODE"],
-      "relatedConcepts": ["span-peak-margin-system", "sebi-fo-retail-loss-findings"],
-      "synonyms": ["Bucket shop trading", "Off-exchange illegal contracts", "Chopa trading"],
-      "commonMisconceptions": "Believing dabba trading is merely an informal credit facility, whereas it is a criminal offense punishable with up to ten years imprisonment under Section 23 of the SCRA.",
-      "jurisdictionalNotes": "Prohibited under Central statutory legislation throughout the territory of India."
+      "id": "dicgc-deposit-insurance",
+      "canonicalTerm": "DICGC Deposit Insurance",
+      "slug": "dicgc-deposit-insurance",
+      "domainId": "banking-deposits",
+      "definitionPlainEnglish": "The statutory government-backed guarantee protecting bank deposits up to ₹5,00,000 per depositor per bank if the bank fails or is placed under moratorium.",
+      "definitionTechnical": "A statutory insurance guarantee provided by the Deposit Insurance and Credit Guarantee Corporation under the DICGC Act 1961, covering principal and accrued interest up to five lakh rupees per depositor across all accounts held in the same right and capacity in an insured bank.",
+      "inclusions": [
+        "Savings accounts",
+        "Fixed deposits",
+        "Recurring deposits",
+        "Current accounts in scheduled commercial and cooperative banks"
+      ],
+      "exclusions": [
+        "Corporate deposits",
+        "Foreign government deposits",
+        "Inter-bank deposits",
+        "Commercial paper"
+      ],
+      "synonyms": [
+        "Bank deposit guarantee",
+        "DICGC insurance limit"
+      ],
+      "abbreviations": [
+        "DICGC"
+      ],
+      "aliases": [
+        "dicgc-deposit-insurance",
+        "deposit-insurance"
+      ],
+      "parentConceptIds": [
+        "scheduled-commercial-bank"
+      ],
+      "relatedConceptIds": [
+        "scheduled-commercial-bank",
+        "emergency-fund"
+      ],
+      "prerequisiteConceptIds": [
+        "scheduled-commercial-bank"
+      ],
+      "learningLevel": "beginner",
+      "jurisdiction": "India / Central Act",
+      "sources": [
+        "SRC-DICGC-MAIN",
+        "SRC-RBI-MAIN"
+      ],
+      "articleIds": [
+        "dicgc-deposit-insurance-architecture-limits-and-ownership-structures"
+      ],
+      "calculatorIds": [
+        "CALC-DEP-001"
+      ],
+      "commonMisconceptions": "Believing that opening accounts at five different branches of the same bank creates five separate five-lakh protections, when the statute explicitly combines all deposits within one legal banking entity.",
+      "spokenFormula": "Insured amount equals the minimum of five lakh rupees and the sum of principal plus accrued interest across all accounts held in the same right and capacity.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
     },
     {
-      "id": "benami-property-confiscation-act",
-      "canonicalTerm": "Benami Property Confiscation and Prosecution",
-      "shortDefinition": "The statutory framework under the Prohibition of Benami Property Transactions Act that criminalizes holding property in the name of another person and mandates confiscation without compensation.",
-      "technicalDefinition": "A stringent legal structure under the Prohibition of Benami Property Transactions Act 1988 (as amended in 2016) that defines any transaction where property is transferred to one person while consideration is provided by another for their immediate or future benefit as a benami transaction, resulting in absolute confiscation by the Central Government and criminal imprisonment up to seven years.",
-      "categoryId": "financial-fraud-scams-shadow-economy",
-      "sources": ["SRC-CBDT-MAIN", "SRC-INDIA-CODE", "SRC-ED-GOV"],
-      "relatedConcepts": ["section-269ss-269st-cash-penalties", "section-50c-circle-rate-safe-harbor"],
-      "synonyms": ["Benami transaction", "Benami property confiscation", "PBPT Act 2016"],
-      "commonMisconceptions": "Believing that registering property in the name of a driver, cook, or distant associate shields assets from tax recovery or wealth tracing.",
-      "jurisdictionalNotes": "Administered by Initiating Officers and Adjudicating Authorities under the Central Board of Direct Taxes across India."
+      "id": "scheduled-commercial-bank",
+      "canonicalTerm": "Scheduled Commercial Bank",
+      "slug": "scheduled-commercial-bank",
+      "domainId": "banking-deposits",
+      "definitionPlainEnglish": "A reputable, large commercial bank included in the Second Schedule of the RBI Act that complies with rigorous capital, liquidity, and regulatory standards.",
+      "definitionTechnical": "A banking institution in India listed in the Second Schedule to the Reserve Bank of India Act 1934 that satisfies minimum paid-up capital and reserve requirements of not less than five lakh rupees, complies with CRR and SLR mandates, and is eligible for liquidity support from the RBI.",
+      "inclusions": [
+        "Public sector banks",
+        "Private sector commercial banks",
+        "Foreign banks operating in India",
+        "Eligible Small Finance Banks"
+      ],
+      "exclusions": [
+        "Unscheduled cooperative banks",
+        "Non-banking financial companies (NBFCs)"
+      ],
+      "synonyms": [
+        "Scheduled bank",
+        "Second Schedule bank"
+      ],
+      "abbreviations": [
+        "SCB"
+      ],
+      "aliases": [
+        "scheduled-commercial-bank",
+        "scheduled-bank"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "dicgc-deposit-insurance",
+        "rbi-mpc-inflation-targeting"
+      ],
+      "prerequisiteConceptIds": [],
+      "learningLevel": "beginner",
+      "jurisdiction": "India / RBI Act 1934",
+      "sources": [
+        "SRC-RBI-MAIN"
+      ],
+      "articleIds": [
+        "dicgc-deposit-insurance-architecture-limits-and-ownership-structures"
+      ],
+      "calculatorIds": [
+        "CALC-DEP-001"
+      ],
+      "commonMisconceptions": "Treating urban cooperative banks as having identical solvency and supervision standards as large scheduled commercial banks, despite historical regulatory divergence.",
+      "spokenFormula": "Defined statutorily by inclusion in the Second Schedule to the Reserve Bank of India Act 1934.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
     },
     {
-      "id": "total-expense-ratio-ter",
-      "canonicalTerm": "Total Expense Ratio (TER)",
-      "shortDefinition": "The annualized percentage of a mutual fund scheme's daily net assets deducted to cover management, administrative, distribution, and operational expenses under SEBI caps.",
-      "technicalDefinition": "The statutory cost measure of a collective investment scheme calculated by dividing total operating and management expenses by daily average net assets, capped under SEBI Mutual Fund Regulations on a tiered asset-under-management scale, directly lowering the declared Net Asset Value.",
-      "categoryId": "mutual-funds-pooled",
-      "sources": ["SRC-SEBI-MAIN", "SRC-AMFI-MAIN"],
-      "relatedConcepts": ["sebi-scheme-categorization", "tracking-error-difference"],
-      "synonyms": ["TER", "Expense ratio", "Fund management cost"],
-      "commonMisconceptions": "Treating a one percent TER difference between Direct and Regular plans as negligible, ignoring that compounding over twenty-five years erodes up to twenty-five percent of terminal portfolio wealth.",
-      "jurisdictionalNotes": "Regulated under SEBI (Mutual Funds) Regulations 1996 for all Indian registered asset management companies."
-    },
-    {
-      "id": "eblr-home-loan-transmission",
-      "canonicalTerm": "External Benchmark Lending Rate (EBLR)",
-      "shortDefinition": "The mandatory lending rate framework introduced by the RBI in 2019 tying retail floating rate loans directly to external market benchmarks such as the RBI Policy Repo Rate.",
-      "technicalDefinition": "A transparent monetary transmission mechanism mandated by the Reserve Bank of India where commercial banks must link all new floating rate retail loans to an external benchmark plus an invariant credit risk spread, resetting interest rates within a mandatory maximum three-month cycle.",
-      "categoryId": "credit-borrowing",
-      "sources": ["SRC-RBI-MAIN"],
-      "relatedConcepts": ["cibil-credit-score", "credit-utilization-ratio"],
-      "synonyms": ["Repo-linked loan rate", "EBLR", "RLLR"],
-      "commonMisconceptions": "Thinking banks have discretionary authority to delay loan rate cuts under EBLR when the RBI cuts the Policy Repo Rate, whereas the reset is contractually automatic on the reset date.",
-      "jurisdictionalNotes": "Mandatory for all scheduled commercial banks in India (excluding housing finance companies and NBFCs, which remain under prime lending rate frameworks)."
-    },
-    {
-      "id": "macaulay-modified-duration",
-      "canonicalTerm": "Macaulay and Modified Duration",
-      "shortDefinition": "The weighted average maturity of cash flows from a fixed income security (Macaulay) and its percentage price sensitivity to a one percentage point change in interest yields (Modified).",
-      "technicalDefinition": "Macaulay duration measures the time required in years for an investor to recoup cash flows weighted by present value. Modified duration is obtained by dividing Macaulay duration by one plus the periodic yield to maturity, quantifying bond price percentage change per one hundred basis point shift in yields.",
-      "categoryId": "fixed-income-debt-markets",
-      "sources": ["SRC-RBI-MAIN", "SRC-FIMMDA-MAIN"],
-      "relatedConcepts": ["g-sec-yield-curve", "credit-spread-widening"],
-      "synonyms": ["Bond duration", "Interest rate sensitivity", "Modified duration"],
-      "commonMisconceptions": "Confusing duration with maturity, leading to shock when a 10-year G-Sec with high duration suffers significant capital loss during an interest rate hiking cycle.",
-      "jurisdictionalNotes": "Standardized Indian fixed income calculation under Fixed Income Money Market and Derivatives Association (FIMMDA) guidelines."
-    },
-    {
-      "id": "section-45-incontestability",
-      "canonicalTerm": "Section 45 Incontestability in Life Insurance",
-      "shortDefinition": "The statutory rule under Insurance Act 1938 prohibiting life insurance companies from questioning or repudiating any policy on any ground, including fraud, after three continuous years.",
-      "technicalDefinition": "A legislative protection under Section 45 of the Insurance Act 1938 (substituted in 2015) that establishes a strict three-year period of limitation beyond which an insurer cannot repudiate a claim or call a life insurance policy in question for any misstatement, non-disclosure, or fraud.",
-      "categoryId": "insurance-risk-protection",
-      "sources": ["SRC-IRDAI-MAIN", "SRC-INDIA-CODE"],
-      "relatedConcepts": ["mwp-act-policy-trust", "proportionate-deduction-room-rent"],
-      "synonyms": ["Three-year incontestability clause", "Section 45 protection", "Life insurance claim bar"],
-      "commonMisconceptions": "Thinking insurers can investigate pre-existing conditions and deny death claims after ten years of timely premium payments, which is strictly barred by Section 45.",
-      "jurisdictionalNotes": "Applies across all registered life insurance policies issued by private and public insurers in India."
-    },
-    {
-      "id": "safe-withdrawal-rate-india",
-      "canonicalTerm": "Safe Withdrawal Rate (SWR) under Indian Macroeconomics",
-      "shortDefinition": "The annualized percentage of a retirement corpus that can be withdrawn in the initial year and adjusted for inflation thereafter with minimal mathematical probability of portfolio depletion over 30+ years.",
-      "technicalDefinition": "A retirement decumulation metric calibrated for emerging market inflation dynamics that estimates the sustainable percentage withdrawal from a diversified portfolio of equities, debt securities, and cash, factoring in domestic sequence-of-returns risk and lifestyle inflation.",
-      "categoryId": "retirement-pensions",
-      "sources": ["SRC-RBI-MAIN", "SRC-MOSPI-CPI"],
-      "relatedConcepts": ["epf-interest-taxation-threshold", "nps-tier-one-architecture"],
-      "synonyms": ["SWR", "Retirement withdrawal rate", "4 percent rule Indian adaptation"],
-      "commonMisconceptions": "Blindly applying the Western four percent rule in India, where structural inflation running between six and eight percent often reduces the truly safe initial withdrawal rate to approximately three to three and a half percent.",
-      "jurisdictionalNotes": "Calibrated against historical Indian equity returns (Sensex/Nifty) and sovereign bond yields."
+      "id": "upi-rail-settlement",
+      "canonicalTerm": "UPI Clearing and Settlement Rail",
+      "slug": "upi-clearing-and-settlement-rail",
+      "domainId": "payments-digital-infrastructure",
+      "definitionPlainEnglish": "The real-time instant payment system that moves money between Indian bank accounts instantly 24x7 using virtual payment addresses and mobile devices.",
+      "definitionTechnical": "An interoperable retail payment architecture developed by NPCI that operates over the Immediate Payment Service (IMPS) messaging network, resolving Virtual Payment Addresses (VPAs) via central switch and clearing net settlement batches across member bank settlement accounts at the RBI.",
+      "inclusions": [
+        "VPA routing",
+        "UPI 2.0 mandates",
+        "Interchange fees",
+        "P2P and P2M transactions"
+      ],
+      "exclusions": [
+        "Cryptocurrency tokens",
+        "Credit card closed-loop ledgers"
+      ],
+      "synonyms": [
+        "Unified Payments Interface",
+        "UPI network"
+      ],
+      "abbreviations": [
+        "UPI",
+        "NPCI"
+      ],
+      "aliases": [
+        "upi",
+        "unified-payments-interface"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "scheduled-commercial-bank",
+        "rbi-zero-liability-rule"
+      ],
+      "prerequisiteConceptIds": [
+        "scheduled-commercial-bank"
+      ],
+      "learningLevel": "beginner",
+      "jurisdiction": "India / NPCI / RBI",
+      "sources": [
+        "SRC-NPCI-MAIN",
+        "SRC-RBI-MAIN"
+      ],
+      "articleIds": [
+        "upi-and-digital-payments-infrastructure-security-limits"
+      ],
+      "calculatorIds": [],
+      "commonMisconceptions": "Thinking UPI stores funds in a digital wallet, when it is actually an instant settlement messaging instruction moving funds directly between underlying bank accounts.",
+      "spokenFormula": "Settled through multilateral netting across member bank clearing accounts with the Reserve Bank of India.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
     },
     {
       "id": "cibil-credit-score",
       "canonicalTerm": "CIBIL Bureau Credit Score",
-      "shortDefinition": "A three-digit numeric summary ranging from 300 to 900 reflecting an individual's historical creditworthiness, repayment discipline, and debt utilization in India.",
-      "technicalDefinition": "A statistical credit evaluation metric computed by TransUnion CIBIL using historical trade-line data reported monthly by credit institutions under the Credit Information Companies (Regulation) Act 2005, weighted across past payment history, credit utilization ratio, credit mix, and inquiry recency.",
-      "categoryId": "credit-borrowing",
-      "sources": ["SRC-CIC-CIBIL", "SRC-RBI-MAIN"],
-      "relatedConcepts": ["eblr-home-loan-transmission", "credit-utilization-ratio"],
-      "synonyms": ["Credit score", "CIBIL rating", "Credit report score"],
-      "commonMisconceptions": "Believing that closing old, fully-paid credit card accounts improves credit score, when it actually shortens credit history length and increases credit utilization ratios.",
-      "jurisdictionalNotes": "Licensed under the Credit Information Companies (Regulation) Act 2005 by the Reserve Bank of India."
+      "slug": "cibil-bureau-credit-score",
+      "domainId": "credit-borrowing",
+      "definitionPlainEnglish": "A three-digit number between 300 and 900 summarizing a person's credit repayment history, used by banks to decide loan eligibility and interest rates.",
+      "definitionTechnical": "A credit risk scoring metric computed by TransUnion CIBIL under the Credit Information Companies (Regulation) Act 2005 using monthly tradeline reports from financial institutions, weighting payment history, credit utilization ratio, credit mix, and inquiry recency.",
+      "inclusions": [
+        "Payment track record",
+        "Credit utilization ratio",
+        "Credit tenure length",
+        "Credit mix",
+        "Hard inquiries"
+      ],
+      "exclusions": [
+        "Debit card spending",
+        "Savings account balances",
+        "Income level"
+      ],
+      "synonyms": [
+        "Credit score",
+        "Bureau score",
+        "CIBIL rating"
+      ],
+      "abbreviations": [
+        "CIBIL",
+        "CIC"
+      ],
+      "aliases": [
+        "cibil-score",
+        "credit-score"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "eblr-home-loan-transmission",
+        "credit-utilization-ratio"
+      ],
+      "prerequisiteConceptIds": [],
+      "learningLevel": "beginner",
+      "jurisdiction": "India / CICRA 2005",
+      "sources": [
+        "SRC-CIC-CIBIL",
+        "SRC-RBI-MAIN"
+      ],
+      "articleIds": [
+        "cibil-score-mechanics-credit-repair-and-bureau-dispute-resolution"
+      ],
+      "calculatorIds": [
+        "CALC-PF-006"
+      ],
+      "commonMisconceptions": "Believing that checking your own credit score lowers it (soft inquiries have zero impact on score), or that high salary automatically guarantees a 750+ score.",
+      "spokenFormula": "Scored on a scale from three hundred to nine hundred based on algorithmic weighting of historical repayment discipline.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
+    },
+    {
+      "id": "eblr-home-loan-transmission",
+      "canonicalTerm": "External Benchmark Lending Rate (EBLR)",
+      "slug": "external-benchmark-lending-rate",
+      "domainId": "credit-borrowing",
+      "definitionPlainEnglish": "The interest rate rule requiring commercial banks to link home loans directly to an independent benchmark like the RBI Repo Rate, ensuring loan rates fall when the central bank cuts rates.",
+      "definitionTechnical": "A monetary policy transmission mechanism mandated by the Reserve Bank of India effective October 1, 2019, requiring all floating-rate personal, retail, and MSME loans issued by commercial banks to be linked to an external benchmark with transparent credit risk spread resets.",
+      "inclusions": [
+        "RBI Policy Repo Rate linkage",
+        "Treasury bill yield linkage",
+        "Three-month reset rule"
+      ],
+      "exclusions": [
+        "Housing Finance Companies (HFCs under prime lending rates)",
+        "Non-bank financial companies"
+      ],
+      "synonyms": [
+        "Repo-linked loan rate",
+        "EBLR",
+        "RLLR"
+      ],
+      "abbreviations": [
+        "EBLR",
+        "RLLR"
+      ],
+      "aliases": [
+        "eblr",
+        "repo-linked-lending-rate"
+      ],
+      "parentConceptIds": [
+        "scheduled-commercial-bank"
+      ],
+      "relatedConceptIds": [
+        "cibil-credit-score",
+        "rbi-mpc-inflation-targeting"
+      ],
+      "prerequisiteConceptIds": [
+        "scheduled-commercial-bank"
+      ],
+      "learningLevel": "intermediate",
+      "jurisdiction": "India / RBI Master Direction",
+      "sources": [
+        "SRC-RBI-MAIN"
+      ],
+      "articleIds": [
+        "home-loan-architecture-eblr-vs-mclr-and-prepayment-mathematics"
+      ],
+      "calculatorIds": [
+        "CALC-PF-006",
+        "CALC-PF-007"
+      ],
+      "commonMisconceptions": "Assuming banks can arbitrarily delay reducing retail loan rates when the RBI cuts repo rates under EBLR, whereas contracts mandate automatic adjustment on the specified reset date.",
+      "spokenFormula": "Borrower loan interest rate equals the external benchmark rate plus a fixed business markup spread plus a borrower-specific credit risk spread.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
+    },
+    {
+      "id": "ppf-statutory-immunity",
+      "canonicalTerm": "Public Provident Fund (PPF) Statutory Immunity",
+      "slug": "ppf-statutory-immunity",
+      "domainId": "gov-small-savings",
+      "definitionPlainEnglish": "A 15-year sovereign savings scheme offering complete tax exemption on interest and statutory legal protection preventing courts or creditors from attaching your balance.",
+      "definitionTechnical": "A statutory small-savings instrument governed by the Government Savings Promotion Act 1873 and Public Provident Fund Scheme 2019 offering Exempt-Exempt-Exempt (EEE) direct tax status, compounded annually, with absolute protection against attachment under any decree or order of a court under Section 15.",
+      "inclusions": [
+        "15-year maturity",
+        "Partial withdrawals after year 7",
+        "Loan against PPF",
+        "EEE tax status",
+        "Statutory immunity from creditors"
+      ],
+      "exclusions": [
+        "Non-Resident Indian (NRI) fresh account openings",
+        "HUF accounts (discontinued)"
+      ],
+      "synonyms": [
+        "PPF scheme",
+        "Public Provident Fund"
+      ],
+      "abbreviations": [
+        "PPF"
+      ],
+      "aliases": [
+        "ppf",
+        "public-provident-fund"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "gopinath-formula-gsec-spread",
+        "eee-tax-status"
+      ],
+      "prerequisiteConceptIds": [
+        "compounding-mathematics"
+      ],
+      "learningLevel": "beginner",
+      "jurisdiction": "India / Ministry of Finance / Dept of Posts",
+      "sources": [
+        "SRC-DEA-MOF",
+        "SRC-DOP-MAIN",
+        "SRC-ITD-PORTAL"
+      ],
+      "articleIds": [
+        "public-provident-fund-architecture-statutory-immunity-and-compounding-rules"
+      ],
+      "calculatorIds": [
+        "CALC-PF-001",
+        "CALC-DEP-005"
+      ],
+      "commonMisconceptions": "Believing that income tax authorities cannot attach a PPF account; while protected from civil creditors and court decrees, tax recovery officers under the Income-tax Act possess specific statutory attachment powers.",
+      "spokenFormula": "Interest calculated on the lowest balance between the close of the fifth day and the end of each month, compounded annually on March 31.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
+    },
+    {
+      "id": "total-expense-ratio-ter",
+      "canonicalTerm": "Mutual Fund Total Expense Ratio (TER)",
+      "slug": "mutual-fund-total-expense-ratio",
+      "domainId": "mutual-funds-pooled",
+      "definitionPlainEnglish": "The annual fee percentage deducted daily from a mutual fund's assets to pay for fund management, marketing, distributor commissions, and administration.",
+      "definitionTechnical": "The annualized measure of operational and management overhead deducted from scheme net assets under SEBI (Mutual Funds) Regulations, capped across tiered AUM slabs, directly lowering the declared daily Net Asset Value.",
+      "inclusions": [
+        "Investment management fees",
+        "Audit fees",
+        "Custodian charges",
+        "Registrar fees",
+        "Distributor commissions (in Regular plans)"
+      ],
+      "exclusions": [
+        "Brokerage and transaction costs capitalized to portfolio securities",
+        "Exit loads"
+      ],
+      "synonyms": [
+        "Expense ratio",
+        "TER",
+        "Fund management fee"
+      ],
+      "abbreviations": [
+        "TER"
+      ],
+      "aliases": [
+        "ter",
+        "total-expense-ratio"
+      ],
+      "parentConceptIds": [
+        "mutual-fund"
+      ],
+      "relatedConceptIds": [
+        "mutual-fund",
+        "net-asset-value-nav"
+      ],
+      "prerequisiteConceptIds": [
+        "mutual-fund"
+      ],
+      "learningLevel": "beginner",
+      "jurisdiction": "India / SEBI Regulations",
+      "sources": [
+        "SRC-SEBI-MAIN",
+        "SRC-AMFI-MAIN"
+      ],
+      "articleIds": [
+        "direct-vs-regular-mutual-funds-long-term-wealth-erosion-mechanics"
+      ],
+      "calculatorIds": [
+        "CALC-MF-003"
+      ],
+      "commonMisconceptions": "Viewing a one percent expense ratio difference between Direct and Regular plans as trivial, ignoring that compounding over twenty-five years erodes twenty to twenty-five percent of terminal portfolio wealth.",
+      "spokenFormula": "Daily expense deducted equals daily scheme net assets multiplied by the annual total expense ratio divided by three hundred and sixty-five.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
+    },
+    {
+      "id": "demat-depository-architecture",
+      "canonicalTerm": "Depository and Demat Architecture",
+      "slug": "depository-and-demat-architecture",
+      "domainId": "equity-markets-listed-securities",
+      "definitionPlainEnglish": "The electronic vault system (NSDL and CDSL) holding Indian stocks, bonds, and mutual funds electronically in a Dematerialized account instead of paper certificates.",
+      "definitionTechnical": "The statutory securities holding infrastructure established under the Depositories Act 1996 where registered depositories act as electronic custodians of listed financial instruments, interfacing with retail investors through licensed Depository Participants (DPs).",
+      "inclusions": [
+        "NSDL",
+        "CDSL",
+        "Depository Participants",
+        "Demat accounts",
+        "Beneficial owner status",
+        "Pledging mechanisms"
+      ],
+      "exclusions": [
+        "Physical paper certificates",
+        "Offshore custodian omnibus accounts"
+      ],
+      "synonyms": [
+        "Demat account",
+        "Depository infrastructure"
+      ],
+      "abbreviations": [
+        "NSDL",
+        "CDSL",
+        "DP"
+      ],
+      "aliases": [
+        "demat",
+        "depository-architecture"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "t-plus-one-settlement",
+        "equity-markets-listed-securities"
+      ],
+      "prerequisiteConceptIds": [],
+      "learningLevel": "beginner",
+      "jurisdiction": "India / Depositories Act 1996 / SEBI",
+      "sources": [
+        "SRC-SEBI-MAIN",
+        "SRC-NSE-MAIN",
+        "SRC-BSE-MAIN"
+      ],
+      "articleIds": [
+        "indian-equity-market-plumbing-depositories-clearing-and-settlement"
+      ],
+      "calculatorIds": [],
+      "commonMisconceptions": "Thinking your stocks are held by your stockbroker, when they are safely held in your name directly in the central depository (NSDL or CDSL), insulated from broker bankruptcy.",
+      "spokenFormula": "Beneficial ownership is tracked electronically on the central depository ledger under a unique 16-digit Demat Account number.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
+    },
+    {
+      "id": "macaulay-modified-duration",
+      "canonicalTerm": "Macaulay and Modified Duration",
+      "slug": "macaulay-and-modified-duration",
+      "domainId": "fixed-income-debt-markets",
+      "definitionPlainEnglish": "A measure of how sensitive a bond's price is to changes in interest rates, showing how much money you will gain or lose when yields shift.",
+      "definitionTechnical": "Macaulay duration measures the cash-flow weighted time in years required to recoup bond principal. Modified duration divides Macaulay duration by one plus periodic yield, quantifying the percentage change in bond price per 100 basis point shift in market yield.",
+      "inclusions": [
+        "Interest rate sensitivity",
+        "Yield curve shifts",
+        "Coupon reinvestment time",
+        "Convexity"
+      ],
+      "exclusions": [
+        "Credit rating default probability"
+      ],
+      "synonyms": [
+        "Bond duration",
+        "Interest rate price risk"
+      ],
+      "abbreviations": [
+        "MD",
+        "MacD"
+      ],
+      "aliases": [
+        "duration",
+        "macaulay-duration",
+        "modified-duration"
+      ],
+      "parentConceptIds": [
+        "government-security-gsec"
+      ],
+      "relatedConceptIds": [
+        "g-sec-yield-curve",
+        "government-security-gsec"
+      ],
+      "prerequisiteConceptIds": [
+        "time-value-of-money"
+      ],
+      "learningLevel": "advanced",
+      "jurisdiction": "Universal / FIMMDA Standards",
+      "sources": [
+        "SRC-RBI-MAIN",
+        "SRC-FIMMDA-MAIN"
+      ],
+      "articleIds": [
+        "duration-convexity-and-yield-curve-dynamics-in-indian-fixed-income"
+      ],
+      "calculatorIds": [
+        "CALC-DEP-003",
+        "CALC-DEP-004"
+      ],
+      "commonMisconceptions": "Confusing bond maturity with bond duration, leading investors to wrongly assume that a 10-year G-Sec has the same price volatility as a 10-year bank fixed deposit.",
+      "spokenFormula": "Modified duration equals Macaulay duration divided by one plus annual yield divided by coupon frequency. Percentage bond price change equals negative modified duration multiplied by yield shift.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
+    },
+    {
+      "id": "section-45-incontestability",
+      "canonicalTerm": "Section 45 Incontestability in Life Insurance",
+      "slug": "section-45-incontestability-life-insurance",
+      "domainId": "insurance-risk-protection",
+      "definitionPlainEnglish": "The legal rule that stops an insurance company from rejecting any life insurance death claim after three years of policy issuance, even alleging fraud or misstatement.",
+      "definitionTechnical": "A strict statutory statute of limitations enacted under Section 45 of the Insurance Act 1938 (substituted by Act 5 of 2015) barring an insurer from calling in question or repudiating any life insurance policy on any ground whatsoever after the expiry of three continuous years from policy issuance, risk commencement, or revival.",
+      "inclusions": [
+        "Three-year absolute bar",
+        "Death claim protection",
+        "Life insurance policies"
+      ],
+      "exclusions": [
+        "Health insurance indemnity policies",
+        "General property insurance"
+      ],
+      "synonyms": [
+        "Three-year repudiation bar",
+        "Section 45 rule"
+      ],
+      "abbreviations": [
+        "Sec 45"
+      ],
+      "aliases": [
+        "section-45",
+        "incontestability-clause"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "mwp-act-policy-trust",
+        "insurance-policy"
+      ],
+      "prerequisiteConceptIds": [],
+      "learningLevel": "beginner",
+      "jurisdiction": "India / Insurance Act 1938",
+      "sources": [
+        "SRC-IRDAI-MAIN",
+        "SRC-INDIA-CODE"
+      ],
+      "articleIds": [
+        "term-life-insurance-underwriting-section-45-and-mwp-act-structuring"
+      ],
+      "calculatorIds": [],
+      "commonMisconceptions": "Fearing that life insurers can unearth obscure medical details to reject genuine death claims after ten years of timely premium payments, which is strictly prohibited by Section 45.",
+      "spokenFormula": "Statutory bar on claim repudiation becomes absolute upon the completion of thirty-six continuous months from policy commencement or revival.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
+    },
+    {
+      "id": "safe-withdrawal-rate-india",
+      "canonicalTerm": "Safe Withdrawal Rate (SWR) under Indian Macroeconomics",
+      "slug": "safe-withdrawal-rate-indian-macroeconomics",
+      "domainId": "retirement-pensions",
+      "definitionPlainEnglish": "The percentage of a retirement corpus you can spend in year one and adjust for inflation each year after, without running out of money before you die.",
+      "definitionTechnical": "A retirement decumulation metric calibrated to domestic inflation and historical return distributions that determines the sustainable initial withdrawal percentage from a multi-asset retirement portfolio over a 30 to 40 year horizon with minimal probability of premature portfolio ruin.",
+      "inclusions": [
+        "Sequence of returns risk",
+        "Domestic inflation adjustment",
+        "Longevity risk",
+        "Corpus depletion modeling"
+      ],
+      "exclusions": [
+        "Fixed unadjusted annuity yields"
+      ],
+      "synonyms": [
+        "SWR",
+        "Sustainable retirement withdrawal"
+      ],
+      "abbreviations": [
+        "SWR"
+      ],
+      "aliases": [
+        "safe-withdrawal-rate",
+        "swr"
+      ],
+      "parentConceptIds": [
+        "financial-independence"
+      ],
+      "relatedConceptIds": [
+        "financial-independence",
+        "inflation-purchasing-power",
+        "retirement-corpus-sizing"
+      ],
+      "prerequisiteConceptIds": [
+        "time-value-of-money",
+        "real-rate-of-return"
+      ],
+      "learningLevel": "advanced",
+      "jurisdiction": "India / Historical Market Modeling",
+      "sources": [
+        "SRC-RBI-MAIN",
+        "SRC-MOSPI-CPI"
+      ],
+      "articleIds": [
+        "retirement-corpus-sizing-and-safe-withdrawal-rates-in-the-indian-economy"
+      ],
+      "calculatorIds": [
+        "CALC-TAX-004",
+        "CALC-MF-005"
+      ],
+      "commonMisconceptions": "Blindly applying the Western 4% rule in India, where structural inflation running at 6% to 8% empirically reduces the truly safe initial withdrawal rate to approximately 3.0% to 3.5%.",
+      "spokenFormula": "Initial year withdrawal equals total retirement corpus multiplied by safe withdrawal rate. Subsequent annual withdrawals increase by the actual prevailing inflation rate.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
+    },
+    {
+      "id": "section-115bac-new-regime",
+      "canonicalTerm": "Section 115BAC New Tax Regime",
+      "slug": "section-115bac-new-tax-regime",
+      "domainId": "indian-taxation",
+      "definitionPlainEnglish": "The default personal income tax system in India featuring lower tax slab rates but removing most traditional deductions like HRA, Section 80C, and home loan interest.",
+      "definitionTechnical": "A simplified personal direct tax architecture introduced under Section 115BAC of the Income-tax Act 1961 that substitutes graduated progressive tax slabs with reduced rates up to 30% while eliminating chapter six-A deductions and section ten exemptions, accompanied by a full tax rebate under Section 87A for taxable incomes up to seven lakh rupees.",
+      "inclusions": [
+        "Standard deduction of ₹75,000",
+        "Section 87A rebate up to ₹7 Lakh",
+        "Employer NPS deduction under Section 80CCD(2)"
+      ],
+      "exclusions": [
+        "Section 80C (PPF, ELSS, EPF)",
+        "Section 80D health insurance",
+        "Section 24(b) housing loan interest on self-occupied property",
+        "HRA exemption"
+      ],
+      "synonyms": [
+        "New Tax Regime",
+        "Concessional tax regime",
+        "115BAC"
+      ],
+      "abbreviations": [
+        "115BAC"
+      ],
+      "aliases": [
+        "new-tax-regime",
+        "section-115bac"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "section-87a-rebate",
+        "tax-deduction-vs-exemption-vs-rebate"
+      ],
+      "prerequisiteConceptIds": [
+        "taxable-income-computation"
+      ],
+      "learningLevel": "beginner",
+      "jurisdiction": "India / Central Direct Tax",
+      "sources": [
+        "SRC-ITD-PORTAL",
+        "SRC-CBDT-MAIN"
+      ],
+      "articleIds": [
+        "new-vs-old-tax-regime-complete-mathematical-crossover-framework"
+      ],
+      "calculatorIds": [
+        "CALC-TAX-001"
+      ],
+      "commonMisconceptions": "Assuming the Old Tax Regime is always better if you have a home loan and 80C, without calculating the exact crossover point where the New Regime's lower slab rates and higher basic exemption yield higher take-home pay.",
+      "spokenFormula": "Tax computed progressively across graduated slabs from zero to 30 percent, reduced by Section 87A rebate for taxable incomes up to seven lakh rupees.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
+    },
+    {
+      "id": "section-269ss-269st-cash-penalties",
+      "canonicalTerm": "Sections 269SS and 269ST Cash Transaction Prohibitions",
+      "slug": "sections-269ss-and-269st-cash-transaction-prohibitions",
+      "domainId": "financial-fraud-scams-shadow-economy",
+      "definitionPlainEnglish": "Income tax laws that strictly ban accepting ₹20,000 or more in cash for property deals and ₹2,00,000 or more in cash in a day, penalizing violators with a 100% fine.",
+      "definitionTechnical": "Statutory provisions in the Income-tax Act 1961 prohibiting accepting cash loans or advances of ₹20,000 or more in relation to immovable property transfers (Section 269SS) and general cash receipts of ₹2,00,000 or more (Section 269ST), enforced with mandatory 100% monetary penalties under Sections 271D and 271DA.",
+      "inclusions": [
+        "Real estate cash advances",
+        "Single-day aggregate cash receipts",
+        "100% monetary penalties"
+      ],
+      "exclusions": [
+        "Government receipts",
+        "Banking company transactions"
+      ],
+      "synonyms": [
+        "Real estate cash limit",
+        "Section 269SS penalty",
+        "Section 269ST limit"
+      ],
+      "abbreviations": [
+        "269SS",
+        "269ST"
+      ],
+      "aliases": [
+        "section-269ss",
+        "section-269st",
+        "cash-transaction-limits"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "section-50c-circle-rate-safe-harbor",
+        "benami-property-confiscation-act"
+      ],
+      "prerequisiteConceptIds": [],
+      "learningLevel": "intermediate",
+      "jurisdiction": "India / Central Direct Tax Enforcement",
+      "sources": [
+        "SRC-CBDT-MAIN",
+        "SRC-ITD-PORTAL"
+      ],
+      "articleIds": [
+        "black-money-in-indian-real-estate-circle-rates-cash-penalties-under-section-269ss-and-benami-laws"
+      ],
+      "calculatorIds": [],
+      "commonMisconceptions": "Thinking you can bypass Section 269ST by collecting ₹1,90,000 in cash over multiple days for the same real estate transaction or event, which directly violates the single-transaction aggregation rule.",
+      "spokenFormula": "Mandatory penalty equal to one hundred percent of the cash amount accepted or received in violation of statutory limits.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
+    },
+    {
+      "id": "section-50c-circle-rate-safe-harbor",
+      "canonicalTerm": "Section 50C Circle Rate Safe Harbor",
+      "slug": "section-50c-circle-rate-safe-harbor",
+      "domainId": "real-estate-property-land",
+      "definitionPlainEnglish": "A tax rule allowing property sale prices to be up to 10% below the government circle rate without triggering artificial capital gains tax penalties on the seller and buyer.",
+      "definitionTechnical": "A statutory safe-harbor tolerance band under Section 50C and Section 56(2)(x) of the Income-tax Act 1961 providing that where the government stamp duty circle rate does not exceed 110% of the declared agreement sale consideration, the actual consideration is accepted for capital gains computation.",
+      "inclusions": [
+        "10% tolerance band",
+        "Circle rate / guidance value comparison",
+        "Departmental Valuation Officer (DVO) reference rights"
+      ],
+      "exclusions": [
+        "Transactions where difference exceeds 10%"
+      ],
+      "synonyms": [
+        "Circle rate safe harbor",
+        "10 percent tolerance band",
+        "Guidance value gap"
+      ],
+      "abbreviations": [
+        "50C",
+        "56(2)(x)"
+      ],
+      "aliases": [
+        "section-50c",
+        "circle-rate-safe-harbor"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "section-269ss-269st-cash-penalties",
+        "capital-gain-stcg-ltcg"
+      ],
+      "prerequisiteConceptIds": [
+        "capital-gain-stcg-ltcg"
+      ],
+      "learningLevel": "intermediate",
+      "jurisdiction": "India / Central Direct Tax & State Registrars",
+      "sources": [
+        "SRC-CBDT-MAIN",
+        "SRC-ITD-PORTAL"
+      ],
+      "articleIds": [
+        "circle-rates-stamp-duty-and-taxation-under-section-50c-and-56-2-x"
+      ],
+      "calculatorIds": [
+        "CALC-TAX-002"
+      ],
+      "commonMisconceptions": "Believing that agreeing on a lower price with the buyer is entirely a private matter; if the gap between agreement value and circle rate exceeds ten percent, the seller is taxed on phantom capital gains and the buyer is taxed on deemed other income.",
+      "spokenFormula": "If circle rate exceeds agreement consideration by more than ten percent, full circle rate is deemed to be the sale value for computing capital gains for the seller and deemed income for the buyer.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
+    },
+    {
+      "id": "benami-property-confiscation-act",
+      "canonicalTerm": "Benami Property Confiscation and Prosecution",
+      "slug": "benami-property-confiscation-and-prosecution",
+      "domainId": "financial-fraud-scams-shadow-economy",
+      "definitionPlainEnglish": "The anti-black-money law that completely seizes properties bought in someone else's name without paying compensation, and sends violators to prison for up to 7 years.",
+      "definitionTechnical": "A stringent penal statute under the Prohibition of Benami Property Transactions Act 1988 (as amended in 2016) that criminalizes holding real estate or financial assets in the name of an intermediary or fictitious person where consideration is paid by another, mandating absolute confiscation by the Central Government without compensation and rigorous imprisonment up to seven years.",
+      "inclusions": [
+        "Absolute asset confiscation without compensation",
+        "Rigorous imprisonment from 1 to 7 years",
+        "Fine up to 25% of fair market value"
+      ],
+      "exclusions": [
+        "Property held by a Karta for a HUF",
+        "Property held in fiduciary capacity for beneficiaries"
+      ],
+      "synonyms": [
+        "Benami law",
+        "Benami confiscation",
+        "PBPT Act 2016"
+      ],
+      "abbreviations": [
+        "PBPT Act"
+      ],
+      "aliases": [
+        "benami",
+        "benami-property-act"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "section-269ss-269st-cash-penalties",
+        "section-50c-circle-rate-safe-harbor"
+      ],
+      "prerequisiteConceptIds": [],
+      "learningLevel": "intermediate",
+      "jurisdiction": "India / Central Criminal & Tax Enforcement",
+      "sources": [
+        "SRC-CBDT-MAIN",
+        "SRC-INDIA-CODE",
+        "SRC-ED-GOV"
+      ],
+      "articleIds": [
+        "black-money-in-indian-real-estate-circle-rates-cash-penalties-under-section-269ss-and-benami-laws"
+      ],
+      "calculatorIds": [],
+      "commonMisconceptions": "Assuming that registering agricultural land or residential flats in the name of a loyal driver, domestic worker, or remote relative protects assets from tax attachments, whereas it guarantees absolute confiscation by the Income Tax Department.",
+      "spokenFormula": "Confiscation vests property absolutely in the Central Government free of all encumbrances, with criminal prosecution under Section 53.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
+    },
+    {
+      "id": "dabba-trading-scra-prohibition",
+      "canonicalTerm": "Dabba Trading (Illegal Off-Exchange Bucket Shops)",
+      "slug": "dabba-trading-illegal-off-exchange-bucket-shops",
+      "domainId": "derivatives-trading",
+      "definitionPlainEnglish": "Illegal underground trading outside the official stock exchanges using cash ledgers, which carries up to 10 years in prison and offers zero investor protection.",
+      "definitionTechnical": "An illegal shadow market bucketing mechanism where operators match equity, commodity, and derivative contracts on private software or physical ledgers outside recognized stock exchanges in direct violation of Sections 13 and 16 of the SCRA 1956, evading Securities Transaction Tax, statutory margin rules, and SEBI oversight.",
+      "inclusions": [
+        "Off-exchange contract bucketing",
+        "Cash settlements",
+        "Criminal penalties under SCRA Section 23"
+      ],
+      "exclusions": [
+        "Regulated exchange-traded futures and options on NSE, BSE, MCX"
+      ],
+      "synonyms": [
+        "Bucket shop trading",
+        "Off-exchange illegal contracts",
+        "Chopa trading"
+      ],
+      "abbreviations": [
+        "SCRA"
+      ],
+      "aliases": [
+        "dabba-trading",
+        "bucket-shops"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "option-greeks-theta-decay",
+        "sebi-fo-retail-loss-findings"
+      ],
+      "prerequisiteConceptIds": [],
+      "learningLevel": "intermediate",
+      "jurisdiction": "India / Securities Contracts (Regulation) Act 1956",
+      "sources": [
+        "SRC-SEBI-MAIN",
+        "SRC-INDIA-CODE"
+      ],
+      "articleIds": [
+        "dabba-trading-bucket-shops-scra-prohibitions-and-shadow-market-risks"
+      ],
+      "calculatorIds": [],
+      "commonMisconceptions": "Believing dabba trading is simply a zero-tax trading trick with high leverage, ignoring that operators frequently default and disappear during major market moves, with zero recourse through SEBI or courts.",
+      "spokenFormula": "Prohibited under SCRA Sections 13 and 16; punishable under Section 23 with imprisonment up to ten years and fine up to twenty-five crore rupees.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
+    },
+    {
+      "id": "option-greeks-theta-decay",
+      "canonicalTerm": "Option Greeks and Theta Time Decay",
+      "slug": "option-greeks-and-theta-time-decay",
+      "domainId": "derivatives-trading",
+      "definitionPlainEnglish": "The mathematical factors (Delta, Gamma, Theta, Vega) measuring how option prices change with stock prices, volatility, and the daily loss of value caused by time passing.",
+      "definitionTechnical": "The partial derivatives of the Black-Scholes-Merton option pricing formula with respect to underlying asset price (Delta), Delta sensitivity (Gamma), passage of time (Theta), implied volatility (Vega), and risk-free interest rates (Rho), governing the non-linear premium decay of weekly and monthly exchange-traded contracts.",
+      "inclusions": [
+        "Theta time decay",
+        "Delta hedge ratio",
+        "Gamma acceleration",
+        "Vega volatility sensitivity",
+        "Implied volatility surface"
+      ],
+      "exclusions": [
+        "Linear cash equity pricing"
+      ],
+      "synonyms": [
+        "Option sensitivity metrics",
+        "Theta decay",
+        "Greeks"
+      ],
+      "abbreviations": [
+        "Delta",
+        "Gamma",
+        "Theta",
+        "Vega"
+      ],
+      "aliases": [
+        "option-greeks",
+        "theta-decay"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "sebi-fo-retail-loss-findings",
+        "dabba-trading-scra-prohibition"
+      ],
+      "prerequisiteConceptIds": [
+        "compounding-mathematics"
+      ],
+      "learningLevel": "advanced",
+      "jurisdiction": "Universal Derivatives Mathematics / NSE / BSE",
+      "sources": [
+        "SRC-SEBI-MAIN",
+        "SRC-NSE-MAIN"
+      ],
+      "articleIds": [
+        "option-pricing-greeks-and-volatility-surface-dynamics-in-indian-markets"
+      ],
+      "calculatorIds": [],
+      "commonMisconceptions": "Thinking that buying out-of-the-money weekly call options is an inexpensive lottery ticket, ignoring that Theta decay accelerates exponentially in the final forty-eight hours before expiry, wiping out option buyers' capital.",
+      "spokenFormula": "Theta measures the rate of decline in option premium per unit of time, becoming increasingly negative as expiration approaches for at-the-money and out-of-the-money options.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
+    },
+    {
+      "id": "capital-gain-stcg-ltcg",
+      "canonicalTerm": "Capital Gains (STCG and LTCG)",
+      "slug": "capital-gains-taxation-stcg-and-ltcg",
+      "domainId": "indian-taxation",
+      "definitionPlainEnglish": "The profit earned when you sell a capital asset like shares, mutual funds, or real estate for more than you paid for it, taxed under special statutory rates.",
+      "definitionTechnical": "The statutory taxable profit arising from the transfer of a capital asset under Section 45 of the Income-tax Act 1961, classified into Short-Term Capital Gains or Long-Term Capital Gains based on asset-specific holding periods (12 months for listed equity, 24 months for real estate and unlisted equity).",
+      "inclusions": [
+        "Section 111A (STCG 20% on listed equity)",
+        "Section 112A (LTCG 12.5% on listed equity beyond ₹1.25 Lakh)",
+        "Section 112 (Property and unlisted equity)"
+      ],
+      "exclusions": [
+        "Ordinary business trading income",
+        "Agricultural land outside municipal limits"
+      ],
+      "synonyms": [
+        "Capital appreciation tax",
+        "STCG",
+        "LTCG"
+      ],
+      "abbreviations": [
+        "STCG",
+        "LTCG"
+      ],
+      "aliases": [
+        "capital-gains",
+        "stcg-ltcg"
+      ],
+      "parentConceptIds": [
+        "taxable-income-computation"
+      ],
+      "relatedConceptIds": [
+        "section-50c-circle-rate-safe-harbor",
+        "section-115bac-new-regime"
+      ],
+      "prerequisiteConceptIds": [
+        "taxable-income-computation"
+      ],
+      "learningLevel": "intermediate",
+      "jurisdiction": "India / Finance (No. 2) Act 2024",
+      "sources": [
+        "SRC-CBDT-MAIN",
+        "SRC-ITD-PORTAL"
+      ],
+      "articleIds": [
+        "capital-gains-taxation-architecture-post-finance-act-2024"
+      ],
+      "calculatorIds": [
+        "CALC-TAX-002"
+      ],
+      "commonMisconceptions": "Believing that capital gains on unlisted pre-IPO shares qualify for the 12.5% listed rate after 12 months, whereas unlisted shares require a 24-month holding period to become long-term.",
+      "spokenFormula": "Capital gain equals full value of sale consideration minus cost of acquisition, minus cost of improvement, minus transfer expenditure.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
     },
     {
       "id": "nominee-vs-legal-heir-jurisprudence",
       "canonicalTerm": "Nominee versus Legal Heir Ownership Jurisprudence",
-      "shortDefinition": "The established Supreme Court doctrine holding that an account or asset nominee serves purely as a fiduciary trustee to receive proceeds, while statutory legal heirs possess true beneficial ownership.",
-      "technicalDefinition": "A foundational judicial principle settled by landmark Supreme Court judgments (including Sarbati Devi v. Usha Devi and Shakti Yezdani v. Jayanand Jayant Salgaonkar) establishing that nomination does not constitute testamentary disposition, and a nominee is merely a receiver holding funds for distribution to legal heirs under personal succession laws, except where specific company share provisions provide otherwise.",
-      "categoryId": "estate-planning-succession",
-      "sources": ["SRC-SC-JUDGMENTS", "SRC-INDIA-CODE"],
-      "relatedConcepts": ["testamentary-will-probate-rules", "hindu-succession-coparcenary"],
-      "synonyms": ["Nominee rights", "Nominee vs legal heir", "Fiduciary trustee doctrine"],
-      "commonMisconceptions": "Assuming that naming someone as bank account or life insurance nominee makes them the sole legal owner of the funds, disinheriting other legal heirs.",
-      "jurisdictionalNotes": "Universal jurisprudence across Indian High Courts and the Supreme Court of India."
+      "slug": "nominee-vs-legal-heir-ownership-jurisprudence",
+      "domainId": "estate-planning-succession",
+      "definitionPlainEnglish": "The established Supreme Court rule that a nominee on a bank account or insurance policy is only a trustee to collect funds, not the actual owner, and must hand the money over to the legal heirs.",
+      "definitionTechnical": "A binding constitutional and civil doctrine settled by the Supreme Court of India (including Sarbati Devi v. Usha Devi and Shakti Yezdani v. Jayanand Jayant Salgaonkar) establishing that nomination does not confer beneficial title or testamentary succession, and a nominee receives proceeds solely as a fiduciary receiver holding funds for distribution to statutory legal heirs under personal succession statutes.",
+      "inclusions": [
+        "Bank deposit nominations",
+        "Life insurance nominations",
+        "Mutual fund nominations",
+        "Fiduciary duties of nominees"
+      ],
+      "exclusions": [
+        "Specific corporate share nominations where Companies Act provisions explicitly override personal succession laws"
+      ],
+      "synonyms": [
+        "Nominee rights",
+        "Nominee vs legal heir",
+        "Fiduciary trustee doctrine"
+      ],
+      "abbreviations": [
+        "SC Precedent"
+      ],
+      "aliases": [
+        "nominee-vs-legal-heir",
+        "nomination-rules"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "testamentary-will-probate-rules",
+        "hindu-succession-coparcenary"
+      ],
+      "prerequisiteConceptIds": [],
+      "learningLevel": "intermediate",
+      "jurisdiction": "India / Supreme Court of India",
+      "sources": [
+        "SRC-SC-JUDGMENTS",
+        "SRC-INDIA-CODE"
+      ],
+      "articleIds": [
+        "nomination-vs-legal-heirship-supreme-court-jurisprudence-and-asset-transmission"
+      ],
+      "calculatorIds": [],
+      "commonMisconceptions": "Assuming that naming your sibling as your bank account nominee legally disinherits your spouse or children, which is completely contradicted by Supreme Court law.",
+      "spokenFormula": "Nominee holds assets in fiduciary capacity for distribution to legal heirs determined by a valid Will or intestate succession statutes.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
     },
     {
-      "id": "account-aggregator-nbfc-aa",
-      "canonicalTerm": "Account Aggregator Ecosystem (NBFC-AA)",
-      "shortDefinition": "The RBI-regulated digital architecture facilitating encrypted, consent-driven sharing of financial information between institutions without storing or viewing customer data.",
-      "technicalDefinition": "A consent-based financial data-sharing intermediary licensed under RBI Master Directions for NBFC-Account Aggregators that acts as a digital conduit between Financial Information Providers (banks, mutual funds) and Financial Information Users (lenders, wealth advisors) using end-to-end encrypted consent artefacts.",
-      "categoryId": "fintech-automation",
-      "sources": ["SRC-RBI-MAIN", "SRC-REBIT-MAIN"],
-      "relatedConcepts": ["ocen-protocol-credit", "financial-api-security"],
-      "synonyms": ["Account Aggregator", "NBFC-AA", "Financial data sharing framework"],
-      "commonMisconceptions": "Fearing that Account Aggregators read or store personal financial statements, when data is encrypted end-to-end and decrypted only by the receiving authorized financial institution.",
-      "jurisdictionalNotes": "Regulated under Reserve Bank of India Non-Banking Financial Company - Account Aggregator (Reserve Bank) Directions 2016."
+      "id": "rbi-mpc-inflation-targeting",
+      "canonicalTerm": "RBI Monetary Policy Committee and Inflation Targeting",
+      "slug": "rbi-monetary-policy-committee-and-inflation-targeting",
+      "domainId": "economics-monetary-history",
+      "definitionPlainEnglish": "The central bank committee that meets every two months to set the benchmark Repo interest rate to keep inflation at 4% while supporting economic growth.",
+      "definitionTechnical": "The statutory six-member committee constituted under Section 45ZB of the Reserve Bank of India Act 1934 tasked with setting the policy repo rate under the Flexible Inflation Targeting (FIT) framework to maintain Consumer Price Index inflation at four percent with a statutory tolerance band of plus or minus two percent.",
+      "inclusions": [
+        "Policy Repo Rate",
+        "Flexible Inflation Targeting",
+        "Standing Deposit Facility",
+        "Marginal Standing Facility",
+        "Liquidity Adjustment Facility"
+      ],
+      "exclusions": [
+        "Fiscal taxation policy (set by Parliament and Ministry of Finance)"
+      ],
+      "synonyms": [
+        "RBI MPC",
+        "Monetary policy",
+        "Repo corridor"
+      ],
+      "abbreviations": [
+        "MPC",
+        "FIT",
+        "LAF"
+      ],
+      "aliases": [
+        "rbi-mpc",
+        "monetary-policy-committee"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "eblr-home-loan-transmission",
+        "inflation-purchasing-power",
+        "g-sec-yield-curve"
+      ],
+      "prerequisiteConceptIds": [
+        "inflation-purchasing-power"
+      ],
+      "learningLevel": "intermediate",
+      "jurisdiction": "India / RBI Act 1934",
+      "sources": [
+        "SRC-RBI-MAIN",
+        "SRC-MOSPI-CPI"
+      ],
+      "articleIds": [
+        "rbi-monetary-policy-transmission-repo-corridor-and-banking-system-liquidity"
+      ],
+      "calculatorIds": [],
+      "commonMisconceptions": "Believing that the RBI directly sets retail home loan interest rates, whereas it sets the wholesale Policy Repo Rate that commercial banks transmit to retail borrowers via EBLR.",
+      "spokenFormula": "Statutory mandate to maintain headline CPI inflation at four percent within a tolerance band of two to six percent.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
+    },
+    {
+      "id": "rbi-integrated-ombudsman",
+      "canonicalTerm": "Reserve Bank - Integrated Ombudsman Scheme (RB-IOS)",
+      "slug": "rbi-integrated-ombudsman-scheme",
+      "domainId": "consumer-protection-grievance",
+      "definitionPlainEnglish": "The free, centralized official grievance portal of the RBI where customers can lodge complaints against banks, NBFCs, and payment apps if their issues are not resolved within 30 days.",
+      "definitionTechnical": "A unified quasi-judicial dispute redressal framework operationalized by the Reserve Bank of India in November 2021 integrating three erstwhile ombudsman schemes, providing free 'One Nation One Ombudsman' redressal with statutory power to award up to thirty lakh rupees for direct financial loss and one lakh rupees for mental harassment.",
+      "inclusions": [
+        "Commercial bank disputes",
+        "NBFC complaints",
+        "Prepaid payment issuer disputes",
+        "Compensation awards up to ₹30 Lakh"
+      ],
+      "exclusions": [
+        "Direct disputes between commercial corporations",
+        "Cases already pending before civil courts"
+      ],
+      "synonyms": [
+        "Banking Ombudsman",
+        "RB-IOS 2021",
+        "RBI CMS"
+      ],
+      "abbreviations": [
+        "RB-IOS",
+        "CMS"
+      ],
+      "aliases": [
+        "rbi-ombudsman",
+        "banking-ombudsman"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "scheduled-commercial-bank",
+        "rbi-zero-liability-rule"
+      ],
+      "prerequisiteConceptIds": [
+        "scheduled-commercial-bank"
+      ],
+      "learningLevel": "beginner",
+      "jurisdiction": "India / RBI Pan-India Scheme",
+      "sources": [
+        "SRC-RBI-CMS",
+        "SRC-RBI-MAIN"
+      ],
+      "articleIds": [
+        "rbi-integrated-ombudsman-scheme-complete-escalation-and-compensation-guide"
+      ],
+      "calculatorIds": [],
+      "commonMisconceptions": "Filing an ombudsman complaint on day one of a dispute, without waiting the mandatory 30-day resolution window for the regulated entity's internal grievance officer.",
+      "spokenFormula": "Escalation permitted after thirty days of initial bank complaint if unresolved or rejected, with compensation awarded up to statutory ceilings.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
     },
     {
       "id": "lrs-tcs-section-206c",
       "canonicalTerm": "Liberalised Remittance Scheme and Section 206C(1G) TCS",
-      "shortDefinition": "The RBI framework allowing resident individuals to remit up to $250,000 per financial year overseas, subject to Tax Collected at Source (TCS) up to 20% beyond statutory thresholds.",
-      "technicalDefinition": "A foreign exchange facility under the Foreign Exchange Management Act 1999 authorizing Indian resident individuals to remit foreign exchange for permitted capital and current account transactions up to two hundred fifty thousand US dollars per financial year, coupled with mandatory TCS collected by authorized dealer banks under Section 206C(1G) of the Income-tax Act.",
-      "categoryId": "international-cross-border-finance",
-      "sources": ["SRC-RBI-MAIN", "SRC-ITD-PORTAL"],
-      "relatedConcepts": ["schedule-fa-foreign-asset-disclosure", "dtaa-foreign-tax-credit-form-67"],
-      "synonyms": ["LRS limit", "20 percent TCS on foreign remittance", "Section 206C(1G)"],
-      "commonMisconceptions": "Viewing 20% TCS as an additional permanent tax, when it is an advance tax withholding that can be fully adjusted against domestic income tax liabilities or claimed as a refund in the annual ITR.",
-      "jurisdictionalNotes": "Jointly administered by the Reserve Bank of India (FEMA limits) and Income Tax Department (TCS collection)."
-    },
-    {
-      "id": "human-capital-valuation",
-      "canonicalTerm": "Human Capital Valuation",
-      "shortDefinition": "The present discounted financial value of an individual's lifetime future earning capacity from professional skills, employment, and business labor.",
-      "technicalDefinition": "The net present value of expected future labor earnings discounted by an appropriate risk-adjusted rate factoring in career longevity, real wage growth, technological disruption risk, and mortality or disability probabilities, serving as the economic rationale for term life insurance sizing.",
-      "categoryId": "career-income-capital",
-      "sources": ["SRC-ITD-PORTAL", "SRC-MOSPI-CPI"],
-      "relatedConcepts": ["salary-structuring-optimization", "time-value-of-money"],
-      "synonyms": ["Earning capacity valuation", "Human economic asset", "Lifetime income value"],
-      "commonMisconceptions": "Treating career earnings as fixed and focusing exclusively on investment portfolio returns, ignoring that an early-career software engineer's primary financial asset is their human capital.",
-      "jurisdictionalNotes": "Universal economic concept, calibrated to Indian corporate compensation trends and professional earning tenures."
+      "slug": "lrs-and-section-206c-tcs",
+      "domainId": "international-cross-border-finance",
+      "definitionPlainEnglish": "The foreign exchange rule allowing resident Indians to send up to $250,000 abroad per year, with authorized banks collecting up to 20% Tax Collected at Source on overseas investments.",
+      "definitionTechnical": "A foreign exchange facility under the Foreign Exchange Management Act 1999 authorizing Indian resident individuals to remit foreign exchange for permitted capital and current account transactions up to two hundred fifty thousand US dollars per financial year, coupled with mandatory TCS collected by authorized dealer banks under Section 206C(1G) of the Income-tax Act.",
+      "inclusions": [
+        "$250,000 annual remittance ceiling",
+        "20% TCS on overseas portfolio investing",
+        "Form 26AS/AIS tax credit reflection"
+      ],
+      "exclusions": [
+        "Remittances for prohibited lottery or betting transactions",
+        "Corporate commercial investments under ODI rules"
+      ],
+      "synonyms": [
+        "LRS ceiling",
+        "20 percent TCS on remittance",
+        "Overseas remittance limits"
+      ],
+      "abbreviations": [
+        "LRS",
+        "TCS"
+      ],
+      "aliases": [
+        "lrs",
+        "liberalised-remittance-scheme"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "schedule-fa-foreign-asset-disclosure",
+        "dtaa-foreign-tax-credit-form-67"
+      ],
+      "prerequisiteConceptIds": [],
+      "learningLevel": "intermediate",
+      "jurisdiction": "India / RBI FEMA & Income Tax Department",
+      "sources": [
+        "SRC-RBI-MAIN",
+        "SRC-ITD-PORTAL"
+      ],
+      "articleIds": [
+        "lrs-and-overseas-investing-fema-regulations-tcs-deduction-and-remittance-mechanics"
+      ],
+      "calculatorIds": [],
+      "commonMisconceptions": "Viewing the 20% TCS as a dead financial loss or permanent extra tax, whereas it is an advance tax withholding that can be completely adjusted against domestic advance tax liabilities or claimed as a refund in the annual ITR.",
+      "spokenFormula": "Authorized dealer bank collects twenty percent TCS on remittances exceeding statutory thresholds, credited against the taxpayer's PAN in Form 26AS.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
     },
     {
       "id": "spoken-audio-math-prose",
       "canonicalTerm": "Audio-Native Financial Mathematical Prose",
-      "shortDefinition": "The structured pedagogical transcription of complex quantitative equations into continuous, natural spoken paragraph prose designed for auditory comprehension.",
-      "technicalDefinition": "An information architecture standard for educational texts where mathematical relationships, compounding models, discount factors, and statutory calculations are articulated through complete, flowing spoken English sentences rather than isolated symbolic LaTeX or ASCII equation blocks, enabling effortless listening via text-to-speech engines and audiobooks.",
-      "categoryId": "financial-education-decision-tools",
-      "sources": ["SRC-RBI-MAIN", "SRC-SEBI-MAIN"],
-      "relatedConcepts": ["buy-vs-rent-indian-decision-tree", "time-value-of-money"],
-      "synonyms": ["Audio math transcription", "TTS financial prose", "Narrative mathematics"],
+      "slug": "audio-native-financial-mathematical-prose",
+      "domainId": "financial-education-decision-tools",
+      "definitionPlainEnglish": "The writing standard of explaining complex math and financial formulas in complete, natural spoken sentences so audiobooks and text-to-speech tools can be easily understood.",
+      "definitionTechnical": "A pedagogical information architecture standard where mathematical formulas, compounding models, discount factors, and statutory calculations are articulated through complete, flowing spoken English sentences rather than isolated symbolic LaTeX or ASCII equation blocks, enabling effortless listening via text-to-speech engines and audiobooks.",
+      "inclusions": [
+        "Spoken formula transcription",
+        "Narrative mathematical steps",
+        "Audiobook-native paragraph rhythm"
+      ],
+      "exclusions": [
+        "Raw un-narrated LaTeX blocks",
+        "Visual-only tables without prose narration"
+      ],
+      "synonyms": [
+        "Audio math transcription",
+        "TTS financial prose",
+        "Narrative mathematics"
+      ],
+      "abbreviations": [
+        "TTS Prose"
+      ],
+      "aliases": [
+        "spoken-math",
+        "audio-prose"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "time-value-of-money",
+        "compounding-mathematics"
+      ],
+      "prerequisiteConceptIds": [],
+      "learningLevel": "foundation",
+      "jurisdiction": "Dhanpedia Editorial Standard",
+      "sources": [
+        "SRC-RBI-MAIN",
+        "SRC-SEBI-MAIN"
+      ],
+      "articleIds": [
+        "audio-native-financial-mathematics-transcribing-formulas-for-listening-comprehension"
+      ],
+      "calculatorIds": [],
       "commonMisconceptions": "Assuming that rigorous financial mathematics can only be communicated through visual equation notations, when spoken conceptual explanations actually enhance fundamental analytical comprehension.",
-      "jurisdictionalNotes": "Core architectural standard for the Dhanpedia India knowledge base and audiobook production."
+      "spokenFormula": "Every mathematical symbol and step must be voiced through clear, spoken narrative English.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
+    },
+    {
+      "id": "asset",
+      "canonicalTerm": "Asset",
+      "slug": "asset",
+      "domainId": "pf-foundations",
+      "definitionPlainEnglish": "A resource of economic value that an individual or corporation owns or controls with the expectation that it will provide a future benefit, cash inflow, or capital appreciation.",
+      "definitionTechnical": "A probable future economic benefit obtained or controlled by a particular entity as a result of past transactions or events, categorized into financial, physical, or intangible claims.",
+      "inclusions": [
+        "Cash",
+        "Equities",
+        "Real estate",
+        "Bonds",
+        "Mutual fund units"
+      ],
+      "exclusions": [
+        "Personal consumption items that depreciate rapidly to zero value without resale value"
+      ],
+      "synonyms": [
+        "Economic resource",
+        "Wealth holding"
+      ],
+      "abbreviations": [],
+      "aliases": [
+        "asset",
+        "economic-asset"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "liability",
+        "net-worth"
+      ],
+      "prerequisiteConceptIds": [],
+      "learningLevel": "foundation",
+      "jurisdiction": "Universal",
+      "sources": [
+        "SRC-RBI-MAIN"
+      ],
+      "articleIds": [
+        "personal-balance-sheet-and-cashflow-architecture"
+      ],
+      "calculatorIds": [
+        "CALC-PF-004"
+      ],
+      "commonMisconceptions": "Classifying leased liabilities or consumer vehicles with heavy depreciating maintenance as productive financial assets.",
+      "spokenFormula": "Assets equal liabilities plus owner equity.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
+    },
+    {
+      "id": "liability",
+      "canonicalTerm": "Liability",
+      "slug": "liability",
+      "domainId": "credit-borrowing",
+      "definitionPlainEnglish": "A legal financial debt or obligation arising during the course of business or personal living that must be settled over time through the transfer of economic benefits like money or goods.",
+      "definitionTechnical": "A present obligation of the entity arising from past events, the settlement of which is expected to result in an outflow of resources embodying economic benefits.",
+      "inclusions": [
+        "Home loans",
+        "Personal loans",
+        "Credit card balances",
+        "Accounts payable"
+      ],
+      "exclusions": [
+        "Contingent moral obligations not backed by contractual or statutory claims"
+      ],
+      "synonyms": [
+        "Debt obligation",
+        "Payable liability"
+      ],
+      "abbreviations": [],
+      "aliases": [
+        "liability",
+        "debt-liability"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "asset",
+        "net-worth"
+      ],
+      "prerequisiteConceptIds": [],
+      "learningLevel": "foundation",
+      "jurisdiction": "Universal / Indian Legal Framework",
+      "sources": [
+        "SRC-RBI-MAIN"
+      ],
+      "articleIds": [
+        "credit-score-mechanics-cibil-repair-and-loan-pricing-india"
+      ],
+      "calculatorIds": [
+        "CALC-LOAN-001"
+      ],
+      "commonMisconceptions": "Ignoring non-interest bearing liabilities like deferred payments or family obligations when sizing balance sheet solvency.",
+      "spokenFormula": "Liabilities equal assets minus net worth.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
+    },
+    {
+      "id": "equity",
+      "canonicalTerm": "Equity",
+      "slug": "equity",
+      "domainId": "equity-markets-listed-securities",
+      "definitionPlainEnglish": "The value that would be returned to a company's shareholders if all the assets were liquidated and all the company's debts were paid off.",
+      "definitionTechnical": "The residual interest in the assets of an enterprise after deducting all its liabilities, representing ownership shares in a corporate joint stock entity.",
+      "inclusions": [
+        "Common equity shares",
+        "Retained earnings",
+        "Additional paid-in capital"
+      ],
+      "exclusions": [
+        "Senior debt",
+        "Mezzanine debt with fixed creditor claims"
+      ],
+      "synonyms": [
+        "Shareholders fund",
+        "Net assets",
+        "Stock equity"
+      ],
+      "abbreviations": [
+        "EQ"
+      ],
+      "aliases": [
+        "equity",
+        "stock-equity"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "asset",
+        "liability",
+        "debt-security"
+      ],
+      "prerequisiteConceptIds": [
+        "asset",
+        "liability"
+      ],
+      "learningLevel": "intermediate",
+      "jurisdiction": "Companies Act 2013 / SEBI Regulations",
+      "sources": [
+        "SRC-SEBI-MAIN",
+        "SRC-MCA-MAIN"
+      ],
+      "articleIds": [
+        "equity-valuation-methodologies-dcf-pe-and-roic-india"
+      ],
+      "calculatorIds": [
+        "CALC-EQ-001"
+      ],
+      "commonMisconceptions": "Believing equity ownership guarantees regular dividend payouts or capital protection.",
+      "spokenFormula": "Equity equals total assets minus total liabilities.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
+    },
+    {
+      "id": "debt-security",
+      "canonicalTerm": "Debt Security",
+      "slug": "debt-security",
+      "domainId": "fixed-income-debt-markets",
+      "definitionPlainEnglish": "A financial instrument that defines a contractual loan agreement between a borrower and a lender, where the borrower promises to repay principal with periodic interest.",
+      "definitionTechnical": "A negotiable financial contract representing a creditor relationship with an issuer, conferring entitlement to coupon interest and redemption of face value at maturity without ownership voting rights.",
+      "inclusions": [
+        "Government securities",
+        "Treasury bills",
+        "Corporate bonds",
+        "Non-convertible debentures"
+      ],
+      "exclusions": [
+        "Equity shares",
+        "Commodity derivatives"
+      ],
+      "synonyms": [
+        "Fixed income instrument",
+        "Debenture",
+        "Bond"
+      ],
+      "abbreviations": [
+        "NCD",
+        "G-Sec"
+      ],
+      "aliases": [
+        "debt-security",
+        "fixed-income-security"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "equity",
+        "macaulay-modified-duration"
+      ],
+      "prerequisiteConceptIds": [
+        "time-value-of-money"
+      ],
+      "learningLevel": "intermediate",
+      "jurisdiction": "Reserve Bank of India / SEBI NCS Regulations",
+      "sources": [
+        "SRC-RBI-MAIN",
+        "SRC-SEBI-MAIN"
+      ],
+      "articleIds": [
+        "sovereign-and-corporate-bond-investing-india"
+      ],
+      "calculatorIds": [
+        "CALC-FI-001"
+      ],
+      "commonMisconceptions": "Assuming debt instruments are completely immune to capital loss, ignoring interest rate duration risk and credit default haircuts.",
+      "spokenFormula": "Bond price equals the sum of discounted future coupon cashflows plus discounted par value.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
+    },
+    {
+      "id": "diversification",
+      "canonicalTerm": "Portfolio Diversification",
+      "slug": "portfolio-diversification",
+      "domainId": "portfolio-management-quant",
+      "definitionPlainEnglish": "The practice of spreading investments across various financial instruments, industries, and asset classes to reduce exposure to any single risk.",
+      "definitionTechnical": "A risk management strategy that mixes a wide variety of investments within a portfolio having correlations less than positive one, thereby minimizing non-systematic idiosyncratic variance without reducing expected return.",
+      "inclusions": [
+        "Cross-asset allocation (equity, debt, gold, real estate)",
+        "Geographical diversification"
+      ],
+      "exclusions": [
+        "Holding thirty mutual funds that all invest in identical large-cap Indian stocks (diworsification)"
+      ],
+      "synonyms": [
+        "Risk spreading",
+        "Asset dispersion"
+      ],
+      "abbreviations": [],
+      "aliases": [
+        "diversification",
+        "portfolio-diversification"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "asset",
+        "equity",
+        "debt-security"
+      ],
+      "prerequisiteConceptIds": [
+        "time-value-of-money"
+      ],
+      "learningLevel": "beginner",
+      "jurisdiction": "Modern Portfolio Theory / SEBI Portfolio Management",
+      "sources": [
+        "SRC-SEBI-MAIN"
+      ],
+      "articleIds": [
+        "portfolio-construction-and-asset-allocation-frameworks-india"
+      ],
+      "calculatorIds": [
+        "CALC-PORT-001"
+      ],
+      "commonMisconceptions": "Believing that holding multiple mutual fund schemes investing in the same top 50 Nifty companies constitutes true diversification.",
+      "spokenFormula": "Portfolio variance is a function of asset weights, individual variances, and pair-wise covariance terms.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
+    },
+    {
+      "id": "revenue",
+      "canonicalTerm": "Revenue",
+      "slug": "revenue",
+      "domainId": "entrepreneurship-business-finance",
+      "definitionPlainEnglish": "The total amount of money brought in by a company's operations, measured over a set amount of time before any expenses are subtracted.",
+      "definitionTechnical": "The gross inflow of economic benefits during the period arising in the course of ordinary activities of an entity when those inflows result in increases in equity, other than increases relating to contributions from equity participants.",
+      "inclusions": [
+        "Sales turnover",
+        "Operating service fees",
+        "Subscription billings"
+      ],
+      "exclusions": [
+        "Proceeds from bank loans",
+        "Capital injections from share issues"
+      ],
+      "synonyms": [
+        "Gross sales",
+        "Top line turnover"
+      ],
+      "abbreviations": [
+        "Rev"
+      ],
+      "aliases": [
+        "revenue",
+        "top-line-revenue"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "operating-profit",
+        "net-income"
+      ],
+      "prerequisiteConceptIds": [],
+      "learningLevel": "beginner",
+      "jurisdiction": "Ind AS 115 / Companies Act 2013",
+      "sources": [
+        "SRC-MCA-MAIN"
+      ],
+      "articleIds": [
+        "business-finance-working-capital-and-msme-credit-india"
+      ],
+      "calculatorIds": [
+        "CALC-BUS-001"
+      ],
+      "commonMisconceptions": "Confusing high top-line revenue with profitability; high revenue accompanied by higher costs results in negative cashflow.",
+      "spokenFormula": "Revenue equals units sold multiplied by unit selling price.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
+    },
+    {
+      "id": "operating-profit",
+      "canonicalTerm": "Operating Profit",
+      "slug": "operating-profit",
+      "domainId": "entrepreneurship-business-finance",
+      "definitionPlainEnglish": "The total earnings a company generates from its core business operations, excluding deductions of interest and taxes.",
+      "definitionTechnical": "Earnings before interest and taxes (EBIT) derived by deducting cost of goods sold and operating operating expenses from gross operating revenue.",
+      "inclusions": [
+        "Gross profit minus selling, general, and administrative expenses",
+        "Depreciation of operating assets"
+      ],
+      "exclusions": [
+        "Non-operating investment income",
+        "Interest expense",
+        "Income tax provision"
+      ],
+      "synonyms": [
+        "EBIT",
+        "Core operating earnings"
+      ],
+      "abbreviations": [
+        "EBIT"
+      ],
+      "aliases": [
+        "operating-profit",
+        "ebit"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "revenue",
+        "net-income"
+      ],
+      "prerequisiteConceptIds": [
+        "revenue"
+      ],
+      "learningLevel": "intermediate",
+      "jurisdiction": "Ind AS 1 / Companies Act 2013",
+      "sources": [
+        "SRC-MCA-MAIN"
+      ],
+      "articleIds": [
+        "equity-valuation-methodologies-dcf-pe-and-roic-india"
+      ],
+      "calculatorIds": [
+        "CALC-EQ-002"
+      ],
+      "commonMisconceptions": "Believing operating profit is identical to cash generated; operating profit includes accrued credit sales not yet collected in cash.",
+      "spokenFormula": "Operating profit equals gross revenue minus operating expenses and depreciation.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
+    },
+    {
+      "id": "net-income",
+      "canonicalTerm": "Net Income",
+      "slug": "net-income",
+      "domainId": "entrepreneurship-business-finance",
+      "definitionPlainEnglish": "The actual bottom-line profit a company retains after all costs, expenses, interest obligations, depreciation, and taxes have been subtracted from total revenue.",
+      "definitionTechnical": "The residual accounting surplus attributable to ordinary shareholders after deducting cost of sales, operating costs, financing interest charges, non-operating items, and statutory corporate income taxes.",
+      "inclusions": [
+        "Profit after tax (PAT)",
+        "Earnings attributable to parent equity"
+      ],
+      "exclusions": [
+        "Dividends paid to shareholders",
+        "Unrealized other comprehensive income items"
+      ],
+      "synonyms": [
+        "Profit after tax",
+        "Bottom line earnings",
+        "PAT"
+      ],
+      "abbreviations": [
+        "PAT",
+        "NI"
+      ],
+      "aliases": [
+        "net-income",
+        "profit-after-tax"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "revenue",
+        "operating-profit"
+      ],
+      "prerequisiteConceptIds": [
+        "operating-profit"
+      ],
+      "learningLevel": "intermediate",
+      "jurisdiction": "Companies Act 2013 Schedule III",
+      "sources": [
+        "SRC-MCA-MAIN"
+      ],
+      "articleIds": [
+        "equity-valuation-methodologies-dcf-pe-and-roic-india"
+      ],
+      "calculatorIds": [
+        "CALC-EQ-001"
+      ],
+      "commonMisconceptions": "Assuming net income in the profit and loss statement equals liquid cash sitting in the corporate bank account.",
+      "spokenFormula": "Net income equals operating profit minus interest expense and income taxes.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
+    },
+    {
+      "id": "free-cash-flow",
+      "canonicalTerm": "Free Cash Flow",
+      "slug": "free-cash-flow",
+      "domainId": "equity-markets-listed-securities",
+      "definitionPlainEnglish": "The real cash a company generates that is available to be paid out to investors or used to expand the business after paying for operating costs and investments in physical assets.",
+      "definitionTechnical": "Cash flow from operations minus capital expenditures necessary to maintain or expand the company's productive asset base, representing true unencumbered cash generation.",
+      "inclusions": [
+        "Operating cash inflows",
+        "Working capital releases"
+      ],
+      "exclusions": [
+        "Accounting accruals",
+        "Non-cash depreciation charges",
+        "Mandatory capital expenditures"
+      ],
+      "synonyms": [
+        "FCF",
+        "Free cash flow to firm",
+        "Owner earnings"
+      ],
+      "abbreviations": [
+        "FCF",
+        "FCFF"
+      ],
+      "aliases": [
+        "free-cash-flow",
+        "fcff"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "net-income",
+        "operating-profit"
+      ],
+      "prerequisiteConceptIds": [
+        "operating-profit"
+      ],
+      "learningLevel": "advanced",
+      "jurisdiction": "Financial Valuation / Corporate Finance Standards",
+      "sources": [
+        "SRC-MCA-MAIN",
+        "SRC-SEBI-MAIN"
+      ],
+      "articleIds": [
+        "equity-valuation-methodologies-dcf-pe-and-roic-india"
+      ],
+      "calculatorIds": [
+        "CALC-EQ-002"
+      ],
+      "commonMisconceptions": "Believing high reported accounting earnings always translate to positive free cash flow; aggressive working capital expansion can drain cash despite rising PAT.",
+      "spokenFormula": "Free cash flow equals operating cash flow minus capital expenditures.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
+    },
+    {
+      "id": "working-capital",
+      "canonicalTerm": "Working Capital",
+      "slug": "working-capital",
+      "domainId": "entrepreneurship-business-finance",
+      "definitionPlainEnglish": "The money a business uses in its day-to-day operations, calculated as current operational assets minus current operational liabilities.",
+      "definitionTechnical": "Net working capital represents operating current assets (inventory, trade receivables, and cash) minus operating current liabilities (trade payables and short-term operational provisions).",
+      "inclusions": [
+        "Raw material inventory",
+        "Finished goods",
+        "Trade debtors",
+        "Trade creditors"
+      ],
+      "exclusions": [
+        "Long-term plant equipment",
+        "Long-term bank borrowings"
+      ],
+      "synonyms": [
+        "NWC",
+        "Operating liquidity"
+      ],
+      "abbreviations": [
+        "NWC"
+      ],
+      "aliases": [
+        "working-capital",
+        "net-working-capital"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "cash-flow",
+        "free-cash-flow"
+      ],
+      "prerequisiteConceptIds": [
+        "asset",
+        "liability"
+      ],
+      "learningLevel": "intermediate",
+      "jurisdiction": "Companies Act 2013 / MSME Framework",
+      "sources": [
+        "SRC-MCA-MAIN"
+      ],
+      "articleIds": [
+        "business-finance-working-capital-and-msme-credit-india"
+      ],
+      "calculatorIds": [
+        "CALC-BUS-001"
+      ],
+      "commonMisconceptions": "Assuming that higher working capital is always superior; an excessively large working capital buffer often signals bloated unsold inventory or uncollected delinquent debtors.",
+      "spokenFormula": "Working capital equals current assets minus current liabilities.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
+    },
+    {
+      "id": "enterprise-value",
+      "canonicalTerm": "Enterprise Value",
+      "slug": "enterprise-value",
+      "domainId": "equity-markets-listed-securities",
+      "definitionPlainEnglish": "The total theoretical takeover price of a company, including its equity market capitalization plus debt obligations minus its cash reserves.",
+      "definitionTechnical": "A comprehensive measure of a company's total value, calculated as market capitalization plus preferred equity, minority interest, and total debt, minus cash and cash equivalents.",
+      "inclusions": [
+        "Common equity market cap",
+        "Short-term debt",
+        "Long-term debt",
+        "Cash offset"
+      ],
+      "exclusions": [
+        "Personal assets of promoter shareholders not owned by the corporate entity"
+      ],
+      "synonyms": [
+        "EV",
+        "Total enterprise valuation",
+        "Takeover value"
+      ],
+      "abbreviations": [
+        "EV"
+      ],
+      "aliases": [
+        "enterprise-value",
+        "ev"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "equity",
+        "debt-security"
+      ],
+      "prerequisiteConceptIds": [
+        "equity",
+        "debt-security"
+      ],
+      "learningLevel": "advanced",
+      "jurisdiction": "SEBI SAST Regulations / Global Valuation Standards",
+      "sources": [
+        "SRC-SEBI-MAIN"
+      ],
+      "articleIds": [
+        "equity-valuation-methodologies-dcf-pe-and-roic-india"
+      ],
+      "calculatorIds": [
+        "CALC-EQ-001"
+      ],
+      "commonMisconceptions": "Equating market capitalization with total enterprise purchase cost; buying a company requires assuming its existing debt liabilities.",
+      "spokenFormula": "Enterprise value equals market capitalization plus total debt minus cash and cash equivalents.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
+    },
+    {
+      "id": "asset-management-company",
+      "canonicalTerm": "Asset Management Company",
+      "slug": "asset-management-company",
+      "domainId": "mutual-funds-pooled",
+      "definitionPlainEnglish": "A SEBI-registered corporate entity appointed by mutual fund trustees to manage investor capital by making strategic investment decisions in securities.",
+      "definitionTechnical": "An investment management company registered under the SEBI (Mutual Funds) Regulations 1996, holding a fiduciary mandate to originate, manage, and execute portfolio strategies on behalf of mutual fund unit-holders.",
+      "inclusions": [
+        "Fund managers",
+        "Research analysts",
+        "Compliance teams",
+        "Investment committees"
+      ],
+      "exclusions": [
+        "Independent mutual fund trustees holding legal title to investor assets"
+      ],
+      "synonyms": [
+        "AMC",
+        "Mutual fund fund-house",
+        "Investment manager"
+      ],
+      "abbreviations": [
+        "AMC"
+      ],
+      "aliases": [
+        "asset-management-company",
+        "amc"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "total-expense-ratio-ter"
+      ],
+      "prerequisiteConceptIds": [],
+      "learningLevel": "beginner",
+      "jurisdiction": "SEBI (Mutual Funds) Regulations 1996",
+      "sources": [
+        "SRC-SEBI-MAIN",
+        "SRC-AMFI-MAIN"
+      ],
+      "articleIds": [
+        "mutual-fund-mechanics-ter-and-portfolio-tracking-india"
+      ],
+      "calculatorIds": [
+        "CALC-MF-001"
+      ],
+      "commonMisconceptions": "Assuming the AMC owns the investor's mutual fund units; the assets belong to the mutual fund trust and are safeguarded by custodians separate from AMC operational solvency.",
+      "spokenFormula": "Management fees are deducted daily from aggregate trust assets within statutory TER limits.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
+    },
+    {
+      "id": "net-asset-value",
+      "canonicalTerm": "Net Asset Value",
+      "slug": "net-asset-value",
+      "domainId": "mutual-funds-pooled",
+      "definitionPlainEnglish": "The price of a single unit of a mutual fund scheme, calculated at the end of each trading day based on the total value of its underlying investments minus expenses.",
+      "definitionTechnical": "The per-unit market value of a mutual fund portfolio calculated by dividing total assets minus accrued management expenses and liabilities by the total number of outstanding scheme units.",
+      "inclusions": [
+        "Mark-to-market security values",
+        "Accrued interest",
+        "Accrued dividend receivables"
+      ],
+      "exclusions": [
+        "Historical initial purchase costs of held securities"
+      ],
+      "synonyms": [
+        "NAV",
+        "Per-unit scheme value"
+      ],
+      "abbreviations": [
+        "NAV"
+      ],
+      "aliases": [
+        "net-asset-value",
+        "nav"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "total-expense-ratio-ter",
+        "asset-management-company"
+      ],
+      "prerequisiteConceptIds": [
+        "asset-management-company"
+      ],
+      "learningLevel": "beginner",
+      "jurisdiction": "SEBI (Mutual Funds) Regulations 1996",
+      "sources": [
+        "SRC-SEBI-MAIN",
+        "SRC-AMFI-MAIN"
+      ],
+      "articleIds": [
+        "mutual-fund-mechanics-ter-and-portfolio-tracking-india"
+      ],
+      "calculatorIds": [
+        "CALC-MF-001"
+      ],
+      "commonMisconceptions": "Believing that a mutual fund with a ₹10 NAV is cheaper or offers higher upside potential than an identical fund with a ₹200 NAV.",
+      "spokenFormula": "Net asset value per unit equals total market value of assets minus liabilities, divided by outstanding units.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
+    },
+    {
+      "id": "credit-information-company",
+      "canonicalTerm": "Credit Information Company",
+      "slug": "credit-information-company",
+      "domainId": "credit-borrowing",
+      "definitionPlainEnglish": "A specialized agency licensed by the Reserve Bank of India to collect and maintain records of individuals' and businesses' borrowing and repayment histories.",
+      "definitionTechnical": "A specialized data repository licensed under the Credit Information Companies (Regulation) Act 2005 (CICRA) mandated to compile credit histories, issue credit scores, and transmit credit intelligence to specified users.",
+      "inclusions": [
+        "CIBIL",
+        "Experian India",
+        "Equifax India",
+        "CRIF High Mark"
+      ],
+      "exclusions": [
+        "Debt recovery agencies",
+        "Unlicensed fintech scoring platforms"
+      ],
+      "synonyms": [
+        "Credit bureau",
+        "Credit rating agency for individuals",
+        "CIC"
+      ],
+      "abbreviations": [
+        "CIC"
+      ],
+      "aliases": [
+        "credit-information-company",
+        "credit-bureau"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "cibil-credit-score",
+        "liability"
+      ],
+      "prerequisiteConceptIds": [
+        "cibil-credit-score"
+      ],
+      "learningLevel": "beginner",
+      "jurisdiction": "CICRA 2005 / Reserve Bank of India",
+      "sources": [
+        "SRC-RBI-MAIN"
+      ],
+      "articleIds": [
+        "credit-score-mechanics-cibil-repair-and-loan-pricing-india"
+      ],
+      "calculatorIds": [
+        "CALC-LOAN-001"
+      ],
+      "commonMisconceptions": "Believing that a Credit Information Company makes lending decisions; bureaus solely supply historical credit reports, while approval rests with bank underwriting algorithms.",
+      "spokenFormula": "Credit scores range from three hundred to nine hundred based on payment history, utilization, and tenure.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
+    },
+    {
+      "id": "financial-year-vs-assessment-year",
+      "canonicalTerm": "Financial Year vs Assessment Year",
+      "slug": "financial-year-vs-assessment-year",
+      "domainId": "indian-taxation",
+      "definitionPlainEnglish": "The critical tax distinction between the twelve-month period in which income is earned versus the following twelve-month period in which that income is evaluated and taxed.",
+      "definitionTechnical": "Financial Year (FY) represents the previous year under Section 3 of the Income-tax Act 1961 during which income is accrued or received; Assessment Year (AY) is the succeeding twelve-month cycle beginning April 1 during which that income is formally assessed and returns are processed.",
+      "inclusions": [
+        "FY 2024-25 corresponds to AY 2025-26",
+        "Advance tax payment cycles"
+      ],
+      "exclusions": [
+        "Calendar years (January to December) for Indian income tax computations"
+      ],
+      "synonyms": [
+        "Previous year vs Assessment year",
+        "FY vs AY"
+      ],
+      "abbreviations": [
+        "FY",
+        "AY"
+      ],
+      "aliases": [
+        "financial-year-vs-assessment-year",
+        "fy-ay-tax-cycle"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "section-115bac-new-regime",
+        "capital-gain-stcg-ltcg"
+      ],
+      "prerequisiteConceptIds": [],
+      "learningLevel": "beginner",
+      "jurisdiction": "Income-tax Act 1961 Sections 2(9) and 3",
+      "sources": [
+        "SRC-CBDT-MAIN"
+      ],
+      "articleIds": [
+        "income-tax-architecture-dual-regime-and-bracket-arbitrage-india"
+      ],
+      "calculatorIds": [
+        "CALC-TAX-001"
+      ],
+      "commonMisconceptions": "Selecting the wrong Assessment Year when filing an income tax return or paying challans, resulting in delayed processing or tax demand notices.",
+      "spokenFormula": "Assessment year equals financial year plus one year.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
+    },
+    {
+      "id": "tax-deducted-at-source-tds",
+      "canonicalTerm": "Tax Deducted at Source (TDS)",
+      "slug": "tax-deducted-at-source-tds",
+      "domainId": "indian-taxation",
+      "definitionPlainEnglish": "A mechanism where the person or entity paying an amount is legally required to deduct income tax upfront and deposit it directly with the Central Government on behalf of the recipient.",
+      "definitionTechnical": "A statutory withholding mechanism under Chapter XVII-B of the Income-tax Act 1961 requiring deductors to deduct tax at prescribed rates from specified payments and credit it to the deductee's Permanent Account Number via Form 26AS.",
+      "inclusions": [
+        "Salary withholding (Section 192)",
+        "Bank interest (Section 194A)",
+        "Contractual fees (Section 194C)",
+        "Professional fees (Section 194J)"
+      ],
+      "exclusions": [
+        "Indirect taxes like Goods and Services Tax"
+      ],
+      "synonyms": [
+        "TDS",
+        "Withholding tax"
+      ],
+      "abbreviations": [
+        "TDS"
+      ],
+      "aliases": [
+        "tax-deducted-at-source-tds",
+        "tds"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "lrs-tcs-section-206c",
+        "financial-year-vs-assessment-year"
+      ],
+      "prerequisiteConceptIds": [
+        "financial-year-vs-assessment-year"
+      ],
+      "learningLevel": "intermediate",
+      "jurisdiction": "Income-tax Act 1961 Chapter XVII-B",
+      "sources": [
+        "SRC-CBDT-MAIN"
+      ],
+      "articleIds": [
+        "income-tax-architecture-dual-regime-and-bracket-arbitrage-india"
+      ],
+      "calculatorIds": [
+        "CALC-TAX-001"
+      ],
+      "commonMisconceptions": "Assuming that having TDS deducted on fixed deposit interest discharges the taxpayer's complete tax liability; if the taxpayer is in the 30% slab and TDS was 10%, the remaining 20% must be paid as self-assessment tax.",
+      "spokenFormula": "Net receipt equals gross payment minus statutory TDS withholding.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
+    },
+    {
+      "id": "tax-collected-at-source-tcs",
+      "canonicalTerm": "Tax Collected at Source (TCS)",
+      "slug": "tax-collected-at-source-tcs",
+      "domainId": "indian-taxation",
+      "definitionPlainEnglish": "A tax collected by the seller from the buyer over and above the sale price of specified goods or foreign currency remittances, which is deposited with the government for credit to the buyer.",
+      "definitionTechnical": "A statutory tax collection obligation under Section 206C of the Income-tax Act 1961 requiring sellers of specified goods and authorized dealer banks processing foreign remittances under LRS to collect prescribed tax rates from purchasers.",
+      "inclusions": [
+        "Foreign remittance under LRS (Section 206C(1G))",
+        "Overseas tour packages",
+        "Motor vehicle purchases exceeding ₹10 Lakh"
+      ],
+      "exclusions": [
+        "Payments made by an employer to an employee (which fall under TDS)"
+      ],
+      "synonyms": [
+        "TCS",
+        "Tax collected on purchase"
+      ],
+      "abbreviations": [
+        "TCS"
+      ],
+      "aliases": [
+        "tax-collected-at-source-tcs",
+        "tcs"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "tax-deducted-at-source-tds",
+        "lrs-tcs-section-206c"
+      ],
+      "prerequisiteConceptIds": [
+        "financial-year-vs-assessment-year"
+      ],
+      "learningLevel": "intermediate",
+      "jurisdiction": "Income-tax Act 1961 Section 206C",
+      "sources": [
+        "SRC-CBDT-MAIN",
+        "SRC-RBI-MAIN"
+      ],
+      "articleIds": [
+        "international-personal-finance-lrs-remittances-and-foreign-assets-india"
+      ],
+      "calculatorIds": [
+        "CALC-TAX-001"
+      ],
+      "commonMisconceptions": "Viewing TCS as an additional permanent tax cost; TCS is an advance tax credit that can be fully adjusted against overall income tax liability or claimed as a refund during return filing.",
+      "spokenFormula": "Total amount collected equals sale price plus prescribed TCS rate.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
+    },
+    {
+      "id": "expected-credit-loss",
+      "canonicalTerm": "Expected Credit Loss (ECL)",
+      "slug": "expected-credit-loss",
+      "domainId": "portfolio-management-quant",
+      "definitionPlainEnglish": "A forward-looking calculation used by banks and lenders to estimate potential monetary losses from loan defaults before those defaults actually occur.",
+      "definitionTechnical": "A probability-weighted estimate of credit losses under Ind AS 109 and RBI Prudential Guidelines, modeled as the product of Probability of Default (PD), Loss Given Default (LGD), and Exposure at Default (EAD).",
+      "inclusions": [
+        "Stage 1 performing loan buffers",
+        "Stage 2 significant increase in credit risk",
+        "Stage 3 credit-impaired provisions"
+      ],
+      "exclusions": [
+        "Historical incurred loss models that waited for 90 days delinquency before provisioning"
+      ],
+      "synonyms": [
+        "ECL",
+        "Expected default provision"
+      ],
+      "abbreviations": [
+        "ECL"
+      ],
+      "aliases": [
+        "expected-credit-loss",
+        "ecl"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "eblr-home-loan-transmission"
+      ],
+      "prerequisiteConceptIds": [
+        "eblr-home-loan-transmission"
+      ],
+      "learningLevel": "advanced",
+      "jurisdiction": "Ind AS 109 / Reserve Bank of India Framework",
+      "sources": [
+        "SRC-RBI-MAIN"
+      ],
+      "articleIds": [
+        "business-finance-working-capital-and-msme-credit-india"
+      ],
+      "calculatorIds": [
+        "CALC-CR-001"
+      ],
+      "commonMisconceptions": "Believing that loan provisions are only required after a borrower actually defaults on a payment.",
+      "spokenFormula": "Expected credit loss equals probability of default multiplied by loss given default multiplied by exposure at default.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
+    },
+    {
+      "id": "sharpe-ratio",
+      "canonicalTerm": "Sharpe Ratio",
+      "slug": "sharpe-ratio",
+      "domainId": "portfolio-management-quant",
+      "definitionPlainEnglish": "A mathematical metric that measures how much extra return an investment delivers for every unit of volatility or risk taken beyond a risk-free rate.",
+      "definitionTechnical": "A measure of risk-adjusted performance that calculates the excess return of an asset or portfolio over the risk-free rate divided by the standard deviation of its excess returns.",
+      "inclusions": [
+        "Portfolio return",
+        "Risk-free rate (91-day T-Bill)",
+        "Standard deviation of returns"
+      ],
+      "exclusions": [
+        "Qualitative non-quantitative management evaluations"
+      ],
+      "synonyms": [
+        "Risk-adjusted excess return ratio"
+      ],
+      "abbreviations": [
+        "SR"
+      ],
+      "aliases": [
+        "sharpe-ratio",
+        "sharpe-index"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "diversification"
+      ],
+      "prerequisiteConceptIds": [
+        "diversification"
+      ],
+      "learningLevel": "intermediate",
+      "jurisdiction": "Quantitative Asset Management / SEBI Mutual Fund Disclosures",
+      "sources": [
+        "SRC-SEBI-MAIN"
+      ],
+      "articleIds": [
+        "portfolio-construction-and-asset-allocation-frameworks-india"
+      ],
+      "calculatorIds": [
+        "CALC-PORT-001"
+      ],
+      "commonMisconceptions": "Assuming a high historical return indicates superior investment quality without adjusting for the massive volatility or leverage taken to achieve it.",
+      "spokenFormula": "Sharpe ratio equals portfolio return minus risk-free rate, divided by standard deviation of portfolio return.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
+    },
+    {
+      "id": "yield-to-maturity",
+      "canonicalTerm": "Yield to Maturity (YTM)",
+      "slug": "yield-to-maturity",
+      "domainId": "fixed-income-debt-markets",
+      "definitionPlainEnglish": "The total annualized return an investor can expect to earn if they purchase a bond at its current market price and hold it until it matures, reinvesting all coupon payments at that same rate.",
+      "definitionTechnical": "The internal rate of return of a bond's future cash flows that equates the present value of all periodic coupon receipts and principal redemption to the current market price of the security.",
+      "inclusions": [
+        "Coupon cashflows",
+        "Capital gain or discount to par",
+        "Reinvestment yield assumption"
+      ],
+      "exclusions": [
+        "Simple coupon interest rate ignoring market price premium or discount"
+      ],
+      "synonyms": [
+        "YTM",
+        "Bond internal rate of return"
+      ],
+      "abbreviations": [
+        "YTM"
+      ],
+      "aliases": [
+        "yield-to-maturity",
+        "ytm"
+      ],
+      "parentConceptIds": [],
+      "relatedConceptIds": [
+        "debt-security",
+        "macaulay-modified-duration"
+      ],
+      "prerequisiteConceptIds": [
+        "debt-security"
+      ],
+      "learningLevel": "intermediate",
+      "jurisdiction": "FIMMDA / Reserve Bank of India Debt Market Standards",
+      "sources": [
+        "SRC-RBI-MAIN",
+        "SRC-CCIL-MAIN"
+      ],
+      "articleIds": [
+        "sovereign-and-corporate-bond-investing-india"
+      ],
+      "calculatorIds": [
+        "CALC-FI-001"
+      ],
+      "commonMisconceptions": "Confusing a bond's coupon rate with its yield to maturity; if a bond is purchased at a premium above par, its yield to maturity is lower than its coupon rate.",
+      "spokenFormula": "Yield to maturity is the discount rate that equates the present value of all coupon and redemption cash flows to the bond price.",
+      "verificationStatus": "verified_primary",
+      "lastVerifiedAt": "2026-10-17"
     }
   ]
 }

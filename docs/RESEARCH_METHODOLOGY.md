@@ -1,4 +1,4 @@
-# Dhanpedia India — Research Methodology & Verification Protocol (Version 2.0.0)
+# Dhanpedia India — Research Methodology & Verification Protocol (Version 3.0.0)
 
 ## 1. Editorial Integrity and Core Directive
 
@@ -88,3 +88,47 @@ Every factual claim in the knowledge architecture is categorized under one or mo
 2. **Effective Date Tracking**: Provisions must specify their statutory commencement date (e.g., Finance Act 2024 capital gains changes effective July 23, 2024).
 3. **Escalation Path Verification**: Banking, insurance, and securities guides must provide verified statutory escalation paths (Internal Grievance Officer -> Principal Nodal Officer -> Statutory Ombudsman / SCORES 2.0 / SMART ODR / Bima Bharosa).
 4. **Automated Validation**: All schemas, references, category IDs, source links, and substantive word counts are validated by automated integrity tests prior to commit and deployment.
+
+---
+
+## 7. Typed Knowledge Graph and Relational Integrity
+
+Dhanpedia India represents the financial system as a machine-readable, typed, directed multigraph:
+1. **Entity Typing**: All nodes are categorized under explicit types: `domain`, `concept`, `regulator`, `institution`, `act_or_law`, `risk`, `financial_instrument`, `calculator`, `publication`, `claim`.
+2. **Permissible Predicates**: Edges must use documented predicates: `governed_by`, `regulated_by`, `taxed_under`, `prohibits`, `mitigates_risk`, `exposes_to`, `has_calculator`, `requires_prerequisite`, `supported_by`, `supersedes`.
+3. **Referential Resolution**: 100% of relationship endpoints must resolve to valid, active identifiers in their corresponding registries. Dangling pointers fail automated CI quality gates.
+4. **DAG Enforcement**: Hierarchical and prerequisite dependencies are strictly checked to prevent circular logic cycles.
+
+---
+
+## 8. Concept Normalization and Alias Disambiguation
+
+1. **Layered Explanations**: Concepts support multi-tier explanations:
+   - *Plain English Definition*: Intuitive, jargon-free summary accessible to beginners.
+   - *Technical Definition*: Statutory, mathematical, or institutional precision.
+   - *Audio-Native Spoken Formula*: Natural language reading of any governing equation.
+2. **Controlled Alias Taxonomy**: Discovered alternative terms must be explicitly classified as: exact synonym, abbreviation, spelling variation, colloquial term, distinct legal concept, or misleading/incorrect usage.
+3. **Equivalence Auditing**: Terms that appear synonymous in everyday speech but carry divergent legal or tax consequences (e.g. CAGR vs XIRR, Bank FD vs Corporate FD, Direct vs Regular Plan, Nomination vs Inheritance, TDS vs TCS) are strictly maintained as distinct canonical entities.
+
+---
+
+## 9. Audio-Native Mathematical Formulas
+
+To ensure seamless narration in text-to-speech engines and audiobooks:
+1. **Zero Raw Equation Blocks**: Mathematical formulas must not appear as isolated LaTeX blocks ($FV = PV(1+r)^n$) or ASCII tables without comprehensive spoken prose.
+2. **Spoken Formulation Standard**: Every formula in `data/calculators/formula-registry.json` provides an explicit narrative reading. For example, Compound Future Value is articulated as: "The future value of an investment is calculated by multiplying the initial principal amount by the sum of one plus the periodic interest rate, with that sum raised to the power of the total number of compounding periods."
+3. **Limitation Disclosures**: Boundary conditions, compounding frequency assumptions, cash-flow sign conventions, and tax deductions must be narrated in accompanying text.
+
+---
+
+## 10. Coverage Gap Prioritization Protocol
+
+Unresolved research tasks and institutional coverage gaps in `data/research/coverage-gaps.json` are evaluated using risk-weighted prioritization scoring:
+$$\text{Priority Score} = (\text{Financial Harm} \times 0.35) + (\text{Audience Reach} \times 0.25) + (\text{Regulatory Sensitivity} \times 0.25) + (\text{Content Urgency} \times 0.15)$$
+
+- **P0 (Score 8.5 - 10.0):** Immediate publication blocker. Involves severe consumer harm, criminal prosecution risks (e.g., Section 269SS/ST cash penalties, PBPT Act asset confiscation, dabba trading arrest), or complete insurance repudiation.
+- **P1 (Score 7.0 - 8.4):** High-consequence gap affecting mass household savings (e.g., Finance Act 2024 capital gains changes, illegal loan app extortion).
+- **P2 (Score 5.0 - 6.9):** Architectural or institutional topic necessary for comprehensive encyclopedia completeness.
+- **P3 (Score 3.0 - 4.9):** Specialized or niche topic (e.g., Category III AIFs, cross-border LRS remittance limits).
+- **P4 (Score 1.0 - 2.9):** Historical or edge-case study for future research phases.
+

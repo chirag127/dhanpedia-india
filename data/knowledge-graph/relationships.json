@@ -1,8 +1,8 @@
 {
   "$schema": "./relationships.schema.json",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "lastUpdated": "2026-10-17",
-  "totalRelationships": 24,
+  "totalRelationships": 45,
   "relationships": [
     {
       "relationId": "REL-001",
@@ -219,6 +219,195 @@
       "targetId": "SRC-RBI-CMS",
       "targetType": "regulator",
       "evidence": "Reserve Bank - Integrated Ombudsman Scheme 2021 unifies dispute redressal across banking and payment rails."
+    },
+    {
+      "relationId": "REL-025",
+      "sourceId": "compounding-mathematics",
+      "sourceType": "concept",
+      "predicate": "requires_prerequisite",
+      "targetId": "time-value-of-money",
+      "targetType": "concept",
+      "evidence": "Understanding exponential compound growth requires foundational mastery of the time value of money."
+    },
+    {
+      "relationId": "REL-026",
+      "sourceId": "real-rate-of-return",
+      "sourceType": "concept",
+      "predicate": "requires_prerequisite",
+      "targetId": "inflation-purchasing-power",
+      "targetType": "concept",
+      "evidence": "Real return computations require understanding purchasing power erosion measured by inflation indices."
+    },
+    {
+      "relationId": "REL-027",
+      "sourceId": "safe-withdrawal-rate-india",
+      "sourceType": "concept",
+      "predicate": "requires_prerequisite",
+      "targetId": "real-rate-of-return",
+      "targetType": "concept",
+      "evidence": "Determining sustainable portfolio longevity requires modeling inflation-adjusted real returns over multi-decade spans."
+    },
+    {
+      "relationId": "REL-028",
+      "sourceId": "macaulay-modified-duration",
+      "sourceType": "concept",
+      "predicate": "requires_prerequisite",
+      "targetId": "time-value-of-money",
+      "targetType": "concept",
+      "evidence": "Duration is computed as the cash-flow weighted present value of bond coupons discounted at the yield to maturity."
+    },
+    {
+      "relationId": "REL-029",
+      "sourceId": "capital-gain-stcg-ltcg",
+      "sourceType": "concept",
+      "predicate": "supported_by",
+      "targetId": "CLM-TAX-FA2024-CAPGAINS",
+      "targetType": "claim",
+      "evidence": "Finance Act 2024 revised STCG to 20% under Section 111A and LTCG to 12.5% under Section 112A."
+    },
+    {
+      "relationId": "REL-030",
+      "sourceId": "emergency-fund",
+      "sourceType": "concept",
+      "predicate": "mitigates_risk",
+      "targetId": "pf-foundations",
+      "targetType": "domain",
+      "evidence": "A 6-to-12 month emergency buffer prevents distressed liquidation of compounding long-term investments."
+    },
+    {
+      "relationId": "REL-031",
+      "sourceId": "net-worth",
+      "sourceType": "concept",
+      "predicate": "has_calculator",
+      "targetId": "CALC-PF-004",
+      "targetType": "calculator",
+      "evidence": "Calculator CALC-PF-004 implements the personal balance sheet and net worth asset aggregation engine."
+    },
+    {
+      "relationId": "REL-032",
+      "sourceId": "compounding-mathematics",
+      "sourceType": "concept",
+      "predicate": "has_calculator",
+      "targetId": "CALC-PF-001",
+      "targetType": "calculator",
+      "evidence": "Calculator CALC-PF-001 calculates future value across lump-sum and recurring periodic additions."
+    },
+    {
+      "relationId": "REL-033",
+      "sourceId": "capital-gain-stcg-ltcg",
+      "sourceType": "concept",
+      "predicate": "has_calculator",
+      "targetId": "CALC-TAX-002",
+      "targetType": "calculator",
+      "evidence": "Calculator CALC-TAX-002 computes post-Budget 2024 short-term and long-term capital gains tax."
+    },
+    {
+      "relationId": "REL-034",
+      "sourceId": "safe-withdrawal-rate-india",
+      "sourceType": "concept",
+      "predicate": "has_calculator",
+      "targetId": "CALC-TAX-004",
+      "targetType": "calculator",
+      "evidence": "Calculator CALC-TAX-004 sizes retirement corpus and evaluates decumulation sustainability under inflation."
+    },
+    {
+      "relationId": "REL-035",
+      "sourceId": "option-greeks-theta-decay",
+      "sourceType": "concept",
+      "predicate": "exposes_to",
+      "targetId": "derivatives-trading",
+      "targetType": "domain",
+      "evidence": "Exponential theta decay in weekly options leads to systematic capital attrition for retail net option buyers."
+    },
+    {
+      "relationId": "REL-036",
+      "sourceId": "dabba-trading-scra-prohibition",
+      "sourceType": "concept",
+      "predicate": "governed_by",
+      "targetId": "SRC-SEBI-MAIN",
+      "targetType": "regulator",
+      "evidence": "SEBI and state police economic offenses wings enforce SCRA criminal provisions against illegal bucket shops."
+    },
+    {
+      "relationId": "REL-037",
+      "sourceId": "benami-property-confiscation-act",
+      "sourceType": "concept",
+      "predicate": "governed_by",
+      "targetId": "SRC-ED-GOV",
+      "targetType": "institution",
+      "evidence": "Enforcement Directorate and Income Tax Investigation Wing enforce asset tracing and attachment under PBPT Act."
+    },
+    {
+      "relationId": "REL-038",
+      "sourceId": "section-269ss-269st-cash-penalties",
+      "sourceType": "concept",
+      "predicate": "governed_by",
+      "targetId": "SRC-CBDT-MAIN",
+      "targetType": "regulator",
+      "evidence": "Assessing Officers and Joint Commissioners of Income Tax levy Sections 271D and 271DA cash penalties."
+    },
+    {
+      "relationId": "REL-039",
+      "sourceId": "dicgc-deposit-insurance",
+      "sourceType": "concept",
+      "predicate": "supported_by",
+      "targetId": "CLM-DICGC-SEC18A",
+      "targetType": "claim",
+      "evidence": "Section 18A mandates interim deposit insurance payouts within 90 days of an RBI bank direction."
+    },
+    {
+      "relationId": "REL-040",
+      "sourceId": "section-50c-circle-rate-safe-harbor",
+      "sourceType": "concept",
+      "predicate": "requires_prerequisite",
+      "targetId": "capital-gain-stcg-ltcg",
+      "targetType": "concept",
+      "evidence": "Understanding circle rate deemed additions requires prior knowledge of capital gains full value of consideration."
+    },
+    {
+      "relationId": "REL-041",
+      "sourceId": "eblr-home-loan-transmission",
+      "sourceType": "concept",
+      "predicate": "supersedes",
+      "targetId": "credit-borrowing",
+      "targetType": "domain",
+      "evidence": "RBI EBLR framework mandated October 2019 superseded the opaque Marginal Cost of Funds based Lending Rate (MCLR) for retail floating loans."
+    },
+    {
+      "relationId": "REL-042",
+      "sourceId": "lrs-tcs-section-206c",
+      "sourceType": "concept",
+      "predicate": "governed_by",
+      "targetId": "SRC-RBI-MAIN",
+      "targetType": "regulator",
+      "evidence": "The $250,000 annual remittance ceiling is governed under RBI Foreign Exchange Management Act Master Directions."
+    },
+    {
+      "relationId": "REL-043",
+      "sourceId": "lrs-tcs-section-206c",
+      "sourceType": "concept",
+      "predicate": "taxed_under",
+      "targetId": "SRC-CBDT-MAIN",
+      "targetType": "regulator",
+      "evidence": "Section 206C(1G) of the Income-tax Act governs the mandatory twenty percent TCS deduction on outward remittances."
+    },
+    {
+      "relationId": "REL-044",
+      "sourceId": "spoken-audio-math-prose",
+      "sourceType": "concept",
+      "predicate": "belongs_to",
+      "targetId": "financial-education-decision-tools",
+      "targetType": "domain",
+      "evidence": "Narrative mathematical transcription is a core reference tool in Domain Z."
+    },
+    {
+      "relationId": "REL-045",
+      "sourceId": "cibil-credit-score",
+      "sourceType": "concept",
+      "predicate": "governed_by",
+      "targetId": "SRC-CIC-CIBIL",
+      "targetType": "institution",
+      "evidence": "TransUnion CIBIL operates under the regulatory supervision of the RBI pursuant to CICRA 2005."
     }
   ]
 }

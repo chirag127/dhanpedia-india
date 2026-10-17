@@ -16,11 +16,11 @@ function assert(condition, message) {
 
 console.log('\n======================================================');
 console.log('  DHANPEDIA INDIA — QUALITY GATE & INTEGRITY VALIDATOR');
-console.log('  Prompt 002 — Financial System Research & Taxonomy');
+console.log('  Prompt 003 — Knowledge Graph, Concepts & Gap Audit');
 console.log('======================================================\n');
 
 // 1. Taxonomy Validation (26 Domains A to Z)
-console.log('[1/11] Validating 26-Domain Taxonomy Integrity (taxonomy.json)...');
+console.log('[1/15] Validating 26-Domain Taxonomy Integrity (taxonomy.json)...');
 const taxonomyPath = path.resolve('data/taxonomy/taxonomy.json');
 assert(fs.existsSync(taxonomyPath), 'taxonomy.json exists');
 
@@ -40,7 +40,7 @@ taxonomy.categories.forEach(cat => {
 });
 
 // 2. Machine-Readable Financial System Tree
-console.log('\n[2/11] Validating Machine-Readable Financial System Tree (financial-system.json)...');
+console.log('\n[2/15] Validating Machine-Readable Financial System Tree (financial-system.json)...');
 const finSystemPath = path.resolve('data/taxonomy/financial-system.json');
 assert(fs.existsSync(finSystemPath), 'financial-system.json exists');
 const finSystem = JSON.parse(fs.readFileSync(finSystemPath, 'utf8'));
@@ -55,7 +55,7 @@ finSystem.nodes.forEach(node => {
 });
 
 // 3. Source Registry Validation (30+ Statutory Bodies)
-console.log('\n[3/11] Validating Primary Statutory Source Registry (source-registry.json)...');
+console.log('\n[3/15] Validating Primary Statutory Source Registry (source-registry.json)...');
 const sourceRegistryPath = path.resolve('data/sources/source-registry.json');
 assert(fs.existsSync(sourceRegistryPath), 'source-registry.json exists');
 
@@ -72,7 +72,7 @@ sourceRegistry.sources.forEach(src => {
 });
 
 // 4. Statutory Claim Registry Validation
-console.log('\n[4/11] Validating Statutory Claim Registry (claim-registry.json)...');
+console.log('\n[4/15] Validating Statutory Claim Registry (claim-registry.json)...');
 const claimRegistryPath = path.resolve('data/claims/claim-registry.json');
 assert(fs.existsSync(claimRegistryPath), 'claim-registry.json exists');
 const claimRegistry = JSON.parse(fs.readFileSync(claimRegistryPath, 'utf8'));
@@ -91,22 +91,23 @@ claimRegistry.claims.forEach(clm => {
 });
 
 // 5. Canonical Concept Registry Validation
-console.log('\n[5/11] Validating Canonical Concept Registry (concept-registry.json)...');
+console.log('\n[5/15] Validating Canonical Concept Registry (concept-registry.json)...');
 const conceptRegistryPath = path.resolve('data/concepts/concept-registry.json');
 assert(fs.existsSync(conceptRegistryPath), 'concept-registry.json exists');
 
 const conceptRegistry = JSON.parse(fs.readFileSync(conceptRegistryPath, 'utf8'));
-assert(Array.isArray(conceptRegistry.concepts) && conceptRegistry.concepts.length >= 20, `At least 20 concepts registered (found ${conceptRegistry.concepts?.length})`);
+assert(Array.isArray(conceptRegistry.concepts) && conceptRegistry.concepts.length >= 50, `At least 50 concepts registered (found ${conceptRegistry.concepts?.length})`);
 const conceptIds = new Set();
 conceptRegistry.concepts.forEach(c => {
   assert(c.id && !conceptIds.has(c.id), `Concept ID ${c.id} is valid and unique`);
   conceptIds.add(c.id);
-  assert(c.canonicalTerm && c.shortDefinition, `Concept ${c.id} has term and definition`);
-  assert(categoryIds.has(c.categoryId), `Concept ${c.id} references valid category ${c.categoryId}`);
+  assert(c.canonicalTerm && (c.shortDefinition || c.definitionPlainEnglish), `Concept ${c.id} has term and definition`);
+  const cat = c.categoryId || c.domainId;
+  assert(categoryIds.has(cat), `Concept ${c.id} references valid category ${cat}`);
 });
 
 // 6. Article Coverage Matrix Validation
-console.log('\n[6/11] Validating Article Coverage Matrix (coverage-matrix.json)...');
+console.log('\n[6/15] Validating Article Coverage Matrix (coverage-matrix.json)...');
 const coverageMatrixPath = path.resolve('data/publications/coverage-matrix.json');
 assert(fs.existsSync(coverageMatrixPath), 'coverage-matrix.json exists');
 const coverageMatrix = JSON.parse(fs.readFileSync(coverageMatrixPath, 'utf8'));
@@ -122,7 +123,7 @@ coverageMatrix.publications.forEach(pub => {
 });
 
 // 7. Calculator Inventory Validation (40+ Calculators across 7 Clusters)
-console.log('\n[7/11] Validating Financial Calculator Inventory (calculator-inventory.json)...');
+console.log('\n[7/15] Validating Financial Calculator Inventory (calculator-inventory.json)...');
 const calcInventoryPath = path.resolve('data/calculators/calculator-inventory.json');
 assert(fs.existsSync(calcInventoryPath), 'calculator-inventory.json exists');
 const calcInventory = JSON.parse(fs.readFileSync(calcInventoryPath, 'utf8'));
@@ -141,7 +142,7 @@ calcInventory.calculators.forEach(calc => {
 });
 
 // 8. Public Data Sources Catalogue Validation
-console.log('\n[8/11] Validating Public Data Source Catalogue (data-source-catalogue.json)...');
+console.log('\n[8/15] Validating Public Data Source Catalogue (data-source-catalogue.json)...');
 const dataCatalogPath = path.resolve('data/sources/data-source-catalogue.json');
 assert(fs.existsSync(dataCatalogPath), 'data-source-catalogue.json exists');
 const dataCatalog = JSON.parse(fs.readFileSync(dataCatalogPath, 'utf8'));
@@ -154,23 +155,97 @@ dataCatalog.dataSources.forEach(ds => {
   assert(ds.cost.toLowerCase().includes('free'), `Dataset ${ds.datasetId} is zero-cost`);
 });
 
-// 9. Knowledge Graph Relationships Validation
-console.log('\n[9/11] Validating Knowledge Graph Relationships (relationships.json)...');
+// 9. Knowledge Graph Nodes Validation
+console.log('\n[9/15] Validating Knowledge Graph Nodes (nodes.json)...');
+const nodesPath = path.resolve('data/knowledge-graph/nodes.json');
+assert(fs.existsSync(nodesPath), 'nodes.json exists');
+const nodesData = JSON.parse(fs.readFileSync(nodesPath, 'utf8'));
+assert(Array.isArray(nodesData.nodes) && nodesData.nodes.length >= 60, `At least 60 typed knowledge graph nodes defined (found ${nodesData.nodes?.length})`);
+
+const validEntityTypes = [
+  'domain', 'concept', 'financial_instrument', 'regulator', 'institution',
+  'act_or_law', 'risk', 'calculator', 'publication', 'claim', 'article', 'dataset', 'formula'
+];
+const kgNodeIds = new Set();
+nodesData.nodes.forEach(node => {
+  const nid = node.nodeId || node.id;
+  assert(nid && !kgNodeIds.has(nid), `Knowledge graph node ${nid} is unique`);
+  kgNodeIds.add(nid);
+  assert(validEntityTypes.includes(node.entityType), `Node ${nid} has valid entity type ${node.entityType}`);
+  assert(node.canonicalName && node.canonicalName.length > 0, `Node ${nid} has canonical name`);
+});
+
+// 10. Knowledge Graph Relationships Validation
+console.log('\n[10/15] Validating Knowledge Graph Relationships (relationships.json)...');
 const relsPath = path.resolve('data/knowledge-graph/relationships.json');
 assert(fs.existsSync(relsPath), 'relationships.json exists');
 const relsData = JSON.parse(fs.readFileSync(relsPath, 'utf8'));
-assert(Array.isArray(relsData.relationships) && relsData.relationships.length >= 20, `At least 20 semantic relationships mapped (found ${relsData.relationships?.length})`);
+assert(Array.isArray(relsData.relationships) && relsData.relationships.length >= 40, `At least 40 semantic relationships mapped (found ${relsData.relationships?.length})`);
 
 const relIds = new Set();
+const validPredicates = [
+  'governed_by', 'regulated_by', 'taxed_under', 'prohibits', 'mitigates_risk',
+  'exposes_to', 'has_calculator', 'requires_prerequisite', 'supported_by',
+  'supersedes', 'belongs_to', 'depends_on', 'defined_by', 'is_a', 'alias_of', 'explained_by'
+];
 relsData.relationships.forEach(rel => {
   assert(rel.relationId && !relIds.has(rel.relationId), `Relationship ID ${rel.relationId} is unique`);
   relIds.add(rel.relationId);
-  assert(rel.predicate && typeof rel.predicate === 'string', `Relationship ${rel.relationId} has valid predicate`);
+  assert(validPredicates.includes(rel.predicate), `Relationship ${rel.relationId} has valid predicate ${rel.predicate}`);
   assert(rel.evidence && rel.evidence.length > 10, `Relationship ${rel.relationId} has statutory or analytical evidence`);
 });
 
-// 10. Research Gaps Validation
-console.log('\n[10/11] Validating Research Gaps Registry...');
+// 11. Canonical Formula Registry Validation
+console.log('\n[11/15] Validating Canonical Formula Registry (formula-registry.json)...');
+const formulaPath = path.resolve('data/calculators/formula-registry.json');
+assert(fs.existsSync(formulaPath), 'formula-registry.json exists');
+const formulaData = JSON.parse(fs.readFileSync(formulaPath, 'utf8'));
+assert(Array.isArray(formulaData.formulas) && formulaData.formulas.length >= 14, `At least 14 canonical formulas defined (found ${formulaData.formulas?.length})`);
+
+const formulaIds = new Set();
+formulaData.formulas.forEach(form => {
+  assert(form.formulaId && !formulaIds.has(form.formulaId), `Formula ID ${form.formulaId} is unique`);
+  formulaIds.add(form.formulaId);
+  assert(form.name && form.mathematicalExpression, `Formula ${form.formulaId} has name and mathematical expression`);
+  assert(form.plainEnglishInterpretation && form.plainEnglishInterpretation.length > 30, `Formula ${form.formulaId} has audio-native spoken interpretation`);
+  assert(Array.isArray(form.variables) && form.variables.length > 0, `Formula ${form.formulaId} specifies variable definitions`);
+});
+
+// 12. Structured Learning Paths Validation
+console.log('\n[12/15] Validating Structured Learning Paths (learning-paths.json)...');
+const pathsFile = path.resolve('data/publications/learning-paths.json');
+assert(fs.existsSync(pathsFile), 'learning-paths.json exists');
+const pathsData = JSON.parse(fs.readFileSync(pathsFile, 'utf8'));
+assert(Array.isArray(pathsData.learningPaths) && pathsData.learningPaths.length >= 12, `At least 12 structured learning paths defined (found ${pathsData.learningPaths?.length})`);
+
+const pathIds = new Set();
+pathsData.learningPaths.forEach(lp => {
+  assert(lp.pathId && !pathIds.has(lp.pathId), `Learning path ID ${lp.pathId} is unique`);
+  pathIds.add(lp.pathId);
+  assert(lp.title && lp.targetAudience, `Learning path ${lp.pathId} has title and target audience`);
+  assert(Array.isArray(lp.curriculumStages) && lp.curriculumStages.length >= 3, `Learning path ${lp.pathId} has at least 3 structured stages`);
+});
+
+// 13. Prioritized Coverage Gaps Validation
+console.log('\n[13/15] Validating Prioritized Coverage Gaps (coverage-gaps.json)...');
+const covGapsPath = path.resolve('data/research/coverage-gaps.json');
+assert(fs.existsSync(covGapsPath), 'coverage-gaps.json exists');
+const covGapsData = JSON.parse(fs.readFileSync(covGapsPath, 'utf8'));
+assert(Array.isArray(covGapsData.gaps) && covGapsData.gaps.length >= 10, `At least 10 prioritized coverage gaps defined (found ${covGapsData.gaps?.length})`);
+
+const validPriorityBands = ['P0', 'P1', 'P2', 'P3', 'P4'];
+const covGapIds = new Set();
+covGapsData.gaps.forEach(gap => {
+  assert(gap.gapId && !covGapIds.has(gap.gapId), `Coverage gap ID ${gap.gapId} is unique`);
+  covGapIds.add(gap.gapId);
+  assert(validPriorityBands.includes(gap.priority), `Coverage gap ${gap.gapId} has valid priority band ${gap.priority}`);
+  assert(gap.missingArea && gap.missingArea.length > 10, `Coverage gap ${gap.gapId} defines substantive missing area`);
+  assert(gap.whyItMatters && gap.whyItMatters.length > 15, `Coverage gap ${gap.gapId} documents consumer impact`);
+  assert(gap.resolutionCriteria && gap.resolutionCriteria.length > 10, `Coverage gap ${gap.gapId} specifies resolution criteria`);
+});
+
+// 14. Taxonomy Research Gaps Validation
+console.log('\n[14/15] Validating Legacy Taxonomy Research Gaps Registry...');
 const gapsPath = path.resolve('data/taxonomy/research-gaps.json');
 assert(fs.existsSync(gapsPath), 'research-gaps.json exists');
 
@@ -181,8 +256,8 @@ gapsData.gaps.forEach(g => {
   assert(['High', 'Medium', 'Low'].includes(g.severity), `Gap ${g.gapId} has valid severity`);
 });
 
-// 11. Article Registry, Substantive Word Counts, GitHub Pages, and Secret Scanning
-console.log('\n[11/11] Validating Article Word Counts, GitHub Pages Config, and Secret Exposure...');
+// 15. Article Registry, Substantive Word Counts, GitHub Pages, and Secret Scanning
+console.log('\n[15/15] Validating Article Word Counts, GitHub Pages Config, and Secret Exposure...');
 const articleRegistryPath = path.resolve('data/articles/article-registry.json');
 assert(fs.existsSync(articleRegistryPath), 'article-registry.json exists');
 
@@ -257,5 +332,5 @@ console.log('------------------------------------------------------\n');
 if (failures > 0) {
   process.exit(1);
 } else {
-  console.log('✓ All Prompt 002 quality gates passed successfully!\n');
+  console.log('✓ All Prompt 003 quality gates passed successfully!\n');
 }

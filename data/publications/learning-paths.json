@@ -1,0 +1,416 @@
+{
+  "$schema": "./learning-paths.schema.json",
+  "version": "1.0.0",
+  "lastUpdated": "2026-10-17",
+  "totalPaths": 12,
+  "learningPaths": [
+    {
+      "pathId": "PATH-PF-FOUNDATIONS",
+      "title": "Personal Finance Foundations and Wealth Architecture",
+      "slug": "personal-finance-foundations-path",
+      "domainId": "pf-foundations",
+      "targetAudience": "Beginners, salaried professionals, young adults starting their financial journeys",
+      "estimatedHours": 15,
+      "startingConcepts": ["cash-flow", "net-worth", "savings-rate"],
+      "prerequisites": [],
+      "curriculumStages": [
+        {
+          "stageNumber": 1,
+          "stageName": "Cash Flow and Balance Sheet Mastery",
+          "conceptIds": ["cash-flow", "net-worth", "savings-rate"],
+          "practicalExercise": "Construct an exhaustive personal balance sheet listing liquid, invested, and tangible assets against outstanding debts.",
+          "calculatorId": "CALC-PF-004"
+        },
+        {
+          "stageNumber": 2,
+          "stageName": "Time Value of Money and Real Returns",
+          "conceptIds": ["time-value-of-money", "compounding-mathematics", "inflation-purchasing-power", "real-rate-of-return"],
+          "practicalExercise": "Calculate the real purchasing power of your current savings goal across a 20-year horizon at 7% inflation.",
+          "calculatorId": "CALC-PF-002"
+        },
+        {
+          "stageNumber": 3,
+          "stageName": "Emergency Reserves and Liquidity Buffers",
+          "conceptIds": ["emergency-fund", "dicgc-deposit-insurance"],
+          "practicalExercise": "Size a multi-tier contingency reserve covering 6 months of mandatory fixed expenses and loan EMIs.",
+          "calculatorId": "CALC-PF-003"
+        }
+      ],
+      "milestoneOutcome": "A fully engineered personal balance sheet, optimized cashflow allocation, and a funded multi-tier emergency liquidity reserve."
+    },
+    {
+      "pathId": "PATH-BANKING-CREDIT",
+      "title": "Indian Banking Safety and Credit Management",
+      "slug": "indian-banking-and-credit-path",
+      "domainId": "banking-deposits",
+      "targetAudience": "Bank depositors, credit card users, prospective home loan borrowers",
+      "estimatedHours": 18,
+      "startingConcepts": ["scheduled-commercial-bank", "cibil-credit-score"],
+      "prerequisites": ["PATH-PF-FOUNDATIONS"],
+      "curriculumStages": [
+        {
+          "stageNumber": 1,
+          "stageName": "Deposit Insurance and Bank Solvency",
+          "conceptIds": ["scheduled-commercial-bank", "dicgc-deposit-insurance"],
+          "practicalExercise": "Audit all family bank deposit holdings across branches and ownership capacities to ensure zero uninsured balance exposure.",
+          "calculatorId": "CALC-DEP-001"
+        },
+        {
+          "stageNumber": 2,
+          "stageName": "Credit Score Optimization and Debt Amortization",
+          "conceptIds": ["cibil-credit-score", "eblr-home-loan-transmission"],
+          "practicalExercise": "Download your official CIBIL credit report, audit tradelines for clerical reporting errors, and model loan prepayment savings.",
+          "calculatorId": "CALC-PF-006"
+        },
+        {
+          "stageNumber": 3,
+          "stageName": "Consumer Protection and Dispute Redressal",
+          "conceptIds": ["rbi-integrated-ombudsman", "upi-rail-settlement"],
+          "practicalExercise": "Map the 3-tier statutory escalation pathway from bank nodal officer to the RBI Integrated Ombudsman for disputed digital debits.",
+          "calculatorId": null
+        }
+      ],
+      "milestoneOutcome": "Complete deposit safety architecture and an optimized CIBIL score exceeding 770 with optimized debt prepayment."
+    },
+    {
+      "pathId": "PATH-MUTUAL-FUNDS",
+      "title": "Mutual Funds, ETFs and Passive Indexing",
+      "slug": "mutual-funds-and-passive-investing-path",
+      "domainId": "mutual-funds-pooled",
+      "targetAudience": "Retail investors, salaried wealth builders, long-term compounders",
+      "estimatedHours": 20,
+      "startingConcepts": ["total-expense-ratio-ter", "compounding-mathematics"],
+      "prerequisites": ["PATH-PF-FOUNDATIONS"],
+      "curriculumStages": [
+        {
+          "stageNumber": 1,
+          "stageName": "SEBI Categorization and Scheme Plumbing",
+          "conceptIds": ["total-expense-ratio-ter", "mutual-funds-pooled"],
+          "practicalExercise": "Audit your mutual fund portfolio to convert all Regular plans to Direct plans, eliminating distributor commission drag.",
+          "calculatorId": "CALC-MF-003"
+        },
+        {
+          "stageNumber": 2,
+          "stageName": "Passive Indexing and ETF Liquidity",
+          "conceptIds": ["demat-depository-architecture", "mutual-funds-pooled"],
+          "practicalExercise": "Compare tracking difference and market maker bid-ask spreads between a Nifty 50 Index Fund and a Nifty 50 ETF.",
+          "calculatorId": "CALC-MF-007"
+        },
+        {
+          "stageNumber": 3,
+          "stageName": "Systematic Wealth Accumulation",
+          "conceptIds": ["compounding-mathematics", "time-value-of-money"],
+          "practicalExercise": "Model a 10% annual step-up SIP across a 15-year compounding horizon.",
+          "calculatorId": "CALC-MF-001"
+        }
+      ],
+      "milestoneOutcome": "A low-cost, diversified multi-asset mutual fund portfolio with zero distributor commission leakage."
+    },
+    {
+      "pathId": "PATH-FIXED-INCOME",
+      "title": "Fixed Income, Sovereign Debt and Yield Dynamics",
+      "slug": "fixed-income-and-sovereign-debt-path",
+      "domainId": "fixed-income-debt-markets",
+      "targetAudience": "Conservative investors, pre-retirees, treasury analysts",
+      "estimatedHours": 22,
+      "startingConcepts": ["time-value-of-money", "real-rate-of-return"],
+      "prerequisites": ["PATH-PF-FOUNDATIONS"],
+      "curriculumStages": [
+        {
+          "stageNumber": 1,
+          "stageName": "Sovereign Debt and RBI Retail Direct",
+          "conceptIds": ["ppf-statutory-immunity", "fixed-income-debt-markets"],
+          "practicalExercise": "Open and navigate the RBI Retail Direct portal to inspect primary sovereign treasury bill and G-Sec auction pricing.",
+          "calculatorId": "CALC-DEP-003"
+        },
+        {
+          "stageNumber": 2,
+          "stageName": "Duration, Convexity and Interest Rate Sensitivity",
+          "conceptIds": ["macaulay-modified-duration", "time-value-of-money"],
+          "practicalExercise": "Calculate the price drop on an 8-year duration bond fund if the RBI Monetary Policy Committee hikes the repo rate by 50 basis points.",
+          "calculatorId": "CALC-DEP-004"
+        },
+        {
+          "stageNumber": 3,
+          "stageName": "Tax-Equivalent Yields and Corporate Debt",
+          "conceptIds": ["real-rate-of-return", "ppf-statutory-immunity"],
+          "practicalExercise": "Evaluate whether an 8.5% taxable corporate bond beats a 7.1% tax-exempt PPF deposit for a 30% tax bracket investor.",
+          "calculatorId": "CALC-DEP-005"
+        }
+      ],
+      "milestoneOutcome": "Mastery over interest rate cycles, duration risk quantification, and sovereign G-Sec direct investing."
+    },
+    {
+      "pathId": "PATH-TAX-MASTERY",
+      "title": "Indian Direct Taxation and Compliance Architecture",
+      "slug": "indian-direct-taxation-path",
+      "domainId": "indian-taxation",
+      "targetAudience": "Salaried taxpayers, freelancers, software engineers, active investors",
+      "estimatedHours": 25,
+      "startingConcepts": ["section-115bac-new-regime", "capital-gain-stcg-ltcg"],
+      "prerequisites": ["PATH-PF-FOUNDATIONS"],
+      "curriculumStages": [
+        {
+          "stageNumber": 1,
+          "stageName": "New vs Old Tax Regime Optimization",
+          "conceptIds": ["section-115bac-new-regime"],
+          "practicalExercise": "Calculate your exact deductions and determine whether the Old or New Regime yields higher net take-home salary.",
+          "calculatorId": "CALC-TAX-001"
+        },
+        {
+          "stageNumber": 2,
+          "stageName": "Capital Gains Post-Finance Act 2024",
+          "conceptIds": ["capital-gain-stcg-ltcg", "section-50c-circle-rate-safe-harbor"],
+          "practicalExercise": "Audit investment sales to accurately apply the 20% STCG and 12.5% LTCG rates and Section 112A ₹1.25 Lakh exemption.",
+          "calculatorId": "CALC-TAX-002"
+        },
+        {
+          "stageNumber": 3,
+          "stageName": "Advance Tax and Statutory Compliance",
+          "conceptIds": ["section-115bac-new-regime"],
+          "practicalExercise": "Map the 4 quarterly advance tax deadlines and compute Section 234C interest liability for deferred tax installments.",
+          "calculatorId": "CALC-TAX-003"
+        }
+      ],
+      "milestoneOutcome": "Full mastery of Section 115BAC optimizations, capital gains tax reporting, and zero statutory interest penalties under Sections 234ABC."
+    },
+    {
+      "pathId": "PATH-INSURANCE-PROTECTION",
+      "title": "Insurance Underwriting, Health Policies and Asset Shielding",
+      "slug": "insurance-underwriting-and-protection-path",
+      "domainId": "insurance-risk-protection",
+      "targetAudience": "Family breadwinners, young parents, business founders",
+      "estimatedHours": 16,
+      "startingConcepts": ["section-45-incontestability"],
+      "prerequisites": ["PATH-PF-FOUNDATIONS"],
+      "curriculumStages": [
+        {
+          "stageNumber": 1,
+          "stageName": "Pure Term Insurance and MWP Act Trusts",
+          "conceptIds": ["section-45-incontestability", "insurance-risk-protection"],
+          "practicalExercise": "Size your life insurance requirement using human capital present value, and structure policy under MWP Act Section 6.",
+          "calculatorId": "CALC-PF-009"
+        },
+        {
+          "stageNumber": 2,
+          "stageName": "Health Insurance and Room-Rent Trap Mitigation",
+          "conceptIds": ["insurance-risk-protection"],
+          "practicalExercise": "Review health policy wording to identify room rent sub-limits, proportionate deductions, and synchronize a super top-up deductible.",
+          "calculatorId": null
+        },
+        {
+          "stageNumber": 3,
+          "stageName": "Claim Disputes and Insurance Ombudsman",
+          "conceptIds": ["section-45-incontestability", "rbi-integrated-ombudsman"],
+          "practicalExercise": "Draft a formal claim escalation notice citing Section 45 incontestability jurisprudence for a delayed claim.",
+          "calculatorId": null
+        }
+      ],
+      "milestoneOutcome": "Unimpeachable pure term cover ring-fenced from creditors, comprehensive health indemnity with zero sub-limits, and dispute escalation readiness."
+    },
+    {
+      "pathId": "PATH-RETIREMENT-FIRE",
+      "title": "Retirement Corpus Sizing, NPS and Decumulation Engineering",
+      "slug": "retirement-and-fire-decumulation-path",
+      "domainId": "retirement-pensions",
+      "targetAudience": "Pre-retirees, Financial Independence Retire Early (FIRE) seekers, wealth planners",
+      "estimatedHours": 24,
+      "startingConcepts": ["safe-withdrawal-rate-india", "financial-independence"],
+      "prerequisites": ["PATH-PF-FOUNDATIONS", "PATH-MUTUAL-FUNDS", "PATH-TAX-MASTERY"],
+      "curriculumStages": [
+        {
+          "stageNumber": 1,
+          "stageName": "Retirement Corpus Mathematical Sizing",
+          "conceptIds": ["financial-independence", "inflation-purchasing-power"],
+          "practicalExercise": "Model your 30-year retirement corpus requirement factoring in pre-retirement and post-retirement inflation.",
+          "calculatorId": "CALC-TAX-004"
+        },
+        {
+          "stageNumber": 2,
+          "stageName": "NPS, EPF and Pension Instrument Plumbing",
+          "conceptIds": ["retirement-pensions"],
+          "practicalExercise": "Optimize NPS Tier I asset allocation between equity (E) and corporate bonds (C) and analyze mandatory 40% annuity taxation.",
+          "calculatorId": null
+        },
+        {
+          "stageNumber": 3,
+          "stageName": "Safe Withdrawal Rates and SWP Decumulation",
+          "conceptIds": ["safe-withdrawal-rate-india", "real-rate-of-return"],
+          "practicalExercise": "Simulate a 3.5% initial Safe Withdrawal Rate with annual inflation step-up to stress test against early negative returns.",
+          "calculatorId": "CALC-MF-005"
+        }
+      ],
+      "milestoneOutcome": "An inflation-proof retirement decumulation roadmap engineered to survive 35+ years of sequence-of-returns volatility."
+    },
+    {
+      "pathId": "PATH-REAL-ESTATE",
+      "title": "Real Estate Title Verification, Circle Rates and RERA Due Diligence",
+      "slug": "real-estate-title-and-due-diligence-path",
+      "domainId": "real-estate-property-land",
+      "targetAudience": "Property buyers, land investors, homeowners, commercial landlords",
+      "estimatedHours": 22,
+      "startingConcepts": ["section-50c-circle-rate-safe-harbor", "section-269ss-269st-cash-penalties"],
+      "prerequisites": ["PATH-PF-FOUNDATIONS", "PATH-BANKING-CREDIT"],
+      "curriculumStages": [
+        {
+          "stageNumber": 1,
+          "stageName": "Title Due Diligence and Encumbrance Search",
+          "conceptIds": ["real-estate-property-land"],
+          "practicalExercise": "Conduct a mock 30-year title verification tracing mutation registers, patta/khata certificates, and sub-registrar encumbrance dockets.",
+          "calculatorId": null
+        },
+        {
+          "stageNumber": 2,
+          "stageName": "Circle Rates, Cash Penalties and Section 50C",
+          "conceptIds": ["section-50c-circle-rate-safe-harbor", "section-269ss-269st-cash-penalties"],
+          "practicalExercise": "Verify that your agreement consideration complies with Section 50C safe-harbor tolerance and Section 269SS/ST banking channel rules.",
+          "calculatorId": "CALC-RE-001"
+        },
+        {
+          "stageNumber": 3,
+          "stageName": "Rental Yield Economics and Buy vs Rent",
+          "conceptIds": ["time-value-of-money", "real-rate-of-return"],
+          "practicalExercise": "Calculate the true net operating yield of a residential property after municipal taxes, society maintenance, and vacancy drag.",
+          "calculatorId": "CALC-RE-002"
+        }
+      ],
+      "milestoneOutcome": "Flawless real estate conveyancing due-diligence capabilities, circle rate tax compliance, and multi-decadal Buy vs Rent financial models."
+    },
+    {
+      "pathId": "PATH-FORENSIC-SHADOW",
+      "title": "Financial Fraud, Shadow Economy Realities and Anti-Black-Money Laws",
+      "slug": "financial-fraud-and-shadow-economy-path",
+      "domainId": "financial-fraud-scams-shadow-economy",
+      "targetAudience": "All citizens, property buyers, high-net-worth investors, forensic accountants",
+      "estimatedHours": 20,
+      "startingConcepts": ["benami-property-confiscation-act", "section-269ss-269st-cash-penalties", "dabba-trading-scra-prohibition"],
+      "prerequisites": ["PATH-PF-FOUNDATIONS"],
+      "curriculumStages": [
+        {
+          "stageNumber": 1,
+          "stageName": "Real Estate Black Money, Cash Limits and Penalties",
+          "conceptIds": ["section-269ss-269st-cash-penalties", "section-50c-circle-rate-safe-harbor"],
+          "practicalExercise": "Analyze the devastating 100% monetary penalty consequences of Section 271D on buyers coerced into cash property advances.",
+          "calculatorId": null
+        },
+        {
+          "stageNumber": 2,
+          "stageName": "Benami Property Forfeiture and Prosecution",
+          "conceptIds": ["benami-property-confiscation-act"],
+          "practicalExercise": "Inspect PBPT Act statutory provisions on absolute asset forfeiture without compensation and 7-year prison terms.",
+          "calculatorId": null
+        },
+        {
+          "stageNumber": 3,
+          "stageName": "Dabba Trading, Ponzi Schemes and Cyber Fraud",
+          "conceptIds": ["dabba-trading-scra-prohibition", "financial-fraud-scams-shadow-economy"],
+          "practicalExercise": "Examine SCRA Section 23 criminal sanctions against bucket shops, and test National Cybercrime Portal 1930 lien-freezing protocols.",
+          "calculatorId": null
+        }
+      ],
+      "milestoneOutcome": "Deep forensic awareness of shadow economy traps, anti-money-laundering enforcement powers (ED/ITD), and total immunity against illegal financial schemes."
+    },
+    {
+      "pathId": "PATH-ESTATE-SUCCESSION",
+      "title": "Estate Planning, Wills, Probate and Trust Structuring",
+      "slug": "estate-planning-and-succession-path",
+      "domainId": "estate-planning-succession",
+      "targetAudience": "Parents, business owners, estate executors, testators",
+      "estimatedHours": 18,
+      "startingConcepts": ["nominee-vs-legal-heir-jurisprudence"],
+      "prerequisites": ["PATH-PF-FOUNDATIONS", "PATH-BANKING-CREDIT"],
+      "curriculumStages": [
+        {
+          "stageNumber": 1,
+          "stageName": "Nomination vs Legal Heirship Jurisprudence",
+          "conceptIds": ["nominee-vs-legal-heir-jurisprudence"],
+          "practicalExercise": "Reconcile all banking, insurance, and demat account nominations with a formal testamentary Will.",
+          "calculatorId": null
+        },
+        {
+          "stageNumber": 2,
+          "stageName": "Will Drafting and Mandatory Probate Architecture",
+          "conceptIds": ["estate-planning-succession"],
+          "practicalExercise": "Draft an unambiguous Will with clear residuary clauses, two independent attesting witnesses, and probate compliance for metro properties.",
+          "calculatorId": null
+        },
+        {
+          "stageNumber": 3,
+          "stageName": "Private Family Trusts and Asset Protection",
+          "conceptIds": ["estate-planning-succession"],
+          "practicalExercise": "Design an irrevocable discretionary family trust structure to insulate assets from business liabilities and marital disputes.",
+          "calculatorId": null
+        }
+      ],
+      "milestoneOutcome": "A legally sound estate transmission plan aligning nominations, testamentary Wills, and private trust asset protection."
+    },
+    {
+      "pathId": "PATH-DERIVATIVES-TRADING",
+      "title": "Exchange Derivatives, Option Greeks and Quantitative Risk",
+      "slug": "derivatives-option-greeks-and-risk-path",
+      "domainId": "derivatives-trading",
+      "targetAudience": "Active traders, derivatives analysts, quantitative finance students",
+      "estimatedHours": 30,
+      "startingConcepts": ["option-greeks-theta-decay", "compounding-mathematics"],
+      "prerequisites": ["PATH-PF-FOUNDATIONS", "PATH-MUTUAL-FUNDS"],
+      "curriculumStages": [
+        {
+          "stageNumber": 1,
+          "stageName": "Futures, Options and Margining Architecture",
+          "conceptIds": ["option-greeks-theta-decay", "derivatives-trading"],
+          "practicalExercise": "Inspect SPAN and Peak Margin requirements on index futures contracts across varying volatility regimes.",
+          "calculatorId": null
+        },
+        {
+          "stageNumber": 2,
+          "stageName": "Option Greeks and Theta Decay Mechanics",
+          "conceptIds": ["option-greeks-theta-decay"],
+          "practicalExercise": "Model the non-linear Theta decay curve of a weekly Nifty call option during the final 48 hours before expiry.",
+          "calculatorId": null
+        },
+        {
+          "stageNumber": 3,
+          "stageName": "SEBI Retail Loss Evidence and Risk Management",
+          "conceptIds": ["option-greeks-theta-decay", "dabba-trading-scra-prohibition"],
+          "practicalExercise": "Analyze SEBI's empirical research demonstrating 93% retail F&O net losses and structure defined-risk hedged spreads.",
+          "calculatorId": null
+        }
+      ],
+      "milestoneOutcome": "Quantitative comprehension of option sensitivity Greeks, margin systems, and risk-managed hedging techniques."
+    },
+    {
+      "pathId": "PATH-QUANT-PORTFOLIO",
+      "title": "Quantitative Portfolio Management and Factor Investing",
+      "slug": "quantitative-portfolio-management-path",
+      "domainId": "portfolio-management-quant",
+      "targetAudience": "Advanced investors, wealth managers, quantitative portfolio constructors",
+      "estimatedHours": 28,
+      "startingConcepts": ["compounding-mathematics", "time-value-of-money"],
+      "prerequisites": ["PATH-PF-FOUNDATIONS", "PATH-MUTUAL-FUNDS", "PATH-FIXED-INCOME"],
+      "curriculumStages": [
+        {
+          "stageNumber": 1,
+          "stageName": "Modern Portfolio Theory and Asset Allocation",
+          "conceptIds": ["compounding-mathematics", "portfolio-management-quant"],
+          "practicalExercise": "Construct an efficient frontier using historical covariance matrices between Indian equities, G-Secs, and gold.",
+          "calculatorId": null
+        },
+        {
+          "stageNumber": 2,
+          "stageName": "Factor Investing Premiums in India",
+          "conceptIds": ["portfolio-management-quant"],
+          "practicalExercise": "Backtest the performance of Nifty 200 Momentum 30 and Nifty Quality 30 indices against the broad market over 15 years.",
+          "calculatorId": null
+        },
+        {
+          "stageNumber": 3,
+          "stageName": "Risk-Adjusted Ratios and Rebalancing Bands",
+          "conceptIds": ["portfolio-management-quant"],
+          "practicalExercise": "Calculate Sharpe and Sortino ratios for a multi-asset portfolio and model tax-friction rebalancing bands.",
+          "calculatorId": null
+        }
+      ],
+      "milestoneOutcome": "Mastery of quantitative factor investing, risk-adjusted performance ratios, and optimal multi-asset rebalancing protocols."
+    }
+  ]
+}
