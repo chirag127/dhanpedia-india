@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node scripts/generate-book.mjs",
+    "build:book": "node scripts/generate-book.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "check": "astro check",

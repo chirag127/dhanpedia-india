@@ -23,20 +23,35 @@ const articles = articleRegistry.articles;
       </p>
     </div>
 
-    <!-- Future Master Publication Box -->
-    <div class="master-publication-banner">
+    <!-- Active Master Publication Box -->
+    <div class="master-publication-banner" style="background: linear-gradient(135deg, rgba(0, 82, 204, 0.08) 0%, rgba(16, 185, 129, 0.08) 100%); border: 2px solid var(--color-primary); padding: 2rem; border-radius: 12px; margin-bottom: 2.5rem;">
       <div class="banner-badge">
-        <span class="badge badge-gold">Forthcoming Master Compendium</span>
+        <span class="badge badge-emerald" style="background: var(--color-primary); color: #ffffff; padding: 0.35rem 0.75rem; border-radius: 20px; font-weight: 600; font-size: 0.85rem;">Active Master Edition Available</span>
       </div>
-      <h2 class="banner-title">Dhanpedia India: The Master Encyclopedia (EPUB 3 & PDF)</h2>
-      <p class="banner-desc">
-        A planned comprehensive, single-volume reference book spanning 150–250 substantive chapters, over 300 treatises, and 3,000,000 original words. Scheduled for automated generation under Phase 10 (Prompts 059–064).
+      <h2 class="banner-title" style="font-size: 1.8rem; margin: 0.8rem 0 0.5rem; color: var(--color-text-heading);">Dhanpedia India: The Master Encyclopedia (Audio-Native Edition)</h2>
+      <p class="banner-desc" style="font-size: 1.05rem; line-height: 1.6; color: var(--color-text-body); max-width: 850px; margin-bottom: 1.25rem;">
+        Compiled directly from our canonical research models, covering the 26 Master Domains, all 52 Foundational Concepts, 14 Spoken Mathematical Formulas, 12 Structured Learning Curricula, the complete 11,000-word DICGC Deposit Insurance Treatise, 32 Statutory Authorities, and Forensic Shadow Economy legal limits.
       </p>
-      <div class="banner-features">
-        <span>✦ EPUB 3 Standards Compliant</span>
-        <span>✦ High-Resolution Print-Ready PDF</span>
-        <span>✦ Edge Read Aloud Optimized</span>
-        <span>✦ SHA-256 Checksum Certified</span>
+      
+      <div class="banner-features" style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; font-size: 0.9rem; color: var(--color-text-muted);">
+        <span>✦ <strong>Moon+ Reader Pro TTS Ready</strong></span>
+        <span>✦ <strong>Zero Raw Formulas (Spoken English Math)</strong></span>
+        <span>✦ <strong>EPUB 3 with Hierarchical NCX Table of Contents</strong></span>
+        <span>✦ <strong>100% Free & Open Access</strong></span>
+      </div>
+
+      <div class="banner-actions" style="display: flex; flex-wrap: wrap; gap: 1rem;">
+        <a href={url('/books/dhanpedia-india-master-edition.epub')} download="dhanpedia-india-master-edition.epub" class="btn btn-primary" style="padding: 0.75rem 1.5rem; font-weight: 600; text-decoration: none; border-radius: 6px; display: inline-flex; align-items: center; gap: 0.5rem; background: var(--color-primary); color: #fff;">
+          📥 Download Master EPUB (for Moon+ Reader Pro)
+        </a>
+        <a href={url('/books/dhanpedia-india-master-edition.md')} download="dhanpedia-india-master-edition.md" class="btn btn-outline" style="padding: 0.75rem 1.5rem; font-weight: 600; text-decoration: none; border-radius: 6px; border: 1px solid var(--color-primary); color: var(--color-primary); display: inline-flex; align-items: center; gap: 0.5rem;">
+          📄 Download Master Markdown (.md)
+        </a>
+      </div>
+
+      <div class="tts-guide-box" style="margin-top: 1.5rem; padding: 1rem 1.25rem; background: rgba(0,0,0,0.03); border-radius: 8px; font-size: 0.9rem; line-height: 1.55; color: var(--color-text-muted);">
+        <strong>🎧 Moon+ Reader Pro Text-to-Speech (TTS) Listening Tips:</strong>
+        Download the EPUB file to your Android phone, open it in <em>Moon+ Reader Pro</em>, tap the screen center, select the <strong>Speaker (TTS)</strong> icon. Enable background playback so listening continues with the screen turned off. Pair with Google Speech Services Neural Voice (English India or English Natural) for human-like audio cadence.
       </div>
     </div>
 
