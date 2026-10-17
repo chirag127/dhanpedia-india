@@ -1,0 +1,121 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { url } from '../utils/paths';
+---
+
+<BaseLayout
+  title="Educational & Risk Disclaimer — Dhanpedia India"
+  description="Mandatory legal, financial, and regulatory disclaimers governing the use of Dhanpedia India. Non-advisory educational disclosure."
+>
+  <div class="site-container page-container">
+    <div class="page-header">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href={url('/')}>Home</a>
+        <span class="sep">/</span>
+        <span class="current">Disclaimer</span>
+      </nav>
+      <h1 class="page-title">Educational & Risk Disclaimer</h1>
+      <p class="page-lead">
+        Mandatory statutory disclosures, regulatory non-advisory statements, and risk notices.
+      </p>
+    </div>
+
+    <div class="content-prose">
+      <div class="callout callout-warning">
+        <div class="callout-title">Not SEBI-Registered Financial Advice</div>
+        <p>
+          Dhanpedia India is a free public educational reference library and research portal. Neither Dhanpedia India nor its author and curator, Chirag Singhal, is registered with the Securities and Exchange Board of India (SEBI) as a Registered Investment Adviser (RIA), Research Analyst (RA), Portfolio Manager, or Stock Broker under any statutory regulation.
+        </p>
+      </div>
+
+      <h2>1. Educational and Analytical Purpose Only</h2>
+      <p>
+        All content, articles, calculators, data tables, and downloads published on Dhanpedia India are intended solely for educational, informational, and academic research purposes. Nothing contained on this website constitutes:
+      </p>
+      <ul>
+        <li>A personalized recommendation to buy, sell, or hold any security, stock, mutual fund, bond, commodity, or cryptocurrency.</li>
+        <li>Statutory legal advice regarding wills, trusts, dispute resolution, or litigation.</li>
+        <li>Individual direct or indirect tax advice regarding ITR filing, assessment proceedings, or tax optimization.</li>
+      </ul>
+
+      <h2>2. Market and Capital Risk Acknowledgment</h2>
+      <p>
+        Investments in securities, mutual funds, real estate, and financial products are subject to market risks, interest rate risks, credit default risks, and regulatory revisions. Past performance, historical yields, and backtested returns referenced in our treatises do not guarantee or predict future returns.
+      </p>
+      <p>
+        Readers are strongly advised to conduct independent due diligence and consult certified financial planners, chartered accountants, and legal professionals before executing any financial transaction or tax filing.
+      </p>
+
+      <h2>3. Limitation of Liability</h2>
+      <p>
+        While every effort is made to ensure that statutory provisions, tax slabs, and regulatory limits are verified against primary sources at the time of publication, Dhanpedia India and Chirag Singhal assume no legal liability or responsibility for errors, omissions, or financial losses incurred as a result of relying upon the information provided on this platform.
+      </p>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-container {
+    padding: var(--space-8) var(--space-4) var(--space-16) var(--space-4);
+    max-width: 820px;
+  }
+
+  .page-header {
+    margin-bottom: var(--space-8);
+  }
+
+  .breadcrumbs {
+    font-size: 0.85rem;
+    margin-bottom: var(--space-3);
+  }
+
+  .breadcrumbs a {
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+
+  .breadcrumbs .sep {
+    margin: 0 var(--space-2);
+    color: var(--border-medium);
+  }
+
+  .breadcrumbs .current {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .page-title {
+    font-size: clamp(2.2rem, 4vw, 3rem);
+    margin-bottom: var(--space-3);
+  }
+
+  .page-lead {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .content-prose h2 {
+    font-size: 1.5rem;
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-3);
+  }
+
+  .content-prose p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-primary);
+    margin-bottom: var(--space-4);
+  }
+
+  .content-prose ul {
+    margin-left: var(--space-6);
+    margin-bottom: var(--space-6);
+  }
+
+  .content-prose li {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: var(--space-2);
+  }
+</style>

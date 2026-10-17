@@ -1,0 +1,406 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Sidebar from '../components/Sidebar.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+import { url } from '../utils/paths';
+
+interface HeadingItem {
+  id: string;
+  text: string;
+  level: number;
+}
+
+interface Props {
+  title: string;
+  summary: string;
+  categoryId: string;
+  categoryName: string;
+  lastVerifiedDate: string;
+  readingTimeMinutes: number;
+  wordCount: number;
+  sourceIds?: string[];
+  headings?: HeadingItem[];
+}
+
+const {
+  title,
+  summary,
+  categoryId,
+  categoryName,
+  lastVerifiedDate,
+  readingTimeMinutes,
+  wordCount,
+  sourceIds = [],
+  headings = []
+} = Astro.props;
+---
+
+<BaseLayout title={`${title} — Dhanpedia India`} description={summary}>
+  <div class="article-workspace">
+    <!-- Left Region: Collapsible Topic Navigation -->
+    <Sidebar activeCategoryId={categoryId} />
+
+    <!-- Center Region: Substantive Long-form Reading Column -->
+    <div class="article-center-container">
+      <article class="article-content">
+        <!-- Breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <ol>
+            <li><a href={url('/')}>Home</a></li>
+            <li><span class="sep">/</span></li>
+            <li><a href={url('/categories')}>Taxonomy</a></li>
+            <li><span class="sep">/</span></li>
+            <li><a href={url(`/categories/${categoryId}`)}>{categoryName}</a></li>
+          </ol>
+        </nav>
+
+        <!-- Article Header Metadata -->
+        <header class="article-header">
+          <div class="article-meta-badges">
+            <span class="badge badge-gold">Verified Knowledge Base</span>
+            <span class="badge badge-emerald">Statutory Tier 1 Backed</span>
+          </div>
+
+          <h1 class="article-h1">{title}</h1>
+          <p class="article-summary">{summary}</p>
+
+          <div class="article-meta-grid">
+            <div class="meta-item">
+              <span class="meta-label">Category</span>
+              <a href={url(`/categories/${categoryId}`)} class="meta-val highlight">{categoryName}</a>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Last Verified</span>
+              <span class="meta-val">{lastVerifiedDate}</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Reading Time</span>
+              <span class="meta-val">{readingTimeMinutes} min ({wordCount.toLocaleString()} words)</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Statutory Citations</span>
+              <span class="meta-val">{sourceIds.length} Primary Sources</span>
+            </div>
+          </div>
+
+          <!-- Utility Bar: TTS & Export triggers -->
+          <div class="article-utility-bar">
+            <div class="utility-group">
+              <span class="utility-label">Formats:</span>
+              <a href={`#download-markdown`} class="utility-btn" title="Download Markdown edition">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                Markdown
+              </a>
+              <button class="utility-btn" id="tts-listen-btn" title="Edge Read Aloud Guide">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                </svg>
+                TTS Optimized
+              </button>
+            </div>
+            <div class="utility-group">
+              <a href={`mailto:chirag@oriz.in?subject=Correction%20Suggestion:%20${encodeURIComponent(title)}`} class="utility-btn correction-link">
+                Suggest Correction
+              </a>
+            </div>
+          </div>
+        </header>
+
+        <!-- Main Body Slot -->
+        <div class="article-body">
+          <slot />
+        </div>
+
+        <!-- Citation & Primary Sources Section -->
+        <footer class="article-footer-sources">
+          <h3 id="statutory-sources">Primary Statutory Authorities & References</h3>
+          <p class="sources-desc">
+            This article adheres to Dhanpedia India's Three-Tier Verification Protocol. The following statutory authorities and official circulars establish the claims, thresholds, and calculations presented above:
+          </p>
+          <ul class="sources-list">
+            {sourceIds.map(sid => (
+              <li class="source-item">
+                <span class="source-id-badge">{sid}</span>
+                <span class="source-note">Cross-referenced against authoritative registry in <code>data/sources/source-registry.json</code>.</span>
+              </li>
+            ))}
+          </ul>
+
+          <div class="article-correction-box">
+            <h4>Editorial Feedback & Integrity Review</h4>
+            <p>
+              Noticed a recent circular, judicial precedent, or tax amendment affecting this analysis? Dhanpedia India prioritizes precision over pride. Submit direct feedback to <a href="mailto:chirag@oriz.in">chirag@oriz.in</a>.
+            </p>
+          </div>
+        </footer>
+      </article>
+    </div>
+
+    <!-- Right Region: Sticky Table of Contents -->
+    <TableOfContents headings={headings} />
+  </div>
+</BaseLayout>
+
+<script>
+  // TTS Audio assistance note
+  const ttsBtn = document.getElementById('tts-listen-btn');
+  ttsBtn?.addEventListener('click', () => {
+    alert('TTS Guidance: Press Ctrl+Shift+U in Microsoft Edge to activate Read Aloud. This page has been optimized with spoken formulas, expanded abbreviations, and accessible heading structures.');
+  });
+</script>
+
+<style>
+  .article-workspace {
+    display: flex;
+    min-height: calc(100vh - 70px);
+    background-color: var(--bg-primary);
+  }
+
+  .article-center-container {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    justify-content: center;
+    padding: var(--space-8) var(--space-4);
+  }
+
+  @media (min-width: 768px) {
+    .article-center-container {
+      padding: var(--space-10) var(--space-8);
+    }
+  }
+
+  .article-content {
+    width: 100%;
+    max-width: var(--content-max-width);
+  }
+
+  .breadcrumbs {
+    margin-bottom: var(--space-4);
+    font-size: 0.85rem;
+  }
+
+  .breadcrumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+  }
+
+  .breadcrumbs li {
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
+
+  .breadcrumbs a {
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+
+  .breadcrumbs a:hover {
+    color: var(--accent-gold);
+  }
+
+  .breadcrumbs .sep {
+    margin: 0 var(--space-2);
+    color: var(--border-medium);
+  }
+
+  .article-header {
+    margin-bottom: var(--space-8);
+    padding-bottom: var(--space-6);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .article-meta-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+  }
+
+  .article-h1 {
+    font-size: clamp(2.2rem, 3.8vw, 3rem);
+    line-height: 1.2;
+    margin-bottom: var(--space-3);
+    color: var(--text-primary);
+  }
+
+  .article-summary {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-bottom: var(--space-6);
+  }
+
+  .article-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+    padding: var(--space-4);
+    background-color: var(--bg-surface-elevated);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-light);
+    margin-bottom: var(--space-5);
+  }
+
+  @media (min-width: 640px) {
+    .article-meta-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .meta-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+  }
+
+  .meta-val {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .meta-val.highlight {
+    color: var(--accent-gold-dark);
+    text-decoration: none;
+  }
+
+  [data-theme="dark"] .meta-val.highlight {
+    color: var(--accent-gold);
+  }
+
+  .article-utility-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    padding-top: var(--space-3);
+  }
+
+  .utility-group {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .utility-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+
+  .utility-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--radius-sm);
+    background-color: var(--bg-surface-elevated);
+    border: 1px solid var(--border-light);
+    color: var(--text-secondary);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .utility-btn:hover {
+    color: var(--accent-gold);
+    border-color: var(--accent-gold);
+  }
+
+  .correction-link {
+    color: var(--text-muted);
+  }
+
+  .article-body {
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  .article-footer-sources {
+    margin-top: var(--space-12);
+    padding-top: var(--space-8);
+    border-top: 2px solid var(--border-medium);
+  }
+
+  .sources-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-4);
+  }
+
+  .sources-list {
+    list-style: none;
+    margin: 0 0 var(--space-8) 0;
+  }
+
+  .source-item {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+    padding: var(--space-3);
+    background-color: var(--bg-surface-elevated);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-light);
+  }
+
+  .source-id-badge {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--accent-gold-dark);
+    background-color: var(--bg-subtle);
+    padding: 0.15rem 0.4rem;
+    border-radius: var(--radius-sm);
+  }
+
+  [data-theme="dark"] .source-id-badge {
+    color: var(--accent-gold);
+  }
+
+  .source-note {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+  }
+
+  .article-correction-box {
+    padding: var(--space-5);
+    background-color: var(--bg-surface-elevated);
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--accent-navy);
+  }
+
+  [data-theme="dark"] .article-correction-box {
+    border-left-color: var(--accent-gold);
+  }
+
+  .article-correction-box h4 {
+    margin-bottom: var(--space-2);
+  }
+
+  .article-correction-box p {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+</style>

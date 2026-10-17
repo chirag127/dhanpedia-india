@@ -1,0 +1,40 @@
+{
+  "name": "dhanpedia-india",
+  "version": "1.0.0",
+  "description": "The Indian Personal Finance, Investing and Wealth-Building Encyclopedia",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "check": "astro check",
+    "test": "node scripts/validate-integrity.mjs",
+    "test:quality": "astro check && node scripts/validate-integrity.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chirag127/dhanpedia-india.git"
+  },
+  "keywords": [
+    "personal-finance",
+    "investing",
+    "india",
+    "taxation",
+    "mutual-funds",
+    "wealth-building",
+    "encyclopedia"
+  ],
+  "author": "Chirag Singhal <chirag@oriz.in>",
+  "license": "CC-BY-NC-4.0",
+  "bugs": {
+    "url": "https://github.com/chirag127/dhanpedia-india/issues"
+  },
+  "homepage": "https://chirag127.github.io/dhanpedia-india/",
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "astro": "^5.0.0",
+    "typescript": "^5.0.0"
+  }
+}

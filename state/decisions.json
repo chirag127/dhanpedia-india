@@ -1,0 +1,61 @@
+{
+  "$schema": "./decisions.schema.json",
+  "version": "1.0.0",
+  "lastUpdated": "2026-10-17",
+  "decisions": [
+    {
+      "id": "DEC-001",
+      "date": "2026-10-17",
+      "title": "Astro with TypeScript for Static Generation",
+      "status": "accepted",
+      "context": "Need a high-performance, maintainable framework supporting thousands of markdown/MDX articles, schema-validated content collections, and zero-JS defaults for static deployment on GitHub Pages.",
+      "decision": "Adopt Astro 5+ with TypeScript in static output mode. Avoid heavyweight SPA frameworks and server-side runtime dependencies.",
+      "consequences": "Ultra-fast page loads, effortless GitHub Pages compatibility, strict type-checking on content frontmatter, zero hosting cost."
+    },
+    {
+      "id": "DEC-002",
+      "date": "2026-10-17",
+      "title": "Vanilla CSS Design Tokens & Semantic Variables",
+      "status": "accepted",
+      "context": "Need a distinctive, editorial visual identity with rich dark/light themes, high contrast, and fine typographical control without framework churn.",
+      "decision": "Implement custom CSS custom properties (design tokens) for color, typography, spacing, and elevation. Avoid utility-first CSS frameworks like Tailwind unless requested.",
+      "consequences": "Zero build tool dependencies for styles, instant theme switching, highly maintainable and clean design system."
+    },
+    {
+      "id": "DEC-003",
+      "date": "2026-10-17",
+      "title": "Local Client-Side Search Index over External Search APIs",
+      "status": "accepted",
+      "context": "Must satisfy the zero mandatory infrastructure expenditure constraint while providing instant search across articles, categories, and glossary terms.",
+      "decision": "Generate static JSON search indices during build time and search client-side with lightweight tokenization. Partition index as corpus scales.",
+      "consequences": "Completely free, runs entirely offline, private for the reader, zero API key exposure."
+    },
+    {
+      "id": "DEC-004",
+      "date": "2026-10-17",
+      "title": "Three-Region Desktop Layout with Collapsible Sidebars",
+      "status": "accepted",
+      "context": "Long-form financial reading requires comfortable line length (68-75 chars) alongside rapid taxonomy navigation and deep table-of-contents jump points.",
+      "decision": "Engineered a synchronized 3-column layout (Left: Collapsible Navigation, Center: Reading Container, Right: Sticky Table of Contents) on desktop, collapsing to a comfortable single column on mobile/tablet viewports.",
+      "consequences": "Optimal readability, rapid navigation, keyboard-operable drawer states."
+    },
+    {
+      "id": "DEC-005",
+      "date": "2026-10-17",
+      "title": "Decoupled Master Publication Build Artifacts",
+      "status": "accepted",
+      "context": "A master multi-million-word EPUB and PDF publication would exceed GitHub Pages 1GB recommended repository constraints if committed into the website asset tree.",
+      "decision": "Isolate master book build artifacts into dedicated GitHub Releases workflows, linking downloads through lightweight CDN/release assets.",
+      "consequences": "Maintains a lightweight web deployment bundle while preserving full book download accessibility."
+    },
+    {
+      "id": "DEC-006",
+      "date": "2026-10-17",
+      "title": "Strict Three-Tier Statutory Evidence Hierarchy",
+      "status": "accepted",
+      "context": "Prevent hallucinated financial facts, unverified tax thresholds, and speculative marketing claims from corrupting the encyclopedia.",
+      "decision": "Require all legal, tax, and product mechanisms to cite Tier 1 statutory authorities (RBI, SEBI, CBDT, PFRDA, IRDAI, EPFO). Permit Tier 3 secondary sources solely for discovery.",
+      "consequences": "Unimpeachable educational credibility, explicit tracking of research gaps where statutory ambiguity exists."
+    }
+  ]
+}

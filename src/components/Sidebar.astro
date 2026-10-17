@@ -1,0 +1,253 @@
+---
+import { url } from '../utils/paths';
+import taxonomyData from '../../data/taxonomy/taxonomy.json';
+
+interface Props {
+  activeCategoryId?: string;
+}
+
+const { activeCategoryId } = Astro.props;
+const categories = taxonomyData.categories;
+---
+
+<aside id="left-sidebar" class="sidebar-left" aria-label="Topic Navigation">
+  <div class="sidebar-header">
+    <span class="sidebar-title">Taxonomy Explorer</span>
+    <button id="sidebar-toggle" class="sidebar-toggle-btn" aria-label="Collapse sidebar" title="Collapse sidebar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M15 18l-6-6 6-6"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="sidebar-search-box">
+    <input 
+      type="text" 
+      id="category-filter-input" 
+      placeholder="Filter 22 families..." 
+      aria-label="Filter taxonomy categories"
+    />
+  </div>
+
+  <nav class="sidebar-nav">
+    <ul class="category-list" id="sidebar-category-list">
+      {categories.map((cat, idx) => {
+        const isActive = activeCategoryId === cat.id;
+        return (
+          <li class={`category-item ${isActive ? 'active' : ''}`} data-name={cat.canonicalName.toLowerCase()}>
+            <a href={url(`/categories/${cat.id}`)} class="category-link">
+              <span class="cat-num">{String(idx + 1).padStart(2, '0')}.</span>
+              <span class="cat-name">{cat.canonicalName}</span>
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  </nav>
+
+  <div class="sidebar-footer">
+    <a href={url('/explore')} class="explore-all-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"></circle>
+        <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+      </svg>
+      Full Knowledge Graph
+    </a>
+  </div>
+</aside>
+
+<script>
+  // Filter categories client-side
+  const filterInput = document.getElementById('category-filter-input') as HTMLInputElement | null;
+  const catItems = document.querySelectorAll<HTMLLIElement>('#sidebar-category-list .category-item');
+
+  filterInput?.addEventListener('input', (e) => {
+    const q = (e.target as HTMLInputElement).value.toLowerCase().trim();
+    catItems.forEach(item => {
+      const name = item.getAttribute('data-name') || '';
+      item.style.display = name.includes(q) ? '' : 'none';
+    });
+  });
+
+  // Collapse/Expand Left Sidebar
+  const toggleBtn = document.getElementById('sidebar-toggle');
+  const sidebar = document.getElementById('left-sidebar');
+
+  toggleBtn?.addEventListener('click', () => {
+    sidebar?.classList.toggle('collapsed');
+    const isCollapsed = sidebar?.classList.contains('collapsed');
+    document.body.classList.toggle('left-sidebar-collapsed', isCollapsed);
+    localStorage.setItem('dhanpedia-left-sidebar', isCollapsed ? 'collapsed' : 'expanded');
+  });
+
+  // Restore state
+  if (localStorage.getItem('dhanpedia-left-sidebar') === 'collapsed') {
+    sidebar?.classList.add('collapsed');
+    document.body.classList.add('left-sidebar-collapsed');
+  }
+</script>
+
+<style>
+  .sidebar-left {
+    width: var(--sidebar-left-width);
+    flex-shrink: 0;
+    height: calc(100vh - 70px);
+    position: sticky;
+    top: 70px;
+    background-color: var(--bg-surface);
+    border-right: 1px solid var(--border-light);
+    display: flex;
+    flex-direction: column;
+    transition: width var(--transition-normal), transform var(--transition-normal);
+    z-index: 20;
+    overflow: hidden;
+  }
+
+  .sidebar-left.collapsed {
+    width: 48px;
+  }
+
+  .sidebar-left.collapsed .sidebar-title,
+  .sidebar-left.collapsed .sidebar-search-box,
+  .sidebar-left.collapsed .sidebar-nav,
+  .sidebar-left.collapsed .sidebar-footer {
+    display: none;
+  }
+
+  .sidebar-left.collapsed .sidebar-toggle-btn svg {
+    transform: rotate(180deg);
+  }
+
+  .sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-4);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .sidebar-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+  }
+
+  .sidebar-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    border: 1px solid var(--border-light);
+    color: var(--text-secondary);
+    cursor: pointer;
+  }
+
+  .sidebar-toggle-btn:hover {
+    border-color: var(--accent-gold);
+    color: var(--text-primary);
+  }
+
+  .sidebar-search-box {
+    padding: var(--space-3) var(--space-4);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .sidebar-search-box input {
+    width: 100%;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.85rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-light);
+    background-color: var(--bg-surface-elevated);
+    color: var(--text-primary);
+  }
+
+  .sidebar-search-box input:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+  }
+
+  .sidebar-nav {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--space-2) 0;
+  }
+
+  .category-list {
+    list-style: none;
+    margin: 0;
+  }
+
+  .category-item {
+    margin: 0;
+  }
+
+  .category-link {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-left: 3px solid transparent;
+    transition: all var(--transition-fast);
+  }
+
+  .cat-num {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  .cat-name {
+    line-height: 1.35;
+  }
+
+  .category-link:hover {
+    background-color: var(--bg-subtle);
+    color: var(--text-primary);
+  }
+
+  .category-item.active .category-link {
+    background-color: var(--bg-surface-elevated);
+    border-left-color: var(--accent-gold);
+    color: var(--accent-gold-dark);
+    font-weight: 600;
+  }
+
+  [data-theme="dark"] .category-item.active .category-link {
+    color: var(--accent-gold);
+  }
+
+  .sidebar-footer {
+    padding: var(--space-3) var(--space-4);
+    border-top: 1px solid var(--border-light);
+    background-color: var(--bg-surface-elevated);
+  }
+
+  .explore-all-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-decoration: none;
+  }
+
+  .explore-all-link:hover {
+    color: var(--accent-gold);
+  }
+
+  @media (max-width: 1023px) {
+    .sidebar-left {
+      display: none;
+    }
+  }
+</style>

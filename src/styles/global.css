@@ -1,0 +1,283 @@
+/* Dhanpedia India — Global Stylesheet */
+@import "./theme.css";
+
+/* Reset & Box Sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+/* Typography Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  color: var(--text-primary);
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+h1 {
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  margin-bottom: var(--space-4);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--border-light);
+}
+
+h3 {
+  font-size: clamp(1.2rem, 2vw, 1.45rem);
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-3);
+}
+
+p {
+  margin-bottom: var(--space-4);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--text-primary);
+}
+
+a {
+  color: var(--accent-emerald);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--accent-gold);
+}
+
+/* Code & Monospace */
+code, pre {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+code:not(pre code) {
+  background-color: var(--bg-subtle);
+  padding: 0.15em 0.4em;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+}
+
+pre {
+  background-color: var(--bg-surface-elevated);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  overflow-x: auto;
+  margin-bottom: var(--space-4);
+}
+
+/* Lists */
+ul, ol {
+  margin-left: var(--space-6);
+  margin-bottom: var(--space-4);
+}
+
+li {
+  margin-bottom: var(--space-2);
+  line-height: 1.7;
+}
+
+/* Data Tables */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin: var(--space-6) 0;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  background-color: var(--bg-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+th {
+  background-color: var(--bg-surface-elevated);
+  color: var(--text-primary);
+  font-weight: 600;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 2px solid var(--border-medium);
+  font-family: var(--font-sans);
+}
+
+td {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--border-light);
+  color: var(--text-primary);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover td {
+  background-color: var(--bg-highlight);
+}
+
+/* Callout Boxes */
+.callout {
+  padding: var(--space-4) var(--space-5);
+  margin: var(--space-6) 0;
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--accent-gold);
+  background-color: var(--bg-surface-elevated);
+  box-shadow: var(--shadow-sm);
+}
+
+.callout-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: var(--space-2);
+  color: var(--text-primary);
+}
+
+.callout-warning {
+  border-left-color: var(--accent-crimson);
+  background-color: var(--accent-crimson-subtle);
+}
+
+.callout-info {
+  border-left-color: var(--accent-blue);
+  background-color: var(--accent-blue-subtle);
+}
+
+.callout-statutory {
+  border-left-color: var(--accent-gold);
+  background-color: var(--bg-surface-elevated);
+}
+
+.callout-worked-example {
+  border-left-color: var(--accent-emerald);
+  background-color: var(--accent-emerald-subtle);
+}
+
+/* Button & Controls */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: var(--accent-navy);
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .btn-primary {
+  background-color: var(--accent-gold);
+  color: #0B132B;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-gold);
+  color: #0B132B;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border-color: var(--border-medium);
+  color: var(--text-primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--bg-subtle);
+  border-color: var(--accent-gold);
+}
+
+/* Badge & Tag */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  background-color: var(--bg-subtle);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-light);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.badge-gold {
+  background-color: rgba(197, 160, 89, 0.15);
+  color: var(--accent-gold-dark);
+  border-color: rgba(197, 160, 89, 0.3);
+}
+
+.badge-emerald {
+  background-color: var(--accent-emerald-subtle);
+  color: var(--accent-emerald);
+  border-color: rgba(13, 148, 136, 0.3);
+}
+
+/* Layout Utilities */
+.site-container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}
+
+/* Skip link for accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--accent-navy);
+  color: white;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}

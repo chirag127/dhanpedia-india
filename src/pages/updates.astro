@@ -1,0 +1,226 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { url } from '../utils/paths';
+import researchGaps from '../../data/taxonomy/research-gaps.json';
+
+const gaps = researchGaps.gaps;
+---
+
+<BaseLayout
+  title="Regulatory Tracker & Research Updates — Dhanpedia India"
+  description="Chronological log of Indian financial regulatory circulars, statutory gazette notifications, and Dhanpedia India research milestones."
+>
+  <div class="site-container page-container">
+    <div class="page-header">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href={url('/')}>Home</a>
+        <span class="sep">/</span>
+        <span class="current">Updates</span>
+      </nav>
+      <h1 class="page-title">Regulatory Tracker & Research Updates</h1>
+      <p class="page-lead">
+        Transparent, auditable log tracking statutory regulatory circulars, direct tax amendments, research gaps, and encyclopedia build milestones.
+      </p>
+    </div>
+
+    <!-- Active Research Gaps Section -->
+    <section class="updates-section">
+      <h2 class="section-title">Active Statutory Research Gaps Under Investigation</h2>
+      <p class="section-sub">
+        Where statutory texts, circulars, and judicial precedents diverge, we document them here rather than manufacturing false consensus.
+      </p>
+      
+      <div class="gaps-stack">
+        {gaps.map(g => (
+          <article class="gap-card">
+            <div class="gap-card-header">
+              <span class="badge badge-gold"><code>{g.gapId}</code></span>
+              <span class={`badge ${g.severity === 'High' ? 'badge-crimson' : 'badge-emerald'}`}>Severity: {g.severity}</span>
+              <span class="gap-status">Status: {g.status}</span>
+            </div>
+            <h3 class="gap-title">{g.title}</h3>
+            <p class="gap-desc">{g.description}</p>
+            <div class="gap-action">
+              <strong>Monitoring Protocol:</strong> {g.actionPlan}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- Platform Build Milestones -->
+    <section class="updates-section">
+      <h2 class="section-title">Platform Build Milestones (Prompt 001)</h2>
+      <div class="milestones-timeline">
+        <div class="milestone-entry">
+          <div class="milestone-badge">PROMPT-001</div>
+          <div class="milestone-content">
+            <h3>Foundation, Taxonomy, Audio-Native Treatise & Quality Gates</h3>
+            <p>
+              Completed initial repository audit, 22-family hierarchical taxonomy, 10 primary statutory source registrations, 11,000+ word flagship treatise on DICGC deposit insurance, responsive website shell, and automated validation suite.
+            </p>
+            <span class="milestone-timestamp">Verified on October 17, 2026</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-container {
+    padding: var(--space-8) var(--space-4) var(--space-16) var(--space-4);
+    max-width: 860px;
+  }
+
+  .page-header {
+    margin-bottom: var(--space-8);
+  }
+
+  .breadcrumbs {
+    font-size: 0.85rem;
+    margin-bottom: var(--space-3);
+  }
+
+  .breadcrumbs a {
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+
+  .breadcrumbs .sep {
+    margin: 0 var(--space-2);
+    color: var(--border-medium);
+  }
+
+  .breadcrumbs .current {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .page-title {
+    font-size: clamp(2.2rem, 4vw, 3rem);
+    margin-bottom: var(--space-3);
+  }
+
+  .page-lead {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .updates-section {
+    margin-bottom: var(--space-12);
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+    margin-bottom: var(--space-2);
+  }
+
+  .section-sub {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-6);
+  }
+
+  .gaps-stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .gap-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: var(--space-5);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .gap-card-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-2);
+  }
+
+  .badge-crimson {
+    background-color: var(--accent-crimson-subtle);
+    color: var(--accent-crimson);
+    border-color: rgba(190, 18, 60, 0.3);
+  }
+
+  .gap-status {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .gap-title {
+    font-size: 1.2rem;
+    margin-bottom: var(--space-2);
+  }
+
+  .gap-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-3);
+  }
+
+  .gap-action {
+    font-size: 0.88rem;
+    color: var(--text-primary);
+    padding: var(--space-2) var(--space-3);
+    background-color: var(--bg-surface-elevated);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-light);
+  }
+
+  .milestones-timeline {
+    border-left: 2px solid var(--accent-gold);
+    padding-left: var(--space-6);
+    margin-left: var(--space-2);
+  }
+
+  .milestone-entry {
+    position: relative;
+    margin-bottom: var(--space-6);
+  }
+
+  .milestone-badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--accent-gold-dark);
+    background-color: var(--bg-surface-elevated);
+    border: 1px solid var(--accent-gold);
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--space-2);
+  }
+
+  [data-theme="dark"] .milestone-badge {
+    color: var(--accent-gold);
+  }
+
+  .milestone-content h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-2);
+  }
+
+  .milestone-content p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-2);
+  }
+
+  .milestone-timestamp {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+</style>

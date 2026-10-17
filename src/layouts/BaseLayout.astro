@@ -1,0 +1,75 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { url } from '../utils/paths';
+
+interface Props {
+  title?: string;
+  description?: string;
+  currentPath?: string;
+}
+
+const {
+  title = 'Dhanpedia India — The Indian Personal Finance Encyclopedia',
+  description = 'Master your money. Understand every investment. Build lasting wealth with India’s most comprehensive, evidence-grounded financial encyclopedia.',
+  currentPath = Astro.url.pathname
+} = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, 'https://chirag127.github.io').href;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" type="image/svg+xml" href={url('/favicon.svg')} />
+    
+    <!-- OpenGraph / Social Metadata -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="Dhanpedia India" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@singhal127" />
+
+    <!-- Google Fonts Preconnect & Styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+    <!-- Anti-FOUC Theme Script -->
+    <script is:inline>
+      (function() {
+        const saved = localStorage.getItem('dhanpedia-theme');
+        if (saved) {
+          document.documentElement.setAttribute('data-theme', saved);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <Header currentPath={currentPath} />
+
+    <main id="main-content" class="main-body">
+      <slot />
+    </main>
+
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .main-body {
+    flex: 1 0 auto;
+    width: 100%;
+  }
+</style>

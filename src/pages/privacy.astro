@@ -1,0 +1,123 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { url } from '../utils/paths';
+---
+
+<BaseLayout
+  title="Privacy Policy & Data Sovereignty — Dhanpedia India"
+  description="Dhanpedia India's commitment to reader privacy: zero tracking cookies, zero analytics pixels, zero mandatory account creation, and 100% client-side execution."
+>
+  <div class="site-container page-container">
+    <div class="page-header">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href={url('/')}>Home</a>
+        <span class="sep">/</span>
+        <span class="current">Privacy</span>
+      </nav>
+      <h1 class="page-title">Privacy Statement & Data Sovereignty</h1>
+      <p class="page-lead">
+        Your financial inquiries, reading history, and calculator inputs belong entirely to you.
+      </p>
+    </div>
+
+    <div class="content-prose">
+      <h2>1. The Zero-Tracking Commitment</h2>
+      <p>
+        Dhanpedia India is engineered with privacy as a foundational architectural constraint. We believe that personal financial education should never be monitored, profiled, or commodified.
+      </p>
+      <ul>
+        <li><strong>No Tracking Cookies:</strong> We do not place behavioral tracking cookies, advertising pixels, or third-party marketing beacons on your device.</li>
+        <li><strong>No Mandatory Logins:</strong> Every single article, taxonomy category, calculator, and downloadable file is accessible without registration, email capture, or phone verification.</li>
+        <li><strong>No Analytics Profiling:</strong> We do not run invasive tracking services like Google Analytics or Meta Pixel.</li>
+      </ul>
+
+      <h2>2. Client-Side Calculator & Search Processing</h2>
+      <p>
+        All interactive features on Dhanpedia India—including our financial calculators (such as SIP future value and loan amortization) and our instant encyclopedia search engine—execute entirely inside your own browser using client-side JavaScript.
+      </p>
+      <p>
+        When you enter your monthly savings, mortgage principal, or search queries, that data is processed in your device's memory and is never transmitted to our servers or third-party databases.
+      </p>
+
+      <h2>3. Local Storage Usage</h2>
+      <p>
+        We use your browser's standard <code>localStorage</code> solely for two non-identifying operational preferences:
+      </p>
+      <ul>
+        <li><code>dhanpedia-theme</code>: Remembers whether you prefer Dark Mode or Light Mode.</li>
+        <li><code>dhanpedia-left-sidebar</code>: Remembers whether you have collapsed or expanded the topic navigation drawer.</li>
+      </ul>
+
+      <h2>4. Hosting Infrastructure</h2>
+      <p>
+        Dhanpedia India is hosted as a static website on GitHub Pages (operated by GitHub, Inc. / Microsoft Corporation). Standard web server access logs (such as IP addresses and user-agent strings) may be processed by GitHub solely for infrastructure security and denial-of-service mitigation in accordance with GitHub's Global Privacy Statement.
+      </p>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-container {
+    padding: var(--space-8) var(--space-4) var(--space-16) var(--space-4);
+    max-width: 820px;
+  }
+
+  .page-header {
+    margin-bottom: var(--space-8);
+  }
+
+  .breadcrumbs {
+    font-size: 0.85rem;
+    margin-bottom: var(--space-3);
+  }
+
+  .breadcrumbs a {
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+
+  .breadcrumbs .sep {
+    margin: 0 var(--space-2);
+    color: var(--border-medium);
+  }
+
+  .breadcrumbs .current {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .page-title {
+    font-size: clamp(2.2rem, 4vw, 3rem);
+    margin-bottom: var(--space-3);
+  }
+
+  .page-lead {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .content-prose h2 {
+    font-size: 1.5rem;
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-3);
+  }
+
+  .content-prose p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-primary);
+    margin-bottom: var(--space-4);
+  }
+
+  .content-prose ul {
+    margin-left: var(--space-6);
+    margin-bottom: var(--space-6);
+  }
+
+  .content-prose li {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: var(--space-2);
+  }
+</style>

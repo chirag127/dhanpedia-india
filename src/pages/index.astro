@@ -1,0 +1,636 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { url } from '../utils/paths';
+import taxonomyData from '../../data/taxonomy/taxonomy.json';
+import articleRegistry from '../../data/articles/article-registry.json';
+import sourceRegistry from '../../data/sources/source-registry.json';
+
+const categories = taxonomyData.categories;
+const featuredArticle = articleRegistry.articles[0];
+const totalCategories = categories.length;
+const totalSources = sourceRegistry.sources.length;
+const totalWords = articleRegistry.articles.reduce((acc, a) => acc + a.wordCount, 0);
+---
+
+<BaseLayout 
+  title="Dhanpedia India — The Indian Personal Finance, Investing and Wealth-Building Encyclopedia"
+  description="Master your money. Understand every investment. Build lasting wealth. An exhaustive, evidence-grounded financial knowledge encyclopedia for Indian investors."
+>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="site-container hero-container">
+      <div class="hero-badge-wrap">
+        <span class="badge badge-gold">Evidence-Grounded Financial Knowledge</span>
+        <span class="badge badge-emerald">Zero-Cost Public Architecture</span>
+      </div>
+
+      <h1 class="hero-title">
+        Master Your Money. Understand Every Investment. <span class="text-accent">Build Lasting Wealth.</span>
+      </h1>
+
+      <p class="hero-lead">
+        Dhanpedia India is an uncompromising, mathematically rigorous personal finance encyclopedia, investment research library, and reference publication engineered specifically for Indian investors, salaried professionals, engineers, and entrepreneurs.
+      </p>
+
+      <!-- Prominent Search Interface -->
+      <div class="hero-search-box">
+        <form action={url('/search')} method="GET" class="search-form">
+          <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input 
+            type="search" 
+            name="q" 
+            placeholder="Search DICGC, Section 115BAC, Mutual Fund Categorisation, Sovereign Gold Bonds, CIBIL..." 
+            aria-label="Search encyclopedia"
+            required
+          />
+          <button type="submit" class="btn btn-primary search-submit">Search</button>
+        </form>
+        <div class="search-hints">
+          <span class="hint-label">Popular queries:</span>
+          <a href={url('/search?q=DICGC')}>DICGC Deposit Insurance</a>
+          <a href={url('/search?q=115BAC')}>Section 115BAC</a>
+          <a href={url('/search?q=CIBIL')}>CIBIL Scoring</a>
+          <a href={url('/search?q=SGB')}>SGB Secondary Market</a>
+        </div>
+      </div>
+
+      <!-- Verified Dynamic Metrics Grid -->
+      <div class="metrics-ribbon">
+        <div class="metric-card">
+          <span class="metric-num">{totalCategories}</span>
+          <span class="metric-label">Taxonomy Families</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-num">{totalSources}</span>
+          <span class="metric-label">Statutory Regulators</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-num">{totalWords.toLocaleString()}</span>
+          <span class="metric-label">Verified Words Active</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-num">100%</span>
+          <span class="metric-label">Free Public Access</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Substantive Guide -->
+  <section class="section featured-section">
+    <div class="site-container">
+      <div class="section-header">
+        <span class="section-kicker">Flagship Substantive Analysis</span>
+        <h2 class="section-title">Deep Dive of the Week</h2>
+      </div>
+
+      {featuredArticle && (
+        <div class="featured-card">
+          <div class="featured-card-badge-row">
+            <span class="badge badge-gold">{featuredArticle.categoryName}</span>
+            <span class="badge badge-emerald">Verified Statutory Tier 1</span>
+            <span class="reading-badge">{featuredArticle.readingTimeMinutes} min read ({featuredArticle.wordCount.toLocaleString()} words)</span>
+          </div>
+
+          <h3 class="featured-card-title">
+            <a href={url(`/articles/${featuredArticle.slug}`)}>{featuredArticle.title}</a>
+          </h3>
+
+          <p class="featured-card-summary">{featuredArticle.summary}</p>
+
+          <div class="featured-card-footer">
+            <div class="citation-meta">
+              <span>Authorities Cited: {featuredArticle.sourceIds.join(', ')}</span>
+            </div>
+            <a href={url(`/articles/${featuredArticle.slug}`)} class="btn btn-primary read-article-btn">
+              Read Substantive Guide &rarr;
+            </a>
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Browse by 22 Topical Families -->
+  <section class="section categories-section">
+    <div class="site-container">
+      <div class="section-header">
+        <span class="section-kicker">Knowledge Architecture</span>
+        <h2 class="section-title">Explore by Financial Family</h2>
+        <p class="section-desc">
+          Structured across 22 canonical domains with stable identifiers, statutory regulatory maps, and zero duplicate coverage.
+        </p>
+      </div>
+
+      <div class="category-cards-grid">
+        {categories.map((cat, idx) => (
+          <a href={url(`/categories/${cat.id}`)} class="cat-card">
+            <div class="cat-card-top">
+              <span class="cat-card-index">{String(idx + 1).padStart(2, '0')}</span>
+              <span class="badge">{cat.validationStatus}</span>
+            </div>
+            <h3 class="cat-card-name">{cat.canonicalName}</h3>
+            <p class="cat-card-desc">{cat.shortDescription}</p>
+            <div class="cat-card-footer">
+              <span class="cat-card-link">View Category Index &rarr;</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculators, Downloads & Methodology Overview -->
+  <section class="section tools-overview-section">
+    <div class="site-container">
+      <div class="tools-grid">
+        <!-- Calculators Box -->
+        <div class="tool-card">
+          <div class="tool-icon">🧮</div>
+          <h3>Deterministic Calculators</h3>
+          <p>
+            Transparent, auditable financial calculators with mathematical formula proofs and zero black-box code: SIP, SWP, Home Loan Amortization, and New vs Old Tax Regime.
+          </p>
+          <a href={url('/calculators')} class="tool-link">Open Calculator Suite &rarr;</a>
+        </div>
+
+        <!-- Downloads Box -->
+        <div class="tool-card">
+          <div class="tool-icon">📚</div>
+          <h3>Multi-Format Library</h3>
+          <p>
+            Offline reading editions: clean Markdown downloads, plain-text reading formats, and forthcoming master EPUB 3 and PDF compendiums.
+          </p>
+          <a href={url('/downloads')} class="tool-link">Books & Downloads &rarr;</a>
+        </div>
+
+        <!-- Research Methodology Box -->
+        <div class="tool-card">
+          <div class="tool-icon">⚖️</div>
+          <h3>Statutory Evidence Base</h3>
+          <p>
+            Three-tier verification protocol cross-referencing all factual statements against primary statutory authorities: RBI, SEBI, CBDT, PFRDA, and IRDAI.
+          </p>
+          <a href={url('/methodology')} class="tool-link">Read Methodology &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Author & Editorial Positioning -->
+  <section class="section author-section">
+    <div class="site-container">
+      <div class="author-card">
+        <div class="author-info">
+          <span class="author-eyebrow">Project Curator & Author</span>
+          <h2 class="author-name">Chirag Singhal</h2>
+          <p class="author-bio">
+            Software engineer, investor, and financial researcher. Dhanpedia India is engineered as an open, continuously maintained personal finance encyclopedia built on GitHub Pages with zero mandatory infrastructure expenditure, strict evidence verification, and complete public accessibility.
+          </p>
+          <div class="author-links">
+            <a href="https://github.com/chirag127/" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/chirag127/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://x.com/singhal127" target="_blank" rel="noopener noreferrer">X</a>
+            <a href="mailto:chirag@oriz.in">chirag@oriz.in</a>
+            <a href={url('/author')} class="author-page-link">Full Profile &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero-section {
+    padding: var(--space-12) 0 var(--space-10) 0;
+    background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-primary) 100%);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-badge-wrap {
+    display: flex;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+  }
+
+  .hero-title {
+    font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+    line-height: 1.15;
+    max-width: 950px;
+    margin-bottom: var(--space-4);
+  }
+
+  .text-accent {
+    color: var(--accent-gold-dark);
+  }
+
+  [data-theme="dark"] .text-accent {
+    color: var(--accent-gold);
+  }
+
+  .hero-lead {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    max-width: 780px;
+    line-height: 1.7;
+    margin-bottom: var(--space-8);
+  }
+
+  .hero-search-box {
+    width: 100%;
+    max-width: 720px;
+    margin-bottom: var(--space-10);
+  }
+
+  .search-form {
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-surface);
+    border: 2px solid var(--border-medium);
+    border-radius: var(--radius-lg);
+    padding: var(--space-2) var(--space-3);
+    box-shadow: var(--shadow-md);
+    transition: border-color var(--transition-fast);
+  }
+
+  .search-form:focus-within {
+    border-color: var(--accent-gold);
+  }
+
+  .search-icon {
+    color: var(--text-muted);
+    margin-left: var(--space-2);
+    flex-shrink: 0;
+  }
+
+  .search-form input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: var(--space-2) var(--space-3);
+    font-size: 1rem;
+    color: var(--text-primary);
+    outline: none;
+  }
+
+  .search-submit {
+    flex-shrink: 0;
+  }
+
+  .search-hints {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    margin-top: var(--space-3);
+    font-size: 0.85rem;
+  }
+
+  .hint-label {
+    color: var(--text-muted);
+  }
+
+  .search-hints a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    background-color: var(--bg-surface-elevated);
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-light);
+  }
+
+  .search-hints a:hover {
+    color: var(--accent-gold);
+    border-color: var(--accent-gold);
+  }
+
+  .metrics-ribbon {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+    width: 100%;
+    max-width: 820px;
+    margin-top: var(--space-4);
+  }
+
+  @media (min-width: 640px) {
+    .metrics-ribbon {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .metric-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .metric-num {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .metric-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  .section {
+    padding: var(--space-12) 0;
+  }
+
+  .section-header {
+    margin-bottom: var(--space-8);
+  }
+
+  .section-kicker {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent-gold-dark);
+  }
+
+  [data-theme="dark"] .section-kicker {
+    color: var(--accent-gold);
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    margin-top: var(--space-1);
+    margin-bottom: var(--space-2);
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .section-desc {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    max-width: 700px;
+  }
+
+  /* Featured Card */
+  .featured-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    border-left: 6px solid var(--accent-gold);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6) var(--space-8);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .featured-card-badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+  }
+
+  .reading-badge {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+  }
+
+  .featured-card-title {
+    font-size: 1.6rem;
+    margin-bottom: var(--space-3);
+  }
+
+  .featured-card-title a {
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+
+  .featured-card-title a:hover {
+    color: var(--accent-gold-dark);
+  }
+
+  [data-theme="dark"] .featured-card-title a:hover {
+    color: var(--accent-gold);
+  }
+
+  .featured-card-summary {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--space-6);
+  }
+
+  .featured-card-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--border-light);
+  }
+
+  .citation-meta {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+  }
+
+  /* Categories Grid */
+  .category-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  @media (min-width: 640px) {
+    .category-cards-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .category-cards-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .cat-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: var(--space-5);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+  }
+
+  .cat-card:hover {
+    border-color: var(--accent-gold);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .cat-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-2);
+  }
+
+  .cat-card-index {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .cat-card-name {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin-bottom: var(--space-2);
+  }
+
+  .cat-card-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    flex: 1;
+    margin-bottom: var(--space-4);
+  }
+
+  .cat-card-footer {
+    padding-top: var(--space-2);
+    border-top: 1px solid var(--border-light);
+  }
+
+  .cat-card-link {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent-emerald);
+  }
+
+  /* Tools Grid */
+  .tools-overview-section {
+    background-color: var(--bg-surface);
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .tools-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  @media (min-width: 768px) {
+    .tools-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .tool-card {
+    padding: var(--space-6);
+    background-color: var(--bg-surface-elevated);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+  }
+
+  .tool-icon {
+    font-size: 2rem;
+    margin-bottom: var(--space-3);
+  }
+
+  .tool-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-2);
+  }
+
+  .tool-card p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-4);
+  }
+
+  .tool-link {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent-gold-dark);
+  }
+
+  [data-theme="dark"] .tool-link {
+    color: var(--accent-gold);
+  }
+
+  /* Author Card */
+  .author-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .author-eyebrow {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+  }
+
+  .author-name {
+    font-size: 1.8rem;
+    margin-top: var(--space-1);
+    margin-bottom: var(--space-3);
+    border: none;
+    padding: 0;
+  }
+
+  .author-bio {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--space-4);
+  }
+
+  .author-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .author-links a {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+  }
+
+  .author-links a:hover {
+    color: var(--accent-gold);
+  }
+
+  .author-page-link {
+    color: var(--accent-emerald) !important;
+  }
+</style>

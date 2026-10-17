@@ -1,0 +1,107 @@
+/* Dhanpedia India — Core Design Tokens & Theme System */
+
+:root {
+  /* Color Palette - Light Theme (Default: Warm Ivory & Deep Navy Editorial) */
+  --bg-primary: #FAF9F6;
+  --bg-surface: #FFFFFF;
+  --bg-surface-elevated: #F4F3EE;
+  --bg-subtle: #EFEFEA;
+  --bg-highlight: #F5EFEB;
+  
+  --text-primary: #111827;
+  --text-secondary: #4B5563;
+  --text-muted: #6B7280;
+  --text-inverse: #FFFFFF;
+
+  --border-light: #E5E7EB;
+  --border-medium: #D1D5DB;
+  --border-accent: #C5A059;
+
+  /* Editorial Accents */
+  --accent-navy: #0B132B;
+  --accent-navy-light: #1C2541;
+  --accent-gold: #C5A059;
+  --accent-gold-dark: #9A7B38;
+  --accent-emerald: #0D9488;
+  --accent-emerald-subtle: #ECFDF5;
+  --accent-crimson: #BE123C;
+  --accent-crimson-subtle: #FFF1F2;
+  --accent-amber: #B45309;
+  --accent-amber-subtle: #FFFBEB;
+  --accent-blue: #1D4ED8;
+  --accent-blue-subtle: #EFF6FF;
+
+  /* Typography */
+  --font-serif: "Merriweather", "Georgia", "Cambria", serif;
+  --font-sans: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* Layout Widths */
+  --sidebar-left-width: 280px;
+  --sidebar-right-width: 260px;
+  --content-max-width: 820px;
+  --container-max-width: 1440px;
+
+  /* Radii */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+  --shadow-sticky: 0 4px 12px rgba(11, 19, 43, 0.06);
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  --bg-primary: #0B132B;
+  --bg-surface: #141E3C;
+  --bg-surface-elevated: #1C284E;
+  --bg-subtle: #24325E;
+  --bg-highlight: #1E2D4A;
+
+  --text-primary: #F3F4F6;
+  --text-secondary: #9CA3AF;
+  --text-muted: #6B7280;
+  --text-inverse: #0B132B;
+
+  --border-light: #24325E;
+  --border-medium: #37477C;
+  --border-accent: #D4AF37;
+
+  --accent-gold: #E5C365;
+  --accent-gold-dark: #C5A059;
+  --accent-emerald: #14B8A6;
+  --accent-emerald-subtle: rgba(20, 184, 166, 0.12);
+  --accent-crimson: #F43F5E;
+  --accent-crimson-subtle: rgba(244, 63, 94, 0.12);
+  --accent-amber: #F59E0B;
+  --accent-amber-subtle: rgba(245, 158, 11, 0.12);
+  --accent-blue: #3B82F6;
+  --accent-blue-subtle: rgba(59, 130, 246, 0.12);
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6);
+  --shadow-sticky: 0 4px 16px rgba(0, 0, 0, 0.6);
+}

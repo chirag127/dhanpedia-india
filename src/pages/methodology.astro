@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { url } from '../utils/paths';
+import sourceRegistry from '../../data/sources/source-registry.json';
+
+const sources = sourceRegistry.sources;
+---
+
+<BaseLayout
+  title="Research Methodology & Verification Protocols — Dhanpedia India"
+  description="Exhaustive three-tier statutory research methodology governing Dhanpedia India. Verification standards across RBI, SEBI, CBDT, and government gazettes."
+>
+  <div class="site-container page-container">
+    <div class="page-header">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href={url('/')}>Home</a>
+        <span class="sep">/</span>
+        <span class="current">Methodology</span>
+      </nav>
+      <h1 class="page-title">Research Methodology & Verification Protocol</h1>
+      <p class="page-lead">
+        How Dhanpedia India conducts evidence-grounded research, cross-references statutory authorities, and guarantees factual veracity.
+      </p>
+    </div>
+
+    <div class="content-prose">
+      <h2>1. The Three-Tier Evidentiary Standard</h2>
+      <p>
+        Dhanpedia India enforces a strict hierarchical standard for all financial, legal, tax, and investment information:
+      </p>
+
+      <div class="callout callout-statutory">
+        <div class="callout-title">Tier 1: Primary Statutory & Regulatory Authorities (Binding)</div>
+        <p>
+          Acts of the Indian Parliament, The Gazette of India, Reserve Bank of India Master Directions, SEBI Circulars & Regulations, Central Board of Direct Taxes Notifications, PFRDA Master Directions, and IRDAI Circulars. All factual claims regarding rules, limits, and timelines must originate here.
+        </p>
+      </div>
+
+      <div class="callout callout-info">
+        <div class="callout-title">Tier 2: Statutory Grievance & Industry Self-Regulatory Bodies (Corroborating)</div>
+        <p>
+          RBI Complaint Management System, SEBI SCORES 2.0 / SMART ODR arbitration portals, Association of Mutual Funds in India (AMFI) categorization sheets, and National Stock Exchange / Bombay Stock Exchange trading parameters.
+        </p>
+      </div>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">Tier 3: Secondary Financial Press & Academic Working Papers (Discovery Only)</div>
+        <p>
+          Financial journalism, academic working papers, and industry commentary. Permitted solely for initial hypothesis generation; strictly prohibited as sole statutory proof for legal or tax mechanics.
+        </p>
+      </div>
+
+      <h2>2. Handling Regulatory Conflicts & Ambiguity</h2>
+      <p>
+        When statutory texts, administrative circulars, and judicial precedents diverge (such as conflicting interpretations of direct tax rebates under Section 87A versus special rate capital gains), Dhanpedia India does not fabricate speculative consensus.
+      </p>
+      <p>
+        Instead, the ambiguity is explicitly documented, conflicting viewpoints are presented with legal citations, and the topic is logged into our machine-readable Research Gaps registry (<code>data/taxonomy/research-gaps.json</code>) with active monitoring protocols.
+      </p>
+
+      <h2>3. Active Statutory Source Registry</h2>
+      <p>
+        The following 10 statutory entities form the foundation of our verified source graph:
+      </p>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Source ID</th>
+              <th>Authority / Regulator</th>
+              <th>Official Portal</th>
+              <th>Scope Boundary</th>
+            </tr>
+          </thead>
+          <tbody>
+            {sources.map(s => (
+              <tr>
+                <td><code>{s.sourceId}</code></td>
+                <td><strong>{s.officialName}</strong></td>
+                <td><a href={s.canonicalUrl} target="_blank" rel="noopener noreferrer">{s.canonicalUrl}</a></td>
+                <td>{s.notes.substring(0, 110)}...</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-container {
+    padding: var(--space-8) var(--space-4) var(--space-16) var(--space-4);
+    max-width: 860px;
+  }
+
+  .page-header {
+    margin-bottom: var(--space-8);
+  }
+
+  .breadcrumbs {
+    font-size: 0.85rem;
+    margin-bottom: var(--space-3);
+  }
+
+  .breadcrumbs a {
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+
+  .breadcrumbs .sep {
+    margin: 0 var(--space-2);
+    color: var(--border-medium);
+  }
+
+  .breadcrumbs .current {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .page-title {
+    font-size: clamp(2.2rem, 4vw, 3rem);
+    margin-bottom: var(--space-3);
+  }
+
+  .page-lead {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .content-prose h2 {
+    font-size: 1.5rem;
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-3);
+  }
+
+  .content-prose p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-primary);
+    margin-bottom: var(--space-4);
+  }
+</style>

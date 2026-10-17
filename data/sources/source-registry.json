@@ -1,0 +1,181 @@
+{
+  "$schema": "./source-registry.schema.json",
+  "version": "1.0.0",
+  "lastUpdated": "2026-10-17",
+  "sources": [
+    {
+      "sourceId": "SRC-RBI-MAIN",
+      "officialName": "Reserve Bank of India Portal",
+      "publisher": "Reserve Bank of India (RBI)",
+      "canonicalUrl": "https://www.rbi.org.in",
+      "sourceType": "Statutory Authority / Central Bank",
+      "relevantCategories": [
+        "banking-payments",
+        "debt-fixed-income",
+        "emergency-protection",
+        "fraud-investor-rights"
+      ],
+      "effectiveDate": "1935-04-01",
+      "lastVerificationDate": "2026-10-17",
+      "accessLimitations": "Public, unauthenticated",
+      "reliabilityClassification": "Tier 1: Primary Statutory & Regulatory Authority",
+      "notes": "Authoritative for monetary policy, repo rates, banking regulations, payment systems (UPI, NEFT, RTGS), Forex/FEMA rules, RBI Retail Direct g-sec guidelines, and master circulars. Cannot establish individual income-tax rules."
+    },
+    {
+      "sourceId": "SRC-RBI-CMS",
+      "officialName": "RBI Complaint Management System (CMS) & Integrated Ombudsman Scheme",
+      "publisher": "Reserve Bank of India",
+      "canonicalUrl": "https://cms.rbi.org.in",
+      "sourceType": "Statutory Grievance Redressal Portal",
+      "relevantCategories": [
+        "banking-payments",
+        "credit-cards-consumer-credit",
+        "fraud-investor-rights"
+      ],
+      "effectiveDate": "2021-11-12",
+      "lastVerificationDate": "2026-10-17",
+      "accessLimitations": "Public portal for lodging and tracking escalation complaints",
+      "reliabilityClassification": "Tier 1: Primary Statutory & Regulatory Authority",
+      "notes": "Covers Reserve Bank - Integrated Ombudsman Scheme (RB-IOS, 2021) encompassing commercial banks, NBFCs, and non-bank payment system participants."
+    },
+    {
+      "sourceId": "SRC-SEBI-MAIN",
+      "officialName": "Securities and Exchange Board of India Official Portal",
+      "publisher": "Securities and Exchange Board of India (SEBI)",
+      "canonicalUrl": "https://www.sebi.gov.in",
+      "sourceType": "Statutory Capital Markets Regulator",
+      "relevantCategories": [
+        "mutual-funds-etfs",
+        "stocks-equity-research",
+        "portfolio-construction",
+        "alternative-investments",
+        "real-estate-property"
+      ],
+      "effectiveDate": "1992-04-12",
+      "lastVerificationDate": "2026-10-17",
+      "accessLimitations": "Public, unauthenticated",
+      "reliabilityClassification": "Tier 1: Primary Statutory & Regulatory Authority",
+      "notes": "Authoritative for Mutual Fund categorisation regulations (2017 circular), REIT/InvIT frameworks, AIF guidelines, insider trading prohibitions, broker regulations, and capital market disclosure mandates."
+    },
+    {
+      "sourceId": "SRC-SEBI-SCORES",
+      "officialName": "SEBI Complaints Redress System (SCORES 2.0)",
+      "publisher": "Securities and Exchange Board of India",
+      "canonicalUrl": "https://scores.sebi.gov.in",
+      "sourceType": "Statutory Grievance Redressal Portal",
+      "relevantCategories": [
+        "mutual-funds-etfs",
+        "stocks-equity-research",
+        "fraud-investor-rights"
+      ],
+      "effectiveDate": "2024-04-01",
+      "lastVerificationDate": "2026-10-17",
+      "accessLimitations": "Public complaint and escalation portal",
+      "reliabilityClassification": "Tier 1: Primary Statutory & Regulatory Authority",
+      "notes": "Authoritative process for investor dispute resolution against listed companies, brokers, depository participants, and mutual fund AMCs."
+    },
+    {
+      "sourceId": "SRC-ITD-PORTAL",
+      "officialName": "Income Tax Department e-Filing Portal",
+      "publisher": "Central Board of Direct Taxes (CBDT), Ministry of Finance, Government of India",
+      "canonicalUrl": "https://www.incometax.gov.in",
+      "sourceType": "Official Government Tax Authority",
+      "relevantCategories": [
+        "taxes-compliance",
+        "income-career-capital",
+        "retirement-fire",
+        "family-wealth-estate"
+      ],
+      "effectiveDate": "1961-04-01",
+      "lastVerificationDate": "2026-10-17",
+      "accessLimitations": "Public guidance, authenticated portal for ITR filing",
+      "reliabilityClassification": "Tier 1: Primary Statutory & Regulatory Authority",
+      "notes": "Authoritative for Income-tax Act 1961, tax slabs under Old vs New Tax Regime (Section 115BAC), Capital Gains Tax schedules (STCG Section 111A, LTCG Section 112A), TDS rules, and official CBDT circulars."
+    },
+    {
+      "sourceId": "SRC-PFRDA-MAIN",
+      "officialName": "Pension Fund Regulatory and Development Authority Official Portal",
+      "publisher": "PFRDA, Government of India",
+      "canonicalUrl": "https://www.pfrda.org.in",
+      "sourceType": "Statutory Pension Regulator",
+      "relevantCategories": [
+        "retirement-fire",
+        "taxes-compliance",
+        "pf-foundations"
+      ],
+      "effectiveDate": "2003-10-10",
+      "lastVerificationDate": "2026-10-17",
+      "accessLimitations": "Public, unauthenticated",
+      "reliabilityClassification": "Tier 1: Primary Statutory & Regulatory Authority",
+      "notes": "Authoritative for National Pension System (NPS Tier 1 & Tier 2) rules, Atal Pension Yojana (APY), annuity mandatory purchase fractions, and withdrawal rules."
+    },
+    {
+      "sourceId": "SRC-EPFO-MAIN",
+      "officialName": "Employees' Provident Fund Organisation Portal",
+      "publisher": "EPFO, Ministry of Labour and Employment, Government of India",
+      "canonicalUrl": "https://www.epfindia.gov.in",
+      "sourceType": "Statutory Social Security Body",
+      "relevantCategories": [
+        "retirement-fire",
+        "income-career-capital",
+        "debt-fixed-income"
+      ],
+      "effectiveDate": "1952-03-04",
+      "lastVerificationDate": "2026-10-17",
+      "accessLimitations": "Public guidelines and member portal",
+      "reliabilityClassification": "Tier 1: Primary Statutory & Regulatory Authority",
+      "notes": "Authoritative for EPF interest rates, EPS pension computations, EDLI insurance, voluntary provident fund (VPF), and withdrawal/taxation thresholds on contributions > ₹2.5 Lakh per annum."
+    },
+    {
+      "sourceId": "SRC-IRDAI-MAIN",
+      "officialName": "Insurance Regulatory and Development Authority of India Portal",
+      "publisher": "IRDAI, Government of India",
+      "canonicalUrl": "https://irdai.gov.in",
+      "sourceType": "Statutory Insurance Regulator",
+      "relevantCategories": [
+        "insurance-risk-management",
+        "emergency-protection",
+        "family-wealth-estate"
+      ],
+      "effectiveDate": "1999-12-19",
+      "lastVerificationDate": "2026-10-17",
+      "accessLimitations": "Public, unauthenticated",
+      "reliabilityClassification": "Tier 1: Primary Statutory & Regulatory Authority",
+      "notes": "Authoritative for life, health, motor, and general insurance regulations, claim settlement ratio (CSR) disclosures, policyholder protection regulations, and health cashless guidelines."
+    },
+    {
+      "sourceId": "SRC-DICGC-MAIN",
+      "officialName": "Deposit Insurance and Credit Guarantee Corporation Portal",
+      "publisher": "DICGC (Subsidiary of Reserve Bank of India)",
+      "canonicalUrl": "https://www.dicgc.org.in",
+      "sourceType": "Statutory Deposit Insurance Corporation",
+      "relevantCategories": [
+        "banking-payments",
+        "emergency-protection",
+        "pf-foundations"
+      ],
+      "effectiveDate": "1962-01-01",
+      "lastVerificationDate": "2026-10-17",
+      "accessLimitations": "Public, unauthenticated",
+      "reliabilityClassification": "Tier 1: Primary Statutory & Regulatory Authority",
+      "notes": "Authoritative for bank deposit insurance cover limit (up to ₹5,00,000 per depositor per insured bank across principal and interest) under DICGC Act."
+    },
+    {
+      "sourceId": "SRC-AMFI-MAIN",
+      "officialName": "Association of Mutual Funds in India Portal",
+      "publisher": "Association of Mutual Funds in India (AMFI)",
+      "canonicalUrl": "https://www.amfiindia.com",
+      "sourceType": "Industry Association / Self-Regulatory Body",
+      "relevantCategories": [
+        "mutual-funds-etfs",
+        "taxes-compliance",
+        "portfolio-construction"
+      ],
+      "effectiveDate": "1995-08-22",
+      "lastVerificationDate": "2026-10-17",
+      "accessLimitations": "Public, unauthenticated",
+      "reliabilityClassification": "Tier 2: Authoritative Industry Self-Regulatory Body",
+      "notes": "Authoritative for mutual fund NAV history, monthly AUM flows, scheme reclassifications, TER reporting standards, and ARN compliance. Must be verified against SEBI regulations for legal mandates."
+    }
+  ]
+}

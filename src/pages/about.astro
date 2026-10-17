@@ -1,0 +1,119 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { url } from '../utils/paths';
+---
+
+<BaseLayout
+  title="About the Project — Dhanpedia India"
+  description="Learn about Dhanpedia India, its governing product vision, autonomous architecture, and commitment to zero-cost, evidence-backed financial education."
+>
+  <div class="site-container page-container">
+    <div class="page-header">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href={url('/')}>Home</a>
+        <span class="sep">/</span>
+        <span class="current">About</span>
+      </nav>
+      <h1 class="page-title">About Dhanpedia India</h1>
+      <p class="page-lead">
+        The Indian Personal Finance, Investing and Wealth-Building Encyclopedia.
+      </p>
+    </div>
+
+    <div class="content-prose">
+      <h2>1. The Governing Product Vision</h2>
+      <p>
+        Dhanpedia India was created to solve a pervasive structural failure in the Indian financial knowledge landscape: the dominance of superficial promotional listicles, unverified social media stock tips, and opaque financial marketing masquerading as education.
+      </p>
+      <p>
+        Rather than building an ephemeral blog or ad-monetized portal, Dhanpedia India is engineered as a permanent, rigorous, multi-format financial reference encyclopedia. The platform unifies 22 core financial families into a single source of truth, cross-referencing all factual statements against primary statutory authorities: the Reserve Bank of India, the Securities and Exchange Board of India, the Central Board of Direct Taxes, the Pension Fund Regulatory and Development Authority, the Insurance Regulatory and Development Authority of India, and the Employees' Provident Fund Organisation.
+      </p>
+
+      <h2>2. Core Architectural Pillars</h2>
+      <ul>
+        <li><strong>Single Source of Truth (SSOT):</strong> One canonical content graph powers web pages, topic hubs, client-side search, deterministic calculators, clean Markdown exports, and future master EPUB and PDF editions.</li>
+        <li><strong>Zero Mandatory Infrastructure Expenditure:</strong> Hosted entirely on GitHub Pages with static HTML generation, local client-side search, zero paid APIs, zero tracking cookies, and zero mandatory user logins.</li>
+        <li><strong>Audiobook-Native Editorial Design:</strong> Written in continuous, rhythmic spoken prose, avoiding isolated formula hurdles or visual table traps so that it reads aloud naturally with tools like Microsoft Edge Read Aloud.</li>
+        <li><strong>Exhaustive Substantive Depth:</strong> Every foundational treatise is engineered to exceed 10,000 words of comprehensive, evidence-grounded prose.</li>
+      </ul>
+
+      <h2>3. Autonomous, Resumable Execution</h2>
+      <p>
+        Dhanpedia India is developed through a planned sequence of 70 dependency-aware build prompts. Every prompt records persistent state checkpoints, executes automated validation quality gates, and ensures complete continuity across development sessions.
+      </p>
+
+      <div class="callout callout-statutory">
+        <div class="callout-title">Author Attribution & Governance</div>
+        <p>
+          Founded, authored, and maintained by <strong>Chirag Singhal</strong>. For editorial inquiries, peer review, or corrections, contact <a href="mailto:chirag@oriz.in">chirag@oriz.in</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-container {
+    padding: var(--space-8) var(--space-4) var(--space-16) var(--space-4);
+    max-width: 820px;
+  }
+
+  .page-header {
+    margin-bottom: var(--space-8);
+  }
+
+  .breadcrumbs {
+    font-size: 0.85rem;
+    margin-bottom: var(--space-3);
+  }
+
+  .breadcrumbs a {
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+
+  .breadcrumbs .sep {
+    margin: 0 var(--space-2);
+    color: var(--border-medium);
+  }
+
+  .breadcrumbs .current {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .page-title {
+    font-size: clamp(2.2rem, 4vw, 3rem);
+    margin-bottom: var(--space-3);
+  }
+
+  .page-lead {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .content-prose h2 {
+    font-size: 1.5rem;
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-3);
+  }
+
+  .content-prose p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-primary);
+    margin-bottom: var(--space-4);
+  }
+
+  .content-prose ul {
+    margin-left: var(--space-6);
+    margin-bottom: var(--space-6);
+  }
+
+  .content-prose li {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: var(--space-2);
+  }
+</style>

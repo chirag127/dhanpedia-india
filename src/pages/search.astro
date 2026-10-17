@@ -1,0 +1,352 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { url } from '../utils/paths';
+import taxonomyData from '../../data/taxonomy/taxonomy.json';
+import articleRegistry from '../../data/articles/article-registry.json';
+import conceptRegistry from '../../data/concepts/concept-registry.json';
+
+// Build search corpus
+const searchIndex = [
+  ...articleRegistry.articles.map(a => ({
+    type: 'Treatise',
+    title: a.title,
+    snippet: a.summary,
+    url: url(`/articles/${a.slug}`),
+    category: a.categoryName,
+    tags: a.tags.join(', ')
+  })),
+  ...taxonomyData.categories.map(c => ({
+    type: 'Family',
+    title: c.canonicalName,
+    snippet: c.shortDescription,
+    url: url(`/categories/${c.id}`),
+    category: c.canonicalName,
+    tags: c.relatedConcepts.join(', ')
+  })),
+  ...conceptRegistry.concepts.map(cp => ({
+    type: 'Concept',
+    title: cp.canonicalTerm,
+    snippet: cp.shortDefinition,
+    url: url('/glossary'),
+    category: cp.categoryId,
+    tags: cp.synonyms.join(', ')
+  }))
+];
+---
+
+<BaseLayout
+  title="Search Financial Encyclopedia — Dhanpedia India"
+  description="Instant, zero-cost client-side search across Dhanpedia India's 22 topical families, substantive treatises, and canonical concepts."
+>
+  <div class="site-container search-page-container">
+    <div class="search-hero">
+      <h1 class="search-page-title">Search Dhanpedia India</h1>
+      <p class="search-page-lead">
+        Search across 22 financial families, substantive treatises, statutory circulars, and canonical definitions. Zero external APIs, completely private.
+      </p>
+
+      <div class="search-input-wrapper">
+        <svg class="search-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input 
+          type="search" 
+          id="live-search-input" 
+          placeholder="Type to search (e.g. DICGC, Section 115BAC, SGB, CIBIL, Ombudsman)..." 
+          autofocus
+        />
+        <button id="clear-search-btn" class="clear-btn" aria-label="Clear query">&times;</button>
+      </div>
+
+      <div class="filter-chips" id="type-filter-chips">
+        <button class="chip active" data-type="all">All Results</button>
+        <button class="chip" data-type="Treatise">Substantive Treatises</button>
+        <button class="chip" data-type="Family">Taxonomy Families</button>
+        <button class="chip" data-type="Concept">Canonical Concepts</button>
+      </div>
+    </div>
+
+    <!-- Search Results Container -->
+    <div class="search-results-section">
+      <div class="results-header">
+        <span id="results-count">Showing all indexed knowledge items</span>
+      </div>
+
+      <div id="results-list" class="results-list">
+        <!-- Rendered by client script below -->
+      </div>
+
+      <div id="no-results-state" class="no-results-state" style="display: none;">
+        <h3>No matching records found</h3>
+        <p>Try searching for statutory acronyms like <strong>DICGC</strong>, <strong>RBI</strong>, <strong>115BAC</strong>, or <strong>CIBIL</strong>.</p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script define:vars={{ searchIndex }}>
+  const input = document.getElementById('live-search-input');
+  const clearBtn = document.getElementById('clear-search-btn');
+  const resultsList = document.getElementById('results-list');
+  const resultsCount = document.getElementById('results-count');
+  const noResultsState = document.getElementById('no-results-state');
+  const filterChips = document.querySelectorAll('#type-filter-chips .chip');
+
+  let activeType = 'all';
+
+  function renderResults(query = '') {
+    const q = query.toLowerCase().trim();
+    let matches = searchIndex;
+
+    if (activeType !== 'all') {
+      matches = matches.filter(item => item.type === activeType);
+    }
+
+    if (q) {
+      matches = matches.filter(item => {
+        const t = item.title.toLowerCase();
+        const s = item.snippet.toLowerCase();
+        const tg = item.tags.toLowerCase();
+        return t.includes(q) || s.includes(q) || tg.includes(q);
+      });
+    }
+
+    resultsList.innerHTML = '';
+
+    if (matches.length === 0) {
+      resultsCount.textContent = `0 results for "${query}"`;
+      noResultsState.style.display = 'block';
+      return;
+    }
+
+    noResultsState.style.display = 'none';
+    resultsCount.textContent = `Found ${matches.length} matching result${matches.length === 1 ? '' : 's'}`;
+
+    matches.forEach(item => {
+      const card = document.createElement('article');
+      card.className = 'result-card';
+      card.innerHTML = `
+        <div class="result-badge-row">
+          <span class="badge ${item.type === 'Treatise' ? 'badge-gold' : 'badge-emerald'}">${item.type}</span>
+          <span class="result-cat">${item.category}</span>
+        </div>
+        <h3 class="result-title"><a href="${item.url}">${item.title}</a></h3>
+        <p class="result-snippet">${item.snippet}</p>
+        <a href="${item.url}" class="result-link">Open Knowledge Record &rarr;</a>
+      `;
+      resultsList.appendChild(card);
+    });
+  }
+
+  // Handle URL param query
+  const urlParams = new URLSearchParams(window.location.search);
+  const initialQ = urlParams.get('q') || '';
+  if (initialQ) {
+    input.value = initialQ;
+  }
+  renderResults(initialQ);
+
+  input.addEventListener('input', (e) => {
+    renderResults(e.target.value);
+  });
+
+  clearBtn.addEventListener('click', () => {
+    input.value = '';
+    input.focus();
+    renderResults('');
+  });
+
+  filterChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      filterChips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      activeType = chip.getAttribute('data-type') || 'all';
+      renderResults(input.value);
+    });
+  });
+</script>
+
+<style>
+  .search-page-container {
+    padding: var(--space-8) var(--space-4) var(--space-16) var(--space-4);
+    max-width: 900px;
+  }
+
+  .search-hero {
+    margin-bottom: var(--space-8);
+  }
+
+  .search-page-title {
+    font-size: clamp(2.2rem, 4vw, 3rem);
+    margin-bottom: var(--space-2);
+  }
+
+  .search-page-lead {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-6);
+  }
+
+  .search-input-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-surface);
+    border: 2px solid var(--border-medium);
+    border-radius: var(--radius-lg);
+    padding: var(--space-3) var(--space-4);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: var(--space-4);
+  }
+
+  .search-input-wrapper:focus-within {
+    border-color: var(--accent-gold);
+    box-shadow: var(--shadow-md);
+  }
+
+  .search-icon {
+    color: var(--text-muted);
+    margin-right: var(--space-3);
+    flex-shrink: 0;
+  }
+
+  .search-input-wrapper input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    outline: none;
+  }
+
+  .clear-btn {
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 0 var(--space-2);
+  }
+
+  .clear-btn:hover {
+    color: var(--text-primary);
+  }
+
+  .filter-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .chip {
+    padding: 0.35rem 0.8rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border-medium);
+    background-color: var(--bg-surface);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .chip.active, .chip:hover {
+    background-color: var(--accent-navy);
+    color: #FFFFFF;
+    border-color: var(--accent-navy);
+  }
+
+  [data-theme="dark"] .chip.active, [data-theme="dark"] .chip:hover {
+    background-color: var(--accent-gold);
+    color: #0B132B;
+    border-color: var(--accent-gold);
+  }
+
+  .results-header {
+    margin-bottom: var(--space-4);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+
+  .results-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .result-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: var(--space-5);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-fast);
+  }
+
+  .result-card:hover {
+    border-color: var(--accent-gold);
+  }
+
+  .result-badge-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-2);
+  }
+
+  .result-cat {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .result-title {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-2);
+  }
+
+  .result-title a {
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+
+  .result-title a:hover {
+    color: var(--accent-gold-dark);
+  }
+
+  [data-theme="dark"] .result-title a:hover {
+    color: var(--accent-gold);
+  }
+
+  .result-snippet {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: var(--space-3);
+  }
+
+  .result-link {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent-emerald);
+    text-decoration: none;
+  }
+
+  .no-results-state {
+    padding: var(--space-8);
+    text-align: center;
+    background-color: var(--bg-surface-elevated);
+    border-radius: var(--radius-md);
+    border: 1px dashed var(--border-medium);
+  }
+
+  .no-results-state h3 {
+    margin-bottom: var(--space-2);
+  }
+
+  .no-results-state p {
+    color: var(--text-secondary);
+    margin: 0;
+  }
+</style>

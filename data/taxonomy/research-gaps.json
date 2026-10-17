@@ -1,0 +1,52 @@
+{
+  "$schema": "./research-gaps.schema.json",
+  "version": "1.0.0",
+  "lastUpdated": "2026-10-17",
+  "gaps": [
+    {
+      "gapId": "GAP-TAX-87A-SPL",
+      "categoryId": "taxes-compliance",
+      "title": "Section 87A rebate applicability on Special Rate Income under Section 115BAC",
+      "description": "Income Tax Department utility updates for AY 2024-25 restricted Section 87A rebate against short-term capital gains (Section 111A) and long-term capital gains (Section 112A) under the New Tax Regime, despite statutory wording ambiguities in the Income-tax Act. Need authoritative ITAT rulings and CBDT clarification circulars.",
+      "severity": "High",
+      "status": "investigating",
+      "actionPlan": "Monitor CBDT notifications and pending ITAT appeals regarding rebate calculation order."
+    },
+    {
+      "gapId": "GAP-SMREIT-TRACK",
+      "categoryId": "real-estate-property",
+      "title": "Small & Medium REIT (SM REIT) initial listing mechanics and secondary market liquidity",
+      "description": "SEBI introduced the SM REIT regulatory framework in March 2024 to regulate fractional ownership of commercial properties with asset sizes between ₹50 Cr and ₹500 Cr. Live listing track records, liquidity, and distribution yield data are currently minimal.",
+      "severity": "Medium",
+      "status": "monitoring",
+      "actionPlan": "Track initial SM REIT scheme registrations on SEBI portal and exchange listings on BSE/NSE."
+    },
+    {
+      "gapId": "GAP-LRS-TCS-RECON",
+      "categoryId": "international-investing",
+      "title": "Operational reconciliation of 20% TCS on LRS outward remittances with advance tax filings",
+      "description": "Under revised LRS rules, 20% TCS is levied on overseas investments exceeding ₹7 Lakh per financial year. While this TCS is adjustable against domestic tax liability, real-world cashflow drag and automated bank deduction errors remain widespread.",
+      "severity": "Medium",
+      "status": "investigating",
+      "actionPlan": "Verify exact Form 26AS/AIS credit reflection timelines and Form 12BAA corporate adjustment mechanisms."
+    },
+    {
+      "gapId": "GAP-URBAN-INFLATION",
+      "categoryId": "pf-foundations",
+      "title": "Empirical lifestyle and education inflation metrics for Indian metro cities",
+      "description": "Official CPI prints average 4-6%, but urban middle-class and affluent lifestyle inflation (healthcare, private school and higher education tuition, lifestyle housing) runs between 8-12% annually. Need robust multi-decade empirical data sets.",
+      "severity": "High",
+      "status": "open",
+      "actionPlan": "Synthesize private expenditure surveys, healthcare inflation studies, and Tier 1 education fee escalation rates."
+    },
+    {
+      "gapId": "GAP-SGB-FUTURE",
+      "categoryId": "gold-commodities",
+      "title": "Sovereign Gold Bond (SGB) future issuance policy after Budget 2024 customs duty reduction",
+      "description": "Following the reduction of gold import duty from 15% to 6% in Union Budget 2024, the Ministry of Finance and RBI have paused fresh SGB tranche issuances. The government's long-term policy on future tranches and fiscal cost needs primary confirmation.",
+      "severity": "Medium",
+      "status": "monitoring",
+      "actionPlan": "Track RBI issuance calendars and Ministry of Finance borrowing announcements for FY 2025-26."
+    }
+  ]
+}

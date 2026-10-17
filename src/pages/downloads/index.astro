@@ -1,0 +1,216 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { url } from '../../utils/paths';
+import articleRegistry from '../../../data/articles/article-registry.json';
+
+const articles = articleRegistry.articles;
+---
+
+<BaseLayout
+  title="Books & Offline Downloads — Multi-Format Library | Dhanpedia India"
+  description="Download offline reading editions of Dhanpedia India: clean Markdown files, plain text, and planned master EPUB and PDF publication volumes."
+>
+  <div class="site-container page-container">
+    <div class="page-header">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href={url('/')}>Home</a>
+        <span class="sep">/</span>
+        <span class="current">Downloads</span>
+      </nav>
+      <h1 class="page-title">Books & Offline Downloads</h1>
+      <p class="page-lead">
+        Dhanpedia India is engineered as a single-source-of-truth publication. The same canonical content that powers our web pages generates clean Markdown reading files, audio-friendly text files, and future master multi-volume EPUB and PDF editions.
+      </p>
+    </div>
+
+    <!-- Future Master Publication Box -->
+    <div class="master-publication-banner">
+      <div class="banner-badge">
+        <span class="badge badge-gold">Forthcoming Master Compendium</span>
+      </div>
+      <h2 class="banner-title">Dhanpedia India: The Master Encyclopedia (EPUB 3 & PDF)</h2>
+      <p class="banner-desc">
+        A planned comprehensive, single-volume reference book spanning 150–250 substantive chapters, over 300 treatises, and 3,000,000 original words. Scheduled for automated generation under Phase 10 (Prompts 059–064).
+      </p>
+      <div class="banner-features">
+        <span>✦ EPUB 3 Standards Compliant</span>
+        <span>✦ High-Resolution Print-Ready PDF</span>
+        <span>✦ Edge Read Aloud Optimized</span>
+        <span>✦ SHA-256 Checksum Certified</span>
+      </div>
+    </div>
+
+    <!-- Active Article Downloads -->
+    <section class="downloads-section">
+      <h2 class="section-title">Available Substantive Treatises for Offline Reading</h2>
+      <div class="download-cards-grid">
+        {articles.map(art => (
+          <div class="dl-card">
+            <div class="dl-card-badge">
+              <span class="badge badge-emerald">{art.categoryName}</span>
+              <span class="dl-words">{art.wordCount.toLocaleString()} words</span>
+            </div>
+            <h3 class="dl-card-title">{art.title}</h3>
+            <p class="dl-card-desc">{art.summary}</p>
+            
+            <div class="dl-actions-row">
+              <a href={url(`/articles/${art.slug}`)} class="btn btn-outline btn-sm">
+                Read Online
+              </a>
+              <a href={`https://raw.githubusercontent.com/chirag127/dhanpedia-india/main/src/content/articles/${art.slug}.md`} target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                Download Markdown (.md)
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Architecture Note on Decoupled Distribution -->
+    <div class="distribution-note-box callout callout-info">
+      <div class="callout-title">Architecture Notice: Zero-Cost Large File Distribution</div>
+      <p>
+        To respect GitHub Pages repository size limits and ensure ultra-fast web deployments, master EPUB and PDF compendiums exceeding several hundred megabytes are published as detached release assets via GitHub Releases. The core website shell remains lightweight, fast, and free of hosting costs.
+      </p>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-container {
+    padding: var(--space-8) var(--space-4) var(--space-16) var(--space-4);
+    max-width: 900px;
+  }
+
+  .page-header {
+    margin-bottom: var(--space-8);
+  }
+
+  .breadcrumbs {
+    font-size: 0.85rem;
+    margin-bottom: var(--space-3);
+  }
+
+  .breadcrumbs a {
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+
+  .breadcrumbs .sep {
+    margin: 0 var(--space-2);
+    color: var(--border-medium);
+  }
+
+  .breadcrumbs .current {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .page-title {
+    font-size: clamp(2.2rem, 4vw, 3rem);
+    margin-bottom: var(--space-3);
+  }
+
+  .page-lead {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .master-publication-banner {
+    background-color: var(--bg-surface);
+    border: 2px solid var(--accent-gold);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8);
+    margin-bottom: var(--space-12);
+    box-shadow: var(--shadow-md);
+  }
+
+  .banner-title {
+    font-size: 1.6rem;
+    margin-top: var(--space-2);
+    margin-bottom: var(--space-2);
+    border: none;
+    padding: 0;
+  }
+
+  .banner-desc {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-4);
+  }
+
+  .banner-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent-gold-dark);
+  }
+
+  [data-theme="dark"] .banner-features {
+    color: var(--accent-gold);
+  }
+
+  .downloads-section {
+    margin-bottom: var(--space-12);
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+    margin-bottom: var(--space-6);
+  }
+
+  .download-cards-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .dl-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    border-left: 5px solid var(--accent-emerald);
+    border-radius: var(--radius-md);
+    padding: var(--space-6);
+  }
+
+  .dl-card-badge {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-2);
+  }
+
+  .dl-words {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .dl-card-title {
+    font-size: 1.35rem;
+    margin-bottom: var(--space-2);
+  }
+
+  .dl-card-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-4);
+  }
+
+  .dl-actions-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--border-light);
+  }
+
+  .btn-sm {
+    padding: var(--space-2) var(--space-4);
+    font-size: 0.85rem;
+  }
+</style>

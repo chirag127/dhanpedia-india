@@ -1,0 +1,240 @@
+---
+import { url } from '../utils/paths';
+---
+
+<footer class="site-footer">
+  <div class="site-container footer-content">
+    <div class="footer-grid">
+      <!-- Col 1: Identity & Mission -->
+      <div class="footer-col brand-col">
+        <div class="footer-brand">
+          <span class="footer-brand-symbol">₹</span>
+          <span class="footer-brand-title">Dhanpedia India</span>
+        </div>
+        <p class="footer-desc">
+          The Indian Personal Finance, Investing and Wealth-Building Encyclopedia. Rigorous, evidence-grounded financial knowledge designed for long-term wealth accumulation.
+        </p>
+        <p class="author-attribution">
+          Authored & maintained by <strong>Chirag Singhal</strong>.
+        </p>
+        <div class="social-links">
+          <a href="https://github.com/chirag127/" target="_blank" rel="noopener noreferrer" title="GitHub">GitHub</a>
+          <a href="https://www.linkedin.com/in/chirag127/" target="_blank" rel="noopener noreferrer" title="LinkedIn">LinkedIn</a>
+          <a href="https://x.com/singhal127" target="_blank" rel="noopener noreferrer" title="X (Twitter)">X</a>
+          <a href="https://www.youtube.com/@ChiragSinghal127" target="_blank" rel="noopener noreferrer" title="YouTube">YouTube</a>
+          <a href="https://buymeacoffee.com/chirag127" target="_blank" rel="noopener noreferrer" title="Buy Me a Coffee">Support</a>
+        </div>
+      </div>
+
+      <!-- Col 2: Knowledge Categories -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Topical Families</h4>
+        <ul class="footer-links">
+          <li><a href={url('/categories/banking-payments')}>Banking & Payments</a></li>
+          <li><a href={url('/categories/taxes-compliance')}>Taxes & Compliance</a></li>
+          <li><a href={url('/categories/mutual-funds-etfs')}>Mutual Funds & ETFs</a></li>
+          <li><a href={url('/categories/debt-fixed-income')}>Debt & Fixed Income</a></li>
+          <li><a href={url('/categories/gold-commodities')}>Gold & Commodities</a></li>
+          <li><a href={url('/categories/insurance-risk-management')}>Insurance & Risk</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Tools & Downloads -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Resources</h4>
+        <ul class="footer-links">
+          <li><a href={url('/calculators')}>Financial Calculators</a></li>
+          <li><a href={url('/glossary')}>Financial Glossary</a></li>
+          <li><a href={url('/downloads')}>Books & PDF Downloads</a></li>
+          <li><a href={url('/updates')}>Regulatory Updates</a></li>
+          <li><a href={url('/explore')}>Corpus Directory</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Governance & Legal -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Governance</h4>
+        <ul class="footer-links">
+          <li><a href={url('/methodology')}>Research Methodology</a></li>
+          <li><a href={url('/editorial-policy')}>Editorial Policy</a></li>
+          <li><a href={url('/disclaimer')}>Risk Disclaimer</a></li>
+          <li><a href={url('/privacy')}>Privacy Information</a></li>
+          <li><a href={url('/about')}>About the Project</a></li>
+          <li><a href="mailto:chirag@oriz.in">Contact Editorial</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Statutory Disclaimer -->
+    <div class="footer-disclaimer">
+      <p class="disclaimer-title">Educational & Risk Disclosure</p>
+      <p class="disclaimer-text">
+        Dhanpedia India is a free public educational reference library. All material is published solely for informational, analytical, and educational purposes. Neither Dhanpedia India nor Chirag Singhal is a SEBI-registered Investment Adviser (RIA), Research Analyst (RA), or licensed tax professional. Nothing contained herein constitutes personal financial, legal, or tax advice. Always consult certified financial, legal, or tax advisors before executing investments or tax filings.
+      </p>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="copyright">
+        &copy; {new Date().getFullYear()} Dhanpedia India. Engineered for zero-cost public education on GitHub Pages.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background-color: var(--bg-surface);
+    border-top: 1px solid var(--border-light);
+    padding: var(--space-12) 0 var(--space-8) 0;
+    margin-top: auto;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  @media (min-width: 640px) {
+    .footer-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .footer-grid {
+      grid-template-columns: 2fr 1.2fr 1.2fr 1.2fr;
+    }
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+  }
+
+  .footer-brand-symbol {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background-color: var(--accent-navy);
+    color: var(--accent-gold);
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+  }
+
+  [data-theme="dark"] .footer-brand-symbol {
+    background-color: var(--accent-gold);
+    color: #0B132B;
+  }
+
+  .footer-brand-title {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--text-primary);
+  }
+
+  .footer-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-3);
+  }
+
+  .author-attribution {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: var(--space-4);
+  }
+
+  .social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+
+  .social-links a {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
+    background-color: var(--bg-surface-elevated);
+    border: 1px solid var(--border-light);
+  }
+
+  .social-links a:hover {
+    color: var(--accent-gold);
+    border-color: var(--accent-gold);
+  }
+
+  .footer-heading {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-4);
+  }
+
+  .footer-links {
+    list-style: none;
+    margin: 0;
+  }
+
+  .footer-links li {
+    margin-bottom: var(--space-2);
+  }
+
+  .footer-links a {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .footer-links a:hover {
+    color: var(--accent-gold);
+  }
+
+  .footer-disclaimer {
+    margin-top: var(--space-10);
+    padding: var(--space-4) var(--space-5);
+    background-color: var(--bg-surface-elevated);
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--accent-gold);
+  }
+
+  .disclaimer-title {
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-primary);
+    margin-bottom: var(--space-1);
+  }
+
+  .disclaimer-text {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .footer-bottom {
+    margin-top: var(--space-6);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--border-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+  }
+</style>

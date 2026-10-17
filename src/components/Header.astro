@@ -1,0 +1,379 @@
+---
+import { url } from '../utils/paths';
+
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = '' } = Astro.props;
+
+const navItems = [
+  { label: 'Explore', href: url('/explore') },
+  { label: 'Taxonomy', href: url('/categories') },
+  { label: 'Calculators', href: url('/calculators') },
+  { label: 'Glossary', href: url('/glossary') },
+  { label: 'Downloads', href: url('/downloads') },
+  { label: 'Updates', href: url('/updates') },
+  { label: 'About', href: url('/about') }
+];
+---
+
+<header class="site-header">
+  <div class="site-container header-inner">
+    <div class="brand-group">
+      <a href={url('/')} class="brand-link" aria-label="Dhanpedia India Home">
+        <span class="brand-symbol">₹</span>
+        <div class="brand-text">
+          <span class="brand-title">Dhanpedia India</span>
+          <span class="brand-tagline">Personal Finance & Wealth Encyclopedia</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav" aria-label="Main Navigation">
+      <ul class="nav-list">
+        {navItems.map(item => (
+          <li>
+            <a 
+              href={item.href} 
+              class={`nav-link ${currentPath === item.href ? 'active' : ''}`}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <!-- Header Actions -->
+    <div class="header-actions">
+      <a href={url('/search')} class="search-trigger" aria-label="Open Search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <span class="search-text">Search</span>
+        <kbd class="search-kbd">/</kbd>
+      </a>
+
+      <!-- Theme Switcher -->
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle dark/light theme">
+        <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle mobile menu" aria-expanded="false">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
+    <div class="mobile-drawer-inner">
+      <ul class="mobile-nav-list">
+        {navItems.map(item => (
+          <li>
+            <a href={item.href} class="mobile-nav-link">{item.label}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Theme Toggle Logic
+  const themeToggle = document.getElementById('theme-toggle');
+  const savedTheme = localStorage.getItem('dhanpedia-theme') || 
+    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+  if (savedTheme === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+
+  themeToggle?.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('dhanpedia-theme', next);
+  });
+
+  // Mobile Menu Toggle
+  const mobileBtn = document.getElementById('mobile-menu-btn');
+  const mobileDrawer = document.getElementById('mobile-drawer');
+
+  mobileBtn?.addEventListener('click', () => {
+    const isExpanded = mobileBtn.getAttribute('aria-expanded') === 'true';
+    mobileBtn.setAttribute('aria-expanded', String(!isExpanded));
+    mobileDrawer?.classList.toggle('open');
+    mobileDrawer?.setAttribute('aria-hidden', String(isExpanded));
+  });
+
+  // Global Keyboard Shortcut for Search
+  window.addEventListener('keydown', (e) => {
+    if (e.key === '/' && !['INPUT', 'TEXTAREA'].includes((e.target as HTMLElement)?.tagName)) {
+      e.preventDefault();
+      const searchTrigger = document.querySelector('.search-trigger') as HTMLAnchorElement;
+      searchTrigger?.click();
+    }
+  });
+</script>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background-color: var(--bg-surface);
+    border-bottom: 1px solid var(--border-light);
+    backdrop-filter: blur(8px);
+    transition: background-color var(--transition-normal);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+  }
+
+  .brand-group {
+    display: flex;
+    align-items: center;
+  }
+
+  .brand-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    text-decoration: none;
+    color: var(--text-primary);
+  }
+
+  .brand-symbol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-md);
+    background-color: var(--accent-navy);
+    color: var(--accent-gold);
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  [data-theme="dark"] .brand-symbol {
+    background-color: var(--accent-gold);
+    color: #0B132B;
+  }
+
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .brand-title {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
+  }
+
+  .brand-tagline {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  @media (min-width: 900px) {
+    .desktop-nav {
+      display: block;
+    }
+  }
+
+  .nav-list {
+    display: flex;
+    align-items: center;
+    gap: var(--space-5);
+    list-style: none;
+    margin: 0;
+  }
+
+  .nav-link {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .nav-link:hover, .nav-link.active {
+    color: var(--accent-gold-dark);
+  }
+
+  [data-theme="dark"] .nav-link:hover, [data-theme="dark"] .nav-link.active {
+    color: var(--accent-gold);
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .search-trigger {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    background-color: var(--bg-surface-elevated);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all var(--transition-fast);
+  }
+
+  .search-trigger:hover {
+    border-color: var(--accent-gold);
+    color: var(--text-primary);
+  }
+
+  .search-text {
+    display: none;
+  }
+
+  @media (min-width: 640px) {
+    .search-text {
+      display: inline;
+    }
+  }
+
+  .search-kbd {
+    display: none;
+    padding: 0.1rem 0.4rem;
+    font-size: 0.75rem;
+    font-family: var(--font-mono);
+    background-color: var(--bg-subtle);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-medium);
+  }
+
+  @media (min-width: 768px) {
+    .search-kbd {
+      display: inline-block;
+    }
+  }
+
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-md);
+    background-color: var(--bg-surface-elevated);
+    border: 1px solid var(--border-light);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .theme-toggle:hover {
+    border-color: var(--accent-gold);
+  }
+
+  .sun-icon {
+    display: none;
+  }
+
+  .moon-icon {
+    display: block;
+  }
+
+  [data-theme="dark"] .sun-icon {
+    display: block;
+    color: var(--accent-gold);
+  }
+
+  [data-theme="dark"] .moon-icon {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-md);
+    background: transparent;
+    border: 1px solid var(--border-light);
+    color: var(--text-primary);
+    cursor: pointer;
+  }
+
+  @media (min-width: 900px) {
+    .mobile-menu-btn {
+      display: none;
+    }
+  }
+
+  .mobile-drawer {
+    display: none;
+    border-top: 1px solid var(--border-light);
+    background-color: var(--bg-surface);
+  }
+
+  .mobile-drawer.open {
+    display: block;
+  }
+
+  .mobile-drawer-inner {
+    padding: var(--space-4);
+  }
+
+  .mobile-nav-list {
+    list-style: none;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .mobile-nav-link {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-decoration: none;
+    padding: var(--space-2) 0;
+    display: block;
+  }
+</style>

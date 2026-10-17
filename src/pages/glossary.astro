@@ -1,0 +1,178 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { url } from '../utils/paths';
+import conceptRegistry from '../../data/concepts/concept-registry.json';
+
+const concepts = conceptRegistry.concepts;
+---
+
+<BaseLayout
+  title="Canonical Financial Glossary — Dhanpedia India"
+  description="Authoritative, cross-referenced glossary of Indian personal finance, banking, direct tax, and capital markets terminology."
+>
+  <div class="site-container page-container">
+    <div class="page-header">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href={url('/')}>Home</a>
+        <span class="sep">/</span>
+        <span class="current">Glossary</span>
+      </nav>
+      <h1 class="page-title">Canonical Financial Glossary</h1>
+      <p class="page-lead">
+        Standardized definitions for Indian financial, banking, tax, and investment terms. Every concept is mapped to statutory sources and canonical identifiers to eliminate ambiguous definitions across our substantive treatises.
+      </p>
+    </div>
+
+    <!-- Glossary List -->
+    <div class="glossary-stack">
+      {concepts.map(cp => (
+        <article class="glossary-card" id={cp.id}>
+          <div class="glossary-card-top">
+            <span class="concept-id-badge"><code>{cp.id}</code></span>
+            <span class="badge badge-gold">Canonical Concept</span>
+          </div>
+
+          <h2 class="glossary-term">{cp.canonicalTerm}</h2>
+          <p class="glossary-def">{cp.shortDefinition}</p>
+
+          <div class="glossary-meta-row">
+            <div class="meta-col">
+              <span class="label">Topical Category:</span>
+              <a href={url(`/categories/${cp.categoryId}`)} class="val-link">{cp.categoryId}</a>
+            </div>
+            <div class="meta-col">
+              <span class="label">Statutory Sources:</span>
+              <span class="val">{cp.sources.join(', ')}</span>
+            </div>
+            <div class="meta-col">
+              <span class="label">Recognized Synonyms:</span>
+              <span class="val">{cp.synonyms.join('; ')}</span>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-container {
+    padding: var(--space-8) var(--space-4) var(--space-16) var(--space-4);
+    max-width: 900px;
+  }
+
+  .page-header {
+    margin-bottom: var(--space-10);
+  }
+
+  .breadcrumbs {
+    font-size: 0.85rem;
+    margin-bottom: var(--space-3);
+  }
+
+  .breadcrumbs a {
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+
+  .breadcrumbs .sep {
+    margin: 0 var(--space-2);
+    color: var(--border-medium);
+  }
+
+  .breadcrumbs .current {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .page-title {
+    font-size: clamp(2.2rem, 4vw, 3rem);
+    margin-bottom: var(--space-3);
+  }
+
+  .page-lead {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .glossary-stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .glossary-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    border-left: 5px solid var(--accent-gold);
+    border-radius: var(--radius-md);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .glossary-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-2);
+  }
+
+  .concept-id-badge code {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .glossary-term {
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: var(--space-3);
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .glossary-def {
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    line-height: 1.7;
+    margin-bottom: var(--space-4);
+  }
+
+  .glossary-meta-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--border-light);
+    font-size: 0.85rem;
+  }
+
+  @media (min-width: 640px) {
+    .glossary-meta-row {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .meta-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .label {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 2px;
+  }
+
+  .val {
+    color: var(--text-secondary);
+  }
+
+  .val-link {
+    color: var(--accent-emerald);
+    text-decoration: none;
+    font-weight: 600;
+  }
+</style>

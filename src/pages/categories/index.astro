@@ -1,0 +1,214 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { url } from '../../utils/paths';
+import taxonomyData from '../../../data/taxonomy/taxonomy.json';
+
+const categories = taxonomyData.categories;
+---
+
+<BaseLayout
+  title="Financial Taxonomy Directory — 22 Canonical Families | Dhanpedia India"
+  description="Explore the complete 22-category hierarchical taxonomy governing Dhanpedia India. From personal finance foundations to advanced quantitative investing."
+>
+  <div class="site-container page-container">
+    <div class="page-header">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href={url('/')}>Home</a>
+        <span class="sep">/</span>
+        <span class="current">Taxonomy</span>
+      </nav>
+      <h1 class="page-title">Financial Taxonomy Directory</h1>
+      <p class="page-lead">
+        The Dhanpedia India knowledge base is partitioned into 22 canonical topical families with stable identifiers, statutory regulatory maps, and zero duplicate coverage.
+      </p>
+    </div>
+
+    <div class="categories-index-grid">
+      {categories.map((cat, idx) => (
+        <article class="cat-index-card">
+          <div class="cat-index-header">
+            <span class="cat-index-number">Family {String(idx + 1).padStart(2, '0')}</span>
+            <span class="badge badge-gold">{cat.validationStatus}</span>
+          </div>
+
+          <h2 class="cat-index-title">
+            <a href={url(`/categories/${cat.id}`)}>{cat.canonicalName}</a>
+          </h2>
+
+          <p class="cat-index-desc">{cat.shortDescription}</p>
+
+          <div class="cat-index-meta">
+            <div class="meta-row">
+              <span class="meta-label">Identifier:</span>
+              <code>{cat.id}</code>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Regulator:</span>
+              <span>{cat.regulatorsAndSources.join(', ')}</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Planned Corpus:</span>
+              <span>{cat.plannedArticles.length} Substantive Treatises</span>
+            </div>
+          </div>
+
+          <div class="cat-index-footer">
+            <a href={url(`/categories/${cat.id}`)} class="cat-index-btn">
+              Explore Family Hub &rarr;
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-container {
+    padding: var(--space-8) var(--space-4) var(--space-16) var(--space-4);
+  }
+
+  .page-header {
+    margin-bottom: var(--space-10);
+    max-width: 800px;
+  }
+
+  .breadcrumbs {
+    font-size: 0.85rem;
+    margin-bottom: var(--space-3);
+  }
+
+  .breadcrumbs a {
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+
+  .breadcrumbs .sep {
+    margin: 0 var(--space-2);
+    color: var(--border-medium);
+  }
+
+  .breadcrumbs .current {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .page-title {
+    font-size: clamp(2.2rem, 4vw, 3rem);
+    margin-bottom: var(--space-3);
+  }
+
+  .page-lead {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .categories-index-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  @media (min-width: 640px) {
+    .categories-index-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .categories-index-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .cat-index-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-fast);
+  }
+
+  .cat-index-card:hover {
+    border-color: var(--accent-gold);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .cat-index-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-3);
+  }
+
+  .cat-index-number {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .cat-index-title {
+    font-size: 1.35rem;
+    margin-top: 0;
+    margin-bottom: var(--space-2);
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .cat-index-title a {
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+
+  .cat-index-title a:hover {
+    color: var(--accent-gold-dark);
+  }
+
+  [data-theme="dark"] .cat-index-title a:hover {
+    color: var(--accent-gold);
+  }
+
+  .cat-index-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: var(--space-5);
+  }
+
+  .cat-index-meta {
+    padding: var(--space-3) 0;
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+    margin-bottom: var(--space-4);
+    font-size: 0.85rem;
+  }
+
+  .meta-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--space-1);
+  }
+
+  .meta-label {
+    color: var(--text-muted);
+  }
+
+  .cat-index-btn {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent-emerald);
+    text-decoration: none;
+  }
+
+  .cat-index-btn:hover {
+    color: var(--accent-gold);
+  }
+</style>

@@ -1,0 +1,66 @@
+{
+  "$schema": "./project-state.schema.json",
+  "version": "1.0.0",
+  "projectIdentity": {
+    "name": "Dhanpedia India",
+    "title": "Dhanpedia India — The Indian Personal Finance, Investing and Wealth-Building Encyclopedia",
+    "tagline": "Master your money. Understand every investment. Build lasting wealth.",
+    "author": "Chirag Singhal",
+    "primaryAudience": "Indian investors, financially curious readers, salaried professionals, software engineers, entrepreneurs, and advanced investors",
+    "primaryReader": "Chirag Singhal",
+    "primaryLanguage": "English",
+    "hostingTarget": "GitHub Pages (https://chirag127.github.io/dhanpedia-india/)",
+    "repositoryUrl": "https://github.com/chirag127/dhanpedia-india.git",
+    "branch": "main"
+  },
+  "currentArchitecture": {
+    "framework": "Astro 5+ (Static Generation)",
+    "language": "TypeScript 5.x",
+    "styling": "Vanilla CSS Custom Properties (Design Tokens)",
+    "search": "Local client-side partitionable JSON index",
+    "deployment": "GitHub Pages with base path /dhanpedia-india",
+    "cost": "Zero mandatory infrastructure expenditure"
+  },
+  "promptExecution": {
+    "currentPrompt": "PROMPT-001",
+    "totalPlannedPrompts": 70,
+    "currentPhase": "Phase 1: Foundation, Taxonomy & Design Shell",
+    "completedMilestones": [
+      "Repository & Environment Audit",
+      "Statutory Financial Regulatory Research",
+      "Source Registry Creation (10 primary sources)",
+      "22-Category Hierarchical Taxonomy & Documentation",
+      "Research Gaps Registry",
+      "Canonical Concept Registry",
+      "Technical Decision Records (TDR)",
+      "Editorial & TTS Content Guide",
+      "70-Prompt Master Roadmap"
+    ],
+    "inProgressMilestones": [
+      "Website Shell Implementation (Layouts, Components, Navigation)",
+      "Initial 16 Utility Pages",
+      "Integrity & Duplicate Detection Test Suite",
+      "Production Build & Verification"
+    ],
+    "incompleteMilestones": [
+      "Client-side search modal and tokenizer (Prompt 002)",
+      "Interactive glossary engine (Prompt 003)",
+      "40 financial calculators (Prompts 016-022)",
+      "300 long-form substantive articles (Prompts 023-058)",
+      "Master EPUB and PDF build engines (Prompts 060-061)"
+    ],
+    "knownBlockers": [],
+    "nextRecommendedAction": "Complete Astro design system, components, initial pages, and run automated validation suite."
+  },
+  "metrics": {
+    "totalCategories": 22,
+    "totalRegisteredSources": 10,
+    "totalRegisteredConcepts": 5,
+    "totalResearchGaps": 5,
+    "totalPublishedArticles": 1,
+    "totalPlannedArticles": 48,
+    "targetSubstantiveWords": 3000000,
+    "currentSubstantiveWords": 5200,
+    "lastCheckpointTimestamp": "2026-10-17T22:30:00+05:30"
+  }
+}

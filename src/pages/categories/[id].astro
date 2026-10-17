@@ -1,0 +1,512 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { url } from '../../utils/paths';
+import taxonomyData from '../../../data/taxonomy/taxonomy.json';
+import articleRegistry from '../../../data/articles/article-registry.json';
+import conceptRegistry from '../../../data/concepts/concept-registry.json';
+
+export async function getStaticPaths() {
+  return taxonomyData.categories.map(category => ({
+    params: { id: category.id },
+    props: { category }
+  }));
+}
+
+const { category } = Astro.props;
+
+// Filter published articles matching this category
+const publishedArticles = articleRegistry.articles.filter(a => a.categoryId === category.id);
+
+// Filter canonical concepts matching this category
+const relatedConcepts = conceptRegistry.concepts.filter(c => c.categoryId === category.id);
+---
+
+<BaseLayout
+  title={`${category.canonicalName} — Financial Knowledge Hub | Dhanpedia India`}
+  description={category.shortDescription}
+>
+  <div class="site-container category-page-container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href={url('/')}>Home</a>
+      <span class="sep">/</span>
+      <a href={url('/categories')}>Taxonomy</a>
+      <span class="sep">/</span>
+      <span class="current">{category.canonicalName}</span>
+    </nav>
+
+    <!-- Category Hero -->
+    <header class="cat-hero">
+      <div class="cat-badge-wrap">
+        <span class="badge badge-gold">Family Identifier: <code>{category.id}</code></span>
+        <span class="badge badge-emerald">Status: {category.validationStatus}</span>
+      </div>
+      <h1 class="cat-title">{category.canonicalName}</h1>
+      <p class="cat-desc">{category.shortDescription}</p>
+
+      <div class="cat-governance-box">
+        <div class="gov-item">
+          <span class="gov-label">Statutory Regulators:</span>
+          <span class="gov-val">{category.regulatorsAndSources.join(', ')}</span>
+        </div>
+        <div class="gov-item">
+          <span class="gov-label">Time Sensitivity:</span>
+          <span class="gov-val">{category.timeSensitivity}</span>
+        </div>
+        <div class="gov-item">
+          <span class="gov-label">Active Treatises:</span>
+          <span class="gov-val">{publishedArticles.length} Published ({category.plannedArticles.length} Planned)</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="cat-layout-grid">
+      <!-- Main Content Column -->
+      <div class="cat-main-col">
+        <!-- Published Articles Section -->
+        <section class="cat-section">
+          <h2 class="cat-section-title">Published Substantive Treatises</h2>
+          {publishedArticles.length > 0 ? (
+            <div class="articles-stack">
+              {publishedArticles.map(art => (
+                <article class="article-summary-card">
+                  <div class="art-card-badges">
+                    <span class="badge badge-emerald">Substantive Deep Dive</span>
+                    <span class="art-meta-text">{art.readingTimeMinutes} min audio read ({art.wordCount.toLocaleString()} words)</span>
+                  </div>
+                  <h3 class="art-card-title">
+                    <a href={url(`/articles/${art.slug}`)}>{art.title}</a>
+                  </h3>
+                  <p class="art-card-excerpt">{art.summary}</p>
+                  <div class="art-card-footer">
+                    <span class="art-author">Author: Chirag Singhal</span>
+                    <a href={url(`/articles/${art.slug}`)} class="btn btn-primary btn-sm">
+                      Listen & Read Treatise &rarr;
+                    </a>
+                  </div>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <div class="empty-state-box">
+              <p>Treatises for this family are currently advancing through statutory verification and peer evidence review. Scheduled under the 70-prompt master build sequence.</p>
+            </div>
+          )}
+        </section>
+
+        <!-- Scope & Exclusions -->
+        <section class="cat-section">
+          <h2 class="cat-section-title">Scope Boundaries & Exclusions</h2>
+          <div class="scope-grid">
+            <div class="scope-box included">
+              <h3>In Scope</h3>
+              <p>{category.scope}</p>
+            </div>
+            <div class="scope-box excluded">
+              <h3>Strictly Excluded</h3>
+              <p>{category.exclusions}</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Core Questions Answered -->
+        <section class="cat-section">
+          <h2 class="cat-section-title">Core Research Inquiries</h2>
+          <ul class="questions-list">
+            {category.coreQuestions.map(q => (
+              <li class="question-item">
+                <span class="q-icon">?</span>
+                <span class="q-text">{q}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <!-- Planned Roadmapped Treatises -->
+        <section class="cat-section">
+          <h2 class="cat-section-title">Planned Treatises in Pipeline</h2>
+          <ul class="pipeline-list">
+            {category.plannedArticles.map(slug => (
+              <li class="pipeline-item">
+                <span class="pipeline-bullet">✦</span>
+                <code>{slug}</code>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </div>
+
+      <!-- Right Sidebar: Concepts & Relationships -->
+      <aside class="cat-aside">
+        <div class="aside-widget">
+          <h3 class="widget-title">Canonical Concepts</h3>
+          {relatedConcepts.length > 0 ? (
+            <ul class="concept-widget-list">
+              {relatedConcepts.map(c => (
+                <li class="concept-widget-item">
+                  <strong>{c.canonicalTerm}</strong>
+                  <p>{c.shortDefinition}</p>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p class="text-muted">Concepts index in <code>data/concepts/concept-registry.json</code>.</p>
+          )}
+        </div>
+
+        <div class="aside-widget">
+          <h3 class="widget-title">Related Families</h3>
+          <ul class="related-families-list">
+            {category.relatedCategories.map(rcId => (
+              <li>
+                <a href={url(`/categories/${rcId}`)}>
+                  {taxonomyData.categories.find(c => c.id === rcId)?.canonicalName || rcId} &rarr;
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="aside-widget">
+          <h3 class="widget-title">Research Gaps</h3>
+          {category.researchGaps.length > 0 ? (
+            <ul class="gap-widget-list">
+              {category.researchGaps.map(g => (
+                <li>{g}</li>
+              ))}
+            </ul>
+          ) : (
+            <p class="text-muted">No unresolved research gaps recorded for this family.</p>
+          )}
+        </div>
+      </aside>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .category-page-container {
+    padding: var(--space-8) var(--space-4) var(--space-16) var(--space-4);
+  }
+
+  .breadcrumbs {
+    font-size: 0.85rem;
+    margin-bottom: var(--space-4);
+  }
+
+  .breadcrumbs a {
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+
+  .breadcrumbs .sep {
+    margin: 0 var(--space-2);
+    color: var(--border-medium);
+  }
+
+  .breadcrumbs .current {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .cat-hero {
+    margin-bottom: var(--space-10);
+    padding-bottom: var(--space-6);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .cat-badge-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+  }
+
+  .cat-title {
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    margin-bottom: var(--space-3);
+  }
+
+  .cat-desc {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    max-width: 900px;
+    margin-bottom: var(--space-6);
+  }
+
+  .cat-governance-box {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    padding: var(--space-4);
+    background-color: var(--bg-surface-elevated);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-light);
+  }
+
+  @media (min-width: 640px) {
+    .cat-governance-box {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .gov-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .gov-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+  }
+
+  .gov-val {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .cat-layout-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+
+  @media (min-width: 1024px) {
+    .cat-layout-grid {
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+
+  .cat-section {
+    margin-bottom: var(--space-10);
+  }
+
+  .cat-section-title {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-4);
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: var(--space-2);
+  }
+
+  .article-summary-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    border-left: 5px solid var(--accent-gold);
+    border-radius: var(--radius-md);
+    padding: var(--space-6);
+    margin-bottom: var(--space-6);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .art-card-badges {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-2);
+  }
+
+  .art-meta-text {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+  }
+
+  .art-card-title {
+    font-size: 1.4rem;
+    margin-bottom: var(--space-2);
+  }
+
+  .art-card-title a {
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+
+  .art-card-title a:hover {
+    color: var(--accent-gold-dark);
+  }
+
+  [data-theme="dark"] .art-card-title a:hover {
+    color: var(--accent-gold);
+  }
+
+  .art-card-excerpt {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-4);
+  }
+
+  .art-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--border-light);
+  }
+
+  .art-author {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .btn-sm {
+    padding: var(--space-1) var(--space-3);
+    font-size: 0.85rem;
+  }
+
+  .empty-state-box {
+    padding: var(--space-6);
+    background-color: var(--bg-surface-elevated);
+    border-radius: var(--radius-md);
+    border: 1px dashed var(--border-medium);
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+  }
+
+  .scope-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  @media (min-width: 640px) {
+    .scope-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .scope-box {
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-light);
+  }
+
+  .scope-box h3 {
+    font-size: 1rem;
+    margin-bottom: var(--space-2);
+  }
+
+  .scope-box.included {
+    background-color: var(--accent-emerald-subtle);
+    border-color: rgba(13, 148, 136, 0.3);
+  }
+
+  .scope-box.excluded {
+    background-color: var(--accent-crimson-subtle);
+    border-color: rgba(190, 18, 60, 0.3);
+  }
+
+  .scope-box p {
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .questions-list, .pipeline-list {
+    list-style: none;
+    margin: 0;
+  }
+
+  .question-item {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-3);
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .q-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: var(--radius-full);
+    background-color: var(--accent-gold);
+    color: #0B132B;
+    font-weight: 700;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+
+  .q-text {
+    font-size: 1rem;
+    color: var(--text-primary);
+    line-height: 1.5;
+  }
+
+  .pipeline-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) 0;
+    font-size: 0.9rem;
+  }
+
+  .pipeline-bullet {
+    color: var(--accent-gold);
+  }
+
+  /* Aside Widgets */
+  .aside-widget {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: var(--space-5);
+    margin-bottom: var(--space-6);
+  }
+
+  .widget-title {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-3);
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: var(--space-2);
+  }
+
+  .concept-widget-list, .related-families-list, .gap-widget-list {
+    list-style: none;
+    margin: 0;
+  }
+
+  .concept-widget-item {
+    margin-bottom: var(--space-3);
+    font-size: 0.88rem;
+  }
+
+  .concept-widget-item strong {
+    display: block;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+  }
+
+  .concept-widget-item p {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .related-families-list li {
+    margin-bottom: var(--space-2);
+  }
+
+  .related-families-list a {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+  }
+
+  .related-families-list a:hover {
+    color: var(--accent-gold);
+  }
+
+  .gap-widget-list li {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: var(--space-2);
+    line-height: 1.4;
+  }
+</style>

@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { url } from '../utils/paths';
+---
+
+<BaseLayout
+  title="404 — Page Not Found | Dhanpedia India"
+  description="The requested financial treatise or reference page could not be located in Dhanpedia India."
+>
+  <div class="site-container error-container">
+    <div class="error-badge">
+      <span class="badge badge-gold">HTTP 404</span>
+    </div>
+    <h1 class="error-title">Knowledge Node Not Found</h1>
+    <p class="error-lead">
+      The specific treatise, calculator, or taxonomy page you requested does not exist or has been restructured under a new canonical identifier.
+    </p>
+
+    <div class="error-actions">
+      <a href={url('/')} class="btn btn-primary">Return to Homepage</a>
+      <a href={url('/search')} class="btn btn-outline">Search Encyclopedia</a>
+      <a href={url('/categories')} class="btn btn-outline">Browse 22 Families</a>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .error-container {
+    padding: var(--space-16) var(--space-4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto;
+  }
+
+  .error-badge {
+    margin-bottom: var(--space-3);
+  }
+
+  .error-title {
+    font-size: clamp(2rem, 3.5vw, 2.6rem);
+    margin-bottom: var(--space-3);
+    border: none;
+    padding: 0;
+  }
+
+  .error-lead {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-8);
+  }
+
+  .error-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-3);
+  }
+</style>

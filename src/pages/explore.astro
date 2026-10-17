@@ -1,0 +1,311 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { url } from '../utils/paths';
+import taxonomyData from '../../data/taxonomy/taxonomy.json';
+import articleRegistry from '../../data/articles/article-registry.json';
+import sourceRegistry from '../../data/sources/source-registry.json';
+
+const categories = taxonomyData.categories;
+const articles = articleRegistry.articles;
+const sources = sourceRegistry.sources;
+---
+
+<BaseLayout
+  title="Explore the Knowledge Corpus — Dhanpedia India"
+  description="Navigate the complete knowledge graph of Dhanpedia India across 22 families, statutory source registries, and substantive financial treatises."
+>
+  <div class="site-container page-container">
+    <div class="page-header">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href={url('/')}>Home</a>
+        <span class="sep">/</span>
+        <span class="current">Explore</span>
+      </nav>
+      <h1 class="page-title">Explore Knowledge Corpus</h1>
+      <p class="page-lead">
+        Browse the structured Indian personal finance and investment knowledge graph. Filter by statutory authority, topical domain, or content format.
+      </p>
+    </div>
+
+    <!-- Corpus Filter Navigation -->
+    <div class="corpus-stats-banner">
+      <div class="stat-pill">
+        <strong>22</strong> Topical Families
+      </div>
+      <div class="stat-pill">
+        <strong>10</strong> Statutory Authorities
+      </div>
+      <div class="stat-pill">
+        <strong>{articles.reduce((acc, a) => acc + a.wordCount, 0).toLocaleString()}</strong> Verified Spoken Words
+      </div>
+      <div class="stat-pill">
+        <strong>Zero</strong> Paywalls or Ads
+      </div>
+    </div>
+
+    <!-- Active Treatises Section -->
+    <section class="explore-section">
+      <h2 class="explore-section-title">Published Substantive Treatises (>10,000 Words)</h2>
+      <div class="treatise-cards-list">
+        {articles.map(art => (
+          <article class="treatise-card">
+            <div class="treatise-card-meta">
+              <span class="badge badge-gold">{art.categoryName}</span>
+              <span class="badge badge-emerald">Statutory Tier 1 Verified</span>
+              <span class="treatise-words">{art.wordCount.toLocaleString()} words ({art.readingTimeMinutes} min audio read)</span>
+            </div>
+            <h3 class="treatise-card-title">
+              <a href={url(`/articles/${art.slug}`)}>{art.title}</a>
+            </h3>
+            <p class="treatise-card-summary">{art.summary}</p>
+            <div class="treatise-card-bottom">
+              <span class="treatise-citations">Authorities: {art.sourceIds.join(', ')}</span>
+              <a href={url(`/articles/${art.slug}`)} class="btn btn-primary">
+                Read Full Treatise &rarr;
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- 22 Families Table of Contents -->
+    <section class="explore-section">
+      <h2 class="explore-section-title">Complete 22-Family Topical Directory</h2>
+      <div class="families-compact-grid">
+        {categories.map((c, i) => (
+          <a href={url(`/categories/${c.id}`)} class="family-compact-card">
+            <span class="fam-num">{String(i + 1).padStart(2, '0')}</span>
+            <div class="fam-text">
+              <h4 class="fam-name">{c.canonicalName}</h4>
+              <span class="fam-meta">{c.plannedArticles.length} Treatises Planned</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- Statutory Source Registry Overview -->
+    <section class="explore-section">
+      <h2 class="explore-section-title">Registered Statutory Authorities (Tier 1)</h2>
+      <div class="sources-table-wrap table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Source ID</th>
+              <th>Authority / Regulator</th>
+              <th>Official Portal</th>
+              <th>Reliability Classification</th>
+            </tr>
+          </thead>
+          <tbody>
+            {sources.map(s => (
+              <tr>
+                <td><code>{s.sourceId}</code></td>
+                <td><strong>{s.officialName}</strong></td>
+                <td><a href={s.canonicalUrl} target="_blank" rel="noopener noreferrer">{s.canonicalUrl}</a></td>
+                <td><span class="badge badge-emerald">{s.reliabilityClassification.split(':')[0]}</span></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-container {
+    padding: var(--space-8) var(--space-4) var(--space-16) var(--space-4);
+  }
+
+  .page-header {
+    margin-bottom: var(--space-8);
+    max-width: 820px;
+  }
+
+  .breadcrumbs {
+    font-size: 0.85rem;
+    margin-bottom: var(--space-3);
+  }
+
+  .breadcrumbs a {
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+
+  .breadcrumbs .sep {
+    margin: 0 var(--space-2);
+    color: var(--border-medium);
+  }
+
+  .breadcrumbs .current {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .page-title {
+    font-size: clamp(2.2rem, 4vw, 3rem);
+    margin-bottom: var(--space-3);
+  }
+
+  .page-lead {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .corpus-stats-banner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    padding: var(--space-4);
+    background-color: var(--bg-surface-elevated);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-light);
+    margin-bottom: var(--space-10);
+  }
+
+  .stat-pill {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+  }
+
+  .stat-pill strong {
+    color: var(--text-primary);
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+  }
+
+  .explore-section {
+    margin-bottom: var(--space-12);
+  }
+
+  .explore-section-title {
+    font-size: 1.6rem;
+    margin-bottom: var(--space-6);
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: var(--space-2);
+  }
+
+  .treatise-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    border-left: 6px solid var(--accent-gold);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6) var(--space-8);
+    margin-bottom: var(--space-6);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .treatise-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+  }
+
+  .treatise-words {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+  }
+
+  .treatise-card-title {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-3);
+  }
+
+  .treatise-card-title a {
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+
+  .treatise-card-title a:hover {
+    color: var(--accent-gold-dark);
+  }
+
+  [data-theme="dark"] .treatise-card-title a:hover {
+    color: var(--accent-gold);
+  }
+
+  .treatise-card-summary {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--space-6);
+  }
+
+  .treatise-card-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--border-light);
+  }
+
+  .treatise-citations {
+    font-size: 0.85rem;
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+  }
+
+  .families-compact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  @media (min-width: 640px) {
+    .families-compact-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .families-compact-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .family-compact-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-4);
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+  }
+
+  .family-compact-card:hover {
+    border-color: var(--accent-gold);
+    transform: translateY(-2px);
+  }
+
+  .fam-num {
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent-gold-dark);
+  }
+
+  [data-theme="dark"] .fam-num {
+    color: var(--accent-gold);
+  }
+
+  .fam-name {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .fam-meta {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+</style>

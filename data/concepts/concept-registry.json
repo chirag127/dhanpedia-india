@@ -1,0 +1,52 @@
+{
+  "$schema": "./concept-registry.schema.json",
+  "version": "1.0.0",
+  "lastUpdated": "2026-10-17",
+  "concepts": [
+    {
+      "id": "dicgc-deposit-insurance",
+      "canonicalTerm": "DICGC Deposit Insurance",
+      "shortDefinition": "Statutory guarantee provided by the Deposit Insurance and Credit Guarantee Corporation, covering up to ₹5,00,000 per depositor per bank across principal and interest across all branches of a scheduled commercial or cooperative bank.",
+      "categoryId": "banking-payments",
+      "sources": ["SRC-DICGC-MAIN", "SRC-RBI-MAIN"],
+      "relatedConcepts": ["rbi-scheduled-bank", "emergency-protection"],
+      "synonyms": ["Bank deposit guarantee", "DICGC insurance limit"]
+    },
+    {
+      "id": "time-value-of-money",
+      "canonicalTerm": "Time Value of Money (TVM)",
+      "shortDefinition": "The core financial principle establishing that a sum of money today is worth more than the identical sum in the future due to its potential earning capacity, discounting for inflation and opportunity cost.",
+      "categoryId": "pf-foundations",
+      "sources": ["SRC-RBI-MAIN"],
+      "relatedConcepts": ["real-rate-of-return", "compounding-mathematics"],
+      "synonyms": ["Present value discounted cashflow", "TVM"]
+    },
+    {
+      "id": "section-115bac-new-regime",
+      "canonicalTerm": "Section 115BAC New Tax Regime",
+      "shortDefinition": "The concessional direct tax regime under the Indian Income-tax Act 1961 featuring streamlined tax slabs with lower headline rates in exchange for forgoing most exemptions (HRA, 80C, 80D, standard housing loan interest). Default regime from FY 2023-24.",
+      "categoryId": "taxes-compliance",
+      "sources": ["SRC-ITD-PORTAL"],
+      "relatedConcepts": ["section-87a-rebate", "standard-deduction"],
+      "synonyms": ["New Tax Regime", "115BAC"]
+    },
+    {
+      "id": "rbi-integrated-ombudsman",
+      "canonicalTerm": "Reserve Bank - Integrated Ombudsman Scheme (RB-IOS)",
+      "shortDefinition": "Unified grievance redressal mechanism established by the RBI in 2021 integrating ombudsman schemes for commercial banks, NBFCs, and non-bank prepaid payment instrument issuers, operating under 'One Nation One Ombudsman' with zero cost to the complainant.",
+      "categoryId": "fraud-investor-rights",
+      "sources": ["SRC-RBI-CMS", "SRC-RBI-MAIN"],
+      "relatedConcepts": ["banking-payments", "rbi-limited-liability-circular"],
+      "synonyms": ["Banking Ombudsman", "RB-IOS 2021"]
+    },
+    {
+      "id": "sovereign-gold-bonds-sgb",
+      "canonicalTerm": "Sovereign Gold Bonds (SGB)",
+      "shortDefinition": "Government securities denominated in grams of gold issued by the RBI on behalf of the Government of India, paying 2.50% annual interest with complete capital gains tax exemption upon maturity at 8 years under Section 47 of the Income-tax Act.",
+      "categoryId": "gold-commodities",
+      "sources": ["SRC-RBI-MAIN", "SRC-ITD-PORTAL"],
+      "relatedConcepts": ["gold-etf-mechanics", "portfolio-hedging"],
+      "synonyms": ["SGB", "RBI Gold Bonds"]
+    }
+  ]
+}

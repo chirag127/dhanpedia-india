@@ -1,0 +1,125 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { url } from '../utils/paths';
+---
+
+<BaseLayout
+  title="Editorial Policy & Audio-First Standards — Dhanpedia India"
+  description="Editorial policy governing Dhanpedia India: audiobook-native paragraph formats, exhaustive depth (>10,000 words), zero commercial sponsorship, and correction protocols."
+>
+  <div class="site-container page-container">
+    <div class="page-header">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href={url('/')}>Home</a>
+        <span class="sep">/</span>
+        <span class="current">Editorial Policy</span>
+      </nav>
+      <h1 class="page-title">Editorial Policy & Audio-First Standards</h1>
+      <p class="page-lead">
+        Our uncompromising editorial principles, audiobook-first writing architecture, and peer correction protocols.
+      </p>
+    </div>
+
+    <div class="content-prose">
+      <h2>1. The Audio-First Paragraph Mandate</h2>
+      <p>
+        Dhanpedia India is engineered specifically for readers and listeners who use text-to-speech tools, such as Microsoft Edge Read Aloud, synthetic audiobooks, and screen readers.
+      </p>
+      <p>
+        To ensure a completely seamless listening experience:
+      </p>
+      <ul>
+        <li><strong>Spoken Prose Over Formulas:</strong> We do not rely on isolated mathematical symbols ($FV = PV...$) or raw code syntax in our main reading flow. All calculations, compounding equations, and tax formulas are articulated in natural, flowing English prose.</li>
+        <li><strong>Continuous Paragraph Flow:</strong> We prioritize cohesive, narrative paragraph structures over fragmented bullet points and broken lists that disrupt audio cadence.</li>
+        <li><strong>Expanded Nomenclature:</strong> All abbreviations, statutory acts, and regulatory bodies are expanded clearly upon first use.</li>
+      </ul>
+
+      <h2>2. Exhaustive Substantive Depth (>10,000 Words)</h2>
+      <p>
+        Dhanpedia India rejects the modern internet trend toward superficial, search-engine-optimized listicles. Every foundational treatise is engineered to exceed <strong>10,000 substantive words</strong>, providing exhaustive historical context, complete statutory mechanics, judicial jurisprudence, numerical case studies, and practical failure scenarios.
+      </p>
+
+      <h2>3. Absolute Commercial Independence</h2>
+      <p>
+        Dhanpedia India does not accept commercial sponsorship, paid product placements, affiliate commissions from mutual fund brokers or fintech lenders, or promotional considerations of any kind. 
+      </p>
+      <p>
+        All evaluations of banking products, insurance policies, mutual fund structures, and government securities are conducted with ruthless objectivity, grounded strictly in empirical data and statutory regulations.
+      </p>
+
+      <h2>4. Correction and Revision Policy</h2>
+      <p>
+        When regulatory circulars, Union Budget amendments, or judicial precedents modify existing laws, Dhanpedia India updates affected treatises systematically. 
+      </p>
+      <p>
+        If you identify an error, omission, or recent statutory amendment that requires revision, submit detailed citations directly to our editorial desk at <a href="mailto:chirag@oriz.in">chirag@oriz.in</a>. All verified corrections are acknowledged in revision histories.
+      </p>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-container {
+    padding: var(--space-8) var(--space-4) var(--space-16) var(--space-4);
+    max-width: 820px;
+  }
+
+  .page-header {
+    margin-bottom: var(--space-8);
+  }
+
+  .breadcrumbs {
+    font-size: 0.85rem;
+    margin-bottom: var(--space-3);
+  }
+
+  .breadcrumbs a {
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+
+  .breadcrumbs .sep {
+    margin: 0 var(--space-2);
+    color: var(--border-medium);
+  }
+
+  .breadcrumbs .current {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .page-title {
+    font-size: clamp(2.2rem, 4vw, 3rem);
+    margin-bottom: var(--space-3);
+  }
+
+  .page-lead {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .content-prose h2 {
+    font-size: 1.5rem;
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-3);
+  }
+
+  .content-prose p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-primary);
+    margin-bottom: var(--space-4);
+  }
+
+  .content-prose ul {
+    margin-left: var(--space-6);
+    margin-bottom: var(--space-6);
+  }
+
+  .content-prose li {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: var(--space-2);
+  }
+</style>
